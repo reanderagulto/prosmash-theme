@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "favicon": "shopify://shop_images/favicon_weare.png",
@@ -10,10 +19,16 @@
     "mdp_header_color": "#343434",
     "mdp_header_font_size": 38,
     "mdp_header_line_height": 1.2,
-    "weare_font_text": "Open Sans",
+    "weare_font_text": "Red Hat Display",
     "mdp_paragraph_color": "#343434",
     "mdp_paragraph_font_size": 16,
     "mdp_paragraph_line_height": 1.6,
+    "link_color": "#343434",
+    "link_hover_color": "#E9384F",
+    "btn_color": "#343434",
+    "btn_background": "#343434",
+    "btn_hover_color": "#FFFFFF",
+    "btn_hover_background": "#E9384F",
     "mdp_brand_color": "#5838e9",
     "mdp_button_color": "#4c90c7",
     "mdp_border_color": "#343434",
@@ -32,31 +47,9 @@
     "checkout_button_color": "#452cfc",
     "checkout_error_color": "#e32c2b",
     "weare_font_body": "Epilogue",
-    "link_color": "#343434",
-    "link_hover_color": "#E9384F",
-    "btn_color": "#343434",
-    "btn_background": "#343434",
-    "btn_hover_color": "#FFFFFF",
-    "btn_hover_background": "#E9384F",
     "sections": {
-      "mdp-weare-menu-2":{
-        "type":"mdp-weare-menu-2",
-        "settings":{
-          "menu":"",
-          "enabled_topbar": true,
-          "enabled_menu": false,
-          "enabled_shadow": false,
-          "info_text": false,
-          "social_icons": true,
-          "discounts": true,
-          "work_time": true,
-          "country_selector": false,
-          "language_selector": false,
-          "bg_color": "#FFE8E8",
-          "icon_color": "#343434",
-          "discount_color": "#E9384F",
-          "work_time_color": "#343434"
-        },
+      "mdp-weare-menu-2": {
+        "type": "mdp-weare-menu-2",
         "blocks": {
           "facebook": {
             "type": "icons",
@@ -121,15 +114,30 @@
           "discounts-2",
           "discounts-3",
           "work_time"
-        ]
+        ],
+        "settings": {
+          "menu": "",
+          "enabled_topbar": true,
+          "enabled_menu": false,
+          "enabled_shadow": false,
+          "info_text": false,
+          "social_icons": true,
+          "discounts": true,
+          "work_time": true,
+          "country_selector": false,
+          "language_selector": false,
+          "bg_color": "#FFE8E8",
+          "icon_color": "#343434",
+          "discount_color": "#E9384F",
+          "work_time_color": "#343434"
+        }
       },
-      "mdp-weare-menu-1":{
+      "mdp-weare-menu-1": {
         "type": "mdp-weare-menu-1",
-        "settings":{
+        "settings": {
           "logo_size": "50x50",
           "menu": "main-menu",
-          "search": true,
-          "inverted": false
+          "search": true
         }
       },
       "mdp-weare-accordion-1-hub-7534": {
@@ -139,7 +147,7 @@
             "type": "text_item",
             "settings": {
               "title": "What about the delivery of my purchase?",
-              "content": "<p>Mauris elementum felis et libero aliquet, varius porta diam sollicitudin. Sed ornare sit amet urna vitae vestibulum. In non nisi tristique, scelerisque lorem eu, vulputate mi. Nulla neque quam, tincidunt blandit nisl non, tempor varius mauris. Quisque auctor consectetur arcu quis pellentesque. Vivamus nec eleifend justo. Nulla rhoncus aliquet ultrices. Nam tristique justo pharetra nulla rhoncus malesuada. Nulla efficitur vestibulum nibh, sit amet congue nisl egestas non. Donec quis mauris convallis, condimentum orci eget, interdum tortor. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt lectus ac neque dapibus, in lobortis ex egestas. Sed semper a massa at aliquet.<br\/><br\/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non condimentum lorem. Integer varius tellus nec ultricies fringilla. Curabitur mattis mauris a lectus lacinia mollis. Nunc arcu urna, mollis vel pharetra ut, vulputate vel tortor. Nullam sed arcu viverra, accumsan neque quis, placerat leo. Sed lacinia aliquet maximus. Phasellus augue dui, congue eu arcu vitae, varius cursus mi. Vestibulum vehicula feugiat molestie.<\/p>",
+              "content": "<p>Mauris elementum felis et libero aliquet, varius porta diam sollicitudin. Sed ornare sit amet urna vitae vestibulum. In non nisi tristique, scelerisque lorem eu, vulputate mi. Nulla neque quam, tincidunt blandit nisl non, tempor varius mauris. Quisque auctor consectetur arcu quis pellentesque. Vivamus nec eleifend justo. Nulla rhoncus aliquet ultrices. Nam tristique justo pharetra nulla rhoncus malesuada. Nulla efficitur vestibulum nibh, sit amet congue nisl egestas non. Donec quis mauris convallis, condimentum orci eget, interdum tortor. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt lectus ac neque dapibus, in lobortis ex egestas. Sed semper a massa at aliquet.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non condimentum lorem. Integer varius tellus nec ultricies fringilla. Curabitur mattis mauris a lectus lacinia mollis. Nunc arcu urna, mollis vel pharetra ut, vulputate vel tortor. Nullam sed arcu viverra, accumsan neque quis, placerat leo. Sed lacinia aliquet maximus. Phasellus augue dui, congue eu arcu vitae, varius cursus mi. Vestibulum vehicula feugiat molestie.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -148,7 +156,7 @@
             "type": "text_item",
             "settings": {
               "title": "Do you offer price adjustments on sale items?",
-              "content": "<p>Mauris elementum felis et libero aliquet, varius porta diam sollicitudin. Sed ornare sit amet urna vitae vestibulum. In non nisi tristique, scelerisque lorem eu, vulputate mi. Nulla neque quam, tincidunt blandit nisl non, tempor varius mauris.<\/p>",
+              "content": "<p>Mauris elementum felis et libero aliquet, varius porta diam sollicitudin. Sed ornare sit amet urna vitae vestibulum. In non nisi tristique, scelerisque lorem eu, vulputate mi. Nulla neque quam, tincidunt blandit nisl non, tempor varius mauris.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -157,7 +165,7 @@
             "type": "text_item",
             "settings": {
               "title": "Where can I find information on sustainability and environmental policy?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -166,7 +174,7 @@
             "type": "text_item",
             "settings": {
               "title": "What size should I buy?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -175,7 +183,7 @@
             "type": "text_item",
             "settings": {
               "title": "How do I reset my password?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -184,7 +192,7 @@
             "type": "text_item",
             "settings": {
               "title": "What packaging options can I choose from?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -193,7 +201,7 @@
             "type": "text_item",
             "settings": {
               "title": "How do I contact your PR or Buying Team?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -202,7 +210,7 @@
             "type": "text_item",
             "settings": {
               "title": "Can I amend or cancel an item from my order?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -211,7 +219,7 @@
             "type": "text_item",
             "settings": {
               "title": "Do I need an account to place an order?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -220,7 +228,7 @@
             "type": "text_item",
             "settings": {
               "title": "What personal data do we collect from you and how?",
-              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
               "button_string": "Get more info",
               "link": ""
             }
@@ -245,19 +253,6 @@
       },
       "mdp-weare-need-help-faq": {
         "type": "mdp-weare-need-help-faq",
-        "settings": {
-          "title": "Need help? <br> ..",
-          "subtitle": "",
-          "topcontent": "<p>We’re ready to help you 24/7  and ask any of your question</p>",
-          "content": "<p>For <strong>PRESS & ADVERTISING</strong>, please contact <a href='mailto:infopress@weare.com'>infopress@weare.com</a></p>",
-          "image_size": "600x600_crop_center",
-          "bg_color": "",
-          "variant": "left_text",
-          "padding_top": "",
-          "padding_bottom": "",
-          "margin_top": "",
-          "margin_bottom": ""
-        },
         "blocks": {
           "list-1": {
             "type": "list",
@@ -295,16 +290,27 @@
           "list-2",
           "list-3",
           "list-4"
-        ]
+        ],
+        "settings": {
+          "title": "Need help? <br> ..",
+          "subtitle": "",
+          "topcontent": "<p>We’re ready to help you 24/7  and ask any of your question</p>",
+          "content": "<p>For <strong>PRESS & ADVERTISING</strong>, please contact <a href='mailto:infopress@weare.com'>infopress@weare.com</a></p>",
+          "image_size": "600x600_crop_center",
+          "bg_color": "",
+          "variant": "left_text",
+          "padding_top": "",
+          "padding_bottom": "",
+          "margin_top": "",
+          "margin_bottom": ""
+        }
       },
       "mdp-weare-hero-faq-1": {
         "type": "mdp-weare-hero-faq-1",
         "settings": {
           "title_herotwo": "Frequently Asked Questions",
           "subtitle_herotwo": "Customer Care",
-          "heading_margin_left_herotwo": "0",
-          "heading_color_herotwo": "",
-          "image_herotwo": "shopify:\/\/shop_images\/fqimmg.jpg",
+          "image_herotwo": "shopify://shop_images/fqimmg.jpg",
           "background_size_herotwo": "cover",
           "background_image_herotwo": "rgba(0,0,0,0)",
           "content_herotwo": "",
@@ -376,10 +382,9 @@
           "title_herotwo": "Get Coupon SALE WEEK 64%",
           "subtitle_herotwo": "",
           "heading_margin_left_herotwo": "0",
-          "heading_color_herotwo": "",
           "background_size_herotwo": "auto",
           "background_image_herotwo": "#ffe8e8",
-          "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor<\/p>",
+          "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor</p>",
           "image_size_herotwo": "2000x500_crop_center",
           "button_string_herotwo": "Start shopping",
           "link_herotwo": "",
@@ -388,9 +393,7 @@
           "subscribe_herotwo": false,
           "variant_herotwo": "left_text",
           "padding_top_herotwo": "30",
-          "padding_bottom_herotwo": "30",
-          "margin_top_herotwo": "85",
-          "margin_bottom_herotwo": "0"
+          "padding_bottom_herotwo": "30"
         }
       },
       "mdp-weare-icon-list-faq-2": {
@@ -400,21 +403,21 @@
             "type": "list_item",
             "settings": {
               "icon_class": "fas fa-shipping-fast",
-              "content": "<p><a href=\"#\" title=\"#\">Free Shipping.<\/a> All orders of $49 or more of eligible items across any product category qualify.<\/p>"
+              "content": "<p><a href=\"#\" title=\"#\">Free Shipping.</a> All orders of $49 or more of eligible items across any product category qualify.</p>"
             }
           },
           "fc498dd1-d9df-4b61-ba8c-b93f66274719": {
             "type": "list_item",
             "settings": {
               "icon_class": "fas fa-money-check-alt",
-              "content": "<p><a href=\"#\" title=\"#\">Payment Methods.<\/a> Credit Card: Visa, MasterCard, Maestro, American Express.<\/p>"
+              "content": "<p><a href=\"#\" title=\"#\">Payment Methods.</a> Credit Card: Visa, MasterCard, Maestro, American Express.</p>"
             }
           },
           "b144a623-40e4-4754-84c3-6bcb5052e48f": {
             "type": "list_item",
             "settings": {
               "icon_class": "fas fa-history",
-              "content": "<p><a href=\"#\" title=\"#\">Returns & Refunds.<\/a> You can return any item purchased on SectionHub within 20 days of the delivery date.<\/p>"
+              "content": "<p><a href=\"#\" title=\"#\">Returns & Refunds.</a> You can return any item purchased on SectionHub within 20 days of the delivery date.</p>"
             }
           }
         },
@@ -425,19 +428,11 @@
         ],
         "settings": {
           "col_per_row": 3,
-          "gap": "30",
-          "margin_top": "65",
-          "margin_bottom": "92"
+          "gap": "30"
         }
       },
-      "mdp-weare-footer-1":{
+      "mdp-weare-footer-1": {
         "type": "mdp-weare-footer-1",
-        "settings": {
-          "show_payment_icons":true,
-          "show_powered_by":true,
-          "show_border":true,
-          "margin_top":"0"
-        },
         "blocks": {
           "about-us": {
             "type": "text",
@@ -475,7 +470,13 @@
           "quick-links",
           "follow-us",
           "subscribe"
-        ]
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "show_powered_by": true,
+          "show_border": true,
+          "margin_top": "0"
+        }
       }
     },
     "content_for_index": []
