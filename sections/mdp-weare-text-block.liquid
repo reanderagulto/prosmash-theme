@@ -1,0 +1,59 @@
+{{"mdp-weare-text-block.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" 
+     class="mdp mdp-container mdp-weare-text-block" 
+     style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+  <div class="mdp-grid mdp-weare-text-block-container" data-columns="1" data-gap="30">
+      <div class="mdp-text-item">
+        <div class="mdp-data">          
+          {% if section.settings.text_heading != blank %}
+            <div class="mdp-header">
+              <div class="mdp-title">
+                {{section.settings.text_heading}}
+              </div>
+            </div>
+          {% endif %}
+          {% if section.settings.text_content != blank %}
+            <div class="mdp-content">
+              {{section.settings.text_content}}
+            </div>
+          {% endif %}
+          <div class="mdp-footer">
+            {% render 'mdp-weare-social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+          </div>   
+        </div>
+      </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Text block",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "text_heading",
+        "label": "Heading"
+      },
+	  {
+        "type": "richtext",
+        "id": "text_content",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],
+    "presets": [{
+      "name": "Text block",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

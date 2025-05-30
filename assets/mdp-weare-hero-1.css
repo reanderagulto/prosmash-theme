@@ -1,0 +1,357 @@
+.mdp-weare-hero-1[data-variant=left_text],
+.mdp-weare-hero-1[data-variant=right_text] {
+    position: relative;
+    z-index: 0;
+}
+.mdp-weare-hero-1[data-variant=left_text] > .mdp-overlay,
+.mdp-weare-hero-1[data-variant=right_text] > .mdp-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.1;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container {
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media {
+    width: 80%;
+    position: relative;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media .mdp-image,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media .mdp-image {
+    max-width: 100%;
+    margin: auto;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media .mdp-magnific-popup,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media .mdp-magnific-popup {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    color: #2a2a2a;
+    background-color: rgba(255, 255, 255, 0.752067);
+    border-radius: 50%;
+    width: 123px;
+    height: 123px;
+    text-align: center;
+    line-height: 145px;
+    display: inline-block;
+    font-size: 0;
+    transition: 0.3s all ease-in-out;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media .mdp-magnific-popup .mdp-icon-play,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media .mdp-magnific-popup .mdp-icon-play {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    color: #343434;
+    margin-left: 5px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media .mdp-magnific-popup .mdp-icon,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media .mdp-magnific-popup .mdp-icon {
+    display: inline-block;
+    padding-left: 3px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media .mdp-magnific-popup .mdp-icon svg,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media .mdp-magnific-popup .mdp-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media .mdp-magnific-popup:hover,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media .mdp-magnific-popup:hover {
+    color: white;
+    background-color: #5838e9;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media .mdp-magnific-popup::after,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media .mdp-magnific-popup::after {
+    content: "";
+    border-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    top: 0;
+    left: 0;
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-duration: 1.2s;
+    animation-name: mdp_video_scale;
+    animation-iteration-count: infinite;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data {
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.03);
+    position: absolute;
+    background-color: white;
+    width: 40%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    box-sizing: border-box;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-title,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-title {
+    font-family: {{ settings.weare_font_header }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 39px;
+    color: #343434;
+    text-align: center;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-subtitle,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-subtitle {
+    margin-bottom: 5px;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.133333px;
+    text-transform: uppercase;
+    color: #343434;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-button,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-button {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    color: #2a2a2a;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    font-weight: normal;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-button .mdp-text,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-button .mdp-text {
+    margin-right: 5px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-button .mdp-icon,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-button .mdp-icon {
+    font-size: 0;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-button .mdp-icon svg,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-button .mdp-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-button::before,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-button::before {
+    content: "";
+    position: absolute;
+    transition: 0.3s all ease-in-out;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 0;
+    border-bottom: 1px solid #2a2a2a;
+    opacity: 0;
+    transform: translateY(5px);
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-button:hover::before,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-button:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full .mdp-row-left,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full .mdp-row-left {
+    margin-right: 30px;
+}
+@media (max-width: 600px) {
+    .mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full,
+    .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full {
+        display: block;
+    }
+    .mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full .mdp-row-left,
+    .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full .mdp-row-left {
+        justify-content: center;
+        padding: 10px 10px 5px 10px;
+        margin-right: 0;
+    }
+    .mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full .mdp-row-right,
+    .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data > .mdp-header .mdp-row-full .mdp-row-right {
+        justify-content: center;
+        padding: 5px 10px 10px 10px;
+    }
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-header,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-header {
+    margin-bottom: 20px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-header .mdp-title,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-header .mdp-title {
+    font-size: 50px;
+    line-height: 1;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-header .mdp-subtitle,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-header .mdp-subtitle {
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-content,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-content {
+    margin-top: 30px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-content p:first-child,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-content p:first-child {
+    margin-top: 0;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-content p:last-child,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-content p:last-child {
+    margin-bottom: 0;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-content a,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-content a {
+    color: #2a2a2a;
+    transition: 0.3s all ease-in-out;
+    text-decoration: underline;
+    display: inline;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-content a:hover,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-content a:hover {
+    color: #5838e9;
+    transform: scale(1.5);
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button,
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button {
+    margin-top: 30px;
+    border-radius: 0;
+    background-image: none !important;
+    cursor: pointer;
+    width: auto;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    padding: 15px 45px;
+    font-size: 14px;
+    line-height: 19px;
+    background-color: #343434;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    border-color: #4c90c7;
+    color: white;
+    transition: 0.3s all ease-in-out;
+    display: inline-block;
+    white-space: nowrap;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button::placeholder, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button::placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button::placeholder, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button::placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button::-webkit-input-placeholder, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button::-webkit-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button::-moz-placeholder, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button::-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button:-moz-placeholder, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button:-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button:-ms-input-placeholder, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button:-ms-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button:hover, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button:hover {
+    background-color: white;
+    color: #2a2a2a;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data .mdp-footer .mdp-button::before, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data .mdp-footer .mdp-button::before {
+    content: none;
+}
+@media (max-width: 768px) {
+    .mdp-weare-hero-1[data-variant=left_text] .mdp-container, .mdp-weare-hero-1[data-variant=right_text] .mdp-container {
+        display: block;
+    }
+    .mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-media, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-media {
+        width: 100%;
+    }
+    .mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data, .mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data {
+        width: 100%;
+        position: static;
+        transform: none;
+    }
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data {
+    background-color: #2a2a2a;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-header .mdp-title {
+    color: white;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-header .mdp-subtitle {
+    color: white;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-content {
+    color: white;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button {
+    padding: 9px 15px;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: 600;
+    border-radius: 0;
+    background-image: none !important;
+    font-size: 14px;
+    background-color: white;
+    border-color: white;
+    color: #2a2a2a;
+    transition: 0.3s all ease-in-out;
+    display: inline-block;
+    white-space: nowrap;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button::placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button::placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button::-webkit-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button::-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button:-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button:-ms-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-hero-1.mdp-inverted .mdp-container .mdp-data .mdp-footer .mdp-button:hover {
+    background-color: #5838e9;
+    border-color: #5838e9;
+    color: white;
+}
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container {
+    justify-content: flex-start;
+}
+.mdp-weare-hero-1[data-variant=right_text] .mdp-container .mdp-data {
+    right: 15px;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container {
+    justify-content: flex-end;
+}
+.mdp-weare-hero-1[data-variant=left_text] .mdp-container .mdp-data {
+    left: 15px;
+}

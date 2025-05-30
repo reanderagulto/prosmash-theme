@@ -1,0 +1,53 @@
+{%- assign variant = product.selected_or_first_available_variant -%}
+<a href="{{product.url}}" class="mdp-weare-product-mini-card">
+  <div class="mdp-media">
+    <div {% if section.settings.image_size != blank %}class="mdp-placeholder" {% endif %}
+         style="width: {% if section.settings.image_size != blank %}{{ section.settings.image_size | split: "x" | first }}px{% else %}100%{% endif %}; padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
+      <img class="mdp-image lazyload" data-src="{{product.featured_image | img_url : section.settings.image_size}}" alt="{{product.featured_image.alt}}" >
+    </div>
+  </div>    
+  <div class="mdp-data">
+    <div class="mdp-header">
+      <div class="mdp-extra">
+        <div class="mdp-vendor">{{product.vendor}}</div>
+      </div>
+      <div class="mdp-title">
+        {{ product.title | truncate: 10 }}
+      </div>  
+      <div class="mdp-price-wrapper">
+        <span class="mdp-price">
+          {% if product.compare_at_price > product.price %}
+          <span class="mdp-price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+          {% endif %}            
+          <span class="mdp-price-varies">
+            {% if product.price_varies %}
+            	{{ product.price_min | money_without_trailing_zeros }} - {{ product.price_max | money_without_trailing_zeros }}
+            {% else %}
+            	{{ product.price | money_without_trailing_zeros }}
+            {% endif %}
+          </span>
+        </span>
+        
+        {%- if variant.available and variant.unit_price_measurement -%}
+          <span class="mdp-unit-price">
+            {{ variant.unit_price | money }}/{%- if variant.unit_price_measurement.reference_value != 1 -%} {{- variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ variant.unit_price_measurement.reference_unit }}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>  
+    <div class="mdp-footer">
+    </div>  
+  </div>
+
+  {% if product.available %}
+    <div class="mdp-add-to-cart {% if redirect %}mdp-redirect-to-cart{% endif %} {% if product.available %}mdp-available{% endif %} mdp-add-to-cart-section"
+       data-product-id="{{ variant.id }}"
+       data-add-to-cart="{{ add_cart_string }}"
+       data-sold-out="{{ sold_out_string }}">{% if product.available %} Add to card {% endif %}</div>
+  {% else %}
+    <p class="mdp-not-available">Not available</p>
+  {% endif %}
+</a>
+
+
+

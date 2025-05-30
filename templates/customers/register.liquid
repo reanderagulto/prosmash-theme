@@ -1,0 +1,25 @@
+<div class="mdp mdp-weare-customers-1">
+  <div class="mdp-container">
+    <div class="mdp-header">
+      <h1 class="mdp-title">{{ 'customer.register.title' | t }}</h1>
+    </div>      
+      {% form 'create_customer' %}
+
+        {{ form.errors | default_errors }}
+
+        <input type="text" name="customer[first_name]" class="" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+
+        <input type="text" name="customer[last_name]" class="" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+
+        <input type="email" name="customer[email]" class="{% if form.errors contains 'email' %} mdp-error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+        <input type="password" name="customer[password]" class="{% if form.errors contains 'password' %} mdp-error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
+        <input type="submit" value="{{ 'customer.register.submit' | t }}" class="">
+       
+    	<div class="mdp-actions">
+          <a href="{{ routes.account_login_url }}">{% render 'mdp-weare-icon' with '019' %}<span>{{ 'layout.customer.log_in' | t }}</span></a>
+          <a href="{{ routes.root_url }}">{% render 'mdp-weare-icon' with '164' %}<span>{{ 'customer.login.cancel' | t }}</span></a>
+    	</div>      
+      {% endform %}
+  </div>
+</div>

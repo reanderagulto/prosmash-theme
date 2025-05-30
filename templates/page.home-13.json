@@ -1,0 +1,305 @@
+{
+  "name": "Home 13",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#F0EEEF",
+        "icon_color": "#343434",
+        "discount_color": "#343434",
+        "work_time_color": "#343434"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "campaign-top": {
+      "type": "collection-campaign-top-home-13",
+      "settings": {
+        "selected_collection": "bring-home-13",
+        "image_size": "560x670_crop_center"
+      }
+    },
+    "news": {
+      "type": "mdp-weare-news-1",
+      "settings":{
+        "title": "",
+        "blog": "home-13",
+        "image_size": "560x335_crop_center",
+        "limit": 3,
+        "col_per_row": 3,
+        "images_form": "50",
+        "reduces_form": "2",
+        "big_image_news": false,
+        "gap": "30",
+        "boxed": false,
+        "variant": "style_4",
+        "margin_top": "95",
+        "margin_bottom": "95"
+      }
+    },
+    "hero": {
+      "type":"mdp-weare-hero-home-7",
+      "settings":{
+        "title_herotwo": "Decor elements for well-being and aesthetic taste",
+        "content_herotwo": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "image_herotwo": "shopify://shop_images/banner-home-13.png",
+        "background_size_herotwo": "cover",
+        "background_image_herotwo": "",
+        "heading_color_herotwo": "#343434",
+        "boxed": false,
+        "variant_herotwo": "end",
+        "padding_top_herotwo": "124",
+        "padding_bottom_herotwo": "124",
+        "margin_bottom_herotwo": "95"
+      }
+    },
+    "collection-grid-min": {
+      "type":"mdp-weare-collection-carousel",
+      "settings":{
+        "title": "Indoor Plants Perfect for the Small-Space Gardener /",
+        "boxed": false,
+        "selected_collection": "indoor-plants-perfect-for-the-small-space-gardener",
+        "number_of_products": 6,
+        "slides_per_view": 6,
+        "slides_per_view_md": 3,
+        "slides_per_view_sm": 2,
+        "slides_per_view_xs": 1,
+        "images_form": "70",
+        "image_size": "original",
+        "font_size_header": 32,
+        "view_all_string": "",
+        "background_container": "",
+        "slider": false,
+        "print_price": true,
+        "margin_bottom": "50"
+      }
+    },
+    "favorite": {
+      "type":"collection-favorite-home-13",
+      "settings": {
+        "selected_collection": "favorite-trinkets-for-plants",
+        "image_size": "560x670_crop_center",
+        "show_btn_cl": true,
+        "btn_text_collection": "/View More Details",
+        "box_height": "900",
+        "margin_bottom": "95"
+      }
+    },
+    "collection-grid-big": {
+      "type":"mdp-weare-collection-grid-home-13",
+      "settings":{
+        "title": "Houseplants need some style /",
+        "boxed": false,
+        "selected_collection": "houseplants-need-some-style",
+        "number_of_products": 12,
+        "col_per_row": 6,
+        "gutter": "35",
+        "images_form": "50",
+        "image_size": "original",
+        "slider": false,
+        "show_price": true,
+        "show_btn_cl": true,
+        "btn_text_collection": "Discover more",
+        "margin_top": "0",
+        "margin_bottom": "95"
+      }
+    },
+    "call-to-action": {
+      "type":"call-to-action-home-13",
+      "settings":{
+        "title": "Create a poetic spring composition at home",
+        "image": "shopify://shop_images/home13-Image.png",
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "parallax": true,
+        "margin_top": "0",
+        "margin_bottom": "95"
+      }
+    },
+    "footer-1":{
+      "type":"mdp-weare-footer-1",
+      "settings":{
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border":true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "phone": "123-456-7890",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "campaign-top",
+    "news",
+    "hero",
+    "collection-grid-min",
+    "favorite",
+    "collection-grid-big",
+    "call-to-action",
+    "footer-1"
+  ]
+}

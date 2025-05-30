@@ -1,0 +1,19 @@
+<div class="mdp-price-wrapper">
+    <span class="mdp-price">
+      {% if product.compare_at_price > product.price %}
+          <span class="mdp-price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+      {% endif %}
+      <span class="mdp-price-varies">
+        {% if product.price_varies %}
+            {{ product.price_min | money_without_trailing_zeros }} - {{ product.price_max | money_without_trailing_zeros }}
+        {% else %}
+            {{ product.price | money_without_trailing_zeros }}
+        {% endif %}
+      </span>
+    </span>
+    {%- if variant.available and variant.unit_price_measurement -%}
+        <span class="mdp-unit-price">
+            {{ variant.unit_price | money }}/{%- if variant.unit_price_measurement.reference_value != 1 -%} {{- variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ variant.unit_price_measurement.reference_unit }}
+        </span>
+    {%- endif -%}
+</div>

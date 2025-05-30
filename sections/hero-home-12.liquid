@@ -1,0 +1,141 @@
+{{"hero-home-12.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-hero-home-12 lazyload"
+      data-bgset="{{section.settings.image_herotwo | img_url : section.settings.image_size_herotwo}}"
+     style="padding-top: 0;
+            padding-bottom: 0;
+            margin-top: {{ section.settings.margin_top_herotwo }}px;
+            margin-bottom: {{ section.settings.margin_bottom_herotwo }}px;
+            background-repeat: no-repeat;">
+
+    <div class="mdp-data mdp-container mdp-data-hero-home-12"
+         style="padding-top: {{ section.settings.padding_top_herotwo }}px;
+                padding-bottom: {{ section.settings.padding_bottom_herotwo }}px;
+                justify-content: {{section.settings.variant_herotwo}};">
+        <div class="mdp-box-content">
+            <div class="mdp-header">
+                <h4 class="mdp-title-hero-home-12"
+                    {% if section.settings.use_local_styles == true %}
+                    style="color: {{section.settings.heading_color_herotwo}};"{% endif %}>
+                  {{section.settings.title_herotwo}}
+                </h4>
+            </div>
+
+            <div class="mdp-footer">
+                {% unless section.settings.link_herotwo == blank %}
+                    <a class="mdp-button"
+                       {% if section.settings.use_local_styles == true %}
+                       style="color: {{ section.settings.button_text_color }};"
+                       {% endif %}
+                       href="{{section.settings.link_herotwo}}">{{section.settings.button_string_herotwo}}</a>
+                {% endunless %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero home 12",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_herotwo",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_local_styles",
+      "label": "Use local styles",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "heading_color_herotwo",
+      "label": "Heading color"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_herotwo",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_size_herotwo",
+      "label": "Image size",
+      "default": "1920x715_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "text",
+      "id": "button_string_herotwo",
+      "label": "Button text",
+      "default": "Start shopping"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "url",
+      "id": "link_herotwo",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "subscribe_herotwo",
+      "label": "Show subscribe",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "variant_herotwo",
+      "label": "Align the block horizontally",
+      "default": "start",
+      "options": [
+        {
+          "label": "Left",
+          "value": "start"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "end"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "padding_top_herotwo",
+      "label": "Padding top (px)",
+      "default": "230"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom_herotwo",
+      "label": "Padding bottom (px)",
+      "default": "230"
+    },
+    {
+      "type": "text",
+      "id": "margin_top_herotwo",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom_herotwo",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [{
+    "name": "Hero home 12",
+    "category": "SectionHub: weare"
+  }]
+}
+{% endschema %}

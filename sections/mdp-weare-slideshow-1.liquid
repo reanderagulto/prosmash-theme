@@ -1,0 +1,334 @@
+{{ "mdp-weare-slideshow-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp {% if block.settings.boxed %}mdp-container{% endif %} mdp-weare-slideshow-1"
+     data-variant="style_1"
+     style="{% unless section.settings.margin_top == blank %}
+             margin-top: {{ section.settings.margin_top }}px;
+     {% endunless %}
+     {% unless section.settings.margin_bottom == blank %}
+             margin-bottom: {{ section.settings.margin_bottom }}px;
+     {% endunless %}">
+    <div class="swiper swiper-slideshow-1 swiper-slideshow-{{ section.id }} swiper-container" data-slidesPerView="1" data-navigation="true">
+
+        <div class="swiper-wrapper mdp-slider-img">
+            {% assign count = 1 %}
+            {% for block in section.blocks %}
+                <div class="swiper-slide">
+                    {% case block.type %}
+                        {% when 'slide' %}
+                            <div class="mdp-slide {% if block.settings.inverted %}mdp-inverted{% endif %}">
+                                <div id="mdp-slide-{{ count }}" class="mdp-media lazyload"></div>
+                                <div class="mdp mdp-container mdp-slider-box"
+                                     style="justify-content: {{ block.settings.justify_content_text }};">
+
+                                    <div class="mdp-content mdp-content-sliders">
+
+                                        <div class="mdp-text-content">
+                <span>
+                  {% unless block.settings.title == blank %}
+                      <span>{{ block.settings.subtitle }}</span>
+                      <h4 class="mdp-title" style="margin-left: {{ block.settings.margin_left_text }}px;">
+                      {{ block.settings.title }}
+                    </h4>
+                  {% endunless %}
+
+                    {% unless block.settings.content == blank %}
+                        <div class="mdp-description"
+                             style="margin-left: {{ block.settings.margin_left_text }}px;">{{ block.settings.content }}</div>
+                    {% endunless %}
+
+                    {% unless block.settings.link == blank %}
+                        {% unless block.settings.link == blank %}
+                            <a class="mdp-button"
+                               href="{{ block.settings.link }}"
+                               style="margin-left: {{ block.settings.margin_left_text }}px;
+                                      color: {{ block.settings.button_text_color }};">{{ block.settings.button_string }}</a>
+                        {% endunless %}
+                    {% endunless %}
+                </span>
+        </div>
+
+                                    {% if block.settings.image_product != blank %}
+                                        <div class="mdp-img-product">
+                                            <img src="{{ block.settings.image_product | img_url: '600x' }}" alt=""/>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                    {% assign count = count | plus:1 %}
+                {% endcase %}
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div class="swiper-button-prev swiper-button-prev-slideshow-1 swiper-button-prev-slideshow-{{ section.id }}"></div>
+        <div class="swiper-button-next swiper-button-next-slideshow-1 swiper-button-next-slideshow-{{ section.id }}"></div>
+
+        <div class="swiper-pagination swiper-pagination-slideshow-1 swiper-pagination-slideshow-{{ section.id }}"></div>
+
+    </div>
+</div>
+
+{% style %}
+    {% assign count_style = 1 %}
+    {% assign mobile_count_style = 1 %}
+    {% assign mobile_count_style_two = 1 %}
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'slide' %}
+    #mdp-weare-{{ section.id }} .swiper-slideshow-1 .swiper-wrapper .swiper-slide .mdp-slide #mdp-slide-{{ count_style }}{
+        background-size: {{ block.settings.background_size }};
+        background-position: {{ block.settings.background_position_x }} {{ block.settings.background_position_y }};
+        background-repeat: no-repeat;
+        background-color: {{ block.settings.background_color }};
+        background-image: url('{{ block.settings.image | img_url: '2000x' }}')
+    }
+            {% assign count_style = count_style | plus:1 %}
+        {% endcase %}
+    {% endfor %}
+
+    @media (min-width: 320px) and (max-width: 439px) {
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'slide' %}
+        #mdp-weare-{{ section.id }} .swiper-slideshow-1 .swiper-wrapper .swiper-slide .mdp-slide #mdp-slide-{{ mobile_count_style }}{
+            background-image: url('{{ block.settings.mobile_image | img_url: 'original' }}') !important;
+            background-position: bottom center !important;
+        }
+                {% assign mobile_count_style = mobile_count_style | plus:1 %}
+            {% endcase %}
+        {% endfor %}
+    }
+
+    @media (min-width: 440px) and (max-width: 768px) {
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'slide' %}
+                {% if block.settings.image_product != blank %}
+                #mdp-weare-{{ section.id }} .swiper-slideshow-1 .swiper-wrapper .swiper-slide .mdp-slide #mdp-slide-{{ mobile_count_style_two }}{
+                    background-image: none !important;
+                }
+                {% endif %}
+            {% assign mobile_count_style_two = mobile_count_style_two | plus:1 %}
+        {% endcase %}
+    {% endfor %}
+    }
+
+{% endstyle %}
+
+<script>
+    let img = [ {% for block in section.blocks %}
+        {% case block.type %}
+        {% when 'slide' %}
+        '{{ block.settings.image_pagination | img_url: '200x236_crop_center' }}',
+        {% endcase %}
+        {% endfor %}
+    ];
+
+    const swiperSlideshowOne_{{ section.id | replace: "-", "_" }} = new Swiper('.swiper-slideshow-{{ section.id }}', {
+        // Optional parameters
+        lidesPerView: 'auto',
+        direction: 'horizontal',
+        slidesPerView: 1,
+        centeredSlides: false,
+        speed: 500,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000
+        },
+        effect: 'slide',
+        allowTouchMove: true,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        hashNavigation: false,
+        pagination: {
+            el: '.swiper-pagination-slideshow-{{ section.id }}',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '"><img src="' + img[index] + '" class="mdp-pagination-img" alt=""/></span>';
+            }
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next-slideshow-{{ section.id }}',
+            prevEl: '.swiper-button-prev-slideshow-{{ section.id }}',
+        }
+    });
+
+    swiperSlideshowOne_{{ section.id | replace: "-", "_" }}.init();
+
+</script>
+
+{% schema %}
+{
+  "name": "Slideshow 1",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Boxed",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "text_collection",
+      "label": "Text collection"
+    },
+    {
+      "type": "url",
+      "id": "link_collection",
+      "label": "Link collection"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile background image"
+        },
+        {
+          "type": "text",
+          "id": "background_size",
+          "label": "Background size(%)",
+          "default": "81"
+        },
+        {
+          "type": "text",
+          "id": "background_position_x",
+          "label": "Background position X(%)",
+          "default": "28"
+        },
+        {
+          "type": "text",
+          "id": "background_position_y",
+          "label": "Background position Y(%)",
+          "default": "100"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Menu active color",
+          "default": "#F9F9F9"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_product",
+          "label": "Image product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_pagination",
+          "label": "Image pagination"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Sub heading",
+          "default": "Make the /"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "button_string",
+          "label": "Button text",
+          "default": "Get more info"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "margin_left_text",
+          "label": "Margin left text(px)",
+          "default": "85"
+        },
+        {
+          "type": "select",
+          "id": "justify_content_text",
+          "label": "Variant",
+          "default": "center",
+          "options": [
+            {
+              "label": "Start",
+              "value": "start"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Space between",
+              "value": "space-between"
+            },
+            {
+              "label": "Space around",
+              "value": "space-around"
+            },
+            {
+              "label": "Space evenly",
+              "value": "space-evenly"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,287 @@
+{{"mdp-weare-promo-home-5.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-promo-home-5"
+     style="background-color: {{ section.settings.bg_color_promotwo }};
+             padding-top: {{ section.settings.padding_top_promotwo }}px;
+             padding-bottom: {{ section.settings.padding_bottom_promotwo }}px;
+             margin-top: {{ section.settings.margin_top_promotwo }}px;
+             margin-bottom: {{ section.settings.margin_bottom_promotwo }}px;">
+  <div class="mdp-container">
+    <div class="mdp-grid" data-columns="2" data-gap="30">
+
+      {% if section.settings.image_promotwo != blank %}
+        <div class="mdp-media mdp-data-vertical">
+          <div>
+            <img class="mdp-image lazyload" data-src="{{section.settings.image_promotwo | img_url : section.settings.image_size_promotwo}}" alt="{{section.settings.title_promotwo}}" >
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="mdp-data mdp-data-vertical">
+        <div class="mdp-box-text">
+          <div class="mdp-header">
+            <h2 class="mdp-title">
+              {{section.settings.title_promotwo}}
+            </h2>
+            {% unless section.settings.subtitle_promotwo == blank %}
+              <div class="mdp-subtitle">
+                {{section.settings.subtitle_promotwo}}
+              </div>
+            {% endunless %}
+          </div>
+
+          <div class="mdp-footer">
+            {% unless section.blocks.size == 0 %}
+              {% for block in section.blocks %}
+                <div class="mdp-items mdp-two-columns">
+                  <div class="mdp-item">
+                    {% if block.type == 'list' %}
+                      {% if block.settings.icon_class != '' %}
+                        <span class="mdp-fa-icon"><i class="{{block.settings.icon_class}}"></i></span>
+                      {% endif %}
+                      <span class="mdp-text">
+                    {{ block.settings.text_promotwo }}
+                  </span>
+                    {% endif %}
+
+                    {% if block.type == 'list_link' %}
+                      {% if block.settings.icon_class_link != '' %}
+                        <span class="mdp-fa-icon"><i class="{{block.settings.icon_class_link}}"></i></span>
+                      {% endif %}
+                      <span class="mdp-text">
+                    <a href="{{ block.settings.link_url }}">{{ block.settings.text_promotwo_link }}</a>
+                  </span>
+                    {% endif %}
+                  </div>
+                </div>
+
+                {% if block.type == 'product_link' %}
+                  <div class="mdp-product-box">
+                    <img src="{{block.settings.image_product | img_url : block.settings.image_size_produst}}" alt="">
+                    <p class="mdp-type-product">{{block.settings.type_product}}</p>
+                    <a class="mdp-name-product" style="text-align: {{block.settings.text_align}}; font-size: {{block.settings.font_size}}px;" href="{{block.settings.link_product}}">{{block.settings.name_product}}</a>
+                    {% if block.settings.product_price != blank %}
+                      <p class="mdp-price-product">{{cart.currency.symbol}}{{block.settings.product_price}}</p>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+              {% endfor %}
+            {% endunless %}
+          </div>
+
+
+          <div class="mdp-content">
+            {% unless section.settings.content_promotwo == blank %}
+              {{section.settings.content_promotwo}}
+            {% endunless %}
+
+            {% if section.settings.button_string_promotwo != blank %}
+              <a href="{{section.settings.link_promotwo}}" class="mdp-link-content">{{section.settings.button_string_promotwo}}</a>
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% style %}
+  .mdp-weare-promo-home-5 .mdp-container .mdp-grid:before{
+    content: "";
+    display: block;
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    border-top: 3px solid #343434;
+  }
+
+  .mdp-weare-promo-home-5 .mdp-container .mdp-grid:after{
+    content: "";
+    display: block;
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    border-bottom: 3px solid #343434;
+  }
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "Promo Home 5",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title_promotwo",
+        "label": "Heading",
+        "default": "Product promo"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle_promotwo",
+        "label": "Subheading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_promotwo",
+        "label": "Image"
+      },
+      {
+        "type": "richtext",
+        "id": "content_promotwo",
+        "label": "Content"
+      },
+      {
+         "type": "text",
+         "id": "image_size_promotwo",
+         "label": "Image size",
+         "default": "600x600_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "button_string_promotwo",
+        "label": "Button text",
+        "default": "Get more info"
+      },
+      {
+        "type": "url",
+        "id": "link_promotwo",
+        "label": "Button link"
+      },
+      {
+        "type": "color",
+        "id": "bg_color_promotwo",
+        "label": "Background color"
+      },
+      {
+        "type": "text",
+        "id": "padding_top_promotwo",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom_promotwo",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top_promotwo",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom_promotwo",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "blocks": [
+	{
+    "type": "list",
+    "name": "List",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "icon_class",
+        "label": "Icon Class"
+	  },
+      {
+        "type": "text",
+        "id": "text_promotwo",
+        "label": "Item text",
+        "default": "item text"
+      }
+    ]
+    },
+	{
+	"type": "list_link",
+    "name": "List link",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "icon_class_link",
+        "label": "Icon Class"
+	  },
+      {
+        "type": "text",
+        "id": "text_promotwo_link",
+        "label": "Item text",
+        "default": "item text"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link"
+	  }
+	]},
+	{
+	"type": "product_link",
+    "name": "Product link",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "name_product",
+        "label": "Name product"
+	  },
+	  {
+        "type": "select",
+        "id": "text_align",
+        "label": "Align name product",
+        "default": "center",
+        "options": [
+          {
+          "label": "Center",
+          "value": "center"
+          },
+          {
+          "label": "Right",
+          "value": "right"
+          },
+          {
+          "label": "Left",
+          "value": "left"
+          }
+        ]
+      },
+	  {
+        "type": "text",
+        "id": "font_size",
+        "label": "Product font size(px)",
+		"default": "16"
+	  },
+	  {
+        "type": "text",
+        "id": "type_product",
+        "label": "Type product"
+	  },
+	  {
+        "type": "text",
+        "id": "product_price",
+        "label": "Product price"
+	  },
+      {
+        "type": "image_picker",
+        "id": "image_product",
+        "label": "Image product"
+	  },
+	  {
+         "type": "text",
+         "id": "image_size_produst",
+         "label": "Image size produst",
+         "default": "600x600_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "url",
+        "id": "link_product",
+        "label": "Link product"
+	  }
+	]}
+	],
+    "presets": [{
+      "name": "Promo Boxed Home 5",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,133 @@
+{{ "mdp-weare-video-home-5.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-container mdp-weare-video-home-5">
+
+    {% if section.settings.image != blank %}
+
+        <div class="mdp-grid" data-columns="1" data-gap="30">
+            <div class="mdp-col">
+                <div class="mdp-media">
+                    <div class="mdp-box-video">
+                        <img class="mdp-image lazyload"
+                             data-src="{{ section.settings.image | img_url: section.settings.image_size }}"
+                             alt="video"
+                             style="width: 100%;">
+                    </div>
+                    {% unless section.settings.video_url == blank %}
+                        <a class="mdp-magnific-popup" href="{{ section.settings.video_url }}">
+                            <!-- <span class="mdp-icon"><svg><use xlink:href="#mdp-icon-094"></use></svg></span> -->
+                            <i class="fas fa-play mdp-icon-play"></i>
+                        </a>
+                    {% endunless %}
+                </div>
+
+                {% if section.settings.video_header != blank %}
+                    <h3 class="mdp-video-header">{{ section.settings.video_header }}</h3>
+                {% endif %}
+
+                {% if section.settings.video_view_more != blank %}
+                    <a href="{{ section.settings.view_more_link }}"
+                       class="mdp-video-link">{{ section.settings.video_view_more }}</a>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endif %}
+
+</div>
+
+<script>
+    let videoBox = document.querySelector(".mdp-weare-video-home-5");
+    videoBox.parentElement.setAttribute("style", "margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;");
+</script>
+
+<style>
+    {% if section.settings.bg_color != blank %}
+    .mdp-video-border {
+        background-color: {{section.settings.bg_color}};
+    }
+
+    {% endif %}
+
+    {% if section.settings.text_color != blank %}
+    .mdp-weare-video-1 .mdp-video-header, .mdp-weare-video-1 .mdp-video-link {
+        color: {{section.settings.text_color}} !important;
+    }
+
+    {% endif %}
+</style>
+
+
+{% schema %}
+{
+  "name": "Video Home 5",
+  "settings": [
+    {
+      "id": "video_url",
+      "type": "video_url",
+      "label": "Video URL",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Image size",
+      "default": "1000x1000_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#343434"
+    },
+    {
+      "type": "text",
+      "id": "video_header",
+      "label": "Video header"
+    },
+    {
+      "type": "text",
+      "id": "video_view_more",
+      "label": "Video view more"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "View more link"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#343434"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Home 5",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

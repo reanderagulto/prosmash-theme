@@ -1,0 +1,234 @@
+{{"slideshow-home-15.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-slideshow-home-15 mdp-container"
+     style="{% if section.settings.margin_top != blank %}
+                margin-top: {{ section.settings.margin_top }}px;
+            {% endif %}
+            {% if section.settings.margin_bottom != blank %}
+                margin-bottom: {{ section.settings.margin_bottom }}px;
+            {% endif %}">
+    <div class="mdp-swiper-container swiper-slideshow-home-15 swiper-slideshow-{{ section.id }}">
+        <div class="swiper-wrapper mdp-swiper-wrapper">
+            {% for block in section.blocks %}
+                <div class="swiper-slide mdp-swiper-slide">
+                    {% case block.type %}
+                        {% when 'slide' %}
+                            <div class="mdp-slide mdp-grid" data-columns="2" data-gap="0">
+                                <div class="mdp-media">
+                                    <div class="mdp-img-container">
+                                        <img src="{{block.settings.image | img_url : '850x' }}" class="mdp-slider-img" alt="">
+                                    </div>
+                                </div>
+                                <div class="mdp-data">
+                                    <div class="mdp-box-content" style="justify-content: {{block.settings.text_alignment}};">
+                                        <div class="mdp-box">
+                                            <div class="mdp-header">
+                                                <p class="mdp-subtitle">{{ block.settings.subtitle }}</p>
+                                                <h3 class="mdp-title"
+                                                    {% if block.settings.use_local_styles == true %}
+                                                    style="color: {{block.settings.heading_color}};"{% endif %}>
+                                                    {{block.settings.title}}
+                                                </h3>
+                                                <p class="mdp-models">{{ block.settings.models }}</p>
+                                            </div>
+
+                                            {% if block.settings.content != blank %}
+                                                <div class="mdp-content">
+                                                    {{block.settings.content}}
+                                                    <p class="mdp-characteristic">{{block.settings.characteristic}}</p>
+                                                </div>
+                                            {% endif %}
+
+                                            {% if block.settings.link_btn != blank or block.settings.link_video_btn != blank %}
+                                                <div class="mdp-footer">
+                                                    {% if block.settings.link_btn != blank %}
+                                                        <a class="mdp-button"
+                                                           {% if block.settings.use_local_styles == true %}
+                                                           style="color: {{ block.settings.button_text_color }}"
+                                                           {% endif %}
+                                                           href="{{block.settings.link_btn}}">
+                                                            {{block.settings.button_string}}
+                                                        </a>
+                                                    {% endif %}
+
+                                                    {% if block.settings.link_video_btn != blank %}
+                                                        <a class="mdp-video-btn" href="{{block.settings.link_video_btn}}">
+                                                            <i class="fa-solid fa-play"></i> {{ block.settings.button_video }}
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endcase %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="swiper-button-prev swiper-button-prev-slideshow-home-15 swiper-button-prev-slideshow-{{ section.id }}"></div>
+        <div class="swiper-button-next swiper-button-next-slideshow-home-15 swiper-button-next-slideshow-{{ section.id }}"></div>
+
+        <div class="swiper-pagination swiper-pagination-slideshow-home-15 swiper-pagination-slideshow-{{ section.id }}"></div>
+
+    </div>
+</div>
+
+<script>
+    const swiperSlideshowHome3_{{ section.id | replace: "-", "_" }} = new Swiper('.swiper-slideshow-{{ section.id }}', {
+        // Optional parameters
+        lidesPerView: 'auto',
+        direction: 'horizontal',
+        slidesPerView: 1,
+        centeredSlides: false,
+        speed: 500,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: { delay: 5000 },
+        effect: 'slide',
+        allowTouchMove: true,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        hashNavigation: false,
+        pagination: {
+            el: '.swiper-pagination-slideshow-{{ section.id }}'
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next-slideshow-{{ section.id }}',
+            prevEl: '.swiper-button-prev-slideshow-{{ section.id }}',
+        }
+    });
+
+    swiperSlideshowHome3_{{ section.id | replace: "-", "_" }}.init();
+</script>
+
+{% schema %}
+{
+  "name": "Slideshow home 15",
+  "settings": [
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "start",
+              "label": "Left"
+            },
+            {
+              "value": "end",
+              "label": "Right"
+            }
+          ],
+          "default": "start"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subheading",
+          "default": "Subheading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_local_styles",
+          "label": "Use local styles",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "text",
+          "id": "models",
+          "label": "Models",
+          "default": "HGT12 Pro S | GHT12Pro Ultra | GHT12 PRO +"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "html",
+          "id": "characteristic",
+          "label": "Characteristic",
+          "default": "<span>512GB</span><span>860GB</span><span>1T</span>"
+        },
+        {
+          "type": "text",
+          "id": "button_string",
+          "label": "Button text",
+          "default": "Discover more"
+        },
+        {
+          "type": "url",
+          "id": "link_btn",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "button_video",
+          "label": "Button video",
+          "default": "Watch the video"
+        },
+        {
+          "type": "video_url",
+          "id": "link_video_btn",
+          "label": "Video link",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ],
+          "default": "https://www.youtube.com/watch?v=u-Qfdn44rB4"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Slideshow home 15",
+    "category": "SectionHub: Weäre "
+  }]
+}
+{% endschema %}

@@ -1,0 +1,147 @@
+{{"promo-device-info.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-promo-device-info"
+     style="background-color: {{ section.settings.bg_color_promotwo }};
+             margin-top: {{ section.settings.margin_top_promotwo }}px;
+             margin-bottom: {{ section.settings.margin_bottom_promotwo }}px;
+             padding-top: {{ section.settings.padding_top_promotwo }}px;
+             padding-bottom: {{ section.settings.padding_bottom_promotwo }}px;">
+    <div class="mdp-boxed">
+        <div class="mdp-data">
+            <div class="mdp-footer">
+              <div class="mdp-grid" data-columns="2" data-gap="30">
+
+                <div class="mdp-weare-product-card mdp-product-stretch">
+                  <div>
+                    <div class="mdp-logo-product-company">
+                      <p class="mdp-box-logo-info">
+                        <img src="{{section.settings.logo_product_image | img_url : "40x30_crop_center"}}"
+                             alt="">
+                        <span>{{section.settings.logo_text}}</span>
+                      </p>
+                    </div>
+                    <div class="mdp-info-product">
+                      <h3 class="mdp-name-product" >{{section.settings.title_promotwo}}</h3>
+                      <div class="mdp-description-product">{{ section.settings.description }}</div>
+                    </div>
+                    <div class="mdp-img-description">
+                      <img src="{{section.settings.description_image_1 | img_url : "85x85_crop_center"}}"
+                           alt="">
+                      <img src="{{section.settings.description_image_2 | img_url : "85x85_crop_center"}}"
+                           alt="">
+                      <img src="{{section.settings.description_image_3 | img_url : "85x85_crop_center"}}"
+                           alt="">
+                    </div>
+
+                    <a href="{{section.settings.link_url}}" class="mdp-btn">
+                      <span>{{ section.settings.link_text }}</span>
+                      <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="mdp-weare-product-card">
+                  <img src="{{section.settings.product_image | img_url : section.settings.image_size_promotwo}}"
+                       class="mdp-product-card-img"
+                       alt="">
+                </div>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promo device info",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_product_image",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text"
+    },
+    {
+      "type": "text",
+      "id": "title_promotwo",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "description_image_1",
+      "label": "Description image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "description_image_2",
+      "label": "Description image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "description_image_3",
+      "label": "Description image 3"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "text",
+      "id": "image_size_promotwo",
+      "label": "Image size",
+      "default": "600x600_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "text",
+      "id": "padding_top_promotwo",
+      "label": "Padding top (px)",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom_promotwo",
+      "label": "Padding bottom (px)",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "id": "margin_top_promotwo",
+      "label": "Margin top (px)",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom_promotwo",
+      "label": "Margin bottom (px)",
+      "default": "0"
+    }
+  ],
+  "presets": [{
+    "name": "Promo device info",
+    "category": "SectionHub: weare"
+  }]
+}
+{% endschema %}

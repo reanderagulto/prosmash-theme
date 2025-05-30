@@ -1,0 +1,190 @@
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+    {%- when 'title' -%}
+      <h1 class="mdp-title {% if oneRow == true %}mdp-title-section{% endif %}">
+        <a href="{{ current_product.url }}">{{current_product.title}}</a>
+      </h1>  
+    {%- when 'rating' -%}
+            {%- if current_product.metafields.reviews.rating.value != blank -%}
+              {% liquid
+               assign rating_decimal = 0
+               assign decimal = current_product.metafields.reviews.rating.value.rating | modulo: 1
+               if decimal >= 0.3 and decimal <= 0.7
+                assign rating_decimal = 0.5
+              elsif decimal > 0.7
+                assign rating_decimal = 1
+               endif
+              %}
+              <div class="mdp-rating">
+                <span class="mdp-rating-star" style="--rating: {{ current_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ current_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};">{% render 'mdp-weare-icon' with '221' %}</span>
+                <span class="mdp-rating-text">{{ current_product.metafields.reviews.rating.value }}/{{ current_product.metafields.reviews.rating.value.scale_max }}</span>
+                <span class="mdp-rating-count"> ({{ current_product.metafields.reviews.rating_count }})</span>
+              </div>
+            {%- endif -%}
+    {%- when 'price' -%}
+      <div class="mdp-price-wrapper">
+        <span class="mdp-price">
+          {% if variant.compare_at_price > variant.price %}
+          <span class="mdp-price-compare">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+          {% endif %}            
+          <span class="mdp-price-varies">
+            {{ variant.price | money_without_trailing_zeros }}
+          </span>
+        </span>
+        {%- if variant.available and variant.unit_price_measurement -%}
+        <span class="mdp-unit-price">
+          {{ variant.unit_price | money }}/{%- if variant.unit_price_measurement.reference_value != 1 -%} {{- variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ variant.unit_price_measurement.reference_unit }}
+        </span>
+        {%- endif -%}
+      </div>
+    {%- when 'sku' -%}
+      <div class="mdp-dl">
+        <div class="mdp-dt">
+          SKU:
+        </div>
+        <div class="mdp-dd">
+          {{variant.sku}}
+        </div>
+      </div>
+    {%- when 'metafield' -%}
+      <div class="mdp-dl">
+        <div class="mdp-dt">
+          {{ block.settings.name }}:
+        </div>
+        <div class="mdp-dd">
+          {{ current_product.metafields[block.settings.namespace][block.settings.key] }}
+        </div>
+      </div>
+    {%- when 'payment_terms' -%}
+	  {%- assign product_form_id = 'payment-terms-' | append: current_product.id -%}
+      {% form "product", current_product, id: product_form_id %} 	
+        
+		{{ form | payment_terms }}
+      {% endform %}        	  
+	{%- when 'options' -%}
+      {% unless current_product.options.size == 1 and current_product.variants[0].title == 'Default Title' %}
+      <div class="mdp-product-options">
+        {% if block.settings.variants_group == 'together' %}
+        <div class="mdp-together">
+          <select class="" data-type="{{block.settings.variants_group}}" data-index="id">
+            {% for vrnt in current_product.variants %}                                
+            <option 
+                    {% if vrnt.id == variant.id %}
+                    selected
+                    {% endif %}
+                    value="{{vrnt.id}}" data-featured-media="{{vrnt.featured_media.id}}">
+              {{ vrnt.title }} - 
+              {% if vrnt.available %}
+              {{ vrnt.price | money_with_currency }}
+              {% else %}
+              {{section.settings.sold_out_string}}
+              {% endif %}
+            </option>                                
+            {% endfor %}
+          </select>
+        </div>
+        {% else %}
+        <div class="mdp-separated">
+          {% for option in current_product.options_with_values %}
+          <div class="mdp-option">
+            <label>{{option.name}}</label>
+            <select class="" data-index="option{{ forloop.index }}">
+              {% for value in option.values %}
+              <option value="{{ value | escape }}">{{value}}</option>
+              {% endfor %}
+            </select>                          
+          </div>
+          {% endfor %} 
+        </div>
+        {% endif %}
+      </div>
+      {% endunless %}
+    {%- when 'buttons' -%}
+      {% form "product", current_product %} 	
+        <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">          
+		<div class="mdp-product-options">
+			<h3>Quantity</h3>
+		</div>
+		<div class="mdp-buttons">
+          <div class="mdp-quantity-wrapper">
+            <a class="mdp-quantity-minus">
+              <span>
+                <span class="mdp-quantity-icon-minus">
+                  -
+                </span>
+              </span>
+            </a>
+            <input type="text" name="quantity" value="1" min="1" class="mdp-qty"/>
+            <a class="mdp-quantity-plus">
+              <span>
+                <span class="mdp-quantity-icon-plus">
+                  +
+                </span>
+              </span>
+            </a>
+          </div>
+        
+          <div class="mdp-add-to-wishlist" data-product-handle="{{ current_product.handle }}">            
+            <span class="mdp-add">
+              <span class="mdp-text-wishlist">Add to Wishlist</span>
+              <i class="far fa-heart"></i>
+            </span>
+            <span class="mdp-adding">
+            </span>
+            <span class="mdp-added">
+              <span class="mdp-text-wishlist">Add to Wishlist</span>
+              <i class="fas fa-heart"></i>
+            </span>
+          </div>  
+                            
+        </div>
+
+		<button type="submit" 
+                class="mdp-add-to-cart {% if section.settings.redirect %}mdp-redirect-to-cart{% endif %} {% if current_product.available %}mdp-available{% endif %}"
+                style="color: {{ btn_color }}"
+                data-product-id="{{ variant.id }}"
+                data-quantity="1" 
+                data-add-to-cart="{{ section.settings.add_cart_string }}" 
+                data-sold-out="{{ section.settings.sold_out_string }}">
+          		{% if current_product.available %}
+          			{{ section.settings.add_cart_string }}
+          		{% else %}
+          			{{ section.settings.sold_out_string }} 
+          		{% endif %}
+		</button>
+		
+      {% endform %}
+	{%- when 'dynamic_checkout' -%}
+	  {%- assign product_form_id = 'payment-button-' | append: current_product.id -%}
+      {% form "product", current_product, id: product_form_id %} 	
+        <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">  
+		{{ form | payment_button }}
+      {% endform %} 
+    {%- when 'availability' -%}
+      <div class="mdp-product-availability" data-store-availability-container data-product-title="" data-has-only-default-variant="" data-base-url="">
+      </div>
+	{%- when 'description' -%}
+      <div class="mdp-content {% if oneRow == true %}mdp-content-section{% endif %}">
+        {% if block.settings.excerpt_words != 0 %}
+        {{ current_product.description | strip_html | truncatewords: block.settings.excerpt_words, block.settings.excerpt_ellipsis }}
+        {% else %}
+        {{ current_product.description }}
+        	{% if block.settings.read_more == true %}
+        		<a href="{{current_product.url}}" class="mdp-link-description">Read More</a>
+        	{% endif %}
+        {% endif %}
+      </div>
+	{%- when 'visitors' -%}
+		<div class="mdp-visitors" data-min="{{ block.settings.min }}" data-max="{{ block.settings.max }}" data-duration="{{ block.settings.duration }}">
+			<span class="mdp-icon">{% render 'mdp-weare-icon' with '154' %}</span>
+          	<span class="mdp-value"></span>
+          	<span class="mdp-text">{{ block.settings.text }}</span>
+		</div>
+	{%- when 'share' -%}
+	  {% render 'mdp-weare-social-sharing', share_title: current_product.title, share_permalink: current_product.url, share_image: current_product.featured_media %}
+    {%- when '@app' -%}
+      {% render block %}
+    {%- when 'custom_liquid' -%}
+      {{ block.settings.custom_liquid }}
+  {%- endcase -%}
+{%- endfor -%}

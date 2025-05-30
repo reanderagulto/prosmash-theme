@@ -1,0 +1,115 @@
+{{"mdp-weare-promo-home-2.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-promo-home-2" data-variant="{{section.settings.variant}}" style="background-color: {{ section.settings.bg_color }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+  <div class="mdp-container">
+      <div class="mdp-grid" data-columns="2" data-gap="0">
+
+        {% unless section.settings.image == blank %}
+        <div class="mdp-media">
+            <img class="mdp-image lazyload" data-src="{{section.settings.image | img_url : section.settings.image_size}}" alt="" >
+
+            {% if section.settings.header_left != blank or section.settings.paragraph_left != blank %}
+                <div class="mdp-content">
+                    <h3>{{ section.settings.header_left }}</h3>
+                    <div class="mdp-text">{{ section.settings.paragraph_left }}</div>
+                </div>
+            {% endif %}
+
+        </div>
+        {% endunless %}
+
+        {% unless section.settings.image_second == blank %}
+        <div class="mdp-media">
+            <img class="mdp-image lazyload" data-src="{{section.settings.image_second | img_url : section.settings.image_size_second}}" alt="" >
+
+            {% if section.settings.header_right != blank or section.settings.paragraph_right != blank %}
+                <div class="mdp-content">
+                    <h3>{{ section.settings.header_right }}</h3>
+                    <div class="mdp-text">{{ section.settings.paragraph_right }}</div>
+                </div>
+            {% endif %}
+
+        </div>
+        {% endunless %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Promo Boxed Images Home 2",
+    "settings": [	 
+	  {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },      
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Image size",
+         "default": "600x600_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "header_left",
+        "label": "Header",
+        "default": "Unisex Backpacks"
+      },
+      {
+        "type": "textarea",
+        "id": "paragraph_left",
+        "label": "Paragraph"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_second",
+        "label": "Image second"
+      },      
+      {
+         "type": "text",
+         "id": "image_size_second",
+         "label": "Image size second",
+         "default": "600x600_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "header_right",
+        "label": "Header",
+        "default": "Trendy Sneackers"
+      },
+      {
+        "type": "textarea",
+        "id": "paragraph_right",
+        "label": "Paragraph"
+      },
+      {
+        "type": "text",
+        "id": "padding_top",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "presets": [{
+      "name": "Promo Boxed Images Home 2",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

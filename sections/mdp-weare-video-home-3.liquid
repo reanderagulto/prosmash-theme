@@ -1,0 +1,117 @@
+{{"mdp-weare-video-home-3.css" | asset_url | stylesheet_tag }}
+
+<div style="display: none;">
+  <svg id="mdp-icon-094" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M6.167 20.584c-.065 0-.117-.003-.156-.01s-.091-.022-.156-.049c-.091-.065-.166-.144-.225-.234s-.088-.202-.088-.332V3.709c0-.13.029-.241.088-.332s.133-.169.225-.234c.13-.065.254-.085.371-.059s.221.065.313.117l11.25 8.125c.065.065.124.144.176.234.052.091.078.183.078.273s-.02.183-.059.273-.104.169-.195.234l-11.25 8.125c-.065.026-.127.052-.186.078s-.121.041-.186.041zm.625-1.875l9.57-6.875-9.57-6.875v13.75z"></path></svg>
+</div>
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-video-home-3">
+  {% unless section.settings.image == blank %}
+    <div class="mdp-media">
+      <div class="mdp-box-video">
+        <img class="mdp-image lazyload" data-src="{{section.settings.image | img_url : section.settings.image_size}}" alt="video">
+      </div>
+      {% unless section.settings.video_url == blank %}
+      <a class="mdp-magnific-popup" href="{{section.settings.video_url}}">        
+        <i class="fas fa-play mdp-icon-play"></i>
+      </a>
+      {% endunless %}
+    </div>
+  	{% if section.settings.video_header != blank %}
+  		<h3 class="mdp-video-header">{{section.settings.video_header}}</h3>
+  	{% endif %}
+  
+  	{% if section.settings.view_more_link != blank %}
+  		<a href="{{section.settings.view_more_link}}" class="mdp-video-link">{{section.settings.video_view_more}}</a>
+  	{% endif %}
+  
+  {% endunless %}
+</div>
+
+<script>
+  let videoBox = document.querySelector(".mdp-weare-video-home-3");  
+  videoBox.parentElement.setAttribute("style", "margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;");
+</script>
+
+
+<style>
+  {% if section.settings.bg_color != blank %}
+  .mdp-video-border{
+  	background-color: {{section.settings.bg_color}};
+  }
+  {% endif %}
+  
+  {% if section.settings.text_color != blank %}
+  .mdp-weare-video-home-3 .mdp-video-header, .mdp-weare-video-home-3 .mdp-video-link{
+    color: {{section.settings.text_color}} !important;
+  }
+  {% endif %}
+</style>
+
+
+{% schema %}
+  {
+    "name": "Video Home 3",
+    "settings": [	  	       
+      {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["youtube", "vimeo"],
+        "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Image size",
+         "default": "1000x1000_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+	  {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "#343434"
+      },
+	  {
+        "type": "text",
+        "id": "video_header",
+        "label": "Video header"
+      },
+	  {
+        "type": "text",
+        "id": "video_view_more",
+        "label": "Video view more"
+      },
+      {
+        "type": "url",
+        "id": "view_more_link",
+        "label": "View more link"
+ 	  },
+	  {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#343434"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "presets": [{
+      "name": "Video Home 3",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

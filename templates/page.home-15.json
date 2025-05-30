@@ -1,0 +1,454 @@
+{
+  "name": "Home 15",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#E9384F",
+        "icon_color": "#FFFFFF",
+        "discount_color": "#FFFFFF",
+        "work_time_color": "#FFFFFF"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "collections-description": {
+      "type": "collections-description",
+      "settings":{
+        "display_type": "selected",
+        "number_of_collections": 6,
+        "col_per_row": 6,
+        "gap": "30",
+        "image_size": "100x72_crop_center",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "smartphones"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "smart-watch"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "tablets-1"
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "computing"
+          }
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "gaming"
+          }
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {
+            "collection": "monitors"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6"
+      ]
+    },
+    "slideshow": {
+      "type": "slideshow-home-15",
+      "settings":{
+        "margin_top": "0",
+        "margin_bottom": "0"
+
+      },
+      "blocks": {
+        "slideshow-1": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "New Generation Gadgets",
+            "title": "HGT12 Pro 860 Genius",
+            "content": "<p>Duis vestibulum odio porta bibendum consectetur. Morbi molestie neque tortor, vitae rutrum orci auctor</p>",
+            "characteristic": "<span>512GB</span><span>860GB</span><span>1T</span>",
+            "image": "shopify://shop_images/top-slider-home-15-1.jpg",
+            "text_alignment": "end",
+            "button_string": "Discover more",
+            "link_btn": "#",
+            "button_video": "Watch the video",
+            "link_video_btn": "https://www.youtube.com/watch?v=u-Qfdn44rB4"
+          }
+        },
+        "slideshow-2": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "New Generation Gadgets",
+            "title": "HGT12 Pro 860 Genius",
+            "content": "<p>Duis vestibulum odio porta bibendum consectetur. Morbi molestie neque tortor, vitae rutrum orci auctor</p>",
+            "characteristic": "<span>512GB</span><span>860GB</span><span>1T</span>",
+            "image": "shopify://shop_images/top-slider-home-15-2.jpg",
+            "text_alignment": "end",
+            "button_string": "Discover more",
+            "link_btn": "#",
+            "button_video": "Watch the video",
+            "link_video_btn": "https://www.youtube.com/watch?v=u-Qfdn44rB4"
+          }
+        }
+      },
+      "block_order": [
+        "slideshow-1",
+        "slideshow-2"
+      ]
+    },
+    "promo-products": {
+      "type": "promo-products",
+      "settings":{
+        "title_promotwo": "Best sellers this week",
+        "boxed": false,
+        "product_list": [
+          "tablet-pro-11-128gb-m1-wi-fi",
+          "camera-optica-123-hjy",
+          "game-gadget-2345d",
+          "dron-rty-hd-video",
+          "smart-watch-23dfr"
+        ],
+        "margin_top_promotwo": "80",
+        "margin_bottom_promotwo": "0"
+      }
+    },
+    "promo-single": {
+      "type": "promo-single-product",
+      "settings": {
+        "first_word_heading": "New",
+        "title_promotwo": "Aplpro X14 Camera",
+        "boxed": false,
+        "image_size_promotwo": "original",
+        "big_image": "shopify://shop_images/home15-banner_gadgets.png",
+        "content": "<p>Urabitur augue quam, faucibus a augue eu, maximus ultricies arcu.</p><ul><li>Curabitur feugiat enim molestie, dignissim sem</li><li>Feugiat enim molestie, dignissim sem</li><li>Etiam gravida tortor a mauris pellentesque, ac consectetur</li></ul>",
+        "min_image_1": "shopify://shop_images/phone-1-home-15.png",
+        "min_image_2": "shopify://shop_images/phone-2-home-15.png",
+        "min_image_3": "shopify://shop_images/phone-3-home-15.png",
+        "name_product": "Start from",
+        "price_product": "560",
+        "btn_link": "#",
+        "btn_text": "Discover more",
+        "margin_top_promotwo": "0",
+        "margin_bottom_promotwo": "0"
+      }
+    },
+    "collection-carousel": {
+      "type": "mdp-weare-collection-carousel",
+      "settings":{
+        "title": "Recommendations",
+        "selected_collection": "recommendations",
+        "print_price": true,
+        "slides_per_view": 6,
+        "slides_per_view_md": 3,
+        "slides_per_view_sm": 2,
+        "slides_per_view_xs": 1,
+        "images_form": "20",
+        "image_size": "original",
+        "slider": false,
+        "boxed": false,
+        "background_container": "#F7F7F7",
+        "font_size_header": 32,
+        "padding_top": "80",
+        "padding_bottom": "65",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "device-info": {
+      "type": "promo-device-info",
+      "settings": {
+        "logo_product_image": "shopify://shop_images/logo-home-15.jpg",
+        "logo_text": "SmartWatch",
+        "title_promotwo": "<span>New</span> ZETSeries",
+        "description": "<p>In semper mauris massa, vehicula interdum ex blandit ut. Sed bibendum ultricies ante ac iaculis. Vestibulum ante ipsum primis in faucibus</p>",
+        "description_image_1": "shopify://shop_images/feature-1.png",
+        "description_image_2": "shopify://shop_images/feature-2.png",
+        "description_image_3": "shopify://shop_images/feature-3.png",
+        "link_url": "#",
+        "link_text": "View More Details",
+        "product_image": "shopify://shop_images/big-product-home-15-4.png",
+        "image_size_promotwo": "800x1000_crop_center",
+        "padding_top_promotwo": "0",
+        "padding_bottom_promotwo": "0",
+        "margin_top_promotwo": "0",
+        "margin_bottom_promotwo": "0"
+      }
+    },
+    "promo-banners": {
+      "type": "promo-banners",
+      "settings":{
+        "title_promo": "Generation <span>G5</span>",
+        "subtitle_promo": "More Functions",
+        "price_product": "280",
+        "card_link": "/products/a16-3-32ggb-crystal-black-5",
+        "banner_image": "shopify://shop_images/banner-img1-home-15.png",
+        "title_promotwo": "Smar Pro <br> DFR 67+",
+        "info_content": "<span>6,1“</span><span>320Gb</span><span>48MP</span>",
+        "banner_image_1": "shopify://shop_images/banner-img2-home-15.png",
+        "card_link_two": "/products/a16-3-32ggb-crystal-black-1",
+        "boxed": false,
+        "margin_top_promotwo": "80",
+        "margin_bottom_promotwo": "80"
+      }
+    },
+    "logos": {
+      "type":"mdp-weare-logos-1",
+      "settings":{
+        "boxed": false,
+        "image_size": "250x90",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "logo-6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo6.png"
+          }
+        },
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo4.png"
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo2.png"
+          }
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo3.png"
+          }
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo5.png"
+          }
+        },
+        "logo-5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo1.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo-6",
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4",
+        "logo-5"
+      ]
+    },
+    "footer-1":{
+      "type":"mdp-weare-footer-1",
+      "settings":{
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border": true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "collections-description",
+    "slideshow",
+    "promo-products",
+    "promo-single",
+    "collection-carousel",
+    "device-info",
+    "promo-banners",
+    "logos",
+    "footer-1"
+  ]
+}

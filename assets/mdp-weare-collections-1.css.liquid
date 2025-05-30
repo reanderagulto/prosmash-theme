@@ -1,0 +1,129 @@
+.mdp-weare-collections-1 {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-title {
+    font-family: {{ settings.weare_font_header }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 39px;
+    color: #343434;
+    text-align: center;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-subtitle {
+    margin-bottom: 5px;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.133333px;
+    text-transform: uppercase;
+    color: #343434;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-button {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    color: #2a2a2a;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    font-weight: normal;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-button .mdp-text {
+    margin-right: 5px;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-button .mdp-icon {
+    font-size: 0;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-button .mdp-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-button::before {
+    content: "";
+    position: absolute;
+    transition: 0.3s all ease-in-out;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 0;
+    border-bottom: 1px solid #2a2a2a;
+    opacity: 0;
+    transform: translateY(5px);
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-button:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-row-full {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.mdp-weare-collections-1 > .mdp-header .mdp-row-full .mdp-row-left {
+    margin-right: 30px;
+}
+@media (max-width: 600px) {
+    .mdp-weare-collections-1 > .mdp-header .mdp-row-full {
+        display: block;
+    }
+    .mdp-weare-collections-1 > .mdp-header .mdp-row-full .mdp-row-left {
+        justify-content: center;
+        padding: 10px 10px 5px 10px;
+        margin-right: 0;
+    }
+    .mdp-weare-collections-1 > .mdp-header .mdp-row-full .mdp-row-right {
+        justify-content: center;
+        padding: 5px 10px 10px 10px;
+    }
+}
+.mdp-weare-collections-1 > .mdp-header {
+    margin-bottom: 40px;
+}
+.mdp-weare-collections-1 > .mdp-grid > .mdp-collection {
+    position: relative;
+}
+.mdp-weare-collections-1 > .mdp-grid > .mdp-collection .mdp-media .mdp-image {
+    max-width: 100%;
+    margin: auto;
+}
+.mdp-weare-collections-1 > .mdp-grid > .mdp-collection .mdp-data {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 30px;
+}
+.mdp-weare-collections-1 > .mdp-grid > .mdp-collection .mdp-data .mdp-header .mdp-title {
+    color: #2a2a2a;
+    font-size: 12.792px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    font-weight: 400;
+}
+.mdp-weare-collections-1 > .mdp-grid > .mdp-collection .mdp-data .mdp-content {
+    margin-top: 10px;
+    overflow-wrap: break-word;
+}
+.mdp-weare-collections-1 > .mdp-grid > .mdp-collection .mdp-data::before {
+    position: absolute;
+    content: "";
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    border: 1px solid #5838e9;
+    transition: 0.3s all ease-in-out;
+    pointer-events: none;
+    opacity: 0;
+}
+.mdp-weare-collections-1 > .mdp-grid > .mdp-collection:hover .mdp-data::before {
+    opacity: 1;
+}

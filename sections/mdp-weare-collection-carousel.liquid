@@ -1,0 +1,404 @@
+{{ "mdp-weare-collection-carousel.css" | asset_url | stylesheet_tag }}
+
+{% assign price = section.settings.print_price %}
+
+<div {% unless section.settings.background_container == blank %}style="background-color: {{ section.settings.background_container }};"{% endunless %}>
+    <div id="mdp-weare-{{ section.id }}"
+         class="mdp mdp-grid {% if section.settings.boxed == true %}mdp-container{% else %}mdp-boxed{% endif %} mdp-weare-collection-carousel"
+         style="{% unless section.settings.margin_top == blank %}margin-top: {{ section.settings.margin_top }}px;{% endunless %}
+         {% unless section.settings.margin_bottom == blank %}margin-bottom: {{ section.settings.margin_bottom }}px;{% endunless %}
+         {% unless section.settings.padding_top == blank %}padding-top: {{ section.settings.padding_top }}px;{% endunless %}
+                 {% unless section.settings.padding_bottom == blank %}padding-bottom: {{ section.settings.padding_bottom }}px;{% endunless %}"
+         data-columns="1"
+         data-gap="30">
+
+        {% unless section.settings.title == blank and section.settings.subtitle == blank %}
+            <div class="mdp-col mdp-header">
+                <div class="mdp-row-full">
+                    <div class="mdp-fp-header">
+                        {% if section.settings.title != blank %}
+                            <h2 class="mdp-title"
+                                style="text-align: {{ section.settings.heading_alignment }};">{{ section.settings.title | escape }} </h2>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endunless %}
+
+        <div class="swiper swiper-container swiper-collection-carousel mdp-col"
+             data-swiper='{"slidesPerView": {{ section.settings.slides_per_view }}, "breakpoints": { "320": { "slidesPerView": {{ section.settings.slides_per_view_xs }}, "slidesPerGroup": 1, "spaceBetween": 10 }, "426": { "slidesPerView": {{ section.settings.slides_per_view_sm }}, "slidesPerGroup": 1, "spaceBetween": 30 }, "769": { "slidesPerView": {{ section.settings.slides_per_view_md }}, "slidesPerGroup": {{ section.settings.slides_per_view_md }}, "spaceBetween": 30 }, "1441": { "slidesPerView": {{ section.settings.slides_per_view }}, "slidesPerGroup": {{ section.settings.slides_per_view }}, "spaceBetween": 30 }} }'>
+            <div class="swiper-wrapper">
+
+                {% if section.settings.selected_collection == blank or collections[section.settings.selected_collection] == empty %}
+                    {% for product in collections['all'].products limit: section.settings.number_of_products %}
+                        <div class="swiper-slide">
+                            {% render 'mdp-weare-product-card', product: product, price: price %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for product in collections[section.settings.selected_collection].products limit: section.settings.number_of_products %}
+                        <div class="swiper-slide">
+                            {% render 'mdp-weare-product-card', product: product, price: price %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+
+            <div class="swiper-pagination swiper-pagination-collection-carousel"></div>
+
+            <div class="swiper-button-prev swiper-button-prev-collection-carousel"></div>
+            <div class="swiper-button-next swiper-button-next-collection-carousel"></div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector(".swiper-collection-carousel");
+    let data_{{ section.id | replace: "--", "" | replace: "-", "" }} = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-swiper') || {};
+    let dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }} = JSON.parse(data_{{ section.id | replace: "--", "" | replace: "-", "" }});
+
+    /** Calculate the height of the image depending on the length of the container */
+    function breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+        let perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["slidesPerView"];
+
+        if (width >= 769 && width <= 1440) {
+            perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["breakpoints"]["769"]["slidesPerView"];
+        }
+
+        if (width >= 426 && width <= 768) {
+            perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["breakpoints"]["426"]["slidesPerView"];
+        }
+
+        if (width >= 320 && width <= 425) {
+            perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["breakpoints"]["320"]["slidesPerView"];
+        }
+
+        return perView;
+    }
+
+    function heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}(){
+        let winWidthPage = window.innerWidth;
+        let grid = document.getElementById("mdp-weare-{{ section.id }}");
+        let winWidth = grid.offsetWidth;
+        let perView = breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(winWidthPage);
+        let allGap = winWidthPage >= 769 ? perView * 15 : 0;
+        let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1441 ? 80 * 2 : 15 * 2;
+        let winWidthGap = winWidth - allGap - paddingSide;
+        let colSize = 100 / perView;
+        let height = (winWidthGap * colSize / 100) + {{ section.settings.images_form }};
+        let item = grid.querySelectorAll(".mdp-img-product");
+
+        for (let i = 0; i <= item.length - 1; i++) {
+            item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+        }
+    }
+
+    addEventListener("resize", (event) => {
+        heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    });
+
+    heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    /** End */
+
+    let defaultOptions = {
+        lidesPerView: 'auto',
+        direction: 'horizontal',
+        centeredSlides: false,
+        speed: 500,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000
+        },
+        effect: 'slide',
+        allowTouchMove: true,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        hashNavigation: false,
+        pagination: {
+            el: '.swiper-pagination-collection-carousel',
+            clickable: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next-collection-carousel',
+            prevEl: '.swiper-button-prev-collection-carousel',
+        }
+    };
+
+    let allDataOptions = Object.assign({}, defaultOptions, dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }});
+    let swiperCollectionCarousel_{{ section.id | replace: "--", "" | replace: "-", "" }} = new Swiper('.swiper-collection-carousel', allDataOptions);
+    swiperCollectionCarousel_{{ section.id | replace: "--", "" | replace: "-", "" }}.init();
+
+{% if request.design_mode == true %}
+    function designMode(){
+        let defaultOptions = {
+            lidesPerView: 'auto',
+            direction: 'horizontal',
+            centeredSlides: false,
+            speed: 500,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000
+            },
+            effect: 'slide',
+            allowTouchMove: true,
+            freeMode: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            hashNavigation: false,
+            pagination: {
+                el: '.swiper-pagination-collection-carousel',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-collection-carousel',
+                prevEl: '.swiper-button-prev-collection-carousel',
+            }
+        };
+        let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector(".swiper-collection-carousel");
+        let data_{{ section.id | replace: "--", "" | replace: "-", "" }} = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-swiper') || {};
+        let dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }} = JSON.parse(data_{{ section.id | replace: "--", "" | replace: "-", "" }});
+        let allDataOptions = Object.assign({}, defaultOptions, dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }});
+
+        /** Calculate the height of the image depending on the length of the container */
+        function breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+            let perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["slidesPerView"];
+
+            if (width >= 769 && width <= 1440) {
+                perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["breakpoints"]["769"]["slidesPerView"];
+            }
+
+            if (width >= 426 && width <= 768) {
+                perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["breakpoints"]["426"]["slidesPerView"];
+            }
+
+            if (width >= 320 && width <= 425) {
+                perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }}["breakpoints"]["320"]["slidesPerView"];
+            }
+
+            return perView;
+        }
+
+        function heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+            let winWidthPage = window.innerWidth;
+            let grid = document.getElementById("mdp-weare-{{ section.id }}");
+            let winWidth = grid.offsetWidth;
+            let perView = breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(winWidthPage);
+            let allGap = winWidthPage >= 769 ? perView * 15 : 0;
+            let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1441 ? 80 * 2 : 15 * 2;
+            let winWidthGap = winWidth - allGap - paddingSide;
+            let colSize = 100 / perView;
+            let height = (winWidthGap * colSize / 100) + {{ section.settings.images_form }};
+            let item = grid.querySelectorAll(".mdp-img-product");
+
+            for (let i = 0; i <= item.length - 1; i++) {
+                item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+            }
+
+        }
+
+        addEventListener("resize", (event) => {
+            heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+        });
+
+        heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+        /** End */
+
+        let swiperCollectionCarousel_{{ section.id | replace: "--", "" | replace: "-", "" }} = new Swiper('.swiper-collection-carousel', allDataOptions);
+    }
+
+    document.addEventListener("shopify:section:load", designMode);
+{% endif %}
+</script>
+
+{% schema %}
+{
+  "name": "Collection Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured products"
+    },
+    {
+      "type": "collection",
+      "id": "selected_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "print_price",
+      "label": "Price",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "number_of_products",
+      "label": "Number of products",
+      "default": 10,
+      "min": 2,
+      "max": 12,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view",
+      "label": "Slides per view",
+      "default": 4,
+      "min": 2,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view_md",
+      "label": "Slides per view (tablet device)",
+      "default": 3,
+      "min": 2,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view_sm",
+      "label": "Slides per view (small device)",
+      "default": 2,
+      "min": 2,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "slides_per_view_xs",
+      "label": "Slides per view (extra small device)",
+      "default": 1,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "type": "text",
+      "id": "images_form",
+      "label": "Images form",
+      "info": "If the shape of the image does not suit you in terms of height, enter in the field the number of pixels by which the desired height will increase."
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Image size",
+      "default": "270x370_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "header",
+      "content": "Strings"
+    },
+    {
+      "type": "text",
+      "id": "view_all_string",
+      "label": "View all string",
+      "default": "View all"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_string",
+      "label": "Sold out string",
+      "default": "Sold out"
+    },
+    {
+      "type": "text",
+      "id": "sale_string",
+      "label": "Sale string",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "new_string",
+      "label": "New string",
+      "default": "New"
+    },
+    {
+      "type": "text",
+      "id": "select_options_string",
+      "label": "Select options string",
+      "default": "Select options"
+    },
+    {
+      "type": "text",
+      "id": "add_cart_string",
+      "label": "Add cart string",
+      "default": "Add to cart"
+    },
+    {
+      "type": "header",
+      "content": "Style section"
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Container boxed",
+      "default": true
+    },
+    {
+      "type": "color_background",
+      "id": "background_container",
+      "label": "Background container",
+      "default": "#F9F5F2"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_top",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Carousel",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

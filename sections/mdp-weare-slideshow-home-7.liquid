@@ -1,0 +1,245 @@
+{{"mdp-weare-slideshow-home-7.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" 
+	 class="mdp {% if section.settings.boxed == true %}mdp-container{% endif %} mdp-weare-slideshow-home-7"
+	 style="{% if section.settings.margin_top != blank %}margin-top: {{ section.settings.margin_top }}px;{% endif %}
+             {% if section.settings.margin_bottom != blank %}margin-bottom: {{ section.settings.margin_bottom }}px;{% endif %}">
+  <div class="swiper swiper-slideshow-home-7 swiper-slideshow-{{ section.id }}">
+    <div class="swiper-wrapper">
+      {% assign count = 1 %}
+      {% for block in section.blocks %}  
+        <div class="swiper-slide">
+          {% case block.type %}
+          {% when 'slide' %}
+            <div class="mdp-slide">
+              <div class="mdp-media lazyload mdp-image-{{ count }}"></div>
+
+              <div class="mdp-data">
+                <div class="mdp-box-text" style="justify-content: {{block.settings.text_alignment}};">
+                  <div class="mdp-box">
+
+                    <div class="mdp-header">
+                      <h3 class="mdp-title"
+                          {% if block.settings.use_local_styles == true %}
+                          style="color: {{block.settings.heading_color}};"{% endif %}>
+                        {{block.settings.title}}
+                      </h3>
+                    </div>
+
+                    {% if block.settings.content != blank %}
+                    <div class="mdp-content">
+                      {{block.settings.content}}
+                    </div>
+                    {% endif %}
+
+                    {% if block.settings.link != blank %}
+                      <div class="mdp-footer">
+                        <a class="mdp-button" href="{{block.settings.link}}">{{block.settings.button_string}}</a>
+                      </div>
+                    {% endif %}
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            {% assign count = count | plus:1 %}
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-button-prev swiper-button-prev-slideshow-home-7 swiper-button-prev-slideshow-{{ section.id }}"></div>
+    <div class="swiper-button-next swiper-button-next-slideshow-home-7 swiper-button-next-slideshow-{{ section.id }}"></div>
+
+    <div class="swiper-pagination swiper-pagination-slideshow-home-7 swiper-pagination-slideshow-{{ section.id }}"></div>
+
+  </div>
+
+</div>
+
+{% style %}
+    {% assign count_style = 1 %}
+  {% assign count_style_mob = 1 %}
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'slide' %}
+        #mdp-weare-{{ section.id }}.mdp-weare-slideshow-home-7 .swiper-slideshow-home-7 .swiper-wrapper .swiper-slide .mdp-slide .mdp-image-{{ count_style }} {
+            background-image: url('{{block.settings.image | img_url : '2500x840' }}');
+            background-color: {{ block.settings.background_color }};
+            background-size: 100% 100%;
+        }
+            {% assign count_style = count_style | plus:1 %}
+        {% endcase %}
+    {% endfor %}
+
+    @media (min-width: 320px) and (max-width: 768px) {
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'slide' %}
+                  #mdp-weare-{{ section.id }}.mdp-weare-slideshow-home-7 .swiper-slideshow-home-7 .swiper-wrapper .swiper-slide .mdp-slide .mdp-image-{{ count_style_mob }} {
+                      background-image: url('{{block.settings.mob_img_new | img_url : 'original' }}');
+                      background-color: {{ block.settings.background_color }};
+                  }
+                  {% assign count_style_mob = count_style_mob | plus:1 %}
+            {% endcase %}
+        {% endfor %}
+    }
+{% endstyle %}
+
+<script>
+  function heightSlider_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+      let winWidthPage = window.innerWidth;
+      let boxSlideshow = document.getElementById("mdp-weare-{{ section.id }}");
+      let item = boxSlideshow.querySelectorAll(".mdp-media");
+
+      for (let i = 0; i <= item.length - 1; i++) {
+          if ( winWidthPage <= 425 ) {
+              item[i].setAttribute("style", `height: calc(${winWidthPage}px + 100px);`);
+          } else if ( winWidthPage <= 768 && winWidthPage > 425 ) {
+              item[i].setAttribute("style", `height: calc(${winWidthPage}px - 100px);`);
+          } else {
+              item[i].setAttribute("style", `height: calc(${winWidthPage}px / 2.5);`);
+          }
+      }
+  }
+
+  heightSlider_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+
+  addEventListener("resize", (event) => {
+      heightSlider_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+  });
+
+  let swiperSlideshowHome7_{{ section.id | replace: "-", "_" }} = new Swiper('.swiper-slideshow-{{ section.id }}', {
+    // Optional parameters
+    lidesPerView: 'auto',
+    direction: 'horizontal',
+    slidesPerView: 1,
+    centeredSlides: false,
+    speed: 500,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    effect: 'slide',
+    allowTouchMove: true,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    hashNavigation: false,
+    pagination: {
+      el: '.swiper-pagination-slideshow-{{ section.id }}'
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next-slideshow-{{ section.id }}',
+      prevEl: '.swiper-button-prev-slideshow-{{ section.id }}',
+    }
+  });
+
+  swiperSlideshowHome7_{{ section.id | replace: "-", "_" }}.init();
+</script>
+
+{% schema %}
+  {
+    "name": "Slideshow Home 7",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "boxed",
+        "label": "Boxed",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      } 
+    ],
+	"blocks": [
+	  {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Background image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mob_img_new",
+            "label": "Mobile background image"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color",
+            "default": "#EFEFED"
+          },
+		  {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text alignment",
+            "options": [
+              {
+                "value": "start",
+                "label": "Left"
+              },
+              {
+                "value": "end",
+                "label": "Right"
+              }
+            ],
+            "default": "start"
+		  },
+		  {
+            "type": "html",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "checkbox",
+            "id": "use_local_styles",
+            "label": "Use local styles",
+            "default": true
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading color",
+            "default": "#000000"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "text",
+            "id": "button_string",
+            "label": "Button text",
+            "default": "Get more info"
+          }, 
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+	],
+    "presets": [{
+      "name": "Slideshow Home 7",
+      "category": "SectionHub: Weäre "
+    }]
+  }
+{% endschema %}

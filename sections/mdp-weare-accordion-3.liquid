@@ -1,0 +1,144 @@
+{{"mdp-weare-accordion-3.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-accordion-3" data-variant="{{section.settings.variant}}" style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+  {% unless section.settings.image == blank %}
+    <div class="mdp-media">
+      <div class="mdp-image lazyload" data-bgset="{{section.settings.image | img_url : 'original'}};" ></div>
+    </div>
+  {% endunless %}
+  <div class="mdp-container">
+    <div class="mdp-data">
+      <div class="mdp-header">
+        <h2 class="mdp-title">
+          {{section.settings.title}}
+        </h2>
+        {% unless section.settings.subtitle == blank %}
+        <div class="mdp-subtitle">
+          {{section.settings.subtitle}}
+        </div>
+        {% endunless %}
+      </div>
+      <div class="mdp-accordion">
+        {% for block in section.blocks %}  
+        {% case block.type %}
+        {% when 'text_item' %}        
+        <div class="mdp-text-item">
+          <div class="mdp-header">
+            <span class="mdp-icon mdp-closed">{% render 'mdp-weare-icon' with '005' %}</span>
+            <span class="mdp-icon mdp-opened">{% render 'mdp-weare-icon' with '008' %}</span>
+            <div class="mdp-title">
+              {{block.settings.title}}
+            </div>
+          </div>
+          <div class="mdp-data">
+            <div class="mdp-content">
+              {{block.settings.content}}
+            </div>
+            <div class="mdp-footer">
+              {% unless block.settings.link == blank %}
+              <a class="mdp-button" href="{{block.settings.link}}">
+                <span class="mdp-text">{{block.settings.button_string}}</span>
+                <span class="mdp-icon">{% render 'mdp-weare-icon' with '003' %}</span>
+              </a>
+              {% endunless %}
+            </div>    
+          </div>
+        </div>
+        {% endcase %}
+        {% endfor %}
+      </div>
+    </div>  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Accordion 3",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Frequently asked questions"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+	  {
+        "type": "select",
+        "id": "variant",
+        "label": "Variant",
+        "default": "left_text",
+        "options": [
+          {
+            "label": "Left text",
+            "value": "left_text"
+          },
+          {
+            "label": "Right text",
+            "value": "right_text"
+          },
+          {
+            "label": "Left text inverted",
+            "value": "left_text_inverted"
+          },
+          {
+            "label": "Right text inverted",
+            "value": "right_text_inverted"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "blocks": [
+      {
+        "type": "text_item",
+        "name": "Text item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "text",
+            "id": "button_string",
+            "label": "Button text",
+            "default": "Get more info"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Button link"
+          }
+        ]
+      }
+	],
+    "presets": [{
+      "name": "Accordion Image Wide",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

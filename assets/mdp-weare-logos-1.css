@@ -1,0 +1,34 @@
+.mdp-weare-logos-1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.mdp-weare-logos-1 > .swiper > .swiper-wrappe > .swiper-slide > .mdp-media > .mdp-placeholder{
+    border-radius: 6px;
+}
+
+.mdp-weare-logos-1 > .swiper > .swiper-wrappe > .swiper-slide > .mdp-media > .mdp-placeholder:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.swiper-button-prev-slideshow-logos:after,
+.swiper-button-next-slideshow-logos:after{
+    color: white;
+}
+
+.swiper-button-prev-slideshow-logos:hover:after,
+.swiper-button-next-slideshow-logos:hover:after{
+    color: #E9384F;
+}
+
+.mdp-weare-logos-1 .mdp-grid .mdp-col .swiper-container .swiper-button-next,
+.mdp-weare-logos-1 .mdp-grid .mdp-col .swiper-container .swiper-button-prev{
+    top: 20%;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+    .mdp-weare-logos-1.mdp-boxed{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

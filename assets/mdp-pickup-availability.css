@@ -1,0 +1,31 @@
+.mdp-pickup-availability-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.mdp-pickup-availability-container .mdp-information {
+    display: flex;
+    align-items: flex-start;
+}
+.mdp-pickup-availability-container .mdp-information svg {
+    margin-right: 5px;
+    margin-top: 3px;
+}
+.mdp-pickup-availability-container .mdp-information svg.mdp-in-stock {
+    color: green;
+}
+.mdp-pickup-availability-container .mdp-information svg.mdp-out-of-stock {
+    color: green;
+}
+.mdp-pickup-availability-container .mdp-information__button {
+    color: #2a2a2a;
+    transition: 0.3s all ease-in-out;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.mdp-pickup-availability-container .mdp-information__button:hover {
+    color: #5838e9;
+    transform: scale(1.5);
+}
+.mdp-pickup-availability-container .mdp-pickup-availabilities-modal {
+    display: none;
+}

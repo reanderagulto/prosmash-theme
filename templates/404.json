@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "mdp-weare-404-1",
+      "settings": {
+        "title": "Whoops!",
+        "subtitle": "Your style does not exist!",
+        "image": "shopify:\/\/shop_images\/404.png",
+        "content": "<p>Any question? Please contact us, we’re usually pretty quick.<\/p>",
+        "image_size": "600x600_crop_center",
+        "button_string": "Get more info",
+        "link": "",
+        "variant": "right_text"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,605 @@
+{
+  "name": "Home 20",
+  "layout": "theme.landing",
+  "sections": {
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": true,
+        "language_selector": true,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1": {
+      "type": "mdp-weare-menu-1",
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "hero": {
+      "type": "mdp-weare-hero-2",
+      "settings": {
+        "title": "Woman <br> collection",
+        "subtitle": "fall winter/ <br> <span>2 .. 024</span>",
+        "heading_margin_left": "60",
+        "text_transform": "none",
+        "heading_color": "#343434",
+        "heading_text_size": "80",
+        "image": "shopify://shop_images/new-hero-home-1-top.jpg",
+        "background_size": "cover",
+        "background_image": "#F9F9F9",
+        "content": "<p>Curabitur dapibus blandit metus, eget sollicitudin orci hendrerit sed. Vivamus nulla eros, ullamcorper</p>",
+        "margin_left": "60",
+        "image_size": "2500x870_crop_center",
+        "button_string": "Discover more",
+        "link": "#",
+        "button_color": "#343434",
+        "variant": "left_text",
+        "padding_top": "200",
+        "padding_bottom": "200",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "icon-list": {
+      "type": "mdp-weare-icon-list-2",
+      "settings": {
+        "col_per_row": 3,
+        "gap": "30",
+        "color_content": "#343434",
+        "background": "#ffffff",
+        "margin_top": "80",
+        "margin_bottom": "80",
+        "padding_top": "0",
+        "padding_bottom": "0"
+      },
+      "blocks": {
+        "list-item-1": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-shipping-fast",
+            "content": "<p>Free Shipping. All orders of $49 or more of eligible items across any product category qualify.</p>"
+          }
+        },
+        "list-item-2": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-money-check-alt",
+            "content": "<p>Payment Methods. Credit Card: Visa, MasterCard, Maestro, American Express.</p>"
+          }
+        },
+        "list-item-3": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-history",
+            "content": "<p>Returns & Refunds. You can return any item purchased on SectionHub within 20 days of the delivery date.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list-item-1",
+        "list-item-2",
+        "list-item-3"
+      ]
+    },
+    "collections": {
+      "type": "mdp-weare-collections-3",
+      "settings": {
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "number_of_collections": 3,
+        "col_per_row": 2,
+        "gap": "30",
+        "image_size": "600x350_crop_center",
+        "button_string": "Discover more",
+        "indent_bottom": "10",
+        "variant": "style_1",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "female"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "male"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2"
+      ]
+    },
+    "collection-carousel": {
+      "type": "mdp-weare-collection-carousel",
+      "settings": {
+        "title": "Featured Products",
+        "selected_collection": "woman",
+        "print_price": true,
+        "number_of_products": 10,
+        "slides_per_view": 4,
+        "slides_per_view_md": 3,
+        "slides_per_view_sm": 2,
+        "slides_per_view_xs": 1,
+        "images_form": "50",
+        "image_size": "original",
+        "image_height": "320",
+        "object_fit": "fill",
+        "slider": false,
+        "view_all_string": "",
+        "add_cart_string": "Add to cart",
+        "boxed": true,
+        "background_container": "#ffffff",
+        "font_size_header": 38,
+        "heading_alignment": "center",
+        "margin_top": "65",
+        "margin_bottom": "90",
+        "padding_top": "0",
+        "padding_bottom": "0"
+      }
+    },
+    "slideshow": {
+      "type": "mdp-weare-slideshow-1",
+      "settings": {
+        "boxed": false,
+        "text_collection": "You may <br>also like/",
+        "variant": "style_1",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/girl_bracelet.png",
+            "background_size": "contain",
+            "background_position_x": "28",
+            "background_position_y": "100",
+            "background_color": "#F9F9F9",
+            "image_product": "shopify://shop_images/bracelet.png",
+            "image_pagination": "shopify://shop_images/bracelet-home-1.jpg",
+            "subtitle": "Make the /",
+            "title": "Outfit",
+            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
+            "button_string": "View more",
+            "link": "#",
+            "margin_left_text": "85",
+            "justify_content_text": "center"
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/mann.png",
+            "background_size": "contain",
+            "background_position_x": "28",
+            "background_position_y": "100",
+            "background_color": "#F9F9F9",
+            "image_product": "shopify://shop_images/sunglasses.png",
+            "image_pagination": "shopify://shop_images/glasses.png",
+            "subtitle": "Make the /",
+            "title": "Outfit",
+            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
+            "button_string": "View more",
+            "link": "#",
+            "margin_left_text": "85",
+            "justify_content_text": "center"
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/girl_bg.png",
+            "background_size": "contain",
+            "background_position_x": "28",
+            "background_position_y": "100",
+            "background_color": "#F9F9F9",
+            "image_product": "shopify://shop_images/sweter1.png",
+            "image_pagination": "shopify://shop_images/sweater.png",
+            "subtitle": "Make the /",
+            "title": "Outfit",
+            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
+            "button_string": "View more",
+            "link": "#",
+            "margin_left_text": "85",
+            "justify_content_text": "center"
+          }
+        },
+        "slide-4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/manwith_bag.png",
+            "background_size": "contain",
+            "background_position_x": "28",
+            "background_position_y": "100",
+            "background_color": "#F9F9F9",
+            "image_product": "shopify://shop_images/1bag.png",
+            "image_pagination": "shopify://shop_images/BAG_6012A361-5473-4FC1-B4AD-131E72A1A366.png",
+            "subtitle": "Make the /",
+            "title": "Outfit",
+            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
+            "button_string": "View more",
+            "link": "#",
+            "margin_left_text": "85",
+            "justify_content_text": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3",
+        "slide-4"
+      ]
+    },
+    "video": {
+      "type": "mdp-weare-video-1",
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "image": "shopify://shop_images/photo_2021-12-21_10-31-44.jpg",
+        "image_size": "960x600_crop_center",
+        "bg_color": "",
+        "video_header": "New Fall Winter 2..022 Campaign/",
+        "video_view_more": "View More Details",
+        "view_more_link": "",
+        "text_color": "#343434",
+        "margin_top": "80",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-lists": {
+      "type": "mdp-weare-collection-lists",
+      "settings": {
+        "number_of_products": 5,
+        "image_size": "100x100_crop_center",
+        "bg_image": "",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "handbags"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "shoes"
+          }
+        },
+        "collection-title": {
+          "type": "title",
+          "settings": {
+            "title": "Featured Collection/ <br>Become Trendy",
+            "subtitle": "Nulla facilisi. Sed commodo libero turpis, id aliquam ante",
+            "image_collection": "shopify://shop_images/photo_2021-12-23_09-55-18.jpg",
+            "button_string": "View More",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-title"
+      ]
+    },
+    "call-action": {
+      "type": "mdp-weare-call-to-action-1",
+      "settings": {
+        "title": "Final Clearance",
+        "text_color": "#343434",
+        "font_size_heading": 48,
+        "line_height_heading": 48,
+        "image": "shopify://shop_images/index-hero-img-1.jpg",
+        "parallax": true,
+        "bg_color_boxtext": "rgba(255, 255, 255, 0.6)",
+        "parallax_speed": 0.3,
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "padding_top": "141",
+        "padding_bottom": "116",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-row": {
+      "type": "mdp-weare-collection-row",
+      "settings": {
+        "selected_collection": "gifts",
+        "name_collection": "Gifts/",
+        "button_string": "",
+        "number_of_products": 4,
+        "col_per_row": 5,
+        "images_form": "50",
+        "image_size": "270x370_crop_center",
+        "slider": false,
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "single-post-info": {
+      "type": "mdp-single-post",
+      "settings": {
+        "section_single_post": "blog/test-posts-new-3",
+        "articl_image_size": "1750x840",
+        "margin_top": "65",
+        "margin_bottom": "80"
+      }
+    },
+    "news": {
+      "type": "mdp-weare-news-1",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "blog": "news",
+        "limit": 9,
+        "col_per_row": 3,
+        "gap": "30",
+        "images_form": "50",
+        "reduces_form": "0.9",
+        "image_size": "original",
+        "boxed": true,
+        "excerpt_words": 20,
+        "variant": "style_3",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "hero-img": {
+      "type": "hero-home",
+      "settings": {
+        "title": "Keep me updated about sales, news, tips, and offers from the weäre store",
+        "heading_margin_left": "0",
+        "text_transform": "none",
+        "heading_color": "#ffffff",
+        "heading_text_size": "48",
+        "image": "shopify://shop_images/subscribe_banner.jpg",
+        "background_size": "cover",
+        "background_image": "#F9F9F9",
+        "image_size": "2000x500_crop_center",
+        "button_color": "#343434",
+        "subscribe": true,
+        "variant": "center_text",
+        "padding_top": "145",
+        "padding_bottom": "145",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "testimonials": {
+      "type": "mdp-weare-testimonials-2",
+      "settings": {
+        "title": "Testimonials/",
+        "col_per_row": 2,
+        "gap": "35",
+        "show_rating": true,
+        "margin_top": "80",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Doe",
+            "title": "Exellent Quality",
+            "content": "<p>“Maecenas vel risus in nisl facilisis volutpat. Sed condimentum ipsum bibendum, hendrerit nunc quis, gravida sem. Duis at dictum lorem”</p>"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Helena Gomez",
+            "title": "Love this store",
+            "content": "<p>“Maecenas vel risus in nisl facilisis volutpat. Sed condimentum ipsum bibendum, hendrerit nunc quis, gravida sem. Duis at dictum lorem”</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2"
+      ]
+    },
+    "footer-1": {
+      "type": "mdp-weare-footer-1",
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order": [
+    "menu-2",
+    "menu-1",
+    "hero",
+    "icon-list",
+    "collections",
+    "collection-carousel",
+    "slideshow",
+    "video",
+    "collection-lists",
+    "call-action",
+    "collection-row",
+    "single-post-info",
+    "news",
+    "hero-img",
+    "testimonials",
+    "footer-1"
+  ]
+}

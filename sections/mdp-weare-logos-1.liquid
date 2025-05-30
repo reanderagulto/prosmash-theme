@@ -1,0 +1,151 @@
+{{ "mdp-weare-logos-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp {% if section.settings.boxed == true %}mdp-container{% else %}mdp-boxed{% endif %} mdp-weare-logos-1"
+     style="{% if section.settings.margin_top != blank %}margin-top: {{ section.settings.margin_top }}px;{% endif %}
+             {% if section.settings.margin_bottom != blank %}margin-bottom: {{ section.settings.margin_bottom }}px;{% endif %}">
+
+    <div class="mdp-grid" data-columns="1" data-gap="30">
+        <div class="mdp-col">
+            <div class="swiper swiper-slideshow-logos swiper-container">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        <div class="swiper-slide">
+                            <div class="mdp-media"
+                                 style="margin: auto; max-width: {{ section.settings.image_size | split: "x" | first }}px;">
+                            {% if block.settings.link != blank %}
+                                <a href="{{ block.settings.link }}">
+                                    {% endif %}
+                                    <div class="mdp-placeholder"
+                                         style="width: {{ section.settings.image_size | split: "x" | first }}px;
+                                                 padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
+                                        <img class="mdp-image lazyload"
+                                             data-src="{{ block.settings.image | img_url: section.settings.image_size }}"
+                                             alt="">
+                                    </div>
+                                    {% unless block.settings.link == blank %}
+                                </a>
+                                {% endunless %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="swiper-button-prev swiper-button-prev-slideshow-logos"></div>
+                <div class="swiper-button-next swiper-button-next-slideshow-logos"></div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const swiperSlideshowLogos = new Swiper('.swiper-slideshow-logos', {
+        // Optional parameters
+        lidesPerView: 'auto',
+        direction: 'horizontal',
+        slidesPerView: 6,
+        centeredSlides: false,
+        speed: 500,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000
+        },
+        effect: 'slide',
+        allowTouchMove: true,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        hashNavigation: false,
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10
+            },
+            321: {
+                slidesPerView: 2,
+                spaceBetween: 10
+            },
+            376: {
+                slidesPerView: 2,
+                spaceBetween: 30
+            },
+            426: {
+                slidesPerView: 3,
+                spaceBetween: 30
+            },
+            769: {
+                slidesPerView: 5,
+                spaceBetween: 30
+            },
+            1025: {
+                slidesPerView: 7,
+                spaceBetween: 30
+            },
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next-slideshow-logos',
+            prevEl: '.swiper-button-prev-slideshow-logos',
+        }
+    });
+
+    swiperSlideshowLogos.init();
+</script>
+
+{% schema %}
+{
+  "name": "Logos",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Container boxed",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Image size",
+      "default": "200x90",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logos",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

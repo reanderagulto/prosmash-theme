@@ -1,0 +1,358 @@
+{{"mdp-weare-collection-carousel-home-3.css" | asset_url | stylesheet_tag }}
+
+{% assign price = section.settings.print_price %}
+
+<div id="mdp-weare-{{ section.id }}" 
+     class="mdp-weare-collection-carousel-home-3" 
+     style="{% unless section.settings.margin_top == blank %}margin-top: {{ section.settings.margin_top }}px;{% endunless %}
+             {% unless section.settings.margin_bottom == blank %}margin-bottom: {{ section.settings.margin_bottom }}px;{% endunless %}">
+  {% unless section.settings.title == blank and section.settings.subtitle == blank %}
+  <div class="mdp">
+
+      <div class="mdp-header">
+      <div class="mdp-row-full">
+        <div class="mdp-fp-header">
+          {% if section.settings.title != blank %}
+            <h2 class="mdp-title">{{ section.settings.title | escape }}</h2>
+          {% endif %}
+        </div>
+
+        <div class="mdp-row-right">
+          {% if section.settings.selected_collection != blank %}
+              <a href="{{ collections[section.settings.selected_collection].url }}" class="mdp-button">{{ section.settings.view_all_string }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% endunless %}
+    <div class="swiper swiper-carousel-home-3 mdp-swiper-container-home-3"
+         data-swiper='{"slidesPerView": {{ section.settings.slides_per_view }}, "breakpoints": { "320": { "slidesPerView": {{ section.settings.slides_per_view_xs }}, "slidesPerGroup": 1, "spaceBetween": 10 }, "426": { "slidesPerView": {{ section.settings.slides_per_view_sm }}, "slidesPerGroup": 1, "spaceBetween": 30 }, "769": { "slidesPerView": {{ section.settings.slides_per_view_md }}, "slidesPerGroup": {{ section.settings.slides_per_view_md }}, "spaceBetween": 30 }, "1441": { "slidesPerView": {{ section.settings.slides_per_view }}, "slidesPerGroup": {{ section.settings.slides_per_view }}, "spaceBetween": 30 }} }'>
+      <div class="swiper-wrapper">
+        {% if section.settings.selected_collection == blank or collections[section.settings.selected_collection] == empty %}
+          {% for product in collections['all'].products limit:section.settings.number_of_products %}
+            <div class="swiper-slide">
+              {% render 'mdp-weare-product-card-home-3', product: product, price: price %}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% for product in collections[section.settings.selected_collection].products limit:section.settings.number_of_products %}
+            <div class="swiper-slide">
+              {% render 'mdp-weare-product-card-home-3', product: product, price: price %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+        <div class="swiper-button-prev swiper-button-prev-carousel-home-3"></div>
+        <div class="swiper-button-next swiper-button-next-carousel-home-3"></div>
+
+        <div class="swiper-pagination swiper-pagination-carousel-home-3"></div>
+
+        <div class="mdp-collection-btn">
+            <a href="{{collections[section.settings.selected_collection].url}}">Shop Collection</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% if request.design_mode == true %}
+    <script>
+        function designMode(){
+            let defaultOptions = {
+                lidesPerView: 'auto',
+                direction: 'horizontal',
+                centeredSlides: false,
+                speed: 500,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 5000
+                },
+                effect: 'slide',
+                allowTouchMove: true,
+                freeMode: true,
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+                hashNavigation: false,
+                pagination: {
+                    el: '.swiper-pagination-carousel-home-3',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next-carousel-home-3',
+                    prevEl: '.swiper-button-prev-carousel-home-3',
+                }
+            };
+            let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector(".swiper-carousel-home-3");
+            let data = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-swiper') || {};
+            let dataOptions = JSON.parse(data);
+            let allDataOptions = Object.assign({}, defaultOptions, dataOptions);
+
+            /** Calculate the height of the image depending on the length of the container */
+            function breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+                let perView = dataOptions["slidesPerView"];
+
+                if (width >= 769 && width <= 1440) {
+                    perView = dataOptions["breakpoints"]["769"]["slidesPerView"];
+                }
+
+                if (width >= 426 && width <= 768) {
+                    perView = dataOptions["breakpoints"]["426"]["slidesPerView"];
+                }
+
+                if (width >= 320 && width <= 425) {
+                    perView = dataOptions["breakpoints"]["320"]["slidesPerView"];
+                }
+
+                return perView;
+            }
+
+            function heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+                let winWidthPage = window.innerWidth;
+                let grid = document.getElementById("mdp-weare-{{ section.id }}");
+                let winWidth = grid.offsetWidth;
+                let perView = breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(winWidthPage);
+                let allGap = winWidthPage >= 769 ? perView * 15 : 0;
+                let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1441 ? 80 * 2 : 15 * 2;
+                let winWidthGap = winWidth - allGap - paddingSide;
+                let colSize = 100 / perView;
+                let height = (winWidthGap * colSize / 100) + 50;
+                let item = grid.querySelectorAll(".mdp-img-product");
+
+                for (let i = 0; i <= item.length - 1; i++) {
+                    item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+                }
+
+            }
+
+            addEventListener("resize", (event) => {
+                heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+            });
+
+            heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+            /** End */
+
+            let swiperCollectionCarousel_{{ section.id | replace: "--", "" | replace: "-", "" }} = new Swiper('.swiper-carousel-home-3', allDataOptions);
+        }
+
+        document.addEventListener("shopify:section:load", designMode);
+    </script>
+{% endif %}
+
+<script>
+    let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector(".swiper-carousel-home-3");
+    let data = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-swiper') || {};
+    let dataOptions = JSON.parse(data);
+
+    /** Calculate the height of the image depending on the length of the container */
+    function breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+        let perView = dataOptions["slidesPerView"];
+
+        if (width >= 769 && width <= 1440) {
+            perView = dataOptions["breakpoints"]["769"]["slidesPerView"];
+        }
+
+        if (width >= 426 && width <= 768) {
+            perView = dataOptions["breakpoints"]["426"]["slidesPerView"];
+        }
+
+        if (width >= 320 && width <= 425) {
+            perView = dataOptions["breakpoints"]["320"]["slidesPerView"];
+        }
+
+        return perView;
+    }
+
+    function heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}(){
+        let winWidthPage = window.innerWidth;
+        let grid = document.getElementById("mdp-weare-{{ section.id }}");
+        let winWidth = grid.offsetWidth;
+        let perView = breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(winWidthPage);
+        let allGap = winWidthPage >= 769 ? perView * 15 : 0;
+        let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1441 ? 80 * 2 : 15 * 2;
+        let winWidthGap = winWidth - allGap - paddingSide;
+        let colSize = 100 / perView;
+        let height = (winWidthGap * colSize / 100) + 50;
+        let item = grid.querySelectorAll(".mdp-img-product");
+
+        for (let i = 0; i <= item.length - 1; i++) {
+            item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+        }
+    }
+
+    addEventListener("resize", (event) => {
+        heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    });
+
+    heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    /** End */
+
+    let defaultOptions = {
+        lidesPerView: 'auto',
+        direction: 'horizontal',
+        centeredSlides: false,
+        speed: 500,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000
+        },
+        effect: 'slide',
+        allowTouchMove: true,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        hashNavigation: false,
+        pagination: {
+            el: '.swiper-pagination-carousel-home-3',
+            clickable: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next-carousel-home-3',
+            prevEl: '.swiper-button-prev-carousel-home-3',
+        }
+    };
+
+    let allDataOptions = Object.assign({}, defaultOptions, dataOptions);
+    let swiperCollectionCarousel_{{ section.id | replace: "--", "" | replace: "-", "" }} = new Swiper('.swiper-carousel-home-3', allDataOptions);
+</script>
+
+{% schema %}
+  {
+    "name": "Col Carousel Home 3",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured products"
+      },
+      {
+        "type": "collection",
+        "id": "selected_collection",
+        "label": "Collection"
+      },
+	  {
+        "type": "checkbox",
+        "id": "print_price",
+        "label": "Price",
+        "default": false
+      },
+	  {
+        "type": "range",
+        "id": "number_of_products",
+        "label": "Number of products",
+        "default": 10,
+        "min": 2,
+        "max": 12,
+        "step": 1
+      },
+	  {
+        "type": "range",
+        "id": "slides_per_view",
+        "label": "Slides per view",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "step": 1
+      },
+	  {
+        "type": "range",
+        "id": "slides_per_view_md",
+        "label": "Slides per view (middle device)",
+        "default": 2,
+        "min": 1,
+        "max": 5,
+        "step": 1
+      },
+	  {
+        "type": "range",
+        "id": "slides_per_view_sm",
+        "label": "Slides per view (small device)",
+        "default": 2,
+        "min": 1,
+        "max": 5,
+        "step": 1
+      },
+	  {
+        "type": "range",
+        "id": "slides_per_view_xs",
+        "label": "Slides per view (extra small device)",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Product size",
+         "default": "270x370_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider",
+        "label": "Images slider",
+        "default": true
+      },
+      {
+		"type": "header",
+		"content": "Strings"
+	  },
+      {
+         "type": "text",
+         "id": "view_all_string",
+         "label": "View all string",
+         "default": "View all"
+      },
+      {
+         "type": "text",
+         "id": "sold_out_string",
+         "label": "Sold out string",
+         "default": "Sold out"
+      },
+      {
+         "type": "text",
+         "id": "sale_string",
+         "label": "Sale string",
+         "default": "Sale"
+      },
+      {
+         "type": "text",
+         "id": "new_string",
+         "label": "New string",
+         "default": "New"
+      },
+      {
+         "type": "text",
+         "id": "select_options_string",
+         "label": "Select options string",
+         "default": "Select options"
+      },
+      {
+         "type": "text",
+         "id": "add_cart_string",
+         "label": "Add cart string",
+         "default": "Add to cart"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      } 
+    ],
+    "presets": [{
+      "name": "Collection Carousel Home 3",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

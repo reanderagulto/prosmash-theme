@@ -1,0 +1,276 @@
+{{"mdp-weare-hero-list-home-7.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-hero-list-home-7
+      {% if section.settings.boxed == true %}mdp-container{% else %}mdp-boxed{% endif %} lazyload
+      {% if section.settings.inverted_herotwo %}mdp-inverted{% endif %}
+      {% if section.settings.backed_herotwo %}mdp-backed{% endif %}"
+        {% unless section.settings.image_herotwo == blank %}
+            data-bgset="{{section.settings.image_herotwo | img_url : section.settings.image_size_herotwo}}"
+        {% endunless %}
+     style="padding-top: 0;
+             padding-bottom: 0;
+             margin-top: {{ section.settings.margin_top_herotwo }}px;
+             margin-bottom: {{ section.settings.margin_bottom_herotwo }}px;
+             background-repeat: no-repeat;
+             background-size: {{ section.settings.background_size_herotwo }};">
+
+    <div class="mdp-data mdp-data-hero-home-7"
+         style="background-color: {{section.settings.background_image_herotwo}};
+                 padding-top: {{ section.settings.padding_top_herotwo }}px;
+                 padding-bottom: {{ section.settings.padding_bottom_herotwo }}px;
+                 justify-content: {{section.settings.variant_herotwo}};">
+
+        <div class="mdp-box-list">
+
+            <div class="mdp-header">
+                {% if section.settings.subtitle_herotwo != blank %}
+                    <div class="mdp-subtitle" style="color: {{section.settings.subtitle_color_herotwo}};">
+                        {{section.settings.subtitle_herotwo}}
+                    </div>
+                {% endif %}
+                <h2 class="mdp-title-hero-home-7"
+                    style="{% if section.settings.use_local_styles == true %}
+                            color: {{section.settings.heading_color_herotwo}};{% endif %}
+                            margin-left: {{section.settings.heading_margin_left_herotwo}}px;">
+                    {{section.settings.title_herotwo}}
+                </h2>
+            </div>
+
+            <div class="mdp-hero-home-7-text mdp-hero-home-7-text-{{ section.id }}">
+                <ul>
+                    {% for block in section.blocks %}
+
+                        {% if block.type == 'list_item' %}
+                            <li>
+                                <span class="mdp-icon"> <i class="{{block.settings.icon_class}}"></i></span>
+                                {% unless block.settings.content == blank %}
+                                    {{block.settings.content}}
+                                {% endunless %}
+                            </li>
+                        {% endif %}
+
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% if section.settings.link_herotwo != blank %}
+                <div class="mdp-footer">
+                    <a class="mdp-button"
+                       href="{{section.settings.link_herotwo}}">
+                        {{section.settings.button_string_herotwo}}</a>
+                </div>
+            {% endif %}
+
+            {% if section.settings.subscribe_herotwo == true %}
+                <div class="mdp-signup-form">
+                    {% form "customer" %}
+                        {{ form.errors | default_errors }}
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <div class="mdp-row">
+                            <input  type="email" placeholder="Subscribe by email" name="contact[email]"/>
+                            <button type="submit" class="mdp-submit">Submit</button>
+                        </div>
+                    {% endform %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% if section.settings.use_local_styles == true %}
+    <style>
+        .mdp-weare-hero-list-home-7 .mdp-data .mdp-box-list .mdp-hero-home-7-text-{{ section.id }} p,
+        .mdp-weare-hero-list-home-7 .mdp-data .mdp-box-list .mdp-hero-home-7-text-{{ section.id }} ul li .mdp-icon,
+        .mdp-weare-hero-list-home-7 .mdp-data .mdp-box-list .mdp-hero-home-7-text-{{ section.id }} ul {
+            color: {{section.settings.text_color_herotwo}} !important;
+        }
+    </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Hero list home 7",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_herotwo",
+      "label": "Heading",
+      "default": "Product promo"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_herotwo",
+      "label": "Subheading"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_local_styles",
+      "label": "Use local styles",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading_margin_left_herotwo",
+      "label": "Heading margin left",
+      "default": "0"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color_herotwo",
+      "label": "Subtitle color"
+    },
+    {
+      "type": "color",
+      "id": "heading_color_herotwo",
+      "label": "Heading color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_herotwo",
+      "label": "Text color"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_herotwo",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "background_size_herotwo",
+      "label": "Background size",
+      "default": "auto",
+      "options": [
+        {
+          "label": "Auto",
+          "value": "auto"
+        },
+        {
+          "label": "Cover",
+          "value": "cover"
+        },
+        {
+          "label": "Contain",
+          "value": "contain"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "background_image_herotwo",
+      "label": "Background image",
+      "default": "#F9F9F9"
+    },
+    {
+      "type": "richtext",
+      "id": "content_herotwo",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "image_size_herotwo",
+      "label": "Image size",
+      "default": "2000x500_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "text",
+      "id": "button_string_herotwo",
+      "label": "Button text",
+      "default": "Start shopping"
+    },
+    {
+      "type": "url",
+      "id": "link_herotwo",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Boxed",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "inverted_herotwo",
+      "label": "Inverted",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "backed_herotwo",
+      "label": "Backed",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "subscribe_herotwo",
+      "label": "Show subscribe",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "variant_herotwo",
+      "label": "Align the block horizontally",
+      "default": "start",
+      "options": [
+        {
+          "label": "Left",
+          "value": "start"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "end"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "padding_top_herotwo",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom_herotwo",
+      "label": "Padding bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_top_herotwo",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom_herotwo",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "List item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_class",
+          "label": "Icon Class"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Hero list home 7",
+    "category": "SectionHub: weare"
+  }]
+}
+{% endschema %}

@@ -1,0 +1,82 @@
+.mdp-weare-icon-list-blog {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.mdp-weare-icon-list-blog .mdp-grid {
+    align-items: stretch;
+}
+
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item {
+    display: inline-block;
+}
+
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-media .mdp-icon {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data .mdp-header .mdp-title {
+    color: #2a2a2a;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data .mdp-header h3.mdp-title {
+    font-family: "{{ settings.weare_font_header }}";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: {{ settings.mdp_header_color }};
+    padding: 14px 0;
+}
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data a.mdp-btn-link {
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: {{ settings.btn_color }};
+    border: 2px solid {{ settings.btn_background }};
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 14px 30px;
+}
+
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data a.mdp-btn-link:hover{
+    border: 2px solid {{ settings.btn_hover_background }};
+    background-color: {{ settings.btn_hover_background }};
+    color: {{ settings.btn_hover_color }};
+    transition: background-color 300ms, border 300ms, color 300ms;
+}
+
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data .mdp-content p:first-child {
+    margin-top: 0;
+}
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data .mdp-content p:last-child {
+    margin-bottom: 0;
+}
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data .mdp-content a {
+    color: #2a2a2a;
+    transition: 0.3s all ease-in-out;
+    text-decoration: underline;
+    display: inline;
+}
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data .mdp-content a:hover {
+    color: #5838e9;
+    transform: scale(1.5);
+}
+.mdp-weare-icon-list-blog .mdp-grid .mdp-icon-list-item .mdp-data .mdp-content p {
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.6em;
+    letter-spacing: 0.4px;
+}

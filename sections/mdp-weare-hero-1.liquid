@@ -1,0 +1,159 @@
+{{"mdp-weare-hero-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-hero-1 {% if section.settings.inverted %}mdp-inverted{% endif %}" data-variant="{{section.settings.variant}}" style="{% unless section.settings.bg_color == blank %}background-color: {{ section.settings.bg_color }};{% endunless %} padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+  {% if section.settings.bg_image != blank %}
+  <div class="mdp-overlay" style="background-image: url({{section.settings.bg_image | img_url : '2000x' }}); {% unless section.settings.bg_image_pattern == blank %}background-size: auto;{% endunless %}"></div>
+  {% endif %}  
+  <div class="mdp-container">
+    {% unless section.settings.image == blank %}
+      <div class="mdp-media">
+        <div class="mdp-placeholder" style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
+          <img class="mdp-image lazyload" data-src="{{section.settings.image | img_url : section.settings.image_size}}" alt="{{section.settings.title}}" >
+        </div>
+        {% unless section.settings.video_url == blank %}
+        <a class="mdp-magnific-popup" href="{{section.settings.video_url}}">
+          <span class="mdp-icon">{% render 'mdp-weare-icon' with '094' %}</span>
+        </a>
+        {% endunless %}
+      </div>
+    {% endunless %}
+    <div class="mdp-data">
+      <div class="mdp-header">
+        {% unless section.settings.subtitle == blank %}
+          <div class="mdp-subtitle">
+            {{section.settings.subtitle}}
+          </div>
+        {% endunless %}
+        <h1 class="mdp-title">
+          {{section.settings.title}}
+        </h1>
+      </div>
+      {% unless section.settings.content == blank %}
+        <div class="mdp-content">
+          {{section.settings.content}}
+        </div>
+      {% endunless %}
+        <div class="mdp-footer">
+          {% unless section.settings.link == blank %}
+              <a class="mdp-button" href="{{section.settings.link}}">{{section.settings.button_string}}</a>
+          {% endunless %}
+        </div>    
+    </div>  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Hero 1",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Product promo"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["youtube", "vimeo"],
+        "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Image size",
+         "default": "1000x1000_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "button_string",
+        "label": "Button text",
+        "default": "Start shopping"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background image"
+      },
+      {
+        "type": "checkbox",
+        "id": "bg_image_pattern",
+        "label": "Background image as pattern",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "checkbox",
+        "id": "inverted",
+        "label": "Inverted",
+        "default": false
+      },
+	  {
+        "type": "select",
+        "id": "variant",
+        "label": "Variant",
+        "default": "left_text",
+        "options": [
+          {
+            "label": "Left text",
+            "value": "left_text"
+          },
+          {
+            "label": "Right text",
+            "value": "right_text"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "padding_top",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "presets": [{
+      "name": "Hero Boxed",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

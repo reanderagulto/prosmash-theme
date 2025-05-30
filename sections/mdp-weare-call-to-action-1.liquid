@@ -1,0 +1,202 @@
+{{ "mdp-weare-call-to-action-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-call-to-action-1 {% if section.settings.boxed %}mdp-container{% endif %}"
+     data-variant="style_1">
+    <div class="jarallax"
+         data-speed="{{ section.settings.parallax_speed }}"
+         {% if section.settings.parallax and section.settings.image != blank %}data-jarallax{% endif %}
+            {% if section.settings.video_url != blank %}
+                data-jarallax-video="{{ section.settings.video_url }}"{% endif %}
+         style="background-color: {{ section.settings.bg_color }};
+                 padding-top: {{ section.settings.padding_top }}px;
+                 padding-bottom: {{ section.settings.padding_bottom }}px;
+         {% unless section.settings.margin_top == blank %}
+                 margin-top: {{ section.settings.margin_top }}px;
+         {% endunless %}
+         {% unless section.settings.margin_bottom == blank %}
+                 margin-bottom: {{ section.settings.margin_bottom }}px;
+         {% endunless %}">
+
+        {% if section.settings.image != blank %}
+            {% if section.settings.parallax %}
+                {% if section.settings.video_url == blank %}
+                    <img class="jarallax-img lazyload" data-src="{{ section.settings.image | img_url: '2461x1130' }}"
+                         alt="">
+                {% endif %}
+            {% else %}
+                <div class="mdp-overlay lazyload" data-bgset="{{ section.settings.image | img_url: '2461x1130' }}"></div>
+            {% endif %}
+        {% endif %}
+
+        <div class="mdp-data mdp-container mdp-grid" data-columns="1" data-gap="30">
+
+            <div class="mdp-col">
+                <div class="mdp-call-box"
+                     style="background: {{ section.settings.bg_color_boxtext }};">
+                    <div class="mdp-header">
+                        <h2 class="mdp-title"
+                            style="font-size: {{ section.settings.font_size_heading }}px;
+                                    line-height: {{ section.settings.line_height_heading }}px;
+                                    color: {{ section.settings.text_color }}">
+                          {% if section.settings.link != blank %}
+                            <a href="{{ section.settings.link }}">{{ section.settings.title }}</a>
+                          {% else %}
+                            {{ section.settings.title }}
+                          {% endif %}
+                        </h2>
+                    </div>
+
+                    {% if section.settings.content != blank %}
+                        <div class="mdp-content" style="color: {{ section.settings.text_color }} !important;">
+                            {{ section.settings.content }}
+                        </div>
+                    {% endif %}
+
+
+                    {% if section.settings.link != blank and section.settings.use_button == true %}
+                      <div class="mdp-footer">
+                          <a class="mdp-button"
+                             href="{{ section.settings.link }}">{{ section.settings.button_string }}</a>
+                      </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Call to action 1",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Call to action"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size heading",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "line_height_heading",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Line height heading",
+      "default": 70
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax",
+      "label": "Background parallax effect",
+      "default": false
+    },
+    {
+      "type": "color_background",
+      "id": "bg_color_boxtext",
+      "label": "Background color",
+      "info": "For text container",
+      "default": "rgba(255, 255, 255, 0.654373)"
+    },
+    {
+      "type": "range",
+      "id": "parallax_speed",
+      "label": "Parallax speed",
+      "default": 0.2,
+      "min": -1,
+      "max": 2,
+      "step": 0.1
+    },
+    {
+      "id": "video_url",
+      "type": "video_url",
+      "label": "Video URL",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "button_string",
+      "label": "Button text",
+      "default": "Get more info"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_button",
+      "label": "Use button",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Boxed",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "padding_top",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call to action Center",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,161 @@
+.promo-home-17 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.promo-home-17 .mdp-container {
+    display: flex;
+    align-items: flex-start;
+}
+.promo-home-17 .mdp-container > .mdp-media {
+    width: 50%;
+    position: relative;
+}
+
+.promo-home-17 .mdp-container > .mdp-media > .mdp-content{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    inset: 40px;
+    background: rgba(255,255,255,.9);
+    z-index: 2;
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    transition: visibility 0s,opacity .3s linear;
+}
+
+.promo-home-17 .mdp-container>.mdp-media:hover .mdp-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.promo-home-17 .mdp-container > .mdp-media > .mdp-content .mdp-title{
+    font-family: '{{ settings.weare_font_header }}';
+    font-style: normal;
+    font-weight: 700;
+    font-size: {{ settings.mdp_header_font_size }}px;
+    line-height: {{ settings.mdp_header_line_height }}em;
+    letter-spacing: 0.4px;
+    color: {{ settings.mdp_header_color }};
+}
+.promo-home-17 .mdp-container>.mdp-media .mdp-content .mdp-text p {
+    font-family: "{{ settings.weare_font_text }}";
+    font-style: normal;
+    font-weight: 600;
+    font-size: {{ settings.mdp_paragraph_font_size }}px;
+    line-height: {{ settings.mdp_paragraph_line_height }}em;
+    color: {{ settings.mdp_paragraph_color }};
+}
+
+.promo-home-17 .mdp-container>.mdp-media .mdp-content .mdp-text p a{
+    display: inline-block;
+    text-decoration: underline;
+    color: {{ settings.link_color }};
+}
+
+.promo-home-17 .mdp-container>.mdp-media .mdp-content .mdp-text p a:hover{
+    color: {{ settings.link_hover_color }};
+    transition: color 300ms;
+}
+
+.promo-home-17 .mdp-container > .mdp-media .mdp-image {
+    width: 100%;
+    margin: auto;
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content{
+        padding-top: 50px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content{
+        inset: 30px;
+        padding-top: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content .mdp-title{
+        font-size: 26px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media .mdp-content .mdp-text p{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content{
+        inset: 20px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content .mdp-title{
+        font-size: 20px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media .mdp-content .mdp-text p{
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 600px) {
+    .promo-home-17 .mdp-grid[data-columns][data-gap] > div{
+        width: 100% !important;
+    }
+    .promo-home-17 .mdp-grid[data-columns][data-gap] > div:first-child{
+        margin-bottom: 15px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content{
+        padding-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content .mdp-title{
+        font-size: 24px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media .mdp-content .mdp-text p{
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content{
+        inset: 25px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content .mdp-title{
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content{
+        inset: 15px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content .mdp-title{
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 320px) {
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content{
+        inset: 15px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media>.mdp-content .mdp-title{
+        font-size: 22px;
+    }
+    .promo-home-17 .mdp-container>.mdp-media .mdp-content .mdp-text p{
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,208 @@
+.mdp-weare-contact-form-1 input,
+.mdp-weare-contact-form-1 textarea,
+.mdp-weare-contact-form-1 select {
+    padding: 9px 15px;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: 600;
+    border-radius: 0;
+    background-image: none !important;
+    background-color: white;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.mdp-weare-contact-form-1 input::placeholder,
+.mdp-weare-contact-form-1 textarea::placeholder,
+.mdp-weare-contact-form-1 select::placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 input::placeholder,
+.mdp-weare-contact-form-1 textarea::placeholder,
+.mdp-weare-contact-form-1 select::placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 input::-webkit-input-placeholder,
+.mdp-weare-contact-form-1 textarea::-webkit-input-placeholder,
+.mdp-weare-contact-form-1 select::-webkit-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 input::-moz-placeholder,
+.mdp-weare-contact-form-1 textarea::-moz-placeholder,
+.mdp-weare-contact-form-1 select::-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 input:-moz-placeholder,
+.mdp-weare-contact-form-1 textarea:-moz-placeholder,
+.mdp-weare-contact-form-1 select:-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 input:-ms-input-placeholder,
+.mdp-weare-contact-form-1 textarea:-ms-input-placeholder,
+.mdp-weare-contact-form-1 select:-ms-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 button,
+.mdp-weare-contact-form-1 input[type=submit] {
+    border-radius: 0;
+    background-image: none !important;
+    cursor: pointer;
+    width: auto;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    padding: 15px 45px;
+    font-size: 14px;
+    line-height: 19px;
+    background-color: #343434;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    border-color: #4c90c7;
+    color: white;
+    transition: 0.3s all ease-in-out;
+    display: inline-block;
+    white-space: nowrap;
+}
+.mdp-weare-contact-form-1 button::placeholder, .mdp-weare-contact-form-1 input[type=submit]::placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 button::placeholder, .mdp-weare-contact-form-1 input[type=submit]::placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 button::-webkit-input-placeholder, .mdp-weare-contact-form-1 input[type=submit]::-webkit-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 button::-moz-placeholder, .mdp-weare-contact-form-1 input[type=submit]::-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 button:-moz-placeholder, .mdp-weare-contact-form-1 input[type=submit]:-moz-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 button:-ms-input-placeholder, .mdp-weare-contact-form-1 input[type=submit]:-ms-input-placeholder {
+    color: #aaa;
+}
+.mdp-weare-contact-form-1 button:hover, .mdp-weare-contact-form-1 input[type=submit]:hover {
+    background-color: white;
+    color: #2a2a2a;
+}
+.mdp-weare-contact-form-1 button::before, .mdp-weare-contact-form-1 input[type=submit]::before {
+    content: none;
+}
+.mdp-weare-contact-form-1 textarea {
+    height: 170px;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-title {
+    font-family: {{ settings.weare_font_header }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 39px;
+    color: #343434;
+    text-align: center;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-subtitle {
+    margin-bottom: 5px;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.133333px;
+    text-transform: uppercase;
+    color: #343434;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-button {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    color: #2a2a2a;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    font-weight: normal;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-button .mdp-text {
+    margin-right: 5px;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-button .mdp-icon {
+    font-size: 0;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-button .mdp-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-button::before {
+    content: "";
+    position: absolute;
+    transition: 0.3s all ease-in-out;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 0;
+    border-bottom: 1px solid #2a2a2a;
+    opacity: 0;
+    transform: translateY(5px);
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-button:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-row-full {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.mdp-weare-contact-form-1 > .mdp-header .mdp-row-full .mdp-row-left {
+    margin-right: 30px;
+}
+@media (max-width: 600px) {
+    .mdp-weare-contact-form-1 > .mdp-header .mdp-row-full {
+        display: block;
+    }
+    .mdp-weare-contact-form-1 > .mdp-header .mdp-row-full .mdp-row-left {
+        justify-content: center;
+        padding: 10px 10px 5px 10px;
+        margin-right: 0;
+    }
+    .mdp-weare-contact-form-1 > .mdp-header .mdp-row-full .mdp-row-right {
+        justify-content: center;
+        padding: 5px 10px 10px 10px;
+    }
+}
+.mdp-weare-contact-form-1 > .mdp-header {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+.mdp-weare-contact-form-1 .mdp-form {
+    max-width: 700px;
+    margin: auto;
+}
+.mdp-weare-contact-form-1 .mdp-form .mdp-success-message {
+    margin-bottom: 20px;
+    font-size: 12.792px;
+}
+.mdp-weare-contact-form-1 .mdp-form .mdp-fields > * {
+    margin-bottom: 20px;
+}
+.mdp-weare-contact-form-1 .mdp-form .mdp-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.mdp-weare-contact-form-1 .mdp-form .mdp-row > * {
+    margin: 0 10px;
+}
+@media (max-width: 500px) {
+    .mdp-weare-contact-form-1 .mdp-form .mdp-row {
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .mdp-weare-contact-form-1 .mdp-form .mdp-row > * {
+        margin: 0 0 20px 0;
+    }
+}

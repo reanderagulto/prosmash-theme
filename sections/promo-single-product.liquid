@@ -1,0 +1,162 @@
+{{"promo-single-product.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-promo-single-product"
+     data-variant="{{section.settings.variant_promotwo}}"
+     style="background-color: {{ section.settings.bg_color_promotwo }};
+             padding-top: {{ section.settings.padding_top_promotwo }}px;
+             padding-bottom: {{ section.settings.padding_bottom_promotwo }}px;
+             margin-top: {{ section.settings.margin_top_promotwo }}px;
+             margin-bottom: {{ section.settings.margin_bottom_promotwo }}px;">
+    <div class="{% if section.settings.boxed == true %}mdp-container{% else %}mdp-boxed{% endif %}">
+      <div class="mdp-data">
+        <div class="mdp-footer">
+            <div class="mdp-grid" data-columns="2" data-gap="30">
+
+              <div class="mdp-weare-product-card mdp-weare-vertical-position">
+                  <img src="{{section.settings.big_image | img_url : section.settings.image_size_promotwo}}"
+                       class="mdp-big-img-product" alt="">
+              </div>
+
+              <div class="mdp-weare-product-card mdp-product-stretch">
+
+                <div class="mdp-box-info">
+                  <h3 class="mdp-name-product">
+                    <span>{{ section.settings.first_word_heading }}</span> {{section.settings.title_promotwo}}
+                  </h3>
+                  <div class="mdp-content">{{ section.settings.content }}</div>
+                  <div class="mdp-media mdp-grid" data-columns="3" data-gap="10">
+                    <div class="mdp-img-box">
+                      <img src="{{section.settings.min_image_1 | img_url : section.settings.image_size_promotwo}}" alt="">
+                    </div>
+
+                    <div class="mdp-img-box">
+                      <img src="{{section.settings.min_image_2 | img_url : section.settings.image_size_promotwo}}" alt="">
+                    </div>
+
+                    <div class="mdp-img-box">
+                      <img src="{{section.settings.min_image_3 | img_url : section.settings.image_size_promotwo}}" alt="">
+                    </div>
+                  </div>
+
+                  <div class="mdpinfo">
+                    <p class="mdp-price"><span>{{ section.settings.name_product }}</span> <span>{{cart.currency.symbol}}{{ section.settings.price_product }}</span></p>
+                    <a href="{{section.settings.btn_link}}"
+                       style="color: {{ section.settings.button_text_color }}"
+                       class="mdp-btn-mpore">{{section.settings.btn_text}}</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promo single product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "first_word_heading",
+      "label": "First word heading"
+    },
+    {
+      "type": "text",
+      "id": "title_promotwo",
+      "label": "Heading",
+      "default": "Product promo"
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Boxed",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "big_image",
+      "label": "Big product image"
+    },
+    {
+      "type": "text",
+      "id": "image_size_promotwo",
+      "label": "Image size",
+      "default": "600x600_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "html",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "min_image_1",
+      "label": "Min product image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "min_image_2",
+      "label": "Min product image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "min_image_3",
+      "label": "Min product image 3"
+    },
+    {
+      "type": "text",
+      "id": "name_product",
+      "label": "Name product"
+    },
+    {
+      "type": "text",
+      "id": "price_product",
+      "label": "Price product"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "padding_top_promotwo",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom_promotwo",
+      "label": "Padding bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_top_promotwo",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom_promotwo",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [{
+    "name": "Promo single product",
+    "category": "SectionHub: weare"
+  }]
+}
+{% endschema %}

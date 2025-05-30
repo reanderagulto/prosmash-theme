@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "main": {
+      "type": "mdp-weare-cart-1",
+      "settings": {
+        "cart_notes": true,
+        "estimate_shipping": true,
+        "discount_code": true
+      }
+    },
+    "16438060305a4d21f2": {
+      "type": "mdp-weare-hero-2-1",
+      "settings": {
+        "title_herotwo": "Get Coupon SALE WEEK 64%",
+        "subtitle_herotwo": "",
+        "heading_margin_left_herotwo": "0",
+        "heading_color_herotwo": "",
+        "background_size_herotwo": "auto",
+        "background_image_herotwo": "#ffe8e8",
+        "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor<\/p>",
+        "image_size_herotwo": "2000x500_crop_center",
+        "button_string_herotwo": "Start shopping",
+        "link_herotwo": "",
+        "inverted_herotwo": false,
+        "backed_herotwo": false,
+        "subscribe_herotwo": false,
+        "variant_herotwo": "left_text",
+        "padding_top_herotwo": "30",
+        "padding_bottom_herotwo": "30",
+        "margin_top_herotwo": "65",
+        "margin_bottom_herotwo": "65"
+      }
+    },
+    "16438064137c26867b": {
+      "type": "mdp-weare-icon-list-2",
+      "blocks": {
+        "d1950be4-8a32-47ff-b6a0-39144aa0d0a3": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-shipping-fast",
+            "content": "<p><a href=\"#\" title=\"#\">Free Shipping<\/a>. All orders of $49 or more of eligible items across any product category qualify.<\/p>"
+          }
+        },
+        "b7822120-3c33-4772-bffe-471e7d0e01c3": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-money-check-alt",
+            "content": "<p><a href=\"#\" title=\"#\">Payment Methods<\/a>. Credit Card: Visa, MasterCard, Maestro, American Express.<\/p>"
+          }
+        },
+        "09a945fa-e3eb-4287-937e-e65144864153": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-history",
+            "content": "<p><a href=\"#\" title=\"#\">Returns & Refunds<\/a>. You can return any item purchased on SectionHub within 20 days of the delivery date.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "d1950be4-8a32-47ff-b6a0-39144aa0d0a3",
+        "b7822120-3c33-4772-bffe-471e7d0e01c3",
+        "09a945fa-e3eb-4287-937e-e65144864153"
+      ],
+      "settings": {
+        "col_per_row": 3,
+        "gap": "30",
+        "margin_top": "",
+        "margin_bottom": "60"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16438060305a4d21f2",
+    "16438064137c26867b"
+  ]
+}

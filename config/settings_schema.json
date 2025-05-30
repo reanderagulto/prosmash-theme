@@ -1,0 +1,294 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Weäre",
+    "theme_author": "Merkulove",
+    "theme_version": "1.0.3",
+    "theme_documentation_url": "https:\/\/docs.merkulov.design\/category\/shopify\/weare",
+    "theme_support_url": "https:\/\/docs.merkulov.design"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name":"Logo",
+    "settings": [
+      {
+        "type": "range",
+        "id": "weare_logo_font_size",
+        "min": 12,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default":24
+      },
+      {
+        "type": "range",
+        "id": "weare_logo_letter_spacing",
+        "label": "Letter spacing",
+        "min": 0,
+        "max": 10,
+        "step": 0.1,
+        "unit": "px",
+        "default": 0.2
+      },
+      {
+        "type": "select",
+        "id": "weare_logo_transform",
+        "label": "Text transform",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          },
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          },
+          {
+            "value": "capitalize",
+            "label": "Capitalize"
+          }
+        ],
+        "default": "lowercase"
+      },
+      {
+        "type": "select",
+        "id": "weare_logo_font_weight",
+        "label": "Font weight",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin"
+          },
+          {
+            "value": "200",
+            "label": "Extra Light"
+          },
+          {
+            "value": "300",
+            "label": "Light"
+          },
+          {
+            "value": "400",
+            "label": "Normal"
+          },
+          {
+            "value": "500",
+            "label": "Medium"
+          },
+          {
+            "value": "600",
+            "label": "Semi Bold"
+          },
+          {
+            "value": "700",
+            "label": "Bold"
+          },
+          {
+            "value": "800",
+            "label": "Extra Bold"
+          },
+          {
+            "value": "900",
+            "label": "Black"
+          }
+        ],
+        "default": "700"
+      },
+      {
+        "type": "color",
+        "id": "weare_logo_color",
+        "label":"Color",
+        "default":"#343434"
+      }
+    ]
+  },
+  {
+    "name": "Top menu",
+    "settings": [
+      {
+        "type": "color",
+        "id": "menu_color",
+        "label": "Color",
+        "default": "#343434"
+      },
+      {
+        "type": "color",
+        "id": "menu_activ_color",
+        "label": "Active and hover color",
+        "default": "#E9384F"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "select",
+        "id": "weare_font_header",
+        "label": "Google fonts",
+        "options": [
+          {
+            "value": "Epilogue",
+            "label": "Epilogue"
+          },
+          {
+            "value": "Goldman",
+            "label": "Goldman"
+          },
+          {
+            "value": "Noto Sans",
+            "label": "Noto Sans"
+          },
+          {
+            "value": "Work Sans",
+            "label": "Work Sans"
+          }
+        ],
+        "default": "Epilogue"
+      },
+      {
+        "type": "color",
+        "id": "mdp_header_color",
+        "label": "Color",
+        "default": "#343434"
+      },
+      {
+        "type": "range",
+        "id": "mdp_header_font_size",
+        "label": "Font size",
+        "min": 24,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "default": 38
+      },
+      {
+        "type": "range",
+        "id": "mdp_header_line_height",
+        "label": "Line height",
+        "min": 0,
+        "max": 10,
+        "step": 0.1,
+        "unit": "em",
+        "default": 1.2
+      }
+    ]
+  },
+  {
+    "name": "Body text",
+    "settings": [
+      {
+        "type": "select",
+        "id": "weare_font_text",
+        "label": "Google fonts",
+        "options": [
+          {
+            "value": "'Open Sans', sans-serif",
+            "label": "Open Sans"
+          },
+          {
+            "value": "Nunito",
+            "label": "Nunito"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto"
+          },
+          {
+            "value": "Poppins",
+            "label": "Poppins"
+          }
+        ],
+        "default": "'Open Sans', sans-serif"
+      },
+      {
+        "type": "color",
+        "id": "mdp_paragraph_color",
+        "label": "Color",
+        "default": "#000"
+      },
+      {
+        "type": "range",
+        "id": "mdp_paragraph_font_size",
+        "label": "Font size",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "mdp_paragraph_line_height",
+        "label": "Line height",
+        "min": 1,
+        "max": 5,
+        "step": 0.1,
+        "unit": "em",
+        "default": 1.6
+      }
+    ]
+  },
+  {
+    "name": "Link color",
+    "settings": [
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link color",
+        "default": "#343434"
+      },
+      {
+        "type": "color",
+        "id": "link_hover_color",
+        "label": "Link hover color",
+        "default": "#E9384F"
+      }
+    ]
+  },
+  {
+    "name": "Button color",
+    "settings": [
+      {
+        "type": "color",
+        "id": "btn_color",
+        "label": "Button text color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color_background",
+        "id": "btn_background",
+        "label": "Background color",
+        "default": "#343434"
+      },
+      {
+        "type": "color",
+        "id": "btn_hover_color",
+        "label": "Hover text button color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color_background",
+        "id": "btn_hover_background",
+        "label": "Hover button background",
+        "default": "#E9384F"
+      }
+    ]
+
+  }
+]

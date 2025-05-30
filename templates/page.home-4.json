@@ -1,0 +1,399 @@
+{
+  "name": "Home 4",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "slideshow": {
+      "type": "mdp-weare-slideshow-home-4",
+      "settings": {
+        "boxed": false,
+        "height": "1050",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home-4-slide1.jpg",
+            "title": "How to create the ultimate capsule <br>wardrobe. New vision"
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home-4-slide2.jpg",
+            "title": "Essentials, go-tos, closet fail-safes – <br>whatever you call them"
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2"
+      ]
+    },
+    "promo": {
+      "type": "mdp-weare-promo-home-2",
+      "settings":{
+        "image": "shopify://shop_images/left.png",
+        "image_size": "600x600_crop_center",
+        "header_left": "Unisex Backpacks",
+        "paragraph_left": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "image_second": "shopify://shop_images/right.png",
+        "image_size_second": "600x600_crop_center",
+        "header_right": "Trendy Sneackers",
+        "paragraph_right": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "margin_top": "80",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-lists": {
+      "type":"mdp-weare-collection-lists",
+      "settings": {
+        "number_of_products": 4,
+        "image_size": "100x100_crop_center",
+        "bg_image": "",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "new-in"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "woman"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "man"
+          }
+        },
+        "collection-title": {
+          "type": "title",
+          "settings": {
+            "title": "Featured Collection/ <br>Become Trendy",
+            "subtitle": "Nulla facilisi. Sed commodo libero turpis, id <br> aliquam ante consectetur vel",
+            "image_collection": "shopify://shop_images/banner.png",
+            "button_string": "View More",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-title"
+      ]
+    },
+    "call-action": {
+      "type":"mdp-weare-call-to-action-1",
+      "settings": {
+        "title": "Final Clearance",
+        "text_color": "#343434",
+        "font_size_heading": 48,
+        "line_height_heading": 50,
+        "image": "shopify://shop_images/big_banner.jpg",
+        "parallax": false,
+        "bg_color_boxtext": "rgba(255, 255, 255, 0.654373)",
+        "parallax_speed": 0.3,
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "boxed": true,
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "lookbook": {
+      "type": "mdp-weare-lookbook-1",
+      "settings": {
+        "title": "",
+        "col_per_row": 2,
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "name": "Image #1",
+            "image": "shopify://shop_images/img1.png",
+            "lookbook_image_size": "475x353_crop_center",
+            "image_size": "300x300_crop_center"
+          }
+        },
+        "image-2": {
+          "type": "image",
+          "settings": {
+            "name": "Image #2",
+            "image": "shopify://shop_images/img2.png",
+            "lookbook_image_size": "535x671_crop_center",
+            "image_size": "300x300_crop_center"
+          }
+        }
+      },
+      "block_order": [
+        "image-1",
+        "image-2"
+      ]
+    },
+    "logos": {
+      "type":"mdp-weare-logos-1",
+      "settings":{
+        "image_size": "200x90",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo4.png"
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo2.png"
+          }
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo3.png"
+          }
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo5.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4"
+      ]
+    },
+    "collection-carousel": {
+      "type": "mdp-weare-collection-carousel-home-3",
+      "settings": {
+        "title": "Another selection of classic silhouettes",
+        "selected_collection": "classic-silhouettes",
+        "print_price": true,
+        "number_of_products": 10,
+        "slides_per_view": 4,
+        "slides_per_view_md": 2,
+        "slides_per_view_sm": 2,
+        "slides_per_view_xs": 1,
+        "image_size": "406x440_crop_center",
+        "slider": false,
+        "view_all_string": "",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "footer-1":{
+      "type": "mdp-weare-footer-1",
+      "settings":{
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border":true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "slideshow",
+    "promo",
+    "collection-lists",
+    "call-action",
+    "lookbook",
+    "logos",
+    "collection-carousel",
+    "footer-1"
+  ]
+}

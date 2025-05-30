@@ -1,0 +1,251 @@
+.mdp-comparison-table-1 {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 0;
+}
+.mdp-comparison-table-1 > .mdp-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+    z-index: -1;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-title {
+    font-family: {{ settings.weare_font_header }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 39px;
+    color: #343434;
+    text-align: center;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-subtitle {
+    margin-bottom: 5px;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.133333px;
+    text-transform: uppercase;
+    color: #343434;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-button {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    color: #2a2a2a;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    font-weight: normal;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-button .mdp-text {
+    margin-right: 5px;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-button .mdp-icon {
+    font-size: 0;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-button .mdp-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-button::before {
+    content: "";
+    position: absolute;
+    transition: 0.3s all ease-in-out;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 0;
+    border-bottom: 1px solid #2a2a2a;
+    opacity: 0;
+    transform: translateY(5px);
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-button:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-row-full {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-row-full .mdp-row-left {
+    margin-right: 30px;
+}
+@media (max-width: 600px) {
+    .mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-row-full {
+        display: block;
+    }
+    .mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-row-full .mdp-row-left {
+        justify-content: center;
+        padding: 10px 10px 5px 10px;
+        margin-right: 0;
+    }
+    .mdp-comparison-table-1 .mdp-container > .mdp-header .mdp-row-full .mdp-row-right {
+        justify-content: center;
+        padding: 5px 10px 10px 10px;
+    }
+}
+.mdp-comparison-table-1 .mdp-container > .mdp-header {
+    margin-bottom: 30px;
+}
+.mdp-comparison-table-1 table thead th {
+    text-transform: uppercase;
+}
+.mdp-comparison-table-1 table thead tr th, .mdp-comparison-table-1 table thead tr td, .mdp-comparison-table-1 table tbody tr th, .mdp-comparison-table-1 table tbody tr td, .mdp-comparison-table-1 table tfoot tr th, .mdp-comparison-table-1 table tfoot tr td {
+    padding: 17px 0;
+    border: 1px solid #DCDCDC;
+}
+.mdp-comparison-table-1 table thead tr th, .mdp-comparison-table-1 table tbody tr th, .mdp-comparison-table-1 table tfoot tr th {
+    width: 20%;
+}
+.mdp-comparison-table-1 table thead tr .mdp-product, .mdp-comparison-table-1 table tbody tr .mdp-product, .mdp-comparison-table-1 table tfoot tr .mdp-product {
+    width: 40%;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide, .mdp-comparison-table-1 table tbody tr .mdp-small-hide, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide {
+    text-align: center;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-original-line-price, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-original-line-price, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-original-line-price {
+    text-decoration: none;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    margin: 0 auto;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper input, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper input, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper input {
+    width: 60px;
+    height: 48px;
+    border: 1px solid #DCDCDC;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #343434;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper input::-webkit-outer-spin-button,
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper input::-webkit-inner-spin-button, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper input::-webkit-outer-spin-button,
+.mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper input::-webkit-inner-spin-button, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper input::-webkit-outer-spin-button,
+.mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper input[type=number], .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper input[type=number], .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper input[type=number] {
+    -moz-appearance: textfield;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus, .mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: 1px solid #DCDCDC;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+.mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus span .mdp-quantity-icon-plus, .mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus span .mdp-quantity-icon-minus, .mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus span .mdp-quantity-icon-plus, .mdp-comparison-table-1 table thead tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus span .mdp-quantity-icon-minus, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus span .mdp-quantity-icon-plus, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus span .mdp-quantity-icon-minus, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus span .mdp-quantity-icon-plus, .mdp-comparison-table-1 table tbody tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus span .mdp-quantity-icon-minus, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus span .mdp-quantity-icon-plus, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-minus span .mdp-quantity-icon-minus, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus span .mdp-quantity-icon-plus, .mdp-comparison-table-1 table tfoot tr .mdp-small-hide .mdp-quantity-wrapper .mdp-quantity-plus span .mdp-quantity-icon-minus {
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #343434;
+    line-height: 50px;
+}
+.mdp-comparison-table-1 table thead tr .mdp-cart-price-wrapper,
+.mdp-comparison-table-1 table thead tr .mdp-small-hide span .sh-original-line-price, .mdp-comparison-table-1 table tbody tr .mdp-cart-price-wrapper,
+.mdp-comparison-table-1 table tbody tr .mdp-small-hide span .sh-original-line-price, .mdp-comparison-table-1 table tfoot tr .mdp-cart-price-wrapper,
+.mdp-comparison-table-1 table tfoot tr .mdp-small-hide span .sh-original-line-price {
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #343434;
+}
+.mdp-comparison-table-1 table thead tr th, .mdp-comparison-table-1 table tbody tr th, .mdp-comparison-table-1 table tfoot tr th {
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.327273px;
+    text-transform: uppercase;
+    color: #7B7B7B;
+    text-align: center;
+    background: #F9F9F9;
+}
+.mdp-comparison-table-1 table thead tr .mdp-cart-image-wrapper, .mdp-comparison-table-1 table tbody tr .mdp-cart-image-wrapper, .mdp-comparison-table-1 table tfoot tr .mdp-cart-image-wrapper {
+    padding: 35px 65px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: left;
+    border-right: none;
+    border-top: none;
+}
+.mdp-comparison-table-1 table thead tr .mdp-cart-image-wrapper .mdp-img-product, .mdp-comparison-table-1 table tbody tr .mdp-cart-image-wrapper .mdp-img-product, .mdp-comparison-table-1 table tfoot tr .mdp-cart-image-wrapper .mdp-img-product {
+    width: fit-content;
+}
+.mdp-comparison-table-1 table thead tr .mdp-cart-image-wrapper .mdp-produst-name, .mdp-comparison-table-1 table tbody tr .mdp-cart-image-wrapper .mdp-produst-name, .mdp-comparison-table-1 table tfoot tr .mdp-cart-image-wrapper .mdp-produst-name {
+    width: calc(50% - 25px);
+    margin-left: 25px;
+}
+.mdp-comparison-table-1 table thead tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-list-view-item-title .mdp-cart-product-title, .mdp-comparison-table-1 table tbody tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-list-view-item-title .mdp-cart-product-title, .mdp-comparison-table-1 table tfoot tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-list-view-item-title .mdp-cart-product-title {
+    font-family: {{ settings.weare_font_header }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+    color: #343434;
+    text-transform: capitalize;
+}
+.mdp-comparison-table-1 table thead tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-cart-remove, .mdp-comparison-table-1 table tbody tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-cart-remove, .mdp-comparison-table-1 table tfoot tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-cart-remove {
+    text-align: left;
+}
+.mdp-comparison-table-1 table thead tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-cart-remove a, .mdp-comparison-table-1 table tbody tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-cart-remove a, .mdp-comparison-table-1 table tfoot tr .mdp-cart-image-wrapper .mdp-produst-name .mdp-cart-remove a {
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.327273px;
+    text-transform: uppercase;
+    color: #E9384F;
+    margin-top: 15px;
+}
+.mdp-comparison-table-1 table {
+    table-layout: fixed;
+}
+.mdp-comparison-table-1 table thead .mdp-data {
+    text-align: center;
+}
+.mdp-comparison-table-1 table thead .mdp-data .mdp-header {
+    margin-bottom: 10px;
+}
+.mdp-comparison-table-1 table thead .mdp-media .mdp-image {
+    max-width: 100%;
+    margin: auto;
+}
+.mdp-comparison-table-1 .mdp-products {
+    display: none;
+}

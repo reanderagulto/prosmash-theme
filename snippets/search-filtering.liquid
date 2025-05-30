@@ -1,0 +1,170 @@
+<div style="display: none;">
+  <svg id="mdp-icon-165" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M4.741 21.654a.601.601 0 0 1-.186-.439v-15h-1.25a.598.598 0 0 1-.439-.186.597.597 0 0 1-.186-.439.6.6 0 0 1 .186-.439.604.604 0 0 1 .439-.186h5v-2.5a.6.6 0 0 1 .186-.439.598.598 0 0 1 .439-.186h6.25c.169 0 .315.063.439.186a.601.601 0 0 1 .186.439v2.5h5c.169 0 .315.063.439.186a.601.601 0 0 1 .186.439c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186h-1.25v15a.6.6 0 0 1-.186.439.601.601 0 0 1-.439.186H5.18a.598.598 0 0 1-.439-.186zM18.305 6.215h-12.5V20.59h12.5V6.215zM9.37 9.525a.601.601 0 0 1 .186.439v6.875c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186.598.598 0 0 1-.439-.186.598.598 0 0 1-.186-.439V9.965a.6.6 0 0 1 .186-.439.594.594 0 0 1 .438-.186c.169 0 .316.062.44.185zm.185-4.56h5V3.09h-5v1.875zm2.94 4.56a.601.601 0 0 1 .186.439v6.875c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186.598.598 0 0 1-.439-.186.598.598 0 0 1-.186-.439V9.965a.6.6 0 0 1 .186-.439.604.604 0 0 1 .439-.186c.168 0 .315.062.439.185zm2.246 0a.604.604 0 0 1 .439-.186c.169 0 .315.063.439.186a.601.601 0 0 1 .186.439v6.875c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186.598.598 0 0 1-.439-.186.598.598 0 0 1-.186-.439V9.965c0-.169.062-.316.186-.44z"/></svg>
+  <svg id="mdp-icon-190" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M7.718 15.966a.65.65 0 0 1-.176-.449c0-.169.059-.318.176-.449l3.32-3.301-3.32-3.301a.65.65 0 0 1-.176-.449c0-.169.059-.318.176-.449a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176l3.301 3.32 3.301-3.32a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176.117.131.176.28.176.449a.65.65 0 0 1-.176.449l-3.32 3.301 3.32 3.301c.117.131.176.28.176.449a.65.65 0 0 1-.176.449.846.846 0 0 1-.215.127.596.596 0 0 1-.468 0 .846.846 0 0 1-.215-.127l-3.301-3.32-3.301 3.32a.846.846 0 0 1-.215.127.596.596 0 0 1-.468 0 .813.813 0 0 1-.215-.127z"/></svg>
+  <svg id="mdp-icon-146" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M9.703 15.489l-2.5-2.5a.652.652 0 0 1-.176-.449c0-.169.059-.319.176-.449.13-.117.28-.176.449-.176s.319.059.449.176l2.051 2.07 5.801-5.82c.13-.117.28-.176.449-.176s.319.059.449.176c.117.13.176.28.176.449a.652.652 0 0 1-.176.449l-6.25 6.25a.877.877 0 0 1-.215.127.596.596 0 0 1-.468 0 .93.93 0 0 1-.215-.127z"/></svg>
+  <svg id="mdp-icon-229" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M11.783 14.088l-3.75-3.75a.652.652 0 0 1-.176-.449c0-.169.059-.319.176-.449a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176l3.301 3.32 3.301-3.32a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176.117.13.176.28.176.449a.652.652 0 0 1-.176.449l-3.75 3.75a.877.877 0 0 1-.215.127.596.596 0 0 1-.468 0 .841.841 0 0 1-.215-.127z"/></svg>
+</div>
+<script>
+    if (!('mdp' in window)) {
+        window.mdp = {};
+    }
+    window.mdp.money_format = '{{shop.money_format}}';
+</script>
+
+<form class="mdp-collection-filtering mdp-sticky-sidebar">
+
+  {%- assign current_filters = false -%}
+  {%- for filter in search.filters -%}
+  {%- for value in filter.active_values -%}
+  	{%- assign current_filters = true -%}
+  {%- endfor -%}
+  {%- endfor -%}
+  {% if current_filters %}
+    <div class="mdp-widget">
+      <div class="mdp-widget-head mdp-open">
+        <div class="mdp-title">
+          {{ 'general.filtering.current_filters' | t }}
+          <span class="mdp-widget-arrow"><svg><use xlink:href="#mdp-icon-229"></use></svg></span>
+        </div>
+      </div>
+      <div class="mdp-widget-accordion">
+        <div>
+          <div class="mdp-collection-current-tags">
+            <div class="mdp-collection-current-tags-items">
+              {%- for filter in search.filters -%}
+                {%- for value in filter.active_values -%}
+                <a href="{{ value.url_to_remove }}" class="" data-filter-type>        
+                  <span>{{ value.label | escape }}</span> 
+                  <span><svg><use xlink:href="#mdp-icon-190"></use></svg></span>
+                </a>
+                {%- endfor -%}
+                {% if filter.type == "price_range" %}
+                  {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                  <a href="{{ filter.url_to_remove }}" class="" data-filter-type data-value>       
+                    <span>{%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}</span> 
+                    <span><svg><use xlink:href="#mdp-icon-190"></use></svg></span>
+                  </a>
+                  {%- endif -%}
+                {% endif %}
+              {%- endfor -%}
+            </div>
+            <a class="mdp-collection-current-tags-clear" href="{{ routes.search_url }}?q={{ search.terms }}">
+              <span class=""><svg><use xlink:href="#mdp-icon-165"></use></svg></span>
+              <span class="">{{ 'general.filtering.clear_all_tags' | t }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>    
+  {% endif %}
+  
+  {%- for filter in search.filters -%}
+    {%- assign open = false -%}
+    {%- for value in filter.active_values -%}
+      {%- assign open = true -%}
+    {%- endfor -%}  
+  	{% if filter.type == 'price_range' %}
+	  {%- assign open = true -%}
+  	{% endif %}
+    <div class="mdp-widget">
+      <div class="mdp-widget-head {% if open %}mdp-open{% endif %}">
+        <div class="mdp-title">
+          {{ filter.label | escape }}
+          <span class="mdp-widget-arrow"><svg><use xlink:href="#mdp-icon-229"></use></svg></span>
+        </div>
+      </div>
+      <div class="mdp-widget-accordion">
+        <div>  
+          {% case filter.type %}
+              {% when 'list' %}  
+                <div class="mdp-collection-filters" >
+                {%- for value in filter.values -%}
+                  <label class="mdp-checkbox">
+                    <input type="checkbox" class="" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %}>
+                    <span class="">
+                      <span class=""><svg><use xlink:href="#mdp-icon-146"></use></svg></span>
+                    </span>
+                    <span>{{ value.label | escape }} ({{ value.count }})</span>
+                  </label>
+                {%- endfor -%}
+                </div>
+              {% when 'price_range' %}  
+                        {% liquid
+                          assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                          assign uses_comma_decimals = false
+                          if currencies_using_comma_decimals contains cart.currency.iso_code
+                            assign uses_comma_decimals = true
+                          endif
+                        %} 
+                <div class="mdp-collection-filter-by-price" >
+                  <input type="hidden" class="mdp-range-of-price"
+                         data-min="0" 
+                         {%- if uses_comma_decimals -%}
+                            data-max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                         {%- else -%}
+                            data-max="{{ filter.range_max | money_without_currency | round }}"
+                         {% endif %}
+                         data-step="{{ section.settings.price_filter_step }}"                         
+                         
+                         {%- if filter.min_value.value -%}
+                         {%- if uses_comma_decimals -%}
+                            data-from="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                         {%- else -%}
+                            data-from="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                         {% endif %}
+                         {%- endif -%}
+                         
+                         {%- if filter.max_value.value -%}
+                         {%- if uses_comma_decimals -%}
+                            data-to="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                         {%- else -%}
+                            data-to="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                         {% endif %}
+                         {%- endif -%}                         
+                         >
+                  
+                  <input class="mdp-from" name="{{ filter.min_value.param_name }}"
+                         {%- if filter.min_value.value -%}
+                         {%- if uses_comma_decimals -%}
+                            value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                         {%- else -%}
+                            value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                         {% endif %}
+                         {%- endif -%}
+                         type="hidden"
+                         placeholder="0"
+                         min="0"
+                         {%- if uses_comma_decimals -%}
+                            max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                         {%- else -%}
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                         {% endif %}
+                         >
+                  <input class="mdp-to" name="{{ filter.max_value.param_name }}"
+                         {%- if filter.max_value.value -%}
+                         {%- if uses_comma_decimals -%}
+                            value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                         {%- else -%}
+                            value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                         {% endif %}
+                         {%- endif -%}
+                         type="hidden"
+                         min="0"
+                         {%- if uses_comma_decimals -%}
+                            placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                            max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                         {%- else -%}
+                            placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                         {% endif %}
+                         >  
+                </div>
+          {% endcase %}
+        </div>
+      </div>
+    </div>          
+  {%- endfor -%}
+  
+  <input type="hidden" name="q" value="{{ search.terms }}">
+  
+</form>

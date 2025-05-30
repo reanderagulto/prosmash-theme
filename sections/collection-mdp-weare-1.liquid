@@ -1,0 +1,251 @@
+{{ "mdp-weare-collection-template.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-container mdp-weare-collection-template">
+
+    <div class="mdp-product-content">
+
+        <div class="mdp-collection-header mdp-grid"
+             data-columns="1"
+             data-gap="30">
+            <div class="mdp-col">
+                <div class="mdp-sorting">
+                    {% if collection %}
+                        {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+                        <span>{{ section.settings.sort_by_string }}</span>
+                        <select name="sort_by" class="mdp-sort-by" data-default-sortby="{{ collection.default_sort_by }}">
+                            {% for option in collection.sort_options %}
+                                <option value="{{ option.value }}"
+                                        {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+                </div>
+                <div class="mdp-filters">
+                    <button class="mdp-filter">{{ section.settings.filter_by_string }}</button>
+                </div>
+                <div class="mdp-count">
+                    {% if collection %}
+                        <span>{{ collection.products_count }} {{ section.settings.products_string }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% paginate collection.products by section.settings.number_of_products %}
+
+            <div id="mdp-weare-collection-grid-{{ section.id }}"
+                 class="mdp-grid"
+                 style="margin-bottom: 15px;"
+                 data-columns="{{ section.settings.col_per_row }}"
+                 data-gap="30">
+                {% for product in collection.products %}
+                    {% render 'mdp-weare-product-card', product: product, price: true %}
+                {% endfor %}
+            </div>
+
+            {% render 'mdp-weare-pagination', paginate: paginate, price: true %}
+        {% endpaginate %}
+    </div>
+
+    {% if false %}
+        <div class="mdp-sidebar mdp-weare-collection-sidebar">
+            {% render 'collection-filtering' %}
+        </div>
+    {% endif %}
+
+</div>
+
+<script>
+    {% if request.design_mode == true %}
+    function designModeGrid() {
+        let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector("#mdp-weare-collection-grid-{{ section.id }}");
+        let data_{{ section.id | replace: "--", "" | replace: "-", "" }} = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-columns') || {};
+        let dataOptions = JSON.parse(data_{{ section.id | replace: "--", "" | replace: "-", "" }});
+
+        /** Calculate the height of the image depending on the length of the container */
+        function breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+            let perView = dataOptions;
+
+            if (width >= 769 && width <= 1024) {
+                perView = 3;
+            }
+
+            if (width >= 426 && width <= 768) {
+                perView = 2;
+            }
+
+            if (width >= 320 && width <= 425) {
+                perView = 1;
+            }
+
+            return perView;
+        }
+
+        function heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+            let winWidthPage = window.innerWidth;
+            let grid = document.getElementById("mdp-weare-collection-grid-{{ section.id }}");
+            let winWidth = grid.offsetWidth;
+            let perView = breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" | replace: "-", "" }}(winWidthPage);
+            let allGap = winWidthPage >= 376 ? perView * 15 : 0;
+            let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1025 ? 80 * 2 : 15 * 2;
+            let winWidthGap = winWidth - allGap - paddingSide;
+            let colSize = 100 / perView;
+            let height = (winWidthGap * colSize / 100) + {{ section.settings.images_form }};
+            let item = grid.querySelectorAll(".mdp-img-product");
+
+            for (let i = 0; i <= item.length - 1; i++) {
+                item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+            }
+        }
+
+        addEventListener("resize", (event) => {
+            heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+        });
+
+        heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+        /** End */
+    }
+
+    document.addEventListener("shopify:section:load", designModeGrid);
+    {% endif %}
+
+    let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector("#mdp-weare-collection-grid-{{ section.id }}");
+    let data_{{ section.id | replace: "--", "" | replace: "-", "" }} = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-columns') || {};
+    let dataOptions = JSON.parse(data_{{ section.id | replace: "--", "" | replace: "-", "" }});
+
+    /** Calculate the height of the image depending on the length of the container */
+    function breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+        let perView = dataOptions;
+
+        if (width >= 769 && width <= 1024) {
+            perView = 3;
+        }
+
+        if (width >= 426 && width <= 768) {
+            perView = 2;
+        }
+
+        if (width >= 320 && width <= 425) {
+            perView = 1;
+        }
+
+        return perView;
+    }
+
+    function heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+        let winWidthPage = window.innerWidth;
+        let grid = document.getElementById("mdp-weare-collection-grid-{{ section.id }}");
+        let winWidth = grid.offsetWidth;
+        let perView = breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" | replace: "-", "" }}(winWidthPage);
+        let allGap = winWidthPage >= 376 ? perView * 15 : 0;
+        let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1025 ? 80 * 2 : 15 * 2;
+        let winWidthGap = winWidth - allGap - paddingSide;
+        let colSize = 100 / perView;
+        let height = (winWidthGap * colSize / 100) + {{ section.settings.images_form }};
+        let item = grid.querySelectorAll(".mdp-img-product");
+
+        for (let i = 0; i <= item.length - 1; i++) {
+            item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+        }
+    }
+
+    addEventListener("resize", (event) => {
+        heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    });
+
+    heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    /** End */
+</script>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "number_of_products",
+      "label": "Number of products",
+      "default": 12,
+      "min": 2,
+      "max": 12,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "col_per_row",
+      "label": "Col per row",
+      "default": 4,
+      "min": 2,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "type": "text",
+      "id": "images_form",
+      "label": "Images form",
+      "info": "If the shape of the image does not suit you in terms of height, enter in the field the number of pixels by which the desired height will increase."
+    },
+    {
+      "type": "header",
+      "content": "Strings"
+    },
+    {
+      "type": "text",
+      "id": "sort_by_string",
+      "label": "'Sort by' string",
+      "default": "Sort by"
+    },
+    {
+      "type": "text",
+      "id": "filter_by_string",
+      "label": "'Filter by' string",
+      "default": "Filter by"
+    },
+    {
+      "type": "text",
+      "id": "all_products_string",
+      "label": "'All products' string",
+      "default": "All products"
+    },
+    {
+      "type": "text",
+      "id": "products_string",
+      "label": "'Products' string",
+      "default": "Products"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_string",
+      "label": "'Sold out' string",
+      "default": "Sold out"
+    },
+    {
+      "type": "text",
+      "id": "sale_string",
+      "label": "'Sale' string",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "new_string",
+      "label": "'New' string",
+      "default": "New"
+    },
+    {
+      "type": "text",
+      "id": "select_options_string",
+      "label": "Select options string",
+      "default": "Select options"
+    },
+    {
+      "type": "text",
+      "id": "add_cart_string",
+      "label": "'Add cart' string",
+      "default": "Add to cart"
+    }
+  ]
+}
+{% endschema %}

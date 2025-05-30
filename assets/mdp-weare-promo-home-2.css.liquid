@@ -1,0 +1,205 @@
+.mdp-weare-promo-home-2 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.mdp-weare-promo-home-2 .mdp-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media {
+    width: 50%;
+    position: relative;
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media:hover .mdp-content{
+    visibility: visible;
+    opacity: 1;
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media .mdp-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    inset: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    transition: visibility 0s, opacity 0.3s linear;
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media .mdp-content h3 {
+    font-family: '{{ settings.weare_font_header }}';
+    font-style: normal;
+    font-weight: 700;
+    font-size: {{ settings.mdp_header_font_size }}px;
+    line-height: {{ settings.mdp_header_line_height }}em;
+    letter-spacing: 0.4px;
+    color: {{ settings.mdp_header_color }};
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media .mdp-content h3:after {
+    content: "..";
+    display: block;
+    font-family: {{ settings.weare_font_header }};
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 0.5em;
+    text-align: left;
+    letter-spacing: 0.3px;
+    color: #343434;
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media .mdp-content p {
+    font-family: '{{ settings.weare_font_text }}';
+    font-style: normal;
+    font-weight: 600;
+    font-size: {{ settings.mdp_paragraph_font_size }}px;
+    line-height: {{ settings.mdp_paragraph_line_height }}em;
+    color: {{ settings.mdp_paragraph_color }};
+}
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media .mdp-content p a{
+    display: inline-block;
+    text-decoration: underline;
+    color: {{ settings.link_color }};
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media .mdp-content p a:hover{
+    color: {{ settings.link_hover_color }};
+    transition: color 300ms;
+}
+
+.mdp-weare-promo-home-2 .mdp-container > .mdp-grid .mdp-media .mdp-image {
+    width: 100%;
+    margin: auto;
+}
+
+@media (min-width: 1024px) and (max-width: 1100px) {
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content{
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content h3{
+        font-size: 34px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content{
+        padding-top: 25px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content h3 {
+        font-size: 25px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content p{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 645px) and (max-width: 768px) {
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content{
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        inset: 20px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content h3 {
+        font-size: 22px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content p{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 644px) {
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media{
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media:first-child{
+        margin-bottom: 15px
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content{
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        inset: 25px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content h3 {
+        font-size: 28px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content p{
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media{
+        width: 100% !important;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media:first-child{
+        margin-bottom: 15px
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content{
+        padding-top: 25px;
+        padding-left: 25px;
+        padding-right: 25px;
+        inset: 25px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content h3 {
+        font-size: 26px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content p{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media{
+        width: 100% !important;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media:first-child{
+        margin-bottom: 15px
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content{
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        inset: 15px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content h3 {
+        font-size: 24px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content p{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media{
+        width: 100% !important;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media:first-child{
+        margin-bottom: 15px
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content{
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        inset: 15px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content h3 {
+        font-size: 24px;
+    }
+    .mdp-weare-promo-home-2 .mdp-container>.mdp-grid .mdp-media .mdp-content p{
+        font-size: 14px;
+    }
+}

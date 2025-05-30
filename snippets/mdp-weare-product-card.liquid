@@ -1,0 +1,147 @@
+{% assign image_size = section.settings.image_size | default: '270x370_crop_center' %}
+
+{% assign slider = section.settings.slider | default: false %}
+
+{% assign vendor = section.settings.vendor | default: false %}
+
+{% assign redirect = section.settings.redirect | default: false %}
+
+{% assign sale_string = section.settings.sale_string %}
+{% unless sale_string %}
+  {% assign sale_string = 'products.product.on_sale' | t %}
+{% endunless %}
+
+{% assign new_string = section.settings.new_string %}
+{% unless new_string %}
+  {% assign new_string = 'products.product.new' | t %}
+{% endunless %}
+
+{% assign sold_out_string = section.settings.sold_out_string %}
+{% unless sold_out_string %}
+  {% assign sold_out_string = 'products.product.sold_out' | t %}
+{% endunless %}
+
+{% assign add_cart_string = section.settings.add_cart_string %}
+{% unless add_cart_string %}
+  {% assign add_cart_string = 'products.product.add_to_cart' | t %}
+{% endunless %}
+
+{% assign select_options_string = section.settings.select_options_string %}
+{% unless select_options_string %}
+  {% assign select_options_string = 'products.product.select_options' | t %}
+{% endunless %}
+
+{%- assign variant = product.selected_or_first_available_variant -%}
+<div class="mdp-weare-product-card">
+  <div class="mdp-media">
+    <a href="{{ product.url }}">
+      {% if slider %}
+      <div class="mdp-swiper-container" data-loop="true" data-pagination="false" data-allowTouchMove="false">
+        <div class="mdp-swiper-wrapper">
+          {% for image in product.images %}
+            {% if product.featured_image == image %}
+              <div class="mdp-swiper-slide">
+                <div class="mdp-placeholder"
+                     style="padding-top: calc({{ image_size | split: "_" | first | split: "x" | last }} / {{ image_size | split: "x" | first }} * 100%);">
+                  <img class="mdp-image lazyload" data-src="{{image | img_url : image_size}}" alt="{{image.alt}}" >
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+          {% for image in product.images %}
+          	{% if product.featured_image != image %}
+              <div class="mdp-swiper-slide">
+                <div class="mdp-placeholder"
+                     style="padding-top: calc({{ image_size | split: "_" | first | split: "x" | last }} / {{ image_size | split: "x" | first }} * 100%);">
+                  <img class="mdp-image lazyload"
+                       data-src="{{image | img_url : image_size}}" alt="{{image.alt}}" >
+                </div>
+              </div>
+          	{% endif %}
+          {% endfor %}
+        </div>
+    	<div class="mdp-swiper-button-prev"></div>
+    	<div class="mdp-swiper-button-next"></div>
+	</div>      
+      {% else %}      
+      <div class="mdp-box-product">
+        <img class="mdp-img-product"
+             src="{{product.featured_image | img_url : image_size }}"
+             alt="{{product.featured_image.alt}}" >
+      </div>
+      {% endif %}
+    </a>
+    {% if product.available %}
+      {% if product.compare_at_price > product.price %}
+          <div class="mdp-sale">
+            {{ sale_string }}      
+            {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%
+          </div>
+      {% else %}
+        {% if product.tags contains 'new' %}
+            <div class="mdp-new">
+              {{ new_string }}      
+            </div>
+        {% endif %}
+      {% endif %}
+    {% else %}
+        <div class="mdp-sold-out">
+            {{ sold_out_string }}
+        </div>
+    {% endif %}    
+  </div>  
+  
+  {% if price == true %}
+  <div class="mdp-data">
+    <div class="mdp-header">
+      <div class="mdp-extra">
+        {% if vendor %}
+        <span class="mdp-vendor">{{product.vendor}}</span>
+        {% endif %}
+      </div>
+      <div class="mdp-title">
+        <a href="{{product.url}}">{{product.title}}</a>       
+      </div>  
+      <div class="mdp-price-wrapper">
+        <span class="mdp-price">
+          {% if product.compare_at_price > product.price %}
+          <span class="mdp-price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+          {% endif %}            
+          <span class="mdp-price-varies">
+            {% if product.price_varies %}
+            	{{ product.price_min | money_without_trailing_zeros }} - {{ product.price_max | money_without_trailing_zeros }}
+            {% else %}
+            	{{ product.price | money_without_trailing_zeros }}
+            {% endif %}
+          </span>
+        </span>
+        {%- if variant.available and variant.unit_price_measurement -%}
+          <span class="mdp-unit-price">
+            {{ variant.unit_price | money }}/{%- if variant.unit_price_measurement.reference_value != 1 -%} {{- variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ variant.unit_price_measurement.reference_unit }}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>  
+    <div class="mdp-footer">
+      {% if product.variants.size > 1 %}
+      	<a href="{{product.url}}" class="mdp-select-options">{% if product.available %}{{ select_options_string }}{% else %}{{ sold_out_string }}{% endif %}</a>
+      {% else %}
+      	<div class="mdp-add-to-cart {% if redirect %}mdp-redirect-to-cart{% endif %} {% if product.available %}mdp-available{% endif %}" 
+             data-product-id="{{ variant.id }}" 
+             data-add-to-cart="{{ add_cart_string }}" 
+             data-sold-out="{{ sold_out_string }}">{% if product.available %}{{ add_cart_string }} <i class="fas fa-shopping-bag" style="margin-left: 10px; margin-bottom: 2px;"></i> {% else %}{{ sold_out_string }}{% endif %}</div>
+      {% endif %}      
+      <div class="mdp-add-to-wishlist" data-product-handle="{{ product.handle }}">
+        <span class="mdp-add">
+          <i class="far fa-heart"></i>
+        </span>
+        <span class="mdp-adding">
+        </span>
+        <span class="mdp-added">
+          <i class="fas fa-heart"></i>
+        </span>
+      </div>  
+    </div>  
+  </div>
+  {% endif %}
+</div>

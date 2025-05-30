@@ -1,0 +1,479 @@
+{
+  "name": "Home 2",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "slideshow": {
+      "type":"mdp-weare-slideshow-1",
+      "settings": {
+        "boxed": false,
+        "text_collection": "New In /",
+        "variant": "style_1",
+        "height": "860",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/SLIDE1.png",
+            "background_size": "contain",
+            "background_position_x": "bottom",
+            "background_position_y": "right",
+            "background_color": "#F9F5F2",
+            "image_product": "",
+            "image_pagination": "shopify://shop_images/SMALL1.png",
+            "mobile_image": "shopify://shop_images/moile-slider1-home-2.png",
+            "subtitle": "New Jewelry Collectoion <br>..",
+            "title": "The alchemy of <br>luxury crystals",
+            "content": "",
+            "button_string": "Shop Collection",
+            "link": "#",
+            "margin_left_text": "0",
+            "justify_content_text": "left"
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/SLIDE2.png",
+            "background_size": "contain",
+            "background_position_x": "bottom",
+            "background_position_y": "left",
+            "background_color": "#F9F5F2",
+            "image_product": "",
+            "image_pagination": "shopify://shop_images/SMALL21.png",
+            "mobile_image": "shopify://shop_images/moile-slider2-home-2.png",
+            "subtitle": "New Jewelry Collectoion <br>..",
+            "title": "Golden stories <br>about jewelry",
+            "content": "",
+            "button_string": "Shop Collection",
+            "link": "#",
+            "margin_left_text": "0",
+            "justify_content_text": "right"
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/SLIDE3.png",
+            "background_size": "contain",
+            "background_position_x": "bottom",
+            "background_position_y": "right",
+            "background_color": "#FFFAF6",
+            "image_product": "",
+            "image_pagination": "shopify://shop_images/SMALL3.png",
+            "mobile_image": "shopify://shop_images/moile-slider3-home-2.png",
+            "subtitle": "New Jewelry Collectoion <br>..",
+            "title": "Will never go <br>out of style",
+            "content": "",
+            "button_string": "Shop Collection",
+            "link": "#",
+            "margin_left_text": "0",
+            "justify_content_text": "left"
+          }
+        },
+        "slide-4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/SLIDE4.png",
+            "background_size": "contain",
+            "background_position_x": "bottom",
+            "background_position_y": "left",
+            "background_color": "#F9F5F2",
+            "image_product": "",
+            "image_pagination": "shopify://shop_images/SMALL4.png",
+            "mobile_image": "shopify://shop_images/moile-slider4-home-2.png",
+            "subtitle": "New Jewelry Collectoion <br>..",
+            "title": "If you love <br>unique designs",
+            "content": "",
+            "button_string": "Shop Collection",
+            "link": "#",
+            "margin_left_text": "0",
+            "justify_content_text": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3",
+        "slide-4"
+      ]
+    },
+    "call-action": {
+      "type":"mdp-weare-call-to-action-1",
+      "settings": {
+        "title": "The best gift for Valentine's",
+        "text_color": "",
+        "font_size_heading": 48,
+        "line_height_heading": 70,
+        "image": "shopify://shop_images/BiG-banner.png",
+        "parallax": false,
+        "bg_color_boxtext": "",
+        "parallax_speed": 0.3,
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "link": "/account/login",
+        "padding_top": "170",
+        "padding_bottom": "170",
+        "margin_top": "80",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-carousel": {
+      "type": "mdp-weare-collection-carousel",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "selected_collection": "earings",
+        "print_price": true,
+        "number_of_products": 10,
+        "slides_per_view": 3,
+        "slides_per_view_md": 2,
+        "slides_per_view_sm": 2,
+        "slides_per_view_xs": 1,
+        "images_form": "50",
+        "image_size": "340x415_crop_center",
+        "slider": false,
+        "boxed": true,
+        "background_container": "",
+        "font_size_header": 16,
+        "heading_alignment": "left",
+        "margin_top": "0",
+        "margin_bottom": "70"
+      }
+    },
+    "promo": {
+      "type": "mdp-weare-promo-home-2",
+      "settings": {
+        "image": "shopify://shop_images/bannerleft-2.png",
+        "image_size": "553x470_crop_center",
+        "header_left": "Unisex Backpacks",
+        "paragraph_left": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "image_second": "shopify://shop_images/promo-img-2-home-2.jpg",
+        "image_size_second": "553x470_crop_center",
+        "header_right": "Trendy Sneackers",
+        "paragraph_right": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-lists": {
+      "type": "mdp-weare-collection-lists",
+      "settings": {
+        "number_of_products": 5,
+        "image_size": "100x100_crop_center",
+        "bg_image": "",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "bracelets"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "earings"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "rings"
+          }
+        },
+        "collection-title": {
+          "type": "title",
+          "settings": {
+            "title": "Featured Collection/ <br>Become Trendy",
+            "subtitle": "Nulla facilisi. Sed commodo libero turpis, id <br>aliquam ante consectetur vel",
+            "image_collection": "shopify://shop_images/bannersmall_recentitems.png",
+            "button_string": "View More",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-title"
+      ]
+    },
+    "hero": {
+      "type": "mdp-weare-hero-2-1",
+      "settings": {
+        "title_herotwo": "Get Coupon SALE WEEK 64%",
+        "heading_margin_left_herotwo": "0",
+        "heading_color_herotwo": "#343434",
+        "text_color_herotwo":  "#343434",
+        "background_image_herotwo": "#FFE8E8",
+        "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor</p>",
+        "boxed": true,
+        "variant_herotwo": "center_text",
+        "padding_top_herotwo": "35",
+        "padding_bottom_herotwo": "35",
+        "margin_top_herotwo": "80",
+        "margin_bottom_herotwo": "80"
+      }
+    },
+    "icon-list": {
+      "type":"mdp-weare-icon-list-2",
+      "settings":{
+        "col_per_row": 3,
+        "gap": "30",
+        "color_content": "#343434",
+        "background": "#ffffff",
+        "margin_top": "0",
+        "margin_bottom": "80",
+        "padding_top": "0",
+        "padding_bottom": "0"
+      },
+      "blocks": {
+        "list-item-1":{
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-shipping-fast",
+            "content": "<p>Free Shipping. All orders of $49 or more of eligible items across any product category qualify.</p>"
+          }
+        },
+        "list-item-2":{
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-money-check-alt",
+            "content": "<p>Payment Methods. Credit Card: Visa, MasterCard, Maestro, American Express.</p>"
+          }
+        },
+        "list-item-3":{
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-history",
+            "content": "<p>Returns & Refunds. You can return any item purchased on SectionHub within 20 days of the delivery date.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list-item-1",
+        "list-item-2",
+        "list-item-3"
+      ]
+    },
+    "collection-row": {
+      "type": "mdp-weare-collection-row-shop",
+      "settings": {
+        "selected_collection": "styles-by-you",
+        "bg_color": "#F9F5F2",
+        "name_collection": "Styles by you/",
+        "button_string": "Shop Now",
+        "number_of_products": 4,
+        "col_per_row": 5,
+        "images_form": "50",
+        "image_size": "270x370_crop_center",
+        "slider": false,
+        "indents": "60",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "footer-1":{
+      "type":"mdp-weare-footer-1",
+      "settings":{
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border":true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "slideshow",
+    "call-action",
+    "collection-carousel",
+    "promo",
+    "collection-lists",
+    "hero",
+    "icon-list",
+    "collection-row",
+    "footer-1"
+  ]
+}

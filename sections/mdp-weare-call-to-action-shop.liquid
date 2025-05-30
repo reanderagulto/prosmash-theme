@@ -1,0 +1,151 @@
+{{ "mdp-weare-call-to-action-shop.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-call-to-action-shop {% if section.settings.boxed %}mdp-container{% endif %}"
+     data-variant="style_1">
+    <div class="jarallax mdp-grid"
+         data-columns="1"
+         data-gap="30"
+         data-speed="{{ section.settings.parallax_speed }}"
+         {% if section.settings.parallax and section.settings.image != blank %}data-jarallax{% endif %}
+         {% if section.settings.video_url != blank %}data-jarallax-video="{{ section.settings.video_url }}"{% endif %}
+         style="background-color: {{ section.settings.bg_color }};
+                 padding-top: {{ section.settings.padding_top }}px;
+                 padding-bottom: {{ section.settings.padding_bottom }}px;
+         {% if section.settings.margin_top != blank %}
+                 margin-top: {{ section.settings.margin_top }}px;
+         {% endif %}
+         {% if section.settings.margin_bottom != blank %}
+                 margin-bottom: {{ section.settings.margin_bottom }}px;{% endif %}">
+        {% if section.settings.image != blank %}
+            {% if section.settings.parallax %}
+                {% if section.settings.video_url == blank %}
+                    <img class="jarallax-img lazyload" data-src="{{ section.settings.image | img_url: '2000x' }}"
+                         alt="">
+                {% endif %}
+            {% else %}
+                <div class="mdp-overlay lazyload" data-bgset="{{ section.settings.image | img_url: '2000x' }}"></div>
+            {% endif %}
+        {% endif %}
+
+        <div class="mdp-data mdp-container">
+            <div class="mdp-call-box">
+                <div class="mdp-header">
+                    <h2 class="mdp-title">
+                        {{ section.settings.title }}
+                    </h2>
+                </div>
+                {% unless section.settings.content == blank %}
+                    <div class="mdp-content">
+                        {{ section.settings.content }}
+                    </div>
+                {% endunless %}
+
+                {% unless section.settings.link == blank %}
+                    <div class="mdp-footer">
+                        <a class="mdp-button"
+                           href="{{ section.settings.link }}">{{ section.settings.button_string }}</a>
+                    </div>
+                {% endunless %}
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Call to action Shop",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Call to action"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax",
+      "label": "Background parallax effect",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "parallax_speed",
+      "label": "Parallax speed",
+      "default": 0.2,
+      "min": -1,
+      "max": 2,
+      "step": 0.1
+    },
+    {
+      "id": "video_url",
+      "type": "video_url",
+      "label": "Video URL",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "button_string",
+      "label": "Button text",
+      "default": "Get more info"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Boxed",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "padding_top",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call to action Shop",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

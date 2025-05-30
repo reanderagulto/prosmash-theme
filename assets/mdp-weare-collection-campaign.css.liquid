@@ -1,0 +1,267 @@
+.mdp-weare-collection-campaign > .mdp-header .mdp-title{
+    font-family: {{ settings.weare_font_header }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 39px;
+    color: #343434;
+    text-align: center;
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-subtitle{
+    margin-bottom: 5px;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.133333px;
+    text-transform: uppercase;
+    color: #343434;
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-button{
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    color: #2a2a2a;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    font-weight: normal;
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-button .mdp-text{
+    margin-right: 5px;
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-button .mdp-icon{
+    font-size: 0;
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-button .mdp-icon svg{
+    width: 20px;
+    height: 20px;
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-button::before{
+    content: "";
+    position: absolute;
+    transition: 0.3s all ease-in-out;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 0;
+    border-bottom: 1px solid #2a2a2a;
+    opacity: 0;
+    transform: translateY(5px);
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-button:hover::before{
+    opacity: 1;
+    transform: translateY(0);
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-row-full{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.mdp-weare-collection-campaign > .mdp-header .mdp-row-full .mdp-row-left{
+    margin-right: 30px;
+}
+.mdp-weare-collection-campaign {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.mdp-weare-collection-campaign > .mdp-header {
+    margin-bottom: 40px;
+}
+.mdp-weare-collection-campaign .mdp-box-btn {
+    margin-top: 30px;
+    text-align: center;
+}
+.mdp-weare-collection-campaign .mdp-box-btn a {
+    display: inline-block;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #343434;
+    padding: 15px 75px;
+    border: 1px solid #7B7B7B;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-btn-product {
+    position: absolute;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: background-color 500ms;
+    height: initial;
+}
+
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media a{
+    height: 100%;
+}
+
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-btn-product span {
+    padding: 10px 40px;
+    border-radius: 2px;
+    background: #FFFFFF;
+    border-bottom: 3px solid {{ settings.btn_color }};
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: {{ settings.btn_color }};
+    transition: background-color 3ms, color 3ms, border 3ms;
+}
+
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-btn-product:hover span{
+    background-color: {{ settings.btn_hover_background }};
+    color: {{ settings.btn_hover_color }};
+    border-bottom: 3px solid {{ settings.btn_hover_background }};
+    transition: background-color 500ms, border-bottom 500ms;
+}
+
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection {
+    padding: 38px;
+    position: absolute;
+    z-index: 9;
+    left: 65px;
+    right: 65px;
+    bottom: 50px;
+    text-align: center;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+}
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-collection-name {
+    font-family: "{{ settings.weare_font_header }}";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: {{ settings.mdp_header_color }};
+}
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-link-collection {
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    text-decoration-line: underline;
+    color: {{ settings.link_color }};
+    margin-top: 15px;
+}
+
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-link-collection:hover {
+    color: {{ settings.link_hover_color }};
+}
+
+.mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-image {
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .mdp-weare-collection-campaign > .mdp-header .mdp-row-full{
+        display: block;
+    }
+    .mdp-weare-collection-campaign > .mdp-header .mdp-row-full .mdp-row-left{
+        justify-content: center;
+        padding: 10px 10px 5px 10px;
+        margin-right: 0;
+    }
+    .mdp-weare-collection-campaign > .mdp-header .mdp-row-full .mdp-row-right{
+        justify-content: center;
+        padding: 5px 10px 10px 10px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection{
+        padding: 15px;
+        left: 20px;
+        right: 20px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection{
+        padding: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-collection-name{
+        font-size: 22px;
+        line-height: 1.2em;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card:first-child{
+        margin-bottom: 0 !important;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection{
+        padding: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-collection-name{
+        font-size: 20px;
+        line-height: 1.2em;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-btn-product span{
+        padding: 10px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-btn-product span{
+        padding: 10px;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card:first-child{
+        margin-bottom: 0 !important;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection{
+        padding: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-collection-name{
+        font-size: 18px;
+        line-height: 1.2em;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection{
+        padding: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-collection-name{
+        font-size: 26px;
+        line-height: 1.2em;
+    }
+}
+
+@media (max-width: 320px) {
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection{
+        padding: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .mdp-weare-collection-campaign .mdp-grid .mdp-weare-product-card .mdp-media .mdp-box-collection .mdp-collection-name{
+        font-size: 24px;
+        line-height: 1.2em;
+    }
+}

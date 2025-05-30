@@ -1,0 +1,199 @@
+{{"sectionhub-weare.css" | asset_url | stylesheet_tag }}
+
+<div class="mdp-header">
+  <h2 class="mdp-title">
+    {{section.settings.title}}
+  </h2>
+  {% unless section.settings.subtitle == blank %}
+  <div class="mdp-subtitle">
+    {{section.settings.subtitle}}
+  </div>
+  {% endunless %}
+</div>
+{% unless section.settings.content == blank %}
+
+<div class="mdp-content-indent">
+  {{section.settings.topcontent}}
+</div>
+
+{% endunless %}
+<div class="mdp-footer">
+  {% unless section.blocks.size == 0 %}
+  <div class="mdp-items">
+    {% for block in section.blocks %}
+    <div class="mdp-item">
+
+      {% if block.type == 'list' %}
+      {% if block.settings.icon_class != '' %}
+      <span class="mdp-fa-icon mdp-list-text"><i class="{{block.settings.icon_class}}"></i></span>
+      {% endif %}
+      <span class="mdp-text mdp-list-text">
+        {{ block.settings.text }}
+      </span>
+      {% endif %}
+
+      {% if block.type == 'list_link' %}
+      {% if block.settings.icon_class_link != '' %}
+      <span class="mdp-fa-icon"><i class="{{block.settings.icon_class_link}}"></i></span>
+      {% endif %}
+      <span class="mdp-text">
+        <a href="{{ block.settings.link_url }}">{{ block.settings.text_link }}</a>
+      </span>
+      {% endif %}
+
+    </div>
+    {% endfor %}
+  </div>
+  {% endunless %}
+  {% unless section.settings.link == blank %}
+  <a class="mdp-button" href="{{section.settings.link}}">{{section.settings.button_string}}</a>
+  {% endunless %}
+</div>
+
+<div class="mdp-content">
+  {{section.settings.content}}
+</div>
+
+{% schema %}
+  {
+    "name": "Need help",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Product promo"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+	  {
+        "type": "richtext",
+        "id": "topcontent",
+        "label": "Content top"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content bottom"
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Image size",
+         "default": "600x600_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "button_string",
+        "label": "Button text",
+        "default": "Get more info"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+	  {
+        "type": "select",
+        "id": "variant",
+        "label": "Variant",
+        "default": "left_text",
+        "options": [
+          {
+            "label": "Left text",
+            "value": "left_text"
+          },
+          {
+            "label": "Right text",
+            "value": "right_text"
+          },
+          {
+            "label": "Left text inverted",
+            "value": "left_text_inverted"
+          },
+          {
+            "label": "Right text inverted",
+            "value": "right_text_inverted"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "padding_top",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "blocks": [{
+    "type": "list",
+    "name": "List",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "icon_class",
+        "label": "Icon Class"
+	  },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Item text",
+        "default": "item text"
+      }
+    ]
+    },
+	{
+	"type": "list_link",
+    "name": "List link",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "icon_class_link",
+        "label": "Icon Class"
+	  },
+      {
+        "type": "text",
+        "id": "text_link",
+        "label": "Item text",
+        "default": "item text"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link"
+	  }
+	]}
+	],
+    "presets": [{
+      "name": "Need help",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

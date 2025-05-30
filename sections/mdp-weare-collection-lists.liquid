@@ -1,0 +1,216 @@
+{{ "mdp-weare-collection-lists.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-collection-lists"
+     style="padding-top: {{ section.settings.mdp_padding_top }}px;
+             padding-bottom: {{ section.settings.mdp_padding_bottom }}px;
+             margin-top: {{ section.settings.mdp_margin_top }}px;
+             margin-bottom: {{ section.settings.mdp_margin_bottom }}px;
+             {% if section.settings.bg_color != blank %}
+             background-color: {{ section.settings.mdp_bg_color }};
+             {% endif %}">
+    {% if section.settings.bg_image != blank %}
+        <div class="mdp-overlay lazyload" data-bgset="{{ section.settings.bg_image | img_url: '2000x' }}"></div>
+    {% endif %}
+    <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
+
+        <div class="mdp-row">
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when 'collection' %}
+                        {% if block.settings.collection == blank or collections[block.settings.collection] == empty %}
+                            {% assign collection = collections['all'] %}
+                        {% else %}
+                            {% assign collection = collections[block.settings.collection] %}
+                        {% endif %}
+                        <div class="mdp-column">
+                            {% if block.settings.title == blank %}
+                                <div class="mdp-title">{{ collection.title }}</div>
+                            {% else %}
+                                <div class="mdp-title">{{ block.settings.title }}</div>
+                            {% endif %}
+                            <div class="mdp-products">
+                                {% for product in collection.products limit: section.settings.number_of_products %}
+                                    {% render 'mdp-weare-product-mini-card', product: product %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% when 'title' %}
+                        <div class="mdp-title-column">
+                            <h2 class="mdp-title">{{ block.settings.title }}</h2>
+
+                            {% if block.settings.image_collection != blank %}
+                            <img src="{{ block.settings.image_collection | img_url: 'original' }}"
+                                 class="mdp-image-collection" alt=""/>
+                            {% endif %}
+
+                            {% if block.settings.subtitle != blank %}
+                                <div class="mdp-subtitle">
+                                    {{ block.settings.subtitle }}
+                                </div>
+                            {% endif %}
+
+                            {% if block.settings.link != blank %}
+                                <a class="mdp-button"
+                                   style="color: {{ block.settings.button_text_color }};"
+                                   href="{{ block.settings.link }}">{{ block.settings.button_string }}</a>
+                            {% endif %}
+                        </div>
+                {% endcase %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Collection Lists",
+  "settings": [
+    {
+      "type": "range",
+      "id": "number_of_products",
+      "label": "Number of products",
+      "default": 3,
+      "min": 2,
+      "max": 12,
+      "step": 1
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Product size",
+      "default": "100x100_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "mdp_bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "Strings"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_string",
+      "label": "Sold out string",
+      "default": "Sold out"
+    },
+    {
+      "type": "text",
+      "id": "sale_string",
+      "label": "Sale string",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "new_string",
+      "label": "New string",
+      "default": "New"
+    },
+    {
+      "type": "text",
+      "id": "select_options_string",
+      "label": "Select options string",
+      "default": "Select options"
+    },
+    {
+      "type": "text",
+      "id": "add_cart_string",
+      "label": "Add cart string",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "mdp_padding_top",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "mdp_padding_bottom",
+      "label": "Padding bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "mdp_margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "mdp_margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title block (optional)",
+          "info": "Leave empty to use 'collection title' title."
+        },
+        {
+          "id": "collection",
+          "type": "collection",
+          "label": "Collection"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_collection",
+          "label": "Image"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "text",
+          "id": "button_string",
+          "label": "Button text",
+          "default": "Get more info"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Lists",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

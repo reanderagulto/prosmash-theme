@@ -1,0 +1,34 @@
+.mdp-weare-collections-2 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.mdp-weare-collections-2 > .mdp-grid > .mdp-collection {
+    position: relative;
+}
+.mdp-weare-collections-2 > .mdp-grid > .mdp-collection .mdp-media .mdp-image {
+    max-width: 100%;
+    margin: auto;
+}
+.mdp-weare-collections-2 > .mdp-grid > .mdp-collection .mdp-data {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+    margin-left: 25px;
+}
+.mdp-weare-collections-2 > .mdp-grid > .mdp-collection .mdp-data::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: -40px;
+    bottom: 1px;
+    border-left: 4px solid #5838e9;
+    transition: 0.3s all ease-in-out;
+}
+.mdp-weare-collections-2 > .mdp-grid > .mdp-collection .mdp-data .mdp-header .mdp-title {
+    font-size: 27px;
+    font-weight: 500;
+}
+.mdp-weare-collections-2 > .mdp-grid > .mdp-collection .mdp-data .mdp-content {
+    margin-top: 10px;
+}

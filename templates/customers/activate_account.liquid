@@ -1,0 +1,25 @@
+<div class="mdp mdp-weare-customers-1">
+  <div class="mdp-container">
+    <div class="mdp-header">
+      <h1 class="mdp-title">{{ 'customer.activate_account.title' | t }}</h1>
+      <div class="mdp-subtitle">{{ 'customer.activate_account.subtext' | t }}</div>
+    </div>
+      {% form 'activate_customer_password' %}
+
+        {{ form.errors | default_errors }}
+
+        <input type="password" value="" name="customer[password]" class="" placeholder="{{ 'customer.activate_account.password' | t }}">
+
+        <input type="password" value="" name="customer[password_confirmation]" class="" placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+
+        <input type="submit" class="" value="{{ 'customer.activate_account.submit' | t }}">
+    
+    	<div class="mdp-actions">
+          <button type="submit"  name="decline">
+            {% render 'mdp-weare-icon' with '164' %}
+            <span>{{ 'customer.activate_account.cancel' | t }}</span>
+          </button>
+        </div>
+      {% endform %}
+  </div>
+</div>

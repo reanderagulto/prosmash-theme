@@ -1,0 +1,203 @@
+{{"mdp-weare-promo-contact.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-promo-1"
+     data-variant="{{section.settings.variant}}"
+     style="background-color: {{ section.settings.bg_color }};
+             padding-top: {{ section.settings.padding_top }}px;
+             padding-bottom: {{ section.settings.padding_bottom }}px;
+             margin-top: {{ section.settings.margin_top }}px;
+             margin-bottom: {{ section.settings.margin_bottom }}px;">
+  <div class="mdp-container mdp-grid" data-columns="2" data-gap="30">
+    {% if section.settings.image != blank %}
+      <div class="mdp-media">
+        <img class="mdp-image lazyload"
+             src="{{section.settings.image | img_url : section.settings.image_size}}"
+             alt="{{section.settings.title}}" >
+      </div>
+    {% endif %}
+
+    <div class="mdp-data">
+      <div class="mdp-header">
+        <h2 class="mdp-title">{{section.settings.title}}</h2>
+        {% if section.settings.subtitle != blank %}
+          <div class="mdp-subtitle">{{section.settings.subtitle}}</div>
+        {% endif %}
+      </div>
+
+      <div class="mdp-footer">
+        {% if section.blocks.size != 0 %}
+          <div class="mdp-items">
+            {% for block in section.blocks %}
+            <div class="mdp-item">
+
+              {% if block.type == 'list' %}
+                {% if block.settings.icon_class != '' %}
+                  <span class="mdp-fa-icon mdp-list-text"><i class="{{block.settings.icon_class}}"></i></span>
+                {% endif %}
+                <span class="mdp-text mdp-list-text">{{ block.settings.text }}</span>
+              {% endif %}
+
+              {% if block.type == 'list_link' %}
+                {% if block.settings.icon_class_link != '' %}
+                  <span class="mdp-fa-icon"><i class="{{block.settings.icon_class_link}}"></i></span>
+                {% endif %}
+                <span class="mdp-text">
+                  <a href="{{ block.settings.link_url }}">{{ block.settings.text_link }}</a>
+                </span>
+              {% endif %}
+
+            </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.link != blank %}
+          <a class="mdp-button" href="{{section.settings.link}}">{{section.settings.button_string}}</a>
+        {% endif %}
+      </div>  
+      
+      <div class="mdp-content">{{section.settings.content}}</div>
+      
+    </div>  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Promo Contact",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Product promo"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Image size",
+         "default": "600x600_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "button_string",
+        "label": "Button text",
+        "default": "Get more info"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+	  {
+        "type": "select",
+        "id": "variant",
+        "label": "Variant",
+        "default": "left_text",
+        "options": [
+          {
+            "label": "Left text",
+            "value": "left_text"
+          },
+          {
+            "label": "Right text",
+            "value": "right_text"
+          },
+          {
+            "label": "Left text inverted",
+            "value": "left_text_inverted"
+          },
+          {
+            "label": "Right text inverted",
+            "value": "right_text_inverted"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "padding_top",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "blocks": [{
+    "type": "list",
+    "name": "List",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "icon_class",
+        "label": "Icon Class"
+	  },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Item text",
+        "default": "item text"
+      }
+    ]
+    },
+	{
+	"type": "list_link",
+    "name": "List link",
+    "settings": [
+	  {
+        "type": "text",
+        "id": "icon_class_link",
+        "label": "Icon Class"
+	  },
+      {
+        "type": "text",
+        "id": "text_link",
+        "label": "Item text",
+        "default": "item text"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link"
+	  }
+	]}
+	],
+    "presets": [{
+      "name": "Promo Boxed",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

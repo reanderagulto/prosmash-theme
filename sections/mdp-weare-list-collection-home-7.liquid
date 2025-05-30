@@ -1,0 +1,111 @@
+{{"mdp-weare-list-collection-home-7.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" 
+     class="mdp mdp-weare-list-collection-home-7"
+     style="{% if section.settings.margin_top != blank %}
+             margin-top: {{ section.settings.margin_top }}px;
+            {% endif %}
+            {% if section.settings.margin_bottom != blank %}
+             margin-bottom: {{ section.settings.margin_bottom }}px;
+            {% endif %}">
+  <div class="mdp-container">
+    <div class="mdp-grid"
+         data-columns="{{ section.settings.col_per_row }}"
+         data-gap="{{ section.settings.gap }}">
+      {% for block in section.blocks %}  
+      {% case block.type %}      
+        {% when 'list_collection' %}
+          <div class="mdp-list-collection-item">
+              <div class="mdp-data">
+                <a href="{{block.settings.collection.url}}" class="mdp-btn-link">{{block.settings.collection.title}}</a>
+              </div>
+          </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "List collection home 7",
+    "settings": [
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      },
+      {
+        "type": "range",
+        "id": "col_per_row",
+        "label": "Col per row",
+        "default": 6,
+        "min": 1,
+        "max": 6,
+        "step": 1
+      },
+      {
+        "type": "select",
+        "id": "gap",
+        "label": "Gap(px)",
+        "default": "30",
+        "options": [
+          {
+            "label": "0",
+            "value": "0"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "10",
+            "value": "10"
+          },
+          {
+            "label": "15",
+            "value": "15"
+          },
+          {
+            "label": "20",
+            "value": "20"
+          },
+          {
+            "label": "25",
+            "value": "25"
+          },
+          {
+            "label": "30",
+            "value": "30"
+          },
+          {
+            "label": "35",
+            "value": "35"
+          }
+        ]
+      }
+    ],
+	"blocks": [
+	  {
+        "type": "list_collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+	],
+    "presets": [{
+      "name": "List collection home 7",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

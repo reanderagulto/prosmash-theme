@@ -1,0 +1,267 @@
+{{"mdp-weare-hero-home-7.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" 
+     class="mdp mdp-weare-hero-home-7
+      {% if section.settings.boxed == true %}mdp-container{% else %}mdp-boxed{% endif %} lazyload
+      {% if section.settings.backed_herotwo %}mdp-backed{% endif %}"
+     {% unless section.settings.image_herotwo == blank %}
+     data-bgset="{{section.settings.image_herotwo | img_url : section.settings.image_size_herotwo}}"
+     {% endunless %} 
+     style="padding-top: 0;
+             padding-bottom: 0;
+             margin-top: {{ section.settings.margin_top_herotwo }}px;
+             margin-bottom: {{ section.settings.margin_bottom_herotwo }}px;
+             background-repeat: no-repeat;
+             background-size: {{ section.settings.background_size_herotwo }};">
+  
+    <div class="mdp-data mdp-data-hero-home-7 mdp-grid" data-columns="1" data-gap="30"
+         style="background-color: {{section.settings.background_image_herotwo}}; 
+                padding-top: {{ section.settings.padding_top_herotwo }}px; 
+                padding-bottom: {{ section.settings.padding_bottom_herotwo }}px;
+                justify-content: {{section.settings.variant_herotwo}};">
+
+        <div class="mdp-box-content">
+
+        <div class="mdp-header">
+          {% if section.settings.subtitle_herotwo != blank %}
+            <div class="mdp-subtitle" style="color: {{section.settings.subtitle_color_herotwo}};">
+              {{section.settings.subtitle_herotwo}}
+            </div>
+          {% endif %}
+          <h2 class="mdp-title-hero-home-7"
+              style="{% if section.settings.use_local_styles == true %}
+                      color: {{section.settings.heading_color_herotwo}};{% endif %}
+                     margin-left: {{section.settings.heading_margin_left_herotwo}}px;">
+              {{section.settings.title_herotwo}}
+          </h2>
+        </div>
+
+        {% if section.settings.content_herotwo != blank %}
+          <div class="mdp-hero-home-7-text mdp-hero-home-7-text-{{ section.id }}">
+            {{section.settings.content_herotwo}}
+          </div>
+        {% endif %}
+
+          {% if section.settings.link_herotwo != blank %}
+            <div class="mdp-footer">
+              <a class="mdp-button"
+                 href="{{section.settings.link_herotwo}}">
+                {{section.settings.button_string_herotwo}}</a>
+            </div>
+          {% endif %}
+
+          {% if section.settings.subscribe_herotwo == true %}
+            <div class="mdp-signup-form">
+                {% form "customer" %}
+                  {{ form.errors | default_errors }}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="mdp-row">
+                    <input  type="email" placeholder="Subscribe by email" name="contact[email]"/>
+                    <button type="submit" class="mdp-submit">Submit</button>    
+                  </div>
+                {% endform %}    
+            </div>
+          {% endif %}
+      </div>
+    </div>  
+  
+</div>
+
+{% if section.settings.use_local_styles == true %}
+<style>
+  .mdp-weare-hero-home-7 .mdp-data .mdp-box-content .mdp-hero-home-7-text-{{ section.id }} p,
+  .mdp-weare-hero-home-7 .mdp-data .mdp-box-content .mdp-hero-home-7-text-{{ section.id }} ul li .mdp-icon,
+  .mdp-weare-hero-home-7 .mdp-data .mdp-box-content .mdp-hero-home-7-text-{{ section.id }} ul {
+    color: {{section.settings.text_color_herotwo}} !important;
+  }
+  .mdp-weare-hero-home-7 .mdp-data .mdp-box-content .mdp-hero-home-7-text-{{ section.id }} p {
+    text-transform: {{ section.settings.text_transform }};
+  }
+</style>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Hero Home 7",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title_herotwo",
+        "label": "Heading",
+        "default": "Product promo"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle_herotwo",
+        "label": "Subheading"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_local_styles",
+        "label": "Use local styles",
+        "default": true
+      },
+	  {
+        "type": "text",
+        "id": "heading_margin_left_herotwo",
+        "label": "Heading margin left",
+		"default": "0"
+      },
+	  {
+        "type": "color",
+        "id": "subtitle_color_herotwo",
+        "label": "Subtitle color"
+      },
+      {
+        "type": "color",
+        "id": "heading_color_herotwo",
+        "label": "Heading color"
+      },
+	  {
+        "type": "color",
+        "id": "text_color_herotwo",
+        "label": "Text color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_herotwo",
+        "label": "Image"
+      },
+	  {
+        "type": "select",
+        "id": "background_size_herotwo",
+        "label": "Background size",
+        "default": "auto",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Cover",
+            "value": "cover"
+          },
+          {
+            "label": "Contain",
+            "value": "contain"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "background_image_herotwo",
+        "label": "Background image",
+        "default": "#F9F9F9"
+      },
+      {
+        "type": "richtext",
+        "id": "content_herotwo",
+        "label": "Content"
+      },
+      {
+         "type": "text",
+         "id": "image_size_herotwo",
+         "label": "Image size",
+         "default": "2000x500_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "button_string_herotwo",
+        "label": "Button text",
+        "default": "Start shopping"
+      },
+      {
+        "type": "url",
+        "id": "link_herotwo",
+        "label": "Button link"
+      },
+	  {
+        "type": "checkbox",
+        "id": "boxed",
+        "label": "Boxed",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "backed_herotwo",
+        "label": "Backed",
+        "default": false
+      },
+	  {
+        "type": "checkbox",
+        "id": "subscribe_herotwo",
+        "label": "Show subscribe",
+        "default": false
+      },
+	  {
+        "type": "select",
+        "id": "variant_herotwo",
+        "label": "Align the block horizontally",
+        "default": "start",
+        "options": [
+          {
+            "label": "Left",
+            "value": "start"
+          },
+          {
+            "label": "Center",
+            "value": "center"
+          },
+          {
+            "label": "Right",
+            "value": "end"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_transform",
+        "label": "Text content transform",
+        "default": "none",
+        "options": [
+          {
+            "label": "Default",
+            "value": "none"
+          },
+          {
+            "label": "Lowercase",
+            "value": "lowercase"
+          },
+          {
+            "label": "Uppercase",
+            "value": "uppercase"
+          },
+          {
+            "label": "Capitalize",
+            "value": "capitalize"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "padding_top_herotwo",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom_herotwo",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top_herotwo",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom_herotwo",
+        "label": "Margin bottom (px)"
+      }
+    ],
+    "presets": [{
+      "name": "Hero home 7",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

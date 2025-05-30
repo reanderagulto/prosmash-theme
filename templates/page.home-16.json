@@ -1,0 +1,450 @@
+{
+  "name": "Home 16",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#FFFEA7",
+        "icon_color": "#343434",
+        "discount_color": "#343434",
+        "work_time_color": "#343434"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "hero": {
+      "type": "video-home-16",
+      "settings": {
+        "image": "shopify://shop_images/video-home-16.jpg",
+        "video_header": "Ride to discover, to discover yourself",
+        "video_subheader": "LocalBikeShop",
+        "video_view_more": "/Shop new ride accessories",
+        "view_more_link": "#",
+        "text_color": "#FFFFFF",
+        "bg_image": "shopify://shop_images/bg-video-home-16.png",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "collections-shop": {
+      "type": "mdp-weare-collections-shop",
+      "settings":{
+        "display_type": "selected",
+        "number_of_collections": 6,
+        "col_per_row": 6,
+        "gap": "30",
+        "image_size": "168x192_crop_center",
+        "margin_top": "0",
+        "margin_bottom": "65"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "helmets"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "clothing"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-2"
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "footwear"
+          }
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks"
+          }
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {
+            "collection": "sunglasses-1"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6"
+      ]
+    },
+    "promo": {
+      "type": "mdp-weare-promo-home-2",
+      "settings":{
+        "image": "shopify://shop_images/left-home-16.png",
+        "image_size": "600x600_crop_center",
+        "header_left": "Unisex Backpacks",
+        "paragraph_left": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "image_second": "shopify://shop_images/right-home-16.png",
+        "image_size_second": "600x600_crop_center",
+        "header_right": "Trendy Sneackers",
+        "paragraph_right": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-lists": {
+      "type": "mdp-weare-collection-lists",
+      "settings":{
+        "number_of_products": 5,
+        "mdp_margin_top": "80",
+        "mdp_margin_bottom": "80"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "helmets"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "footwear"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-2"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "New Riders/ <br> Become Trendy",
+            "subtitle": "Nulla facilisi. Sed commodo libero turpis, id aliquam ante consectetur vel",
+            "image_collection": "shopify://shop_images/banner-home-16-list.jpg",
+            "button_string": "View More",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "title"
+      ]
+    },
+    "logos": {
+      "type":"mdp-weare-logos-1",
+      "settings":{
+        "image_size": "200x90",
+        "margin_top": "0",
+        "margin_bottom": "50"
+      },
+      "blocks": {
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo4.png"
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo2.png"
+          }
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo3.png"
+          }
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo5.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4"
+      ]
+    },
+    "call-to-action": {
+      "type":"mdp-weare-call-to-action-1",
+      "settings":{
+        "title": "Sale Musthaves",
+        "image": "shopify://shop_images/big-Banner-hero-home16.png",
+        "bg_color_boxtext": "rgba(255, 254, 167, .75)",
+        "content": "<p>Take 20% Off</p>",
+        "font_size_heading": 48,
+        "line_height_heading": 50,
+        "padding_top": "140",
+        "padding_bottom": "125",
+        "margin_bottom": "80"
+      }
+    },
+    "promo-list": {
+      "type": "promo-home-16",
+      "settings":{
+        "title": "Comfortable <br> Backpacks",
+        "image": "shopify://shop_images/banner-list-home-16.jpg",
+        "image_size": "695x465_crop_center",
+        "padding_top": "0",
+        "padding_bottom": "0",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "list-1": {
+          "type": "list",
+          "settings": {
+            "text": "Curabitur feugiat enim molestie, dignissim"
+          }
+        },
+        "list-2": {
+          "type": "list",
+          "settings": {
+            "text": "Feugiat enim molestie, dignissim sem"
+          }
+        },
+        "link": {
+          "type": "list_link",
+          "settings": {
+            "text_link": "/View More Details",
+            "link_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "list-1",
+        "list-2",
+        "link"
+      ]
+    },
+    "slideshow": {
+      "type":"slideshow-home-11",
+      "settings":{
+        "height": "650",
+        "margin_top": "0",
+        "margin_bottom": "50"
+      },
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/slide-big-img-home-16.jpg",
+            "subtitle": "Limited Edition",
+            "title": "If you love all-out speed, sprints, attacks",
+            "content": "<p>Morbi in nisl ac eros dictum sollicitudin at ac eros. Pellentesque a efficitur odio, et condimentum turpis. Vestibulum egestas porttitor luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut elementum sollicitudin lorem, vel interdum nisl dignissim eget. Curabitur ligula ante</p>",
+            "mini_img_product_1": "shopify://shop_images/slide-min-1-img-home-16.jpg",
+            "mini_img_product_2": "shopify://shop_images/slide-min-2-img-home-16.jpg",
+            "mini_img_product_3": "shopify://shop_images/slide-min-3-img-home-16.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slide-1"
+      ]
+    },
+    "footer-1":{
+      "type":"mdp-weare-footer-1",
+      "settings":{
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border": true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "hero",
+    "collections-shop",
+    "promo",
+    "collection-lists",
+    "call-to-action",
+    "promo-list",
+    "slideshow",
+    "logos",
+    "footer-1"
+  ]
+}

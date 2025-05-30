@@ -1,0 +1,24 @@
+{{"sectionhub-weare.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-page-1">
+  <div class="mdp-data mdp-container">
+    <div class="mdp-header">
+      <h1 class="mdp-title">
+        {{page.title}}
+      </h1>
+    </div>
+    {% unless page.content == blank %}
+      <div class="mdp mdp-weare">
+        {{ page.content }}
+      </div>
+    {% endunless %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Page 1",
+    "settings": []
+  }
+{% endschema %}

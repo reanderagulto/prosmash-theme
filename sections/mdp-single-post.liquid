@@ -1,0 +1,104 @@
+{{"mdp-single-post.css" | asset_url | stylesheet_tag }}
+
+{% assign media = section.settings.section_single_post.image %}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-single-post mdp-slider mdp-grid"
+     data-columns="1" data-gap="30"
+     style="margin-top: {{ section.settings.margin_top }}px;
+             margin-bottom: {{ section.settings.margin_bottom }}px;">
+    <div class="mdp-product mdp-product-padding">
+
+        {% if media != blank %}
+            <div class="mdp-media">
+                <img src="{{ media | img_url : section.settings.articl_image_size }}" alt="{{media.alt}}">
+            </div>
+        {% endif %}
+
+        <div class="mdp-data mdp-data-columns">
+            {% if section.settings.section_single_post.url != blank %}
+              <h1 class="mdp-title mdp-title-section">
+                  <a href="{{ section.settings.section_single_post.url }}">
+                    {{ section.settings.section_single_post.title }}</a>
+              </h1>
+            {% endif %}
+
+            {% if section.settings.section_single_post.excerpt != blank %}
+                <div class="mdp-content mdp-content-section">
+                    {{ section.settings.section_single_post.excerpt }}
+                    <a href="{{ section.settings.section_single_post.url }}" class="mdp-link-description">Read More</a>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Single post",
+  "settings": [
+    {
+      "type": "article",
+      "id": "section_single_post",
+      "label": "Article"
+    },
+    {
+      "type": "text",
+      "id": "articl_image_size",
+      "label": "Articl size",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_string",
+      "label": "'Sold out' string",
+      "default": "Sold out"
+    },
+    {
+      "type": "text",
+      "id": "sale_string",
+      "label": "'Sale' string",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "new_string",
+      "label": "'New' string",
+      "default": "New"
+    },
+    {
+      "type": "text",
+      "id": "add_cart_string",
+      "label": "'Add cart' string",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "description_string",
+      "label": "'Description' string",
+      "default": "Description"
+    },
+    {
+      "type": "text",
+      "id": "reviews_string",
+      "label": "'Reviews' string",
+      "default": "Reviews"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [{
+    "name": "Single post",
+    "category": "SectionHub: weare"
+  }]
+}
+{% endschema %}

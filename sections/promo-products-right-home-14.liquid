@@ -1,0 +1,155 @@
+{{"promo-products-right-home-14.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-promo-products-right-home-14"
+     data-variant="{{section.settings.variant_promotwo}}"
+     style="background-color: {{ section.settings.bg_color_promotwo }};
+             padding-top: {{ section.settings.padding_top_promotwo }}px;
+             padding-bottom: {{ section.settings.padding_bottom_promotwo }}px;
+             margin-top: {{ section.settings.margin_top_promotwo }}px;
+             margin-bottom: {{ section.settings.margin_bottom_promotwo }}px;">
+    <div class="{% if section.settings.boxed == true %}mdp-container{% else %}mdp-boxed{% endif %}">
+        <div class="mdp-data">
+            <div class="mdp-header">
+                <h2 class="mdp-title">{{section.settings.title_promotwo}}</h2>
+            </div>
+
+            <div class="mdp-footer">
+                <div class="mdp-grid" data-columns="2" data-gap="30">
+                    {% assign count = 1 %}
+                    {% assign product_list = section.settings.product_list | reverse %}
+                    {% for product in product_list %}
+
+                        {% if count == 1 %}
+                            <div class="mdp-grid mdp-weare-product-card mdp-product-card-min"
+                            data-columns="2" data-gap="30">
+                        {% endif %}
+
+                        {% if count <= 4 %}
+                            <div class="mdp-item-product">
+                                <div class="mdp-media-min">
+                                    <img src="{{product.media[0] | img_url : 'original' }}" alt='{{product.media[0].alt}}'>
+                                </div>
+                                <div class="mdp-info">
+                                    <a href="{{ product.url }}" class="mdp-link-product">{{ product.title }}</a>
+                                    {% render 'product-price', product: product %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if count == 4 %}</div>{% endif %}
+
+                        {% if count == 5 %}
+                            <div class="mdp-weare-product-card">
+                                <div class="mdp-media">
+                                    <img src="{{product.media[0] | img_url : 'original' }}" alt='{{product.media[0].alt}}'>
+                                </div>
+                                <div class="mdp-info">
+                                    <a href="{{ product.url }}" class="mdp-link-product">{{ product.title }}</a>
+                                    {% render 'product-price', product: product %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% assign count = count | plus: 1 %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function heightItem_{{ section.id | replace: "--", "" | replace: "-", "" }}(){
+        let section = document.getElementById("mdp-weare-{{ section.id }}");
+        let widthBox = section.offsetWidth;
+        let retreat =  widthBox >= 1025 ? 160 : 60;
+        let heightItem = widthBox >= 769 ? Math.round((widthBox / 2) - retreat) : Math.round(widthBox - retreat);
+        let bigImg = section.querySelector('.mdp-media').querySelector('img');
+        let smallImgBox = section.querySelector('.mdp-product-card-min');
+        let smallImg = smallImgBox.querySelectorAll('.mdp-item-product');
+
+        bigImg.setAttribute("style", ` height: ${heightItem}px;`);
+
+        for( let i = 0; i <= smallImg.length - 1; i++ ){
+            if(widthBox >= 426){
+                smallImg[i].querySelector('.mdp-media-min img').setAttribute("style", ` height: calc((${heightItem}px / 2) - (22px * 2));`);
+            }else{
+                smallImg[i].querySelector('.mdp-media-min img').setAttribute("style", ` height: calc(${heightItem}px - (22px * 2));`);
+            }
+
+        }
+
+    }
+
+    heightItem_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+
+    addEventListener("resize", (event) => {
+        heightItem_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    });
+
+</script>
+
+{% schema %}
+{
+  "name": "Promo right home 14",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_promotwo",
+      "label": "Heading",
+      "default": "Product promo"
+    },
+    {
+      "type": "text",
+      "id": "box_height",
+      "label": "Heading",
+      "default": "950"
+    },
+    {
+      "type": "text",
+      "id": "image_size_promotwo",
+      "label": "Image size",
+      "default": "600x600_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed",
+      "label": "Boxed",
+      "default": true
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Products",
+      "limit": 5
+    },
+    {
+      "type": "text",
+      "id": "padding_top_promotwo",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom_promotwo",
+      "label": "Padding bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_top_promotwo",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom_promotwo",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [{
+    "name": "Promo right home 14",
+    "category": "SectionHub: weare"
+  }]
+}
+{% endschema %}

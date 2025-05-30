@@ -1,0 +1,500 @@
+{
+  "name": "Home 6",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#E9384F",
+        "icon_color": "#FFFFFF",
+        "discount_color": "#FFFFFF",
+        "work_time_color": "#FFFFFF"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "slideshow": {
+      "type": "mdp-weare-slideshow-home-6",
+      "settings": {
+        "boxed": false,
+        "variant": "style_1",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/slide1-home-6-top.png",
+            "text_alignment": "start",
+            "title": "The biggest <br>sportswear <br>brands",
+            "heading_color": "#E9384F",
+            "button_string": "Shop new collection",
+            "link": "#"
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/slide2.jpg",
+            "text_alignment": "end",
+            "title": "The biggest <br>sportswear <br>brands",
+            "heading_color": "#7FFF79",
+            "button_string": "Shop new collection",
+            "link": "#"
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/slide3-home-6-top.png",
+            "text_alignment": "start",
+            "title": "The biggest <br>sportswear <br>brands",
+            "heading_color": "#000000",
+            "button_string": "Shop new collection",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3"
+      ]
+    },
+    "logos": {
+      "type":"mdp-weare-logos-1",
+      "settings":{
+        "image_size": "200x90",
+        "margin_top": "80",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo4.png"
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo2.png"
+          }
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo3.png"
+          }
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo5.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4"
+      ]
+    },
+    "collections": {
+      "type": "mdp-weare-collections-3",
+      "settings": {
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "number_of_collections": 3,
+        "col_per_row": 2,
+        "gap": "30",
+        "image_size": "534x676_crop_center",
+        "indent_bottom": "48",
+        "variant": "style_1",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "womens-sports"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "male-sports"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2"
+      ]
+    },
+    "collections-shop": {
+      "type": "mdp-weare-collections-shop",
+      "settings": {
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "number_of_collections": 6,
+        "col_per_row": 6,
+        "gap": "20",
+        "image_size": "168x192_crop_center",
+        "variant": "style_1",
+        "margin_top": "65",
+        "margin_bottom": "65"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "title": "Tops & T-shirts",
+            "image": "shopify://shop_images/1000.png"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "title": "Suits",
+            "image": "shopify://shop_images/10.png"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "title": "Footwear",
+            "image": "shopify://shop_images/Shoes-1.jpg"
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "title": "Pants & Tights",
+            "image": "shopify://shop_images/20913.png"
+          }
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {
+            "title": "Accessories",
+            "image": "shopify://shop_images/5_1000.png"
+          }
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {
+            "title": "Equipment",
+            "image": "shopify://shop_images/21520814-1-black.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6"
+      ]
+    },
+    "call-to-action": {
+      "type": "mdp-weare-call-to-action-1",
+      "settings": {
+        "title": "Maximize stability",
+        "text_color": "#343434",
+        "font_size_heading": 48,
+        "line_height_heading": 50,
+        "image": "shopify://shop_images/big_banner-home-6.png",
+        "parallax": true,
+        "bg_color_boxtext": "rgba(255, 255, 255, 0.654373)",
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "boxed": false,
+        "variant": "style_1",
+        "padding_top": "140",
+        "padding_bottom": "125",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "collection-row-shop": {
+      "type": "mdp-weare-collection-row-shop",
+      "settings": {
+        "selected_collection": "new-sports",
+        "bg_color": "#000000",
+        "background_image": "shopify://shop_images/bg_big.png",
+        "color_text": "#ffffff",
+        "print_price_row": false,
+        "name_collection": "New In /",
+        "button_string": "Shop Now",
+        "number_of_products": 4,
+        "col_per_row": 5,
+        "images_form": "50",
+        "image_size": "198x236_crop_center",
+        "slider": false,
+        "variant": "style_1",
+        "indents": "105",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-grid": {
+      "type": "mdp-weare-collection-grid",
+      "settings": {
+        "title": "",
+        "boxed": true,
+        "selected_collection": "home-6",
+        "number_of_products": 12,
+        "col_per_row": 4,
+        "gutter": "30",
+        "images_form": "30",
+        "image_size": "original",
+        "slider": false,
+        "show_price": true,
+        "show_btn_cl": true,
+        "padding_top": "0",
+        "padding_bottom": "0",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "video": {
+      "type": "mdp-weare-video-home-3",
+      "settings": {
+        "image": "shopify://shop_images/home6-video_bg_big.jpg",
+        "image_size": "2450x504_crop_center",
+        "bg_color": "#343434",
+        "text_color": "#343434",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "hero": {
+      "type": "mdp-weare-hero-2-1",
+      "settings": {
+        "title_herotwo": "Get Coupon SALE WEEK 64%",
+        "heading_margin_left_herotwo": "0",
+        "heading_color_herotwo": "#7FFF79",
+        "text_color_herotwo": "#ffffff",
+        "image_herotwo": "shopify://shop_images/bg_small-home-6.png",
+        "background_size_herotwo": "cover",
+        "background_image_herotwo": "",
+        "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor</p>",
+        "image_size_herotwo": "1920x128_crop_center",
+        "boxed": false,
+        "variant_herotwo": "left_text",
+        "padding_top_herotwo": "30",
+        "padding_bottom_herotwo": "35",
+        "margin_top_herotwo": "0",
+        "margin_bottom_herotwo": "80"
+      }
+    },
+    "news": {
+      "type": "mdp-weare-news-1",
+      "settings": {
+        "title": "",
+        "blog": "home-6",
+        "limit": 9,
+        "col_per_row": 3,
+        "gap": "30",
+        "image_size": "346x469_crop_center",
+        "big_image_news": true,
+        "boxed": true,
+        "excerpt_words": 20,
+        "variant": "style_3",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "footer-1":{
+      "type": "mdp-weare-footer-1",
+      "settings": {
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border":true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "slideshow",
+    "logos",
+    "collections",
+    "collections-shop",
+    "call-to-action",
+    "collection-row-shop",
+    "collection-grid",
+    "video",
+    "hero",
+    "news",
+    "footer-1"
+  ]
+}

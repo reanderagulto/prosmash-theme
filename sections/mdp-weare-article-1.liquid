@@ -1,0 +1,133 @@
+{{ "mdp-weare-article-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-container mdp-weare-article-1"
+     data-variant="style_1">
+
+  <div class="mdp-grid" data-columns="1" data-gap="30">
+      <div class="mdp-col">
+        <div class="mdp-article">
+          {% unless article.image == blank %}
+            <div class="mdp-media">
+              <h1 class="mdp-title">{{ article.title }}</h1>
+              <div class="mdp-extra">
+                <div class="mdp-date">
+                  {{ article.published_at | time_tag: format: 'date' }}
+                </div>
+                <div class="mdp-tags">
+                  {% for tag in article.tags %}
+                    <a href="/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+              <div>
+                <img class="mdp-image lazyload"
+                     src="{{ article.image | img_url: section.settings.image_size }}"
+                     alt="">
+              </div>
+            </div>
+          {% endunless %}
+          <div class="mdp-data">
+            <div class="mdp-header">
+
+              <div class="mdp-meta">
+              </div>
+            </div>
+            {% unless article.content == blank %}
+              <div class="mdp-content mdp-weare">
+                {{ article.content }}
+              </div>
+            {% endunless %}
+          </div>
+        </div>
+        {% if comment.status == 'pending' %}
+          {% assign number_of_comments = article.comments_count | plus: 1 %}
+        {% else %}
+          {% assign number_of_comments = article.comments_count %}
+        {% endif %}
+
+        {% if blog.comments_enabled? %}
+          {% if number_of_comments > 0 %}
+            {% paginate article.comments by 5 %}
+              <div class="mdp-comments">
+                <div class="mdp-title">{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</div>
+                <div class="mdp-comments-list">
+                  {% if comment.status == 'pending' %}
+                    <div id="{{ comment.id }}" class="mdp-comment">
+                      <div class="mdp-comment-content">
+                        {{ comment.content }}
+                      </div>
+                      <div class="mdp-comment-meta">
+                        <span class="mdp-comment-meta-item">{{ comment.author }}</span>
+                        <span class="mdp-comment-meta-item">{{ comment.created_at | time_tag: format: 'date' }}</span>
+                      </div>
+                    </div>
+                  {% endif %}
+
+                  {% for comment in article.comments %}
+                    <div id="{{ comment.id }}" class="mdp-comment">
+                      <div class="mdp-comment-content">
+                        {{ comment.content }}
+                      </div>
+                      <div class="mdp-comment-meta">
+                        <span class="mdp-comment-meta-item">{{ comment.author }}</span>
+                        <span class="mdp-comment-meta-item">{{ comment.created_at | time_tag: format: 'date' }}</span>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+
+                {% if paginate.pages > 1 %}
+                  {% render 'mdp-weare-pagination', paginate: paginate %}
+                {% endif %}
+
+              </div>
+            {% endpaginate %}
+          {% endif %}
+        {% endif %}
+        {% if blog.comments_enabled? %}
+          <div class="mdp-comment-form">
+            {% form 'new_comment', article %}
+
+              <div class="mdp-title">{{ 'blogs.comments.title' | t }}</div>
+
+              <div class="mdp-fields">
+
+                <div class="mdp-row">
+                  <input type="text" name="comment[author]" placeholder="{{ 'blogs.comments.name' | t }}"
+                         class="{% if form.errors contains 'author' %}mdp-input-error{% endif %}"
+                         value="{{ form.author }}">
+                  <input type="email" name="comment[email]" placeholder="{{ 'blogs.comments.email' | t }}"
+                         class="{% if form.errors contains 'email' %}mdp-input-error{% endif %}"
+                         value="{{ form.email }}">
+                </div>
+                <textarea name="comment[body]" placeholder="{{ 'blogs.comments.message' | t }}"
+                          class="{% if form.errors contains 'body' %}mdp-input-error{% endif %}">{{ form.body }}</textarea>
+              </div>
+
+              {% if blog.moderated? %}
+                <p class="mdp-fine-print">{{ 'blogs.comments.moderated' | t }}</p>
+              {% endif %}
+
+              <input type="submit" class="mdp-btn" value="{{ 'blogs.comments.post' | t }}">
+            {% endform %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": [
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Image size",
+      "default": "1200x_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    }
+  ]
+}
+{% endschema %}

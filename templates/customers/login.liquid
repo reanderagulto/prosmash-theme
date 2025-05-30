@@ -1,0 +1,65 @@
+<div class="mdp mdp-weare-customers-1">
+  <div class="mdp-container">
+
+    <input type="checkbox" id="mdp-login" checked>
+
+    <div class="mdp-customer-login-form">
+      <div class="mdp-header">
+        <h1 class="mdp-title">{{ 'customer.login.title' | t }}</h1>
+      </div>
+      <div class="mdp-reset-success">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
+      {% form 'customer_login' %}
+
+      {{ form.errors | default_errors }}
+
+      <input type="email" name="customer[email]" class="{% if form.errors contains 'email' %} mdp-error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus>
+
+      {% if form.password_needed %}
+      	<input type="password" value="" name="customer[password]" class="{% if form.errors contains 'password' %} mdp-error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+      {% endif %}
+      <input type="submit" class="" value="{{ 'customer.login.sign_in' | t }}">
+
+      <div class="mdp-actions">
+        <a href="{{ routes.account_register_url }}">{% render 'mdp-weare-icon' with '203' %}<span>{{ 'layout.customer.create_account' | t }}</span></a>
+        {% if form.password_needed %}
+        	<label for="mdp-login">{% render 'mdp-weare-icon' with '103' %}<span>{{ 'customer.login.forgot_password' | t }}</span></label>
+        {% endif %}
+        <a href="{{ routes.root_url }}">{% render 'mdp-weare-icon' with '164' %}<span>{{ 'customer.login.cancel' | t }}</span></a>
+      </div>
+      {% endform %}
+    </div>
+
+    <div class="mdp-recover-password-form">
+
+      <div class="mdp-header">
+        <h1 class="mdp-title">{{ 'customer.recover_password.title' | t }}</h1>
+        <div class="mdp-subtitle">{{ 'customer.recover_password.subtext' | t }}</div>
+      </div>      
+
+      {% form 'recover_customer_password' %}
+
+        {{ form.errors | default_errors }}
+
+        {% if form.posted_successfully? %}
+        	{% assign resetPassword = true %}
+        {% endif %}
+
+        <input type="email" value="" name="email" class="" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off">
+        <input type="submit" class="" value="{{ 'customer.recover_password.submit' | t }}">
+        <div class="mdp-actions">
+          <label for="mdp-login">{% render 'mdp-weare-icon' with '164' %}<span>{{ 'customer.recover_password.cancel' | t }}</span></label>
+        </div>        
+      {% endform %}
+
+    </div>
+
+    {% if shop.checkout.guest_login %}
+      <h1>{{ 'customer.login.guest_title' | t }}</h1>	
+      {% form 'guest_login' %}
+          <input type="submit" class="" value="{{ 'customer.login.guest_continue' | t }}">
+      {% endform %}
+    {% endif %}
+  </div>
+</div>

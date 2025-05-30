@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    {%- if canonical_url != blank  -%}
+        <link rel="canonical" href="{{ canonical_url }}">
+    {%- endif -%}
+
+    {%- if settings.favicon != blank -%}
+        <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {%- endif -%}
+
+    {%- capture seo_title -%}
+        {%- if request.page_type == 'search' and search.performed == true -%}
+            {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+        {%- else -%}
+            {{ page_title }}
+        {%- endif -%}
+        {%- if current_tags -%}
+            {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+        {%- endif -%}
+        {%- if current_page != 1 -%}
+            &ndash; {{ 'general.meta.page' | t: page: current_page }}
+        {%- endif -%}
+        {%- assign escaped_page_title = page_title | escape -%}
+        {%- unless escaped_page_title contains shop.name -%}
+            &ndash; {{ shop.name }}
+        {%- endunless -%}
+    {%- endcapture -%}
+    <title>{{ seo_title | strip }}</title>
+
+    {%- if page_description -%}
+        <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% render 'social-meta-tags' %}
+
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+        }
+    </style>
+
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'all.min.css' | asset_url | stylesheet_tag }}
+    {{ "sectionhub.css" | asset_url | stylesheet_tag }}
+    {{ "sectionhub-weare.css" | asset_url | stylesheet_tag }}
+    {{ 'mdp-weare-accordion-1.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'jquery.min.js' | asset_url }}"></script>
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+
+    {%- if request.page_type contains 'customers/' -%}
+        <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {{ content_for_header }}
+</head>
+
+<body class="template-{{ request.page_type | handle }}">
+
+    {% section 'mdp-weare-menu-2' %}
+    {% section 'mdp-weare-menu-1' %}
+
+    {% section "breadcrumbs" %}
+    {% section "mdp-weare-hero-faq-1" %}
+
+    <div id="mdp-weare-mdp-weare-accordion-1-hub-7534"
+         class="mdp mdp-container mdp-weare-accordion-1"
+         style="margin-top: 0px; margin-bottom: 0px;">
+        {% assign half = section.blocks.size | divided_by: 2 %}
+        <div class="mdp-columns">
+            <div class="mdp-col-7">
+                {% section "mdp-weare-accordion-1-hub-7534" %}
+            </div>
+            <div class="mdp-col-5 mdp-faq-guter">
+                {% section "mdp-weare-need-help-faq" %}
+
+                {% section "mdp-weare-icon-list-faq-1" %}
+            </div>
+        </div>
+    </div>
+
+    {% if 1 == 0 %}
+        {{content_for_layout}}
+    {% endif %}
+
+    {% section "mdp-weare-hero-faq-2" %}
+
+    {% section "mdp-weare-icon-list-faq-2" %}
+
+    {% section 'mdp-weare-footer-1' %}
+
+    <script src="{{ 'sectionhub.js' | asset_url }}" defer></script>
+
+</body>
+</html>

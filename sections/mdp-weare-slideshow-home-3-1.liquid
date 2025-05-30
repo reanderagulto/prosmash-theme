@@ -1,0 +1,189 @@
+{{"mdp-weare-slideshow-home-3-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" 
+	 class="mdp {% if section.settings.boxed == true %}mdp-container{% endif %} mdp-weare-slideshow-home-3-1" 
+	 data-variant="style_1"
+	 style="{% unless section.settings.margin_top == blank %}
+              margin-top: {{ section.settings.margin_top }}px;
+            {% endunless %}
+            {% unless section.settings.margin_bottom == blank %}
+              margin-bottom: {{ section.settings.margin_bottom }}px;
+            {% endunless %}">
+  <div class="mdp-swiper-container swiper-slideshow-home-3-1 swiper-slideshow-{{ section.id }}"
+       data-slidesPerView="1" data-navigation="true">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}  
+      <div class="swiper-slide">
+        {% case block.type %}
+        {% when 'slide' %}
+        <div class="mdp-slide {% if block.settings.inverted %}mdp-inverted{% endif %}">
+          <div class="mdp-grid" data-columns="2" data-gap="0">
+
+            <div class="mdp-media lazyload"
+                 data-bgset="{{block.settings.image | img_url : '2000x' }}"
+                 style="{% unless block.settings.height == blank %}height: {{ block.settings.height }}px;{% endunless %}">
+            </div>
+
+            <div class="mdp-data">
+              <div class="mdp-content-box">
+                <div class="mdp-header">
+                  <p class="mdp-subtitle">{{block.settings.subtitle}}</p>
+                  <h1 class="mdp-title">
+                    {{block.settings.title}}
+                  </h1>
+                </div>
+                {% unless block.settings.content == blank %}
+                <div class="mdp-content">
+                  {{block.settings.content}}
+                </div>
+                {% endunless %}
+                <div class="mdp-footer">
+                  {% render 'mdp-weare-social-sharing' %}
+                  <div class="mdp-img-box">
+                  	<img src="{{block.settings.mini_img_product_1 | img_url : '170x227_crop_center'}}" alt="">
+                    <img src="{{block.settings.mini_img_product_2 | img_url : '170x227_crop_center'}}" alt="">                    
+                  </div>
+                  {% unless block.settings.link == blank %}
+                  <a class="mdp-button" href="{{block.settings.link}}">{{block.settings.button_string}}</a>
+                  {% endunless %}
+                </div> 
+              </div>   
+            </div>
+
+          </div>
+        </div>
+        {% endcase %}    
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-button-prev swiper-button-prev-slideshow-home-3-1 swiper-button-prev-slideshow-{{ section.id }}"></div>
+    <div class="swiper-button-next swiper-button-next-slideshow-home-3-1 swiper-button-next-slideshow-{{ section.id }}"></div>
+
+    <div class="swiper-pagination swiper-pagination-slideshow-home-3-1 swiper-pagination-slideshow-{{ section.id }}"></div>
+
+  </div>
+</div>
+
+<script>
+  const swiperSlideshowHome31_{{ section.id | replace: "-", "_" }} = new Swiper('.swiper-slideshow-{{ section.id }}', {
+    // Optional parameters
+    lidesPerView: 'auto',
+    direction: 'horizontal',
+    slidesPerView: 1,
+    centeredSlides: false,
+    speed: 500,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    effect: 'slide',
+    allowTouchMove: true,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    hashNavigation: false,
+    pagination: {
+      el: '.swiper-pagination-slideshow-{{ section.id }}'
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next-slideshow-{{ section.id }}',
+      prevEl: '.swiper-button-prev-slideshow-{{ section.id }}',
+    }
+  });
+
+  swiperSlideshowHome31_{{ section.id | replace: "-", "_" }}.init();
+</script>
+
+{% schema %}
+  {
+    "name": "Slideshow Home 3-2",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "boxed",
+        "label": "Boxed",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "height",
+        "label": "Height (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      } 
+    ],
+	"blocks": [
+	  {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+		  {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Sub heading",
+            "default": "Sub heading"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          },
+		  {
+            "type": "image_picker",
+            "id": "mini_img_product_1",
+            "label": "Mini img 1"
+          },
+		  {
+            "type": "image_picker",
+            "id": "mini_img_product_2",
+            "label": "Mini img 2"
+          },		  
+          {
+            "type": "text",
+            "id": "button_string",
+            "label": "Button text",
+            "default": "Get more info"
+          }, 
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "type": "checkbox",
+            "id": "inverted",
+            "label": "Inverted",
+            "default": false
+          }
+        ]
+      }
+	],
+    "presets": [{
+      "name": "Slideshow Home 3-2",
+      "category": "SectionHub: Weäre "
+    }]
+  }
+{% endschema %}

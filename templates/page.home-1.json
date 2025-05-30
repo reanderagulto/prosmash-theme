@@ -1,0 +1,516 @@
+{
+  "name": "Home 1",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#000000",
+        "icon_color": "#F9F9F9",
+        "discount_color": "#F9F9F9",
+        "work_time_color": "#F9F9F9"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "hero": {
+      "type":"mdp-weare-hero-home-first",
+      "settings":{
+        "title_herotwo": "Key Details",
+        "title_link": "/collections/male",
+        "heading_margin_left_herotwo": "0",
+        "heading_color_herotwo": "#ffffff",
+        "text_color_herotwo": "#ffffff",
+        "image_herotwo": "shopify://shop_images/her0-home1.jpg",
+        "background_size_herotwo": "cover",
+        "background_image_herotwo": "",
+        "content_herotwo": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet,</p><p>convallis laoreet ligula. Pellentesque vulputate condimentum neque</p>",
+        "image_size_herotwo": "2500x870_crop_center",
+        "boxed": true,
+        "variant_herotwo": "start",
+        "padding_top_herotwo": "280",
+        "padding_bottom_herotwo": "280",
+        "margin_top_herotwo": "0",
+        "margin_bottom_herotwo": "0"
+      }
+    },
+    "collections-shop": {
+      "type":"mdp-weare-collections-shop",
+      "settings":{
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "number_of_collections": 3,
+        "col_per_row": 6,
+        "gap": "30",
+        "image_size": "168x192_crop_center",
+        "variant": "style_1",
+        "margin_top": "80",
+        "margin_bottom": "65"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "hats"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "sunglasses"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "sneackers"
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "socks"
+          }
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "bags"
+          }
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6"
+      ]
+    },
+    "promo": {
+      "type": "mdp-weare-promo-home-2",
+      "settings": {
+        "image": "shopify://shop_images/left_promo_home1.png",
+        "image_size": "600x600_crop_center",
+        "header_left": "Unisex Backpacks",
+        "paragraph_left": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "image_second": "shopify://shop_images/right_promo_home1.png",
+        "image_size_second": "600x600_crop_center",
+        "header_right": "Trendy Sneackers",
+        "paragraph_right": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "collection-lists": {
+      "type": "mdp-weare-collection-lists",
+      "settings": {
+        "number_of_products": 5,
+        "image_size": "100x100_crop_center",
+        "bg_image": "",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "shoes"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "handbags"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "collection-title": {
+          "type": "title",
+          "settings": {
+            "title": "Featured Collection/ <br>Become Trendy",
+            "subtitle": "Nulla facilisi. Sed commodo libero turpis, id aliquam ante",
+            "image_collection": "shopify://shop_images/new.jpg",
+            "button_string": "View More",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-title"
+      ]
+    },
+    "call-action": {
+      "type":"mdp-weare-call-to-action-1",
+      "settings": {
+        "title": "White Proportions",
+        "text_color": "#343434",
+        "font_size_heading": 48,
+        "line_height_heading": 70,
+        "image": "shopify://shop_images/home-1_banner_sneackers-ked.jpg",
+        "parallax": true,
+        "bg_color_boxtext": "rgba(255, 255, 255, 0.6)",
+        "parallax_speed": 0.3,
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "padding_top": "160",
+        "padding_bottom": "160",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "collection-row": {
+      "type": "mdp-weare-collection-row-shop",
+      "settings": {
+        "selected_collection": "new-in-1",
+        "bg_color": "#000000",
+        "color_text": "#ffffff",
+        "name_collection": "New In /",
+        "button_string": "Shop Now",
+        "number_of_products": 4,
+        "col_per_row": 5,
+        "images_form": "50",
+        "image_size": "270x370_crop_center",
+        "slider": false,
+        "indents": "50",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
+    },
+    "call-action-final": {
+      "type":"mdp-weare-call-to-action-1",
+      "settings": {
+        "title": "Final Clearance",
+        "text_color": "#343434",
+        "font_size_heading": 48,
+        "line_height_heading": 70,
+        "image": "shopify://shop_images/banner1.png",
+        "parallax": false,
+        "bg_color_boxtext": "#F3F3F1",
+        "parallax_speed": 0.3,
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "boxed": true,
+        "padding_top": "155",
+        "padding_bottom": "155",
+        "margin_top": "80",
+        "margin_bottom": "0"
+      }
+    },
+    "lookbook": {
+      "type": "mdp-weare-lookbook-1",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "col_per_row": 2,
+        "margin_top": "80",
+        "margin_bottom": "0"
+      },
+      "blocks": {
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "name": "Image #1",
+            "image": "shopify://shop_images/mutzii-kn7cfz5ESIE-unsplash.jpg",
+            "lookbook_image_size": "510x353_crop_center",
+            "image_size": "510x353_crop_center"
+          }
+        },
+        "image-2": {
+          "type": "image",
+          "settings": {
+            "name": "Image #2",
+            "image": "shopify://shop_images/app001prod_2.jpg",
+            "lookbook_image_size": "535x671_crop_center",
+            "image_size": "535x671_crop_center"
+          }
+        },
+        "product-1": {
+          "type": "product",
+          "settings": {
+            "for_name": "Image #1",
+            "product": "sneakers",
+            "horizontal_position": 55,
+            "vertical_position": 50
+          }
+        }
+      },
+      "block_order": [
+        "image-1",
+        "image-2",
+        "product-1"
+      ]
+    },
+    "collection-row-footer": {
+      "type": "mdp-weare-collection-row-shop",
+      "settings": {
+        "selected_collection": "styles-by-br-you",
+        "bg_color": "#ffffff",
+        "color_text": "#343434",
+        "name_collection": "Styles by you/",
+        "button_string": "Shop Now",
+        "number_of_products": 4,
+        "col_per_row": 5,
+        "images_form": "50",
+        "image_size": "270x370_crop_center",
+        "slider": false,
+        "indents": "0",
+        "margin_top": "80",
+        "margin_bottom": "65"
+      }
+    },
+    "testimonials": {
+      "type":"mdp-weare-testimonials-about",
+      "settings":{
+        "title": "",
+        "subtitle": "",
+        "col_per_row": 2,
+        "gap": "30",
+        "show_rating": true,
+        "margin_top": "0",
+        "margin_bottom": "80"
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Samuel",
+            "title": "Customer",
+            "content": "<p>“Duis sit amet ornare elit. Vivamus pharetra ornare ipsum, at bibendum metus pretium tristique. Nam sapien tellus, hendrerit egestas sapien et, congue laoreet odio”</p>"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Miranda Kerr",
+            "title": "Customer",
+            "content": "<p>“Cras pretium porta auctor. Proin consectetur placerat massa sit amet malesuada. Ut egestas justo et leo auctor, et efficitur justo ultrices”</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2"
+      ]
+    },
+    "hero-footer": {
+      "type":"mdp-weare-hero-2-1",
+      "settings":{
+        "title_herotwo": "Get Coupon SALE WEEK 64%",
+        "title_link": "/account/login",
+        "subtitle_herotwo": "",
+        "heading_margin_left_herotwo": "0",
+        "heading_color_herotwo": "#F9F9F9",
+        "text_color_herotwo": "#FFFFFF",
+        "background_image_herotwo": "#040404",
+        "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor</p>",
+        "boxed": false,
+        "padding_top_herotwo": "30",
+        "padding_bottom_herotwo": "35",
+        "margin_top_herotwo": "0",
+        "margin_bottom_herotwo": "0"
+      }
+    },
+    "footer-1":{
+      "type":"mdp-weare-footer-1",
+      "settings":{
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border":true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "hero",
+    "collections-shop",
+    "promo",
+    "collection-lists",
+    "call-action",
+    "collection-row",
+    "call-action-final",
+    "lookbook",
+    "collection-row-footer",
+    "testimonials",
+    "hero-footer",
+    "footer-1"
+  ]
+}

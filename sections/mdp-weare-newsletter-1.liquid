@@ -1,0 +1,137 @@
+{{"mdp-weare-newsletter-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-newsletter-1 {% if section.settings.boxed %}mdp-container{% endif %}" data-variant="{{section.settings.variant}}" >
+  <div class="jarallax" data-speed="{{section.settings.parallax_speed}}" {% if section.settings.parallax and section.settings.image != blank %}data-jarallax{% endif %} {% if section.settings.video_url != blank %}data-jarallax-video="{{section.settings.video_url}}"{% endif %} style="background-color: {{ section.settings.bg_color }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; {% unless section.settings.margin_top == blank %}margin-top: {{ section.settings.margin_top }}px;{% endunless %} {% unless section.settings.margin_bottom == blank %}margin-bottom: {{ section.settings.margin_bottom }}px;{% endunless %}">  
+  {% if section.settings.image != blank %}
+    {% if section.settings.parallax %}
+      {% if section.settings.video_url == blank %}
+          <img class="jarallax-img lazyload" data-src="{{section.settings.image | img_url : '2000x' }}" alt="">
+      {% endif %}
+    {% else %}
+      <div class="mdp-overlay lazyload" data-bgset="{{section.settings.image | img_url : '2000x' }}"></div>
+    {% endif %}
+  {% endif %}
+  <div class="mdp-data mdp-container">
+    <div class="mdp-header">
+      <h2 class="mdp-title">
+        {{section.settings.title}}
+      </h2>
+    </div>
+    {% unless section.settings.content == blank %}
+      <div class="mdp-content">
+        {{section.settings.content}}
+      </div>
+    {% endunless %}
+      <div class="mdp-footer">
+        <div class="mdp-signup-form">
+          {% form "customer" %}
+          {{ form.errors | default_errors }}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="mdp-row">
+            <input  type="email" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}" name="contact[email]"/>
+            <button type="submit" class="mdp-submit">
+              {{ 'general.newsletter_form.submit' | t }}
+            </button>    
+          </div>
+          {% endform %}
+        </div>
+      </div>    
+  </div>  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Newsletter 1",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Call to action"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "parallax",
+        "label": "Background parallax effect",
+        "default": false
+      },
+	  {
+        "type": "range",
+        "id": "parallax_speed",
+        "label": "Parallax speed",
+        "default": 0.2,
+        "min": -1,
+        "max": 2,
+        "step": 0.1
+      },
+      {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["youtube", "vimeo"]
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "boxed",
+        "label": "Boxed",
+        "default": false
+      },
+	  {
+        "type": "select",
+        "id": "variant",
+        "label": "Variant",
+        "default": "style_1",
+        "options": [
+          {
+            "label": "Style 1",
+            "value": "style_1"
+          },
+          {
+            "label": "Style 2",
+            "value": "style_2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "padding_top",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "presets": [{
+      "name": "Newsletter",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

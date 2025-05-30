@@ -1,0 +1,201 @@
+{{"slideshow-home-14.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-weare-slideshow-home-14 mdp-weare-slideshow-{{ section.id }}"
+     style="{% if section.settings.margin_top != blank %}margin-top: {{ section.settings.margin_top }}px;{% endif %}
+            {% if section.settings.margin_bottom != blank %}margin-bottom: {{ section.settings.margin_bottom }}px;{% endif %}">
+    <div class="swiper-container mdp-swiper-container swiper-slideshow-home-14 mdp-weare-swiper-{{ section.id }}">
+        <div class="swiper-wrapper mdp-swiper-wrapper">
+            {% for block in section.blocks %}
+                <div class="swiper-slide mdp-swiper-slide">
+                    {% case block.type %}
+                        {% when 'slide' %}
+                            <div class="mdp-slide {% if block.settings.inverted %}mdp-inverted{% endif %}">
+                                <div class="mdp-media lazyload"
+                                     data-bgset="{{block.settings.image | img_url : '2000x' }}">
+                                </div>
+                                <div class="mdp-data">
+                                    <div class="mdp-container" style="justify-content: {{block.settings.text_alignment}};">
+                                        <div class="mdp-box">
+                                            <div class="mdp-header">
+                                                <h4 class="mdp-title"
+                                                    {% if block.settings.use_local_styles == true %}
+                                                    style="color: {{block.settings.heading_color}};"{% endif %}>
+                                                    {{block.settings.title}}
+                                                </h4>
+                                            </div>
+                                            {% if block.settings.content != blank %}
+                                                <div class="mdp-content">
+                                                    {{block.settings.content}}
+                                                </div>
+                                            {% endif %}
+                                            <div class="mdp-footer">
+                                                {% if block.settings.link != blank %}
+                                                    <a class="mdp-button" href="{{block.settings.link}}">{{block.settings.button_string}}</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endcase %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="swiper-button-prev swiper-button-prev-slideshow-home-14 mdp-swiper-button-prev-{{ section.id }}"></div>
+        <div class="swiper-button-next swiper-button-next-slideshow-home-14 mdp-swiper-button-next-{{ section.id }}"></div>
+
+        <div class="swiper-pagination swiper-pagination-slideshow-home-14 mdp-swiper-button-pagination-{{ section.id }}"></div>
+
+    </div>
+</div>
+
+<script>
+    let swiperSlideshowHome14_{{ section.id | replace: "-", "_" }} = new Swiper('.mdp-weare-swiper-{{ section.id }}', {
+        // Optional parameters
+        lidesPerView: 'auto',
+        direction: 'horizontal',
+        slidesPerView: 1,
+        centeredSlides: false,
+        speed: 500,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000
+        },
+        effect: 'slide',
+        allowTouchMove: true,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        hashNavigation: false,
+        pagination: {
+            el: '.mdp-swiper-button-pagination-{{ section.id }}'
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.mdp-swiper-button-next-{{ section.id }}',
+            prevEl: '.mdp-swiper-button-prev-{{ section.id }}',
+        }
+    });
+
+    swiperSlideshowHome14_{{ section.id | replace: "-", "_" }}.init();
+</script>
+
+<style>
+    .mdp-weare-slideshow-{{ section.id }} .mdp-slide .mdp-media {
+    {% if section.settings.padding_top != blank %}
+        padding-top: {{ section.settings.padding_top }}px;
+    {% endif %}
+    {% if section.settings.padding_bottom != blank %}
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    {% endif %}
+        box-sizing: border-box;
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Slideshow home 14",
+  "settings": [
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_top",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "start",
+              "label": "Left"
+            },{
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "end",
+              "label": "Right"
+            }
+          ],
+          "default": "start"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_local_styles",
+          "label": "Use local styles",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#000000"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "button_string",
+          "label": "Button text",
+          "default": "Get more info"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "inverted",
+          "label": "Inverted",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Slideshow home 14",
+    "category": "SectionHub: Weäre "
+  }]
+}
+{% endschema %}

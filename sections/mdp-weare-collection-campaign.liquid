@@ -1,0 +1,464 @@
+{{ "mdp-weare-collection-campaign.css" | asset_url | stylesheet_tag }}
+
+{% assign image_size = section.settings.image_size | default: '270x370_crop_center' %}
+
+{% assign slider = section.settings.slider | default: false %}
+
+{% assign vendor = section.settings.vendor | default: false %}
+
+{% assign redirect = section.settings.redirect | default: false %}
+
+{% assign sale_string = section.settings.sale_string %}
+{% unless sale_string %}
+    {% assign sale_string = 'products.product.on_sale' | t %}
+{% endunless %}
+
+{% assign new_string = section.settings.new_string %}
+{% unless new_string %}
+    {% assign new_string = 'products.product.new' | t %}
+{% endunless %}
+
+{% assign sold_out_string = section.settings.sold_out_string %}
+{% unless sold_out_string %}
+    {% assign sold_out_string = 'products.product.sold_out' | t %}
+{% endunless %}
+
+{% assign add_cart_string = section.settings.add_cart_string %}
+{% unless add_cart_string %}
+    {% assign add_cart_string = 'products.product.add_to_cart' | t %}
+{% endunless %}
+
+{% assign select_options_string = section.settings.select_options_string %}
+{% unless select_options_string %}
+    {% assign select_options_string = 'products.product.select_options' | t %}
+{% endunless %}
+
+<div style="background-color: {{ section.settings.background }};
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;">
+    <div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-collection-campaign"
+         style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+
+        <div class="mdp-grid" data-columns="3" data-gap="0">
+            {% if section.settings.selected_collection == blank or collections[section.settings.selected_collection] == empty %}
+                {% for product in collections['all'].products limit: 4 %}
+                    {% render 'mdp-weare-product-card', product: product, price: section.settings.show_price %}
+                {% endfor %}
+            {% else %}
+
+                {% assign count = 1 %}
+                {% for product in collections[section.settings.selected_collection].products limit: 4 %}
+
+                    {% if count == 1 %}
+                        <div class="mdp-weare-product-card">
+                            <div class="mdp-media" style="height: 100%">
+                                <a href="{{ product.url }}">
+                                    {% if slider %}
+                                        <div class="swiper-container swiper-slideshow-home-19{{ count }} mdp-swiper-container">
+                                            <div class="swiper-wrapper mdp-swiper-wrapper">
+                                                {% for image in product.images %}
+                                                    {% if product.featured_image == image %}
+                                                        <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% for image in product.images %}
+                                                    {% if product.featured_image != image %}
+                                                        <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="mdp-swiper-button-prev swiper-button-prev-slideshow-home-19{{ count }}"></div>
+                                            <div class="mdp-swiper-button-next swiper-button-next-slideshow-home-19{{ count }}"></div>
+                                        </div>
+                                        <script>
+                                            const swiperSlideshowHome19{{ count }} = new Swiper('.swiper-slideshow-home-19{{ count }}', {
+                                                // Optional parameters
+                                                lidesPerView: 'auto',
+                                                direction: 'horizontal',
+                                                slidesPerView: 1,
+                                                centeredSlides: false,
+                                                speed: 500,
+                                                spaceBetween: 30,
+                                                loop: true,
+                                                effect: 'slide',
+                                                allowTouchMove: true,
+                                                freeMode: true,
+                                                watchSlidesVisibility: true,
+                                                watchSlidesProgress: true,
+                                                hashNavigation: false,
+
+                                                // Navigation arrows
+                                                navigation: {
+                                                    nextEl: '.swiper-button-next-slideshow-home-19{{ count }}',
+                                                    prevEl: '.swiper-button-prev-slideshow-home-19{{ count }}',
+                                                }
+                                            });
+
+                                            swiperSlideshowHome19{{ count }}.init();
+                                        </script>
+
+                                    {% else %}
+                                        <div class="mdp-placeholder"
+                                             style="padding-top: calc({{ image_size | split: "_" | first | split: "x" | last }} / {{ image_size | split: "x" | first }} * 100%);">
+                                            <img class="mdp-image lazyload"
+                                                 data-src="{{ product.featured_image | img_url: image_size }}"
+                                                 alt="{{ product.featured_image.alt }}">
+                                        </div>
+                                    {% endif %}
+                                </a>
+                                <a href="{{ product.url }}"
+                                   class="mdp-btn-product"><span>Shop {{ product.title }}</span></a>
+                            </div>
+                        </div>
+                    {% elsif count == 2 %}
+                        <div class="mdp-weare-product-card">
+                            <div class="mdp-media" style="height: 100%">
+                                <a href="{{ product.url }}">
+                                    {% if slider %}
+                                        <div class="swiper-container swiper-slideshow-home-19{{ count }} mdp-swiper-container"
+                                             data-loop="true" data-pagination="false" data-allowTouchMove="false">
+                                            <div class="swiper-wrapper mdp-swiper-wrapper">
+                                                {% for image in product.images %}
+                                                    {% if product.featured_image == image %}
+                                                        <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% for image in product.images %}
+                                                    {% if product.featured_image != image %}
+                                                        <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="mdp-swiper-button-prev swiper-button-prev-slideshow-home-19{{ count }}"></div>
+                                            <div class="mdp-swiper-button-next swiper-button-next-slideshow-home-19{{ count }}"></div>
+                                        </div>
+                                        <script>
+                                            const swiperSlideshowHome19{{ count }} = new Swiper('.swiper-slideshow-home-19{{ count }}', {
+                                                // Optional parameters
+                                                lidesPerView: 'auto',
+                                                direction: 'horizontal',
+                                                slidesPerView: 1,
+                                                centeredSlides: false,
+                                                speed: 500,
+                                                spaceBetween: 30,
+                                                loop: true,
+                                                autoplay: {
+                                                    delay: 3000
+                                                },
+                                                effect: 'slide',
+                                                allowTouchMove: true,
+                                                freeMode: true,
+                                                watchSlidesVisibility: true,
+                                                watchSlidesProgress: true,
+                                                hashNavigation: false,
+
+                                                // Navigation arrows
+                                                navigation: {
+                                                    nextEl: '.swiper-button-next-slideshow-home-19{{ count }}',
+                                                    prevEl: '.swiper-button-prev-slideshow-home-19{{ count }}',
+                                                }
+                                            });
+
+                                            swiperSlideshowHome19{{ count }}.init();
+                                        </script>
+                                    {% else %}
+                                            <img class="mdp-image lazyload"
+                                                 data-src="{{ product.featured_image | img_url: image_size }}"
+                                                 alt="{{ product.featured_image.alt }}">
+                                    {% endif %}
+                                </a>
+                                <div class="mdp-box-collection">
+                                    <h3 class="mdp-collection-name">
+                                        {% for collection in product.collections %}
+                                            {{ collection.title }}
+                                        {% endfor %}
+                                    </h3>
+                                    <a href="{% for collection in product.collections %} {{ collection.url }} {% endfor %}"
+                                       class="mdp-link-collection">/View More Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% elsif count == 3 %}
+                        <div class="mdp-weare-product-card">
+                        <div class="mdp-media">
+                            <a href="{{ product.url }}">
+                                {% if slider %}
+                                    <div class="swiper-container swiper-slideshow-home-19{{ count }} mdp-swiper-container"
+                                         data-loop="true" data-pagination="false" data-allowTouchMove="false">
+                                        <div class="swiper-wrapper mdp-swiper-wrapper">
+                                            {% for image in product.images %}
+                                                {% if product.featured_image == image %}
+                                                    <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% for image in product.images %}
+                                                {% if product.featured_image != image %}
+                                                    <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <div class="mdp-swiper-button-prev swiper-button-prev-slideshow-home-19{{ count }}"></div>
+                                        <div class="mdp-swiper-button-next swiper-button-next-slideshow-home-19{{ count }}"></div>
+                                    </div>
+                                    <script>
+                                        const swiperSlideshowHome19{{ count }} = new Swiper('.swiper-slideshow-home-19{{ count }}', {
+                                            // Optional parameters
+                                            lidesPerView: 'auto',
+                                            direction: 'horizontal',
+                                            slidesPerView: 1,
+                                            centeredSlides: false,
+                                            speed: 500,
+                                            spaceBetween: 30,
+                                            loop: true,
+                                            effect: 'slide',
+                                            allowTouchMove: true,
+                                            freeMode: true,
+                                            watchSlidesVisibility: true,
+                                            watchSlidesProgress: true,
+                                            hashNavigation: false,
+
+                                            // Navigation arrows
+                                            navigation: {
+                                                nextEl: '.swiper-button-next-slideshow-home-19{{ count }}',
+                                                prevEl: '.swiper-button-prev-slideshow-home-19{{ count }}',
+                                            }
+                                        });
+
+                                        swiperSlideshowHome19{{ count }}.init();
+                                    </script>
+                                {% else %}
+                                <img class="mdp-image lazyload"
+                                     data-src="{{ product.featured_image | img_url: image_size }}"
+                                     alt="{{ product.featured_image.alt }}">
+                                {% endif %}
+                            </a>
+                            <a href="{{ product.url }}"
+                               class="mdp-btn-product"><span>Shop {{ product.title }}</span></a>
+                        </div>
+                    {% else %}
+                        <div class="mdp-media">
+                            <a href="{{ product.url }}">
+                                {% if slider %}
+                                    <div class="swiper-container swiper-slideshow-home-19{{ count }} mdp-swiper-container"
+                                         data-loop="true" data-pagination="false" data-allowTouchMove="false">
+                                        <div class="swiper-wrapper mdp-swiper-wrapper">
+                                            {% for image in product.images %}
+                                                {% if product.featured_image == image %}
+                                                    <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% for image in product.images %}
+                                                {% if product.featured_image != image %}
+                                                    <div class="swiper-slide mdp-swiper-slide">
+                                                            <img class="mdp-image lazyload"
+                                                                 data-src="{{ image | img_url: image_size }}"
+                                                                 alt="{{ image.alt }}">
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <div class="mdp-swiper-button-prev swiper-button-prev-slideshow-home-19{{ count }}"></div>
+                                        <div class="mdp-swiper-button-next swiper-button-next-slideshow-home-19{{ count }}"></div>
+                                    </div>
+                                    <script>
+                                        const swiperSlideshowHome19{{ count }} = new Swiper('.swiper-slideshow-home-19{{ count }}', {
+                                            // Optional parameters
+                                            lidesPerView: 'auto',
+                                            direction: 'horizontal',
+                                            slidesPerView: 1,
+                                            centeredSlides: false,
+                                            speed: 500,
+                                            spaceBetween: 30,
+                                            loop: true,
+                                            effect: 'slide',
+                                            allowTouchMove: true,
+                                            freeMode: true,
+                                            watchSlidesVisibility: true,
+                                            watchSlidesProgress: true,
+                                            hashNavigation: false,
+
+                                            // Navigation arrows
+                                            navigation: {
+                                                nextEl: '.swiper-button-next-slideshow-home-19{{ count }}',
+                                                prevEl: '.swiper-button-prev-slideshow-home-19{{ count }}',
+                                            }
+                                        });
+
+                                        swiperSlideshowHome19{{ count }}.init();
+                                    </script>
+                                {% else %}
+                                <img class="mdp-image lazyload"
+                                     data-src="{{ product.featured_image | img_url: image_size }}"
+                                     alt="{{ product.featured_image.alt }}">
+                                {% endif %}
+                            </a>
+                            <a href="{{ product.url }}"
+                               class="mdp-btn-product"><span>Shop {{ product.title }}</span></a>
+                        </div>
+                        </div>
+                    {% endif %}
+
+                    {% assign count = count | plus: 1 %}
+
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% if section.settings.show_btn_cl == true %}
+            <div class="mdp-box-btn">
+                <a href="{% if section.settings.selected_collection != blank %}{{ section.settings.selected_collection.url }}{% else %} javascript:void(0);{% endif %}">{{ section.settings.btn_text_collection }}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Collection campaign",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured products"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "collection",
+      "id": "selected_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Product size",
+      "default": "270x370_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider",
+      "label": "Images slider",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Strings"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_string",
+      "label": "Sold out string",
+      "default": "Sold out"
+    },
+    {
+      "type": "text",
+      "id": "sale_string",
+      "label": "Sale string",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "new_string",
+      "label": "New string",
+      "default": "New"
+    },
+    {
+      "type": "text",
+      "id": "select_options_string",
+      "label": "Select options string",
+      "default": "Select options"
+    },
+    {
+      "type": "text",
+      "id": "add_cart_string",
+      "label": "Add cart string",
+      "default": "Add to cart"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show price",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_btn_cl",
+      "label": "Show button collection",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "btn_text_collection",
+      "label": "Button collection",
+      "default": "Shop Now"
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "transparent"
+    },
+    {
+      "type": "text",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)",
+      "default": "0"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection campaign",
+      "category": "Home 9"
+    }
+  ]
+}
+{% endschema %}

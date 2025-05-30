@@ -1,0 +1,211 @@
+{{"mdp-weare-hero-shop.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" 
+     class="mdp mdp-weare-hero-shop lazyload {% if section.settings.inverted %}mdp-inverted{% endif %} {% if section.settings.backed %}mdp-backed{% endif %}" data-variant="{{section.settings.variant}}" {% unless section.settings.image == blank %}data-bgset="{{section.settings.image | img_url : section.settings.image_size}}"{% endunless %} 
+     style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px; background-repeat: no-repeat; background-size: {{ section.settings.background_size }}; background-color: {{section.settings.background_image}};">
+  <div class="mdp-container">
+    <div class="mdp-data mdp-grid" data-columns="2" data-gap="30">
+      <div class="mdp-header">
+        {% if section.settings.subtitle != blank %}
+          <div class="mdp-subtitle">{{section.settings.subtitle}}</div>
+        {% endif %}
+
+        <h4 class="mdp-title"
+            style="{% if section.settings.use_local_styles == true %}
+                    color: {{section.settings.heading_color}};
+                   {% endif %}
+                    margin-left: {{section.settings.heading_margin_left}}px;">{{section.settings.title}}</h4>
+      </div>
+
+      <div class="mdp-content">
+        <h2 {% if section.settings.use_local_styles == true %}
+          style="color: {{section.settings.heading_color}};"{% endif %}>{{section.settings.header_content}}</h2>
+        {% unless section.settings.content == blank %}
+          {{section.settings.content}}
+      	{% endunless %}
+      	{% unless section.settings.link == blank %}
+              <a class="mdp-button" href="{{section.settings.link}}">{{section.settings.button_string}}</a>
+        {% endunless %}
+      </div>
+      	{% if section.settings.subscribe == true %}
+          <div class="mdp-signup-form">
+              {% form "customer" %}
+                {{ form.errors | default_errors }}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="mdp-row">
+                  <input  type="email" placeholder="Subscribe by email" name="contact[email]"/>
+                  <button type="submit" class="mdp-submit">Submit</button>    
+                </div>
+              {% endform %}    
+          </div>
+      	{% endif %}
+    </div>  
+  </div>
+</div>
+
+{% if section.settings.use_local_styles == true %}
+<style>
+  .mdp-weare-hero-shop[data-variant=left_text] .mdp-data .mdp-content p,
+  .mdp-weare-hero-shop[data-variant=center_text] .mdp-data .mdp-content p,
+  .mdp-weare-hero-shop[data-variant=right_text] .mdp-data .mdp-content p {
+    color: {{section.settings.heading_color}};
+  }
+</style>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Hero Shop",
+    "settings": [	  	       
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Product promo"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_local_styles",
+        "label": "Use local styles",
+        "default": true
+      },
+	  {
+        "type": "text",
+        "id": "heading_margin_left",
+        "label": "Heading margin left",
+		"default": "0"
+      },
+	  {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+	  {
+        "type": "select",
+        "id": "background_size",
+        "label": "Background size",
+        "default": "auto",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Cover",
+            "value": "cover"
+          },
+          {
+            "label": "Contain",
+            "value": "contain"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "background_image",
+        "label": "Background image",
+        "default": "#F9F9F9"
+      },
+      {
+        "type": "text",
+        "id": "header_content",
+        "label": "Header for content"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Image size",
+         "default": "2000x500_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "text",
+        "id": "button_string",
+        "label": "Button text",
+        "default": "Start shopping"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      },
+      {
+        "type": "checkbox",
+        "id": "inverted",
+        "label": "Inverted",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "backed",
+        "label": "Backed",
+        "default": false
+      },
+	  {
+        "type": "checkbox",
+        "id": "subscribe",
+        "label": "Show subscribe",
+        "default": false
+      },
+	  {
+        "type": "select",
+        "id": "variant",
+        "label": "Variant",
+        "default": "left_text",
+        "options": [
+          {
+            "label": "Left text",
+            "value": "left_text"
+          },
+          {
+            "label": "Center text",
+            "value": "center_text"
+          },
+          {
+            "label": "Right text",
+            "value": "right_text"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "padding_top",
+        "label": "Padding top (px)"
+      },
+      {
+        "type": "text",
+        "id": "padding_bottom",
+        "label": "Padding bottom (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "presets": [{
+      "name": "Hero Full Width Shop",
+      "category": "SectionHub: weare"
+    }]
+  }
+{% endschema %}

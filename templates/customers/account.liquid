@@ -1,0 +1,64 @@
+<div class="mdp mdp-weare-customers-1">
+  <div class="mdp-container">
+    <div class="mdp-header">
+      <h1 class="mdp-title">{{ 'customer.account.title' | t }}</h1>
+      <div class="mdp-actions">
+        <a href="{{ routes.account_logout_url }}">  
+          {% include 'mdp-weare-icon' with '020' %}
+          <span>{{ 'layout.customer.log_out'| t }}</span>
+        </a>
+      </div>
+    </div>
+    {% paginate customer.orders by 20 %}
+
+
+    <div class="mdp-2-columns">
+      <div class="mdp-column">
+        <div class="mdp-header">
+          <h2 class="mdp-title">{{ 'customer.account.details' | t }}</h2>
+        </div>
+        {{ customer.default_address | format_address }}
+        <div class="mdp-actions">
+          <a href="{{ routes.account_addresses_url }}">{% include 'mdp-weare-icon' with '154' %}<span>{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</span></a>
+        </div>
+      </div>
+      <div class="mdp-column">
+        <div class="mdp-header">
+          <h2 class="mdp-title">{{ 'customer.orders.title' | t }}</h2>
+        </div>
+        {% if customer.orders.size != 0 %}
+          <table>
+            <thead>
+              <tr>
+                <th>{{ 'customer.orders.order_number' | t }}</th>
+                <th>{{ 'customer.orders.date' | t }}</th>
+                <th>{{ 'customer.orders.payment_status' | t }}</th>
+                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th>{{ 'customer.orders.total' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+              <tr>
+                <td>{{ order.name | link_to: order.customer_url }}</td>
+                <td>{{ order.created_at | date: format: 'default' }}</td>
+                <td>{{ order.financial_status_label }}</td>
+                <td>{{ order.fulfillment_status_label }}</td>
+                <td>{{ order.total_price | money }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <div>{{ 'customer.orders.none' | t }}</div>
+        {% endif %}
+      </div>
+    </div>
+    {% if paginate.pages > 1 %}
+      {% render 'mdp-weare-pagination', paginate: paginate %}
+    {% endif %}
+    {% endpaginate %}
+  </div>
+</div>
+
+

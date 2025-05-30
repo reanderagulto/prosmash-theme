@@ -1,0 +1,395 @@
+{{"mdp-weare-cart-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-container mdp-weare-cart-1">
+  <script>
+      if (!('mdp' in window)) {
+          window.mdp = {};
+      }
+      window.mdp.money_format = '{{shop.money_format}}';
+  </script>
+  <div class="mdp-header">
+    <h1 class="mdp-title">
+      {{ 'cart.general.title' | t }}
+    </h1>
+  </div>
+  <div class="mdp-cart-table">
+    {% if cart.item_count > 0 %}
+    <form action="/cart" method="post" novalidate class="">
+      <table>
+        <thead class="mdp-cart-row">
+          <th class="mdp-product">{{ 'cart.label.product' | t }}</th>
+          <th class="">{{ 'cart.label.price' | t }}</th>
+          <th class="mdp-small-hide" scope="col">{{ 'cart.label.quantity' | t }}</th>
+          <th class="mdp-small-hide" scope="col">{{ 'cart.label.total' | t }}</th>
+        </thead>
+        <tbody>
+          {% for item in cart.items %}
+          <tr class="mdp-cart-row line{{ forloop.index }}">
+            <td class="mdp-cart-image-wrapper">
+              <div class="mdp-img-product">
+                <img class="mdp-cart-image lazyload" data-src="{{ item | img_url: '95x95', scale: 2 }}" alt="{{ item.title | escape }}" data-item-url="{{ item.url }}">
+              </div>
+              <div class="mdp-produst-name">
+                <div class="mdp-list-view-item-title">
+                  <a href="{{ item.url }}" class="mdp-cart-product-title">
+                    {{ item.product.title }}
+                    {% if item.quantity > 1 %}
+                    <span class="mdp-medium-up-hide"><span class="mdp-visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
+                    {% endif %}
+                  </a>
+                </div>
+
+                {% unless item.variant.title contains 'Default' %}
+                <div class="mdp-cart-meta-text">
+                  {% for option in item.product.options %}
+                  {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                  {% endfor %}
+                </div>
+                {% endunless %}
+
+                {% assign property_size = item.properties | size %}
+                {% if property_size > 0 %}
+                <div class="mdp-cart-meta-text">
+                  {% for p in item.properties %}
+                  {% unless p.last == blank %}
+                  {{ p.first }}:
+
+                  {% if p.last contains '/uploads/' %}
+                  <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                  {% else %}
+                  {{ p.last }}
+                  {% endif %}
+                  {% endunless %}
+                  {% endfor %}
+                </div>
+                {% endif %}
+                {% if item.selling_plan_allocation %}
+                <div class="mdp-cart-meta-text">
+                  {{ item.selling_plan_allocation.selling_plan.name }}
+                </div>
+                {% endif %}              
+                <div class="mdp-cart-remove mdp-small-hide">
+                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="" aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">{{ 'cart.general.remove' | t }}</a>
+                </div>
+              </div>
+
+            </td>
+            
+            <td class="mdp-cart-price-wrapper">
+              {% if item.original_price != item.final_price %}
+              <div class="mdp-dl">
+                <div class="mdp-dt">
+                  <span class="mdp-visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                </div>
+                <div class="mdp-dd">
+                  <span class="mdp-original-price">{{ item.original_price | money }}</span>
+                  {%- if item.variant.available and item.variant.unit_price_measurement -%}
+                  <span class="mdp-unit-price">
+                    {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                  </span>
+                  {%- endif -%}
+                </div>
+                <div class="mdp-dt">
+                  <span class="mdp-visually-hidden">{{ 'products.product.sale_price' | t }}</span>
+                </div>
+                <div class="mdp-dd">
+                  <span class="mdp-final-price">{{ item.final_price | money }}</span>
+                  {%- if item.variant.available and item.variant.unit_price_measurement -%}
+                  <span class="mdp-unit-price">
+                    {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                  </span>
+                  {%- endif -%}
+                </div>
+              </div>
+              {% else %}
+              	{{ item.original_price | money }}
+                {%- if item.variant.available and item.variant.unit_price_measurement -%}
+                <span class="mdp-unit-price">
+                  {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                </span>
+                {%- endif -%}
+              {% endif %}
+
+              {% if item.line_level_discount_allocations != blank %}
+              <div class="mdp-order-discount-list" aria-label="{{ 'customer.order.discount' | t }}">
+                {% for discount_allocation in item.line_level_discount_allocations %}
+                <div class="shorder-discount-item">
+                  <span class="mdp-icon">{% render 'mdp-weare-icon' with '137' %}</span><span>{{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})</span>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+
+              <div class="mdp-cart-edit mdp-medium-up-hide">
+                <div type="button" class="mdp-btn mdp-cart-edit-toggle mdp-cart-edit-active" data-target="line{{ forloop.index }}" aria-label="{{ 'cart.general.edit' | t }} {{ item.product.title }}" aria-expanded="false">
+                  <span class="mdp-cart-edit-text-edit">{{ 'cart.general.edit' | t }}</span>
+                  <span class="mdp-cart-edit-text-cancel">{{ 'cart.general.cancel' | t }}</span>
+                </div>
+              </div>
+            </td>
+            <td class="mdp-small-hide">
+                                          
+              <div class="mdp-quantity-wrapper">
+                <a class="mdp-quantity-minus">
+                  <span>
+                    <span class="mdp-quantity-icon-minus">
+                      -
+                    </span>
+                  </span>
+                </a>
+                <div class="mdp-cart-qty-label mdp-visually-hidden">{{ 'cart.label.quantity' | t }}</div>
+                <input class="mdp-cart-qty-input" type="number" name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*" data-quantity-item="{{ forloop.index }}">
+                <a class="mdp-quantity-plus">
+                  <span>
+                    <span class="mdp-quantity-icon-plus">
+                      +
+                    </span>
+                  </span>
+                </a>
+              </div>
+                            
+            </td>
+            <td class="mdp-small-hide">
+              {% if item.original_line_price != item.final_line_price %}
+              <div class="mdp-dl">
+                <div class="mdp-dt">
+                  <span class="mdp-visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                </div>
+                <div class="mdp-dd">
+                  <span class="mdp-original-line-price"><span class="sh-original-line-price" data-key="{{item.key}}" data-format="{{shop.money_format | strip_html}}">{{ item.original_line_price | money }}</span></span>
+                  {%- if item.variant.available and variant.unit_price_measurement -%}
+                  <span class="mdp-unit-price">
+                    {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                  </span>
+                  {%- endif -%}
+                </div>
+                <div class="mdp-dt">
+                  <span class="mdp-visually-hidden">{{ 'products.product.sale_price' | t }}</span>
+                </div>
+                <div class="mdp-dd">
+                  <span class="mdp-final-line-price" data-key="{{item.key}}" data-format="{{shop.money_format | strip_html}}"><span class="sh-final-line-price" data-key="{{item.key}}" data-format="{{shop.money_format | strip_html}}">{{ item.final_line_price | money }}</span></span>
+                  {%- if item.variant.available and item.variant.unit_price_measurement -%}
+                  <span class="mdp-unit-price">
+                    {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                  </span>
+                  {%- endif -%}
+                </div>
+              </div>
+              {% else %}
+              	<span class="mdp-original-line-price" data-key="{{item.key}}" data-format="{{shop.money_format | strip_html}}"><span class="sh-original-line-price" data-key="{{item.key}}" data-format="{{shop.money_format | strip_html}}">{{ item.original_line_price | money }}</span></span>
+                {%- if item.variant.available and item.variant.unit_price_measurement -%}
+                <span class="mdp-unit-price">
+                  {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                </span>
+                {%- endif -%}
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="mdp-medium-up-hide mdp-cart-update-wrapper">
+            <td colspan="3" class="">
+              <div class="mdp-cart-update-controls">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0"
+                   class="mdp-medium-up-hide mdp-cart-update-control-remove"
+                   aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">
+                  {{ 'cart.general.remove' | t }}
+                </a>
+                <div class="mdp-cart-qty">
+                  <div class="mdp-cart-qty-label"> {{ 'cart.label.quantity' | t }}</div>
+                  <input class="mdp-cart-qty-input" type="number" name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*" data-quantity-item="{{ forloop.index }}">
+                </div>
+            	<input type="submit" name="update"
+                   class="mdp-btn mdp-medium-up-hide"
+                   value="{{ 'cart.general.update' | t }}">
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="mdp-cart-footer {% if section.settings.cart_notes or section.settings.discount_code or section.settings.estimate_shipping %}mdp-cart-addons-enabled{% endif %}">
+
+        {% if section.settings.cart_notes or section.settings.discount_code or section.settings.estimate_shipping %}
+        <div class="mdp-tabs mdp-cart-addons">
+          <div class="mdp-titles" style="justify-content: space-between;">
+            {% if section.settings.cart_notes %}
+            <span data-target="#mdp-cart-note">              
+              <span class="mdp-icon"><i class="far fa-pen-square"></i></span>
+              <span>{{ 'cart.general.note' | t }}</span></span>
+            {% endif %}
+            {% if section.settings.discount_code %}
+            <span data-target="#mdp-cart-discount-code">
+              <span class="mdp-icon"><i class="fas fa-tags"></i></span>
+              <span>{{ 'cart.general.coupon' | t }}</span></span>
+            {% endif %}
+            {% if section.settings.estimate_shipping %}
+            <span data-target="#mdp-estimate-shipping">
+              <span class="mdp-icon"><i class="fas fa-shipping-fast"></i></span>
+              <span>{{ 'cart.general.shipping' | t }}</span></span>
+            {% endif %}
+          </div>
+          <div class="mdp-content">
+            {% if section.settings.cart_notes %}
+            <div class="mdp-item" id="mdp-cart-note">
+              <div class="mdp-cart-note">                
+                <textarea name="note" class="mdp-cart-note-input" placeholder="{{ 'cart.general.add_a_note' | t }}">{{ cart.note }}</textarea>
+              </div>
+            </div>
+            {% endif %}
+            {% if section.settings.discount_code %}
+            <div class="mdp-item" id="mdp-cart-discount-code">
+              <div class="mdp-cart-discount-code">               
+                <div class="mdp-value">
+                  <input type="text" name="discount" placeholder="{{ 'cart.general.discount_code' | t }}"/>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% if section.settings.estimate_shipping %}
+            <div class="mdp-item" id="mdp-estimate-shipping">
+              <div class="mdp-estimate-shipping">
+                <!--<div class="mdp-label">
+                  <span class="mdp-icon">{% render 'mdp-weare-icon' with '127' %}</span>
+                  <span>{{ 'cart.general.estimate_shipping_title' | t }}</span>
+                </div>-->
+                <div class="mdp-form">
+                  <div data-address="root">
+                    <div class="mdp-hidden">
+                      <label for="AddressFirstName">{{ 'customer.addresses.first_name' | t }}</label>
+                      <input type="text" id="AddressFirstName" name="address[first_name]" value="{{ form.first_name }}">
+                    </div>
+                    <div class="mdp-hidden">
+                      <label for="AddressLastName">{{ 'customer.addresses.last_name' | t }}</label>
+                      <input type="text" id="AddressLastName" name="address[last_name]" value="{{ form.last_name }}">
+                    </div>
+                    <div class="mdp-hidden">
+                      <label for="AddressCompany">{{ 'customer.addresses.company' | t }}</label>
+                      <input type="text" id="AddressCompany" name="address[company]" value="{{ form.company }}">
+                    </div>
+                    <div class="mdp-hidden">
+                      <label for="AddressAddress1">{{ 'customer.addresses.address1' | t }}</label>
+                      <input type="text" id="AddressAddress1" name="address[address1]" value="{{ form.address1 }}">
+                    </div>
+                    <div class="mdp-hidden">
+                      <label for="AddressAddress2">{{ 'customer.addresses.address2' | t }}</label>
+                      <input type="text" id="AddressAddress2" name="address[address2]" value="{{ form.address2 }}">
+                    </div>
+                    <div class="mdp-hidden">
+                      <label for="AddressCity">{{ 'customer.addresses.city' | t }}</label>
+                      <input type="text" id="AddressCity" name="address[city]" value="{{ form.city }}">
+                    </div>
+
+                    <div class="mdp-form-group">
+                      <label for="AddressCountry">{{ 'customer.addresses.country' | t }}</label>
+                      <select id="AddressCountry" name="address[country]" data-default="US" placeholder=""></select>
+                    </div>
+
+                    <div class="mdp-form-group">
+                      <label for="AddressProvince">{{ 'customer.addresses.province' | t }}</label>
+                      <select id="AddressProvince" name="address[province]" data-default="{{ form.province }}"></select>
+                    </div>
+
+                    <div class="mdp-form-group">
+                      <label for="AddressZip">{{ 'customer.addresses.zip' | t }}</label>
+                      <input type="text" id="AddressZip" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters" placeholder="Enter ZIP code">
+                    </div>
+
+                    <div class="mdp-hidden">
+                      <label for="AddressPhone">{{ 'customer.addresses.phone' | t }}</label>
+                      <input type="tel" id="AddressPhone" name="address[phone]" value="{{ form.phone }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="mdp-actions">
+                  <button class="mdp-calc">{{ 'cart.general.estimate_shipping_button' | t }}</button>
+                </div>
+                <div class="mdp-message"></div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        <div class="mdp-cart-result">
+          {% if cart.cart_level_discount_applications != blank %}
+          <div class="mdp-order-discount-card-wrapper">
+            {% for discount_application in cart.cart_level_discount_applications %}
+            <span class="mdp-order-discount-title">
+              <span class="mdp-icon">{% render 'mdp-weare-icon' with '137' %}</span><span class="">{{ 'customer.order.discount' | t }}: </span>{{- discount_application.title -}}
+            </span>
+            <span class="mdp-order-discount-cart-total">-{{ discount_application.total_allocated_amount | money }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="mdp-cart-subtotal">
+            <span class="mdp-cart-subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
+            <span class="mdp-cart-subtotal-price"><span class="mdp-total-price" data-format="{{shop.money_format | strip_html}}"><span class="sh-total-price" data-format="{{shop.money_format | strip_html}}">{{ cart.total_price | money }}</span></span></span>
+          </div>
+
+          {% capture taxes_shipping_checkout %}
+          {% if shop.taxes_included and shop.shipping_policy.body != blank %}
+          {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+          {% elsif shop.taxes_included %}
+          {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+          {% elsif shop.shipping_policy.body != blank %}
+          {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+          {% else %}
+          {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
+          {% endif %}
+          {% endcapture %}
+          <div class="mdp-cart-shipping">{{ taxes_shipping_checkout }}</div>
+          <div class="mdp-cart-submit-controls">
+            <input type="submit" name="update"
+                   class="mdp-btn mdp-btn-update"
+                   value="{{ 'cart.general.update' | t }}">
+            <input type="submit" name="checkout"
+                   class="mdp-btn"
+                   value="{{ 'cart.general.checkout' | t }}">
+          </div>
+
+          {% if additional_checkout_buttons %}
+          <div class="mdp-additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+    {% else %}
+    <div class="">
+      <p class="mdp-cart-empty-message">{{ 'cart.general.empty' | t }}</p>
+      <div class="mdp-cookie-message" style="display: none">
+        <p>{{ 'cart.general.cookies_required' | t }}</p>
+      </div>
+      <a href="/" class="mdp-btn mdp-cart-continue-btn">{{ 'general.404.link' | t }}<span class="mdp-icon">{% render 'mdp-weare-icon' with '007' %}</span></a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Cart 1",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes",
+        "label": "Enable cart notes",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "estimate_shipping",
+        "label": "Enable estimate shipping",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "discount_code",
+        "label": "Enable discount code",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

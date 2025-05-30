@@ -1,0 +1,254 @@
+{{ "mdp-weare-search-1.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-search-1">
+
+    {% paginate search.results by 12 %}
+
+        <div class="mdp-header">
+            {% if search.performed %}
+                {% if search.results_count == 0 %}
+                    <h1 class="mdp-title">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h1>
+                {% else %}
+                    <h1 class="mdp-title">{{ 'general.search.results_for_html' | t: terms: search.terms }}</h1>
+                {% endif %}
+            {% else %}
+                <h1 class="mdp-title">{{ 'general.search.title' | t }}</h1>
+            {% endif %}
+        </div>
+
+
+        <form class="mdp-search-bar" action="/search" method="get">
+            <input type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}"
+                   value="{{ search.terms | escape }}">
+            <button type="submit" class="">{{ 'general.search.submit' | t }}</button>
+        </form>
+
+        {% if search.performed %}
+
+            <div class="mdp-search-header">
+                <div class="mdp-filters">
+                    <button class="mdp-filter">{{ section.settings.filter_by_string }}</button>
+                </div>
+                <div class="mdp-count">
+                    <span>{{ search.results.size }} {{ section.settings.results_string }}</span>
+                </div>
+            </div>
+
+            <div id="mdp-weare-search-{{ section.id }}"
+                 class="mdp-search-results mdp-grid"
+                 data-columns="3"
+                 data-gap="30">
+                {% for item in search.results %}
+                    <div>
+                    <a class="mdp-item" href="{{ item.url }}">
+                        {% if item.featured_image != blank %}
+                            <div class="mdp-media">
+                                <img class="mdp-img-product"
+                                     src="{{ item.featured_image | img_url: section.settings.image_size }}" alt="">
+                            </div>
+                        {% else %}
+                            {% if item.image != blank %}
+                                <div class="mdp-media">
+                                        <img class="mdp-img-product"
+                                             src="{{ item.image | img_url: section.settings.image_size }}" alt="">
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        <div class="mdp-data">
+                            <div class="mdp-header">
+                                <div class="mdp-title">
+                                    {{ item.title }}
+                                </div>
+                            </div>
+
+                            {% if item.content != blank %}
+                            <p class="mdp-content">
+                                {{ item.content | strip_html | truncatewords: 30 }}
+                            </p>
+                            {% endif %}
+
+                            <div class="mdp-footer">
+                                {% if item.price %}
+                                    <span class="mdp-price-wrapper">
+                  <span class="mdp-label">Price:</span>
+                  <span class="mdp-price">
+                    {% if item.compare_at_price > item.price %}
+                        <span class="mdp-price-compare">{{ item.compare_at_price | money_without_trailing_zeros }}</span>
+                    {% endif %}            
+                    <span class="mdp-price-varies">
+                      {{ item.price | money_without_trailing_zeros }}
+                    </span>
+                  </span>
+                  {%- if item.unit_price_measurement -%}
+                      <span class="mdp-unit-price">
+                    {{ item.unit_price | money }}/{%- if item.unit_price_measurement.reference_value != 1 -%} {{- item.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.unit_price_measurement.reference_unit }}
+                  </span>
+                  {%- endif -%}
+                </span>
+                                {% endif %}
+                                {% if item.vendor %}
+                                    <span class="mdp-vendor">
+                  <span class="mdp-label">{{ 'general.search.vendor' | t }}:</span>
+                  <span class="mdp-value">{{ item.vendor }}</span>
+                </span>
+                                {% endif %}
+                                {% if item.author %}
+                                    <span class="mdp-author">
+                  <span class="mdp-label">{{ 'general.search.author' | t }}:</span>
+                  <span class="mdp-value">{{ item.author }}</span>
+                </span>
+                                {% endif %}
+                                {% if item.published_at %}
+                                    <span class="mdp-date">
+                  <span class="mdp-label">{{ 'general.search.date' | t }}:</span>
+                  <span class="mdp-value">{{ item.published_at | time_tag: format: 'date' }}</span>
+                </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% if paginate.pages > 1 %}
+                {% render 'mdp-weare-pagination', paginate: paginate %}
+            {% endif %}
+        {% endif %}
+
+    {% endpaginate %}
+
+</div>
+
+<script>
+    {% if request.design_mode == true %}
+    function designModeGrid() {
+        let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector("#mdp-weare-search-{{ section.id }}");
+        let data_{{ section.id | replace: "--", "" | replace: "-", "" }} = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-columns') || {};
+        let dataOptions = JSON.parse(data_{{ section.id | replace: "--", "" | replace: "-", "" }});
+
+        /** Calculate the height of the image depending on the length of the container */
+        function breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+            let perView = dataOptions;
+
+            if (width >= 769 && width <= 1024) {
+                perView = 3;
+            }
+
+            if (width >= 426 && width <= 768) {
+                perView = 2;
+            }
+
+            if (width >= 320 && width <= 425) {
+                perView = 1;
+            }
+
+            return perView;
+        }
+
+        function heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+            let winWidthPage = window.innerWidth;
+            let grid = document.getElementById("mdp-weare-{{ section.id }}");
+            let winWidth = grid.offsetWidth;
+            let perView = breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" | replace: "-", "" }}(winWidthPage);
+            let allGap = winWidthPage >= 376 ? perView * 15 : 0;
+            let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1025 ? 80 * 2 : 15 * 2;
+            let winWidthGap = winWidth - allGap - paddingSide;
+            let colSize = 100 / perView;
+            let height = (winWidthGap * colSize / 100) + 70;
+            let item = grid.querySelectorAll(".mdp-img-product");
+
+            console.log('height ' + height);
+
+            for (let i = 0; i <= item.length - 1; i++) {
+                item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+            }
+        }
+
+        addEventListener("resize", (event) => {
+            heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+        });
+
+        heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+        /** End */
+    }
+
+    document.addEventListener("shopify:section:load", designModeGrid);
+    {% endif %}
+
+    let slider_{{ section.id | replace: "--", "" | replace: "-", "" }} = document.querySelector("#mdp-weare-search-{{ section.id }}");
+    let data_{{ section.id | replace: "--", "" | replace: "-", "" }} = slider_{{ section.id | replace: "--", "" | replace: "-", "" }}.getAttribute('data-columns') || {};
+    let dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }} = JSON.parse(data_{{ section.id | replace: "--", "" | replace: "-", "" }});
+
+    /** Calculate the height of the image depending on the length of the container */
+    function breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+        let perView = dataOptions_{{ section.id | replace: "--", "" | replace: "-", "" }};
+
+        if (width >= 769 && width <= 1024) {
+            perView = 3;
+        }
+
+        if (width >= 426 && width <= 768) {
+            perView = 2;
+        }
+
+        if (width >= 320 && width <= 425) {
+            perView = 1;
+        }
+
+        return perView;
+    }
+
+    function heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+        let winWidthPage = window.innerWidth;
+        let grid = document.getElementById("mdp-weare-{{ section.id }}");
+        let winWidth = grid.offsetWidth;
+        let perView = breakpointsWidthCol_{{ section.id | replace: "--", "" | replace: "-", "" | replace: "-", "" }}(winWidthPage);
+        let allGap = winWidthPage >= 376 ? perView * 15 : 0;
+        let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1025 ? 80 * 2 : 15 * 2;
+        let winWidthGap = winWidth - allGap - paddingSide;
+        let colSize = 100 / perView;
+        let height = (winWidthGap * colSize / 100) + 70;
+        let item = grid.querySelectorAll(".mdp-img-product");
+
+        for (let i = 0; i <= item.length - 1; i++) {
+            item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+        }
+    }
+
+    addEventListener("resize", (event) => {
+        heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    });
+
+    heightImgCol_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    /** End */
+</script>
+
+{% schema %}
+{
+  "name": "Search 1",
+  "settings": [
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Image size",
+      "default": "270x370_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "text",
+      "id": "filter_by_string",
+      "label": "'Filter by' string",
+      "default": "Filter by"
+    },
+    {
+      "type": "text",
+      "id": "results_string",
+      "label": "'Results' string",
+      "default": "Results"
+    }
+  ]
+}
+{% endschema %}

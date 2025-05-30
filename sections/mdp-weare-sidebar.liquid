@@ -1,0 +1,859 @@
+{%- assign custom_filters_id = 'custom-filter' -%}
+{%- assign custom_filters_names = 'tag=|vendor=|type=|title=|price=|only_available=' | split: '|' -%}
+{%- assign only_available = null -%}
+{%- if current_tags contains custom_filters_id -%}
+    {%- assign custom_filters = current_tags | join: '|' | remove: custom_filters_id | split: '|' -%}
+    {%- for filter in custom_filters -%}
+        {%- for name in custom_filters_names -%}
+            {%- if filter contains name -%}
+                {%- assign value = filter | remove: name | handleize -%}
+                {%- case name -%}
+                {%- when custom_filters_names[0] -%}
+                    {% capture filter_by_tags %}{{ filter_by_tags }}{% if filter_by_tags != blank %}|{% endif %}{{ value }}{% endcapture %}
+                {%- when custom_filters_names[1] -%}
+                    {% capture filter_by_vendors %}{{ filter_by_vendors }}{% if filter_by_vendors != blank %}|{% endif %}{{ value }}{% endcapture %}
+                {%- when custom_filters_names[2] -%}
+                    {% capture filter_by_types %}{{ filter_by_types }}{% if filter_by_types != blank %}|{% endif %}{{ value }}{% endcapture %}
+                {%- when custom_filters_names[3] -%}
+                    {%- assign filter_by_title = value -%}
+                {%- when custom_filters_names[4] -%}
+                    {%- assign filter_by_price = value | split: '-' -%}
+                {%- when custom_filters_names[5] -%}
+                    {%- case value -%}
+                    {%- when 'true' -%}{%- assign only_available = true -%}
+                    {%- when 'false' -%}{%- assign only_available = false -%}
+                    {%- endcase -%}
+                {%- endcase -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endfor -%}
+    {%- assign filter_by_tags = filter_by_tags | split: '|' -%}
+    {%- assign filter_by_vendors = filter_by_vendors | split: '|' -%}
+    {%- assign filter_by_types = filter_by_types | split: '|' -%}
+{%- else -%}
+    {%- assign filter_by_tags = current_tags | join: '___' | handleize | split: '___' -%}
+{%- endif -%}
+{%- if only_available == null -%}
+    {%- assign only_available = settings.collection_only_available -%}
+{%- endif -%}
+<div style="display: none;">
+  <svg id="mdp-icon-165" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M4.741 21.654a.601.601 0 0 1-.186-.439v-15h-1.25a.598.598 0 0 1-.439-.186.597.597 0 0 1-.186-.439.6.6 0 0 1 .186-.439.604.604 0 0 1 .439-.186h5v-2.5a.6.6 0 0 1 .186-.439.598.598 0 0 1 .439-.186h6.25c.169 0 .315.063.439.186a.601.601 0 0 1 .186.439v2.5h5c.169 0 .315.063.439.186a.601.601 0 0 1 .186.439c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186h-1.25v15a.6.6 0 0 1-.186.439.601.601 0 0 1-.439.186H5.18a.598.598 0 0 1-.439-.186zM18.305 6.215h-12.5V20.59h12.5V6.215zM9.37 9.525a.601.601 0 0 1 .186.439v6.875c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186.598.598 0 0 1-.439-.186.598.598 0 0 1-.186-.439V9.965a.6.6 0 0 1 .186-.439.594.594 0 0 1 .438-.186c.169 0 .316.062.44.185zm.185-4.56h5V3.09h-5v1.875zm2.94 4.56a.601.601 0 0 1 .186.439v6.875c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186.598.598 0 0 1-.439-.186.598.598 0 0 1-.186-.439V9.965a.6.6 0 0 1 .186-.439.604.604 0 0 1 .439-.186c.168 0 .315.062.439.185zm2.246 0a.604.604 0 0 1 .439-.186c.169 0 .315.063.439.186a.601.601 0 0 1 .186.439v6.875c0 .17-.062.316-.186.439a.601.601 0 0 1-.439.186.598.598 0 0 1-.439-.186.598.598 0 0 1-.186-.439V9.965c0-.169.062-.316.186-.44z"/></svg>
+  <svg id="mdp-icon-190" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M7.718 15.966a.65.65 0 0 1-.176-.449c0-.169.059-.318.176-.449l3.32-3.301-3.32-3.301a.65.65 0 0 1-.176-.449c0-.169.059-.318.176-.449a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176l3.301 3.32 3.301-3.32a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176.117.131.176.28.176.449a.65.65 0 0 1-.176.449l-3.32 3.301 3.32 3.301c.117.131.176.28.176.449a.65.65 0 0 1-.176.449.846.846 0 0 1-.215.127.596.596 0 0 1-.468 0 .846.846 0 0 1-.215-.127l-3.301-3.32-3.301 3.32a.846.846 0 0 1-.215.127.596.596 0 0 1-.468 0 .813.813 0 0 1-.215-.127z"/></svg>
+  <svg id="mdp-icon-146" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M9.703 15.489l-2.5-2.5a.652.652 0 0 1-.176-.449c0-.169.059-.319.176-.449.13-.117.28-.176.449-.176s.319.059.449.176l2.051 2.07 5.801-5.82c.13-.117.28-.176.449-.176s.319.059.449.176c.117.13.176.28.176.449a.652.652 0 0 1-.176.449l-6.25 6.25a.877.877 0 0 1-.215.127.596.596 0 0 1-.468 0 .93.93 0 0 1-.215-.127z"/></svg>
+  <svg id="mdp-icon-229" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24"><path fill="currentColor" d="M11.783 14.088l-3.75-3.75a.652.652 0 0 1-.176-.449c0-.169.059-.319.176-.449a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176l3.301 3.32 3.301-3.32a.65.65 0 0 1 .449-.176c.169 0 .318.059.449.176.117.13.176.28.176.449a.652.652 0 0 1-.176.449l-3.75 3.75a.877.877 0 0 1-.215.127.596.596 0 0 1-.468 0 .841.841 0 0 1-.215-.127z"/></svg>
+</div>
+<script>
+    if (!('mdp' in window)) {
+        window.mdp = {};
+    }
+    window.mdp.money_format = '{{shop.money_format}}';
+</script>
+<div data-section-id="{{ section.id }}">
+    <div class="mdp-weare-collection-sidebar mdp-collection-sidebar mdp-collection-filtering">
+            {%- for block in section.blocks -%}      
+                {%- case block.type -%}
+                {%- when 'current_filters' -%}
+                    {% capture replace_attrs %} data-mdp-collection-replace="current-tags"{% endcapture %}
+                    {% capture no_content_message %}{{ section.settings.no_current_tags }}{% endcapture %}
+                    {%- assign accordion_is_hidden = true -%}
+                    {%- capture navigation_content -%}
+                        <div class="mdp-collection-current-tags">
+                            <div class="mdp-collection-current-tags-items">
+                                {%- for tag in current_tags -%}
+                                    {%- assign filter_type = null -%}
+                                    {%- unless tag == 'custom-filter' or tag contains 'page=' or tag contains 'only_available=' -%}
+                                        {%- assign title = tag -%}
+                                        {%- for name in custom_filters_names -%}
+                                            {%- if title contains name -%}
+                                                {%- assign title = title | remove: name -%}
+                                                {%- if name == 'price=' -%}
+                                                    {%- assign price = title | split: '-' -%}
+                                                    {%- assign from = price[0] | money -%}
+                                                    {%- assign to = price[1] | money -%}
+                                                    {% capture title %}{{ from }}<span class=""> - </span>{{ to }}{% endcapture %}
+                                                {%- endif -%}
+                                                {%- assign filter_type = name | remove: '=' -%}
+                                            {%- endif -%}
+                                        {%- endfor -%}
+                                        {%- assign title = title | capitalize -%}
+                                        {%- if filter_type == null -%}
+                                            {%- assign filter_type = 'tag' -%}
+                                        {%- endif -%}
+                                        <div data-value="{{ title | handleize }}" data-filter-type="{{ filter_type }}" class=""><span>{{ title }}</span> <span><svg><use xlink:href="#mdp-icon-190"></use></svg></span></div>
+                                        {%- assign has_content = true -%}
+                                        {%- assign accordion_is_hidden = false -%}
+                                    {%- endunless -%}
+                                {%- endfor -%}
+                            </div>
+                            <div class="mdp-collection-current-tags-clear">
+                                <span class=""><svg><use xlink:href="#mdp-icon-165"></use></svg></span>
+                                <span class="">{{ section.settings.clear_all_tags }}</span>
+                            </div>
+                        </div>
+                    {%- endcapture -%}
+                {%- when 'parameters' -%}
+                    {% capture no_content_message %}{{ section.settings.no_content }}{% endcapture %}
+                    {%- capture navigation_content -%}
+                        <div class="mdp-collection-parameters">
+                            <label class="mdp-switcher">
+                                <input type="checkbox" name="only_available" value="{{ only_available }}" {% if only_available == true %} checked="checked"{% endif %}>
+                                <span>
+                                    <span></span>
+                                </span>
+                                <span>{{ section.settings.only_available }}</span>
+                            </label>
+                        </div>
+                    {%- endcapture -%}
+                    {%- assign has_content = true -%}
+                {%- when 'collections' -%}
+                    {% capture no_content_message %}{{ section.settings.no_collections }}{% endcapture %}
+                    {%- capture navigation_content -%}
+                        {%- assign menu = linklists[block.settings.menu] -%}
+                        <div class="mdp-collections-menu">
+                            {%- for link in menu.links -%}
+                                {%- if link.type == 'collection_link' -%}
+                                    {%- assign array_link = link.url | split: '/' -%}
+                                    {%- if link.object.handle == collection.handle -%}
+                                        {%- assign is_current_collection = true -%}
+                                    {%- else -%}
+                                        {%- assign is_current_collection = false -%}
+                                    {%- endif -%}
+                                    {%- if array_link.size == 4 -%}
+                                        {%- assign has_tags = true -%}
+                                    {%- else -%}
+                                        {%- assign has_tags = false -%}
+                                    {%- endif -%}
+                                    <div class="mdp-collections-menu-item"{% if link.levels > 0 or has_tags %} data-mdp-accordion="all"{% endif %} data-section-for-collection="{{ link.object.handle }}">
+                                        <div class="mdp-collections-menu-button {% if has_tags and is_current_collection %} mdp-open{% endif %}"{% if link.levels > 0 or has_tags %} data-mdp-accordion-button{% endif %}>
+                                            <label class="mdp-checkbox">
+                                                <input type="radio" class="" name="collection" value="{{ link.object.handle }}"{% if is_current_collection %} checked="checked"{% endif %}{% if link.levels > 0 or has_tags %} data-mdp-accordion-input{% endif %}>
+                                              	<span class="">
+                                                	<span class=""><svg><use xlink:href="#mdp-icon-146"></use></svg></span>
+                                                </span>
+                                                <span>{{ link.title }}</span>
+                                            </label>
+                                            {%- if link.levels > 0 or has_tags -%}
+                                                <span class="mdp-collections-menu-arrow"><svg><use xlink:href="#mdp-icon-229"></use></svg></span>
+                                            {%- endif -%}
+                                            <span>{{ link.object.all_products_count }}</span>
+                                        </div>
+                                        {%- if link.levels > 0 -%}
+                                            <div class="mdp-collections-menu-list{% if is_current_collection != true %} mdp-closed{% endif %}" data-mdp-accordion-content>
+                                                {%- assign tags = array_link[3] | split: '+' -%}
+                                                {%- for sub_link in link.links -%}
+                                                    {%- if sub_link.type == 'collection_link' -%}
+                                                        {%- if sub_link.object.handle == collection.handle -%}
+                                                            {%- assign is_current_collection = true -%}
+                                                        {%- else -%}
+                                                            {%- assign is_current_collection = false -%}
+                                                        {%- endif -%}
+                                                        <div class="mdp-collections-menu-button">
+                                                            <label class="mdp-checkbox">
+                                                                <input type="radio" class="" name="collection" value="{{ sub_link.object.handle }}"{% if is_current_collection %} checked="checked"{% endif %}>
+                                                              	<span class="">
+                                                                	<span class=""><svg><use xlink:href="#mdp-icon-146"></use></svg></span>
+                                                                </span>
+                                                                <span>{{ sub_link.title }}</span>
+                                                            </label>
+                                                            <span class="">{{ sub_link.object.all_products_count }}</span>
+                                                        </div>
+                                                    {%- endif -%}
+                                                {%- endfor -%}
+                                            </div>
+                                        {%- elsif has_tags -%}
+                                            <div class="mdp-collections-menu-list{% if is_current_collection != true %} mdp-closed{% endif %}" data-mdp-accordion-content>
+                                                {%- assign tags = array_link[3] | split: '+' -%}
+                                                {%- for tag in tags -%}
+                                                    {%- assign tag_handle = tag | handleize -%}
+                                                    <label class="mdp-checkbox">
+                                                        <input type="{{ block.settings.type_of_tags_input }}" class="" name="collection_with_tag" value="{{ tag_handle }}"{% if is_current_collection and filter_by_tags contains tag_handle %} checked="checked"{% endif %}>
+                                                        <span class=""><svg><use xlink:href="#mdp-icon-146"></use></svg></span>
+                                                        <span>{{ tag | capitalize }}</span>
+                                                    </label>
+                                                {%- endfor -%}
+                                            </div>
+                                        {%- endif -%}
+                                    </div>
+                                    {%- assign has_content = true -%}
+                                {%- endif -%}
+                            {%- endfor -%}
+                        </div>
+                    {%- endcapture -%}
+                {%- when 'filters' -%}
+                    {%- if section.settings.hide_empty_filter_section -%}
+                        {%- assign accordion_is_hidden = true -%}
+                    {%- endif -%}
+                    {%- case block.settings.type -%}
+                    {%- when 'tags' -%}
+                        {% capture no_content_message %}{{ section.settings.no_tags }}{% endcapture %}
+                        {%- assign input_name = 'filter_by_tag' -%}
+                        {%- assign current_type_filters = filter_by_tags -%}
+                        {%- assign all_items = collection.all_tags -%}
+                    {%- when 'colors' -%}
+                        {% capture no_content_message %}{{ section.settings.no_colors }}{% endcapture %}
+                        {%- assign input_name = 'filter_by_color' -%}
+                        {%- assign current_type_filters = filter_by_tags -%}
+                        {%- assign all_items = collection.all_tags -%}
+                    {%- when 'vendors' -%}
+                        {% capture no_content_message %}{{ section.settings.no_vendors }}{% endcapture %}
+                        {% capture input_name %}filter_by_vendor{% endcapture %}
+                        {%- assign current_type_filters = filter_by_vendors -%}
+                        {%- assign all_items = collection.all_vendors -%}
+                    {%- when 'types' -%}
+                        {% capture no_content_message %}{{ section.settings.no_product_types }}{% endcapture %}
+                        {% capture input_name %}filter_by_type{% endcapture %}
+                        {%- assign current_type_filters = filter_by_types -%}
+                        {%- assign all_items = collection.all_types -%}
+                    {%- endcase -%}
+                    {%- if collection.current_vendor or collection.current_type -%}
+                        {%- continue -%}
+                    {%- endif -%}
+                    {%- assign all_items_handle = all_items | join: '___' | handleize | split: '___' -%}
+                    {%- capture navigation_content -%}
+                        {%- if block.settings.show_all_from_collection and block.settings.type != 'colors' -%}
+                            {%- assign filters = all_items -%}
+                        {%- else -%}
+                            {%- assign filters = block.settings.items | split: '|' -%}
+                        {%- endif -%}
+                        {%- assign filter_index = filter_index | plus: 1 -%} 
+                        {% capture replace_attrs %} data-mdp-collection-replace="filter-{{ filter_index }}" data-mdp-collection-replace-only-full{% if section.settings.hide_empty_filter_section %} data-mdp-collection-replace-hide-empty{% endif %}{% endcapture %}
+                        <div class="mdp-collection-filters{% if block.settings.direction == 'rows' %} mdp-rows{% elsif block.settings.direction == 'columns' %} mdp-columns{% endif %}" {% if block.settings.type == 'colors' %} data-property="color"{% endif %}>
+                            {%- capture filters_html -%}
+                                {%- assign filters_count = 0 -%}
+                                {%- for filter in filters -%}
+                                    {%- assign filter_handle = filter | handleize -%}
+                                    {%- if all_items_handle contains filter_handle -%}
+                                        {% if block.settings.direction == 'columns' and block.settings.max_column_size != 0 %}
+                                            {%- if filters_count != 0 -%}
+                                                {%- assign modulo = filters_count | modulo: block.settings.max_column_size -%}
+                                                {%- if modulo == 0 -%}
+                                                    </div>
+                                                    <div class="mdp-col-{{ 12 | divided_by: block.settings.columns }}">
+                                                {%- endif -%}
+                                            {%- endif -%}
+                                            {%- assign filters_count = filters_count | plus: 1 -%}
+                                        {%- endif -%}
+                                        {%- assign current_filter_handle = filter | handleize -%}
+                                        <label class="mdp-checkbox {% if block.settings.direction == 'rows' %} mdp-rows{% if block.settings.type == 'colors' %} mdp-colors{% endif %}{% endif %}">
+                                            <input type="checkbox" class="" name="{{ input_name }}" value="{{ filter_handle }}"{% if current_type_filters contains current_filter_handle %} checked="checked"{% endif %}>
+                                            <span class="{% if block.settings.type == 'colors' %} mdp-color mdp-color-{{ filter_handle }}{% else %} {% endif %}"{% if block.settings.type == 'colors' %} data-value="{{ filter_handle }}"{% endif %} data-bg="none">
+                                                <span class="{% if block.settings.type == 'colors' %} mdp-colors{% endif %}"><svg><use xlink:href="#mdp-icon-146"></use></svg></span>
+                                            </span>
+                                            {%- if block.settings.type != 'colors' -%}
+                                                <span>{{ filter }}</span>
+                                            {%- endif -%}
+                                        </label>
+                                        {%- assign has_content = true -%}
+                                        {%- if section.settings.hide_empty_filter_section -%}
+                                            {%- assign accordion_is_hidden = false -%}
+                                        {%- endif -%}
+                                    {%- endif -%}
+                                {%- endfor -%}
+                            {%- endcapture -%}
+                            {%- if block.settings.direction == 'columns' -%}
+                                <div class="mdp-col-{{ 12 | divided_by: block.settings.columns }}">
+                                    {{ filters_html }}
+                                </div>
+                            {%- else -%}
+                                {{ filters_html }}
+                            {%- endif -%}
+                        </div>
+                    {%- endcapture -%}
+                {%- when 'filter_by_price' -%}
+                    {%- capture navigation_content -%}
+                        <div class="mdp-collection-filter-by-price" >
+                            <input type="hidden" class="mdp-range-of-price" name="filter_by_price" data-min="{{ block.settings.min_value }}" data-max="{{ block.settings.max_value }}" data-step="{{ block.settings.step }}"{% if filter_by_price %} data-from="{{ filter_by_price[0] | divided_by: 100 }}" data-to="{{ filter_by_price[1] | divided_by: 100 }}"{% endif %}>
+                        </div>
+                    {%- endcapture -%}
+                    {%- assign has_content = true -%}
+                {%- when 'filter_by_title' -%}
+                    {%- capture navigation_content -%}
+                        <div class="mdp-collection-filter-by-title">
+                            <input type="search" class="" name="filter_by_title" placeholder="{{ block.settings.placeholder }}" value="{{ filter_by_title }}">
+                            <button type="button" class="">{{ block.settings.button_string }}</button>
+                        </div>
+                        {%- endcapture -%}
+                    {%- assign has_content = true -%}
+                {%- when 'custom_html' -%}
+                    {% capture no_content_message %}{{ section.settings.no_content }}{% endcapture %}
+                    {%- capture navigation_content -%}                        
+                        {%- if block.settings.content != blank or block.settings.page_content != blank -%}
+                            {{ block.settings.content }}
+                            {%- assign has_content = true -%}
+                        {%- endif -%}
+                    {%- endcapture -%}
+                {%- endcase -%}
+                {%- if navigation_content -%}
+                    {%- if block.settings.default_state == 'open' or block.settings.default_state == 'close' -%}
+                        {% capture accordion_attr %} data-mdp-accordion="all"{% endcapture %}
+                        {% capture accordion_button_attr %} data-mdp-accordion-button{% endcapture %}
+                        {% capture accordion_content_attr %} data-mdp-accordion-content{% endcapture %}
+                    {%- endif -%}
+                    <div class="mdp-widget{% if accordion_is_hidden %} mdp-hidden{% endif %}" data-mdp-collection-widget="{{ block.type }}"{{ accordion_attr }}>
+                        {%- unless block.settings.default_state == 'without_title' -%}
+                            <div class="mdp-widget-head {% if block.settings.default_state == 'open' %} mdp-open{% endif %}"{{ accordion_button_attr }}>
+                                <div class="mdp-title">{{ block.settings.title | defalut: 'FILTER' }}{% if block.settings.default_state == 'open' or block.settings.default_state == 'close' %}<span class="mdp-widget-arrow"><svg><use xlink:href="#mdp-icon-229"></use></svg></span>{% endif %}</div>
+                            </div>
+                        {%- else -%}
+                            <div class=""></div>
+                        {%- endunless -%}
+                        <div class="mdp-widget-accordion{% if block.settings.default_state == 'close' %} mdp-close{% endif %}"{{ accordion_content_attr }}>
+                            <div class="">
+                                {%- capture section_result_html -%}
+                                    {%- if has_content -%}
+                                        {{ navigation_content }}
+                                    {%- else -%}
+                                        <div class="">{{ no_content_message }}</div>
+                                    {%- endif -%}
+                                {%- endcapture -%}
+                                {%- if replace_attrs -%}
+                                    <div{{ replace_attrs }}>
+                                        {{ section_result_html }}
+                                    </div>
+                                {%- else -%}
+                                    {{ section_result_html }}
+                                {%- endif -%}
+                            </div>
+                        </div>
+                    </div>
+                    {%- assign navigation_content = null -%}
+                    {%- assign has_content = null -%}
+                    {%- assign replace_attrs = null -%}
+                    {%- assign accordion_is_hidden = null -%}
+                {%- endif -%}
+            {%- endfor -%}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Sidebar",
+    "settings": [
+        {
+            "type": "paragraph",
+            "content": "Positioning and visibility settings are in the 'Collection page' general section"
+        },
+        {
+            "type": "checkbox",
+            "id": "hide_empty_filter_section",
+            "label": "Hide empty filter section"
+        },
+        {
+            "type": "header",
+            "content": "Strings"
+	},
+        {
+           "type": "text",
+           "id": "no_current_tags",
+           "label": "No current tags",
+           "default": "No current tags"
+        },
+        {
+           "type": "text",
+           "id": "clear_all_tags",
+           "label": "Clear all tags",
+           "default": "Clear all tags"
+        },
+        {
+           "type": "text",
+           "id": "no_content",
+           "label": "No content",
+           "default": "No content"
+        },
+        {
+           "type": "text",
+           "id": "only_available",
+           "label": "Only available",
+           "default": "Only available"
+        },
+        {
+           "type": "text",
+           "id": "no_collections",
+           "label": "No collections",
+           "default": "No collections"
+        },
+        {
+           "type": "text",
+           "id": "no_tags",
+           "label": "No tags",
+           "default": "No tags"
+        },
+        {
+           "type": "text",
+           "id": "no_colors",
+           "label": "No colors",
+           "default": "No colors"
+        },
+        {
+           "type": "text",
+           "id": "no_vendors",
+           "label": "No vendors",
+           "default": "No vendors"
+        },
+        {
+           "type": "text",
+           "id": "no_product_types",
+           "label": "No product types",
+           "default": "No product types"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "current_filters",
+            "name": "Current filters",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Section settings"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "CURRENT FILTERS"
+                },
+                {
+                    "type": "select",
+                    "id": "default_state",
+                    "label": "Default state",
+                    "default": "open",
+                    "options": [
+                        {
+                            "value": "open",
+                            "label": "Open"
+                        },
+                        {
+                            "value": "close",
+                            "label": "Close"
+                        },
+                        {
+                            "value": "fixed",
+                            "label": "Fixed"
+                        },
+                        {
+                            "value": "without_title",
+                            "label": "Without title"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "parameters",
+            "name": "Parameters",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Section settings"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "PARAMETERS"
+                },
+                {
+                    "type": "select",
+                    "id": "default_state",
+                    "label": "Default state",
+                    "default": "open",
+                    "options": [
+                        {
+                            "value": "open",
+                            "label": "Open"
+                        },
+                        {
+                            "value": "close",
+                            "label": "Close"
+                        },
+                        {
+                            "value": "fixed",
+                            "label": "Fixed"
+                        },
+                        {
+                            "value": "without_title",
+                            "label": "Without title"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "paragraph",
+                    "content": "Default setting 'Show only available' is in the 'Collection page' general section"
+                }
+            ]
+        },
+        {
+            "type": "collections",
+            "name": "Collections",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Section settings"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "COLLECTION"
+                },
+                {
+                    "type": "select",
+                    "id": "default_state",
+                    "label": "Default state",
+                    "default": "open",
+                    "options": [
+                        {
+                            "value": "open",
+                            "label": "Open"
+                        },
+                        {
+                            "value": "close",
+                            "label": "Close"
+                        },
+                        {
+                            "value": "fixed",
+                            "label": "Fixed"
+                        },
+                        {
+                            "value": "without_title",
+                            "label": "Without title"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "link_list",
+                    "id": "menu",
+                    "label": "Menu"
+                },
+                {
+                    "type": "select",
+                    "id": "type_of_tags_input",
+                    "label": "Type of tags input",
+                    "default": "radio",
+                    "options": [
+                        {
+                            "value": "radio",
+                            "label": "Radio"
+                        },
+                        {
+                            "value": "checkbox",
+                            "label": "Checkbox"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "filters",
+            "name": "Filters",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Section settings"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "FILTERS"
+                },
+                {
+                    "type": "select",
+                    "id": "default_state",
+                    "label": "Default state",
+                    "default": "open",
+                    "options": [
+                        {
+                            "value": "open",
+                            "label": "Open"
+                        },
+                        {
+                            "value": "close",
+                            "label": "Close"
+                        },
+                        {
+                            "value": "fixed",
+                            "label": "Fixed"
+                        },
+                        {
+                            "value": "without_title",
+                            "label": "Without title"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "select",
+                    "id": "type",
+                    "label": "Type of filter",
+                    "default": "tags",
+                    "options": [
+                        {
+                            "value": "tags",
+                            "label": "Tags"
+                        },
+                        {
+                            "value": "colors",
+                            "label": "Colors"
+                        },
+                        {
+                            "value": "vendors",
+                            "label": "Vendors"
+                        },
+                        {
+                            "value": "types",
+                            "label": "Product types"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "items",
+                    "label": "Items",
+                    "info": "Separator is '|'"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_all_from_collection",
+                    "label": "Show all from collection",
+                    "info": "Except for the 'Colors' type",
+                    "default": false
+                },
+                {
+                    "type": "select",
+                    "id": "direction",
+                    "label": "Direction",
+                    "default": "columns",
+                    "options": [
+                        {
+                            "value": "columns",
+                            "label": "Columns"
+                        },
+                        {
+                            "value": "rows",
+                            "label": "Rows"
+                        }
+                    ]
+                },
+                {
+                    "type": "range",
+                    "id": "max_column_size",
+                    "min": 0,
+                    "max": 30,
+                    "step": 1,
+                    "unit": "itm",
+                    "label": "Max column size",
+                    "info": "0 is infinite",
+                    "default": 0
+                },
+                {
+                    "type": "select",
+                    "id": "columns",
+                    "label": "Columns",
+                    "default": "2",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "1"
+                        },
+                        {
+                            "value": "2",
+                            "label": "2"
+                        },
+                        {
+                            "value": "3",
+                            "label": "3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "filter_by_price",
+            "name": "Filter by price",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Section settings"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "PRICE"
+                },
+                {
+                    "type": "select",
+                    "id": "default_state",
+                    "label": "Default state",
+                    "default": "open",
+                    "options": [
+                        {
+                            "value": "open",
+                            "label": "Open"
+                        },
+                        {
+                            "value": "close",
+                            "label": "Close"
+                        },
+                        {
+                            "value": "fixed",
+                            "label": "Fixed"
+                        },
+                        {
+                            "value": "without_title",
+                            "label": "Without title"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "min_value",
+                    "label": "Min value",
+                    "default": "0",
+                    "info": "Must be a number"
+                },
+                {
+                    "type": "text",
+                    "id": "max_value",
+                    "label": "Max value",
+                    "default": "800",
+                    "info": "Must be a number"
+                },
+                {
+                    "type": "text",
+                    "id": "step",
+                    "label": "Step",
+                    "default": "10",
+                    "info": "Must be a number"
+                }
+            ]
+        },
+        {
+            "type": "filter_by_title",
+            "name": "Filter by title",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Section settings"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "SEARCH"
+                },
+                {
+                    "type": "select",
+                    "id": "default_state",
+                    "label": "Default state",
+                    "default": "open",
+                    "options": [
+                        {
+                            "value": "open",
+                            "label": "Open"
+                        },
+                        {
+                            "value": "close",
+                            "label": "Close"
+                        },
+                        {
+                            "value": "fixed",
+                            "label": "Fixed"
+                        },
+                        {
+                            "value": "without_title",
+                            "label": "Without title"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "placeholder",
+                    "label": "Placeholder",
+                    "default": "Enter Part Of The Title"
+                },
+                {
+                    "type": "text",
+                    "id": "button_string",
+                    "label": "Button text",
+                    "default": "SEARCH"
+                }
+            ]
+        },        
+        {
+            "type": "custom_html",
+            "name": "Custom HTML",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Section settings"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "CUSTOM BLOCK"
+                },
+                {
+                    "type": "select",
+                    "id": "default_state",
+                    "label": "Default state",
+                    "default": "fixed",
+                    "options": [
+                        {
+                            "value": "open",
+                            "label": "Open"
+                        },
+                        {
+                            "value": "close",
+                            "label": "Close"
+                        },
+                        {
+                            "value": "fixed",
+                            "label": "Fixed"
+                        },
+                        {
+                            "value": "without_title",
+                            "label": "Without title"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "textarea",
+                    "id": "content",
+                    "label": "Content"
+                }
+            ]
+        }        
+    ]
+}
+{% endschema %}

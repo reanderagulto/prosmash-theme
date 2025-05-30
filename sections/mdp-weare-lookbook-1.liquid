@@ -1,0 +1,162 @@
+{{"mdp-weare-lookbook.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-container mdp-weare-lookbook" 
+     style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+  {% unless section.settings.title == blank and section.settings.subtitle == blank %}
+  <div class="mdp-header">
+    {% unless section.settings.title == blank %}
+    <h2 class="mdp-title">{{ section.settings.title | escape }}</h2>
+    {% endunless %}
+    {% unless section.settings.subtitle == blank %}
+    <div class="mdp-subtitle">{{ section.settings.subtitle | escape }}</div>
+    {% endunless %}
+  </div>
+  {% endunless %}
+  <div class="mdp-grid"
+       data-columns="{{section.settings.col_per_row}}"
+       data-gap="30"
+       style="align-items: center; display: flex; justify-content: center; ">
+        {%- if section.blocks.size > 0 -%}
+            {%- assign blocks_size = 0 -%}
+                {%- for block in section.blocks -%}
+                    {%- if block.type == 'image' -%}
+                       {%- assign name_handle = block.settings.name | handleize -%}
+                        <div class="mdp-item">
+                          <div class="mdp-media">
+                              <img class="mdp-image lazyload" data-src="{{block.settings.image | img_url : block.settings.lookbook_image_size}}">
+                          </div>
+                          <div class="mdp-pickers">
+                            {%- for block in section.blocks -%}
+                            {%- assign for_name_handle = block.settings.for_name | handleize -%}
+                            {%- if block.type == 'product' and for_name_handle == name_handle and block.settings.product != blank -%}
+                            {%- assign product = all_products[block.settings.product] -%}
+                            <div class="mdp-picker {% if block.settings.vertical_position < 50 %}mdp-below{% else %}mdp-above{% endif %} {% if block.settings.horizontal_position < 50 %}mdp-right{% else %}mdp-left{% endif %}" 
+                                 style="top: {{ block.settings.vertical_position }}%;left: {{ block.settings.horizontal_position }}%;">
+                              <div class="mdp-dot"></div>
+                              {% render 'mdp-weare-product-mini-card', product: product %}
+                            </div>
+                            {%- endif -%}
+                            {%- endfor -%}
+                          </div>
+                        </div>
+                      {%- assign blocks_size = blocks_size | plus: 1 -%}
+                    {%- endif -%}
+                {%- endfor -%}
+        {%- endif -%}
+  </div>
+</div>  
+
+
+
+{% schema %}
+{
+"name": "Look book 1",
+"settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Look Book"
+      },
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+	  {
+        "type": "range",
+        "id": "col_per_row",
+        "label": "Col per row",
+        "default": 3,
+        "min": 2,
+        "max": 5,
+        "step": 1
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      } 
+],
+"blocks": [
+    {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+            {
+                "type": "text",
+                "id": "name",
+                "label": "Name",
+                "default": "Image #1"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+			{
+              "type": "text",
+              "id": "lookbook_image_size",
+              "label": "Image size",
+              "default": "500x700_crop_center",
+              "info": "Set the image size: '500x700',\n '2048x',\n'original' or '370x370_crop_center'"
+            },
+            {
+              "type": "text",
+              "id": "image_size",
+              "label": "Product image size",
+              "default": "300x300_crop_center",
+              "info": "Set the image size: '300x300',\n '2048x',\n'original' or '370x370_crop_center'"
+            }
+        ]
+    },
+    {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+            {
+                "type": "text",
+                "id": "for_name",
+                "label": "For image (name)",
+                "default": "Image #1"
+            },
+            {
+                "type": "product",
+                "id": "product",
+                "label": "Product"
+            },
+            {
+                "type": "range",
+                "id": "horizontal_position",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "%",
+                "default": 50,
+                "label": "Horizontal position"
+            },
+            {
+                "type": "range",
+                "id": "vertical_position",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "%",
+                "default": 50,
+                "label": "Vertical position"
+            }
+        ]
+    }
+],
+    "presets": [{
+      "name": "Look book",
+      "category": "SectionHub: weare"
+    }]
+}
+{% endschema %}

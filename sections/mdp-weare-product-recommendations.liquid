@@ -1,0 +1,232 @@
+{{ "mdp-product-recommendations.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-product-recommendations"
+     class="mdp-weare-product-recommendations mdp-container mdp-grid"
+     data-columns="1"
+     data-gap="30"
+     data-base-url="{{ routes.product_recommendations_url }}"
+     data-product-id="{{ product.id }}"
+     style="margin-top: 0px; margin-bottom: 80px;">
+    {% if recommendations.products_count > 0 %}
+        <div class="mdp mdp-weare-collection-carousel
+                    {% if section.settings.separator %}
+                    mdp-top-separator{% endif %}">
+
+            {% if section.settings.title != blank or section.settings.subtitle != blank %}
+                <div class="mdp-header">
+                    {% if section.settings.title != blank %}
+                        <h2 class="mdp-title">{{ section.settings.title | escape }}</h2>
+                    {% endif %}
+                    {% if section.settings.subtitle != blank %}
+                        <div class="mdp-subtitle">{{ section.settings.subtitle | escape }}</div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="swiper-slideshow-recommendations swiper-container mdp-swiper-container"
+                 data-perview="{{ section.settings.slides_per_view }}">
+
+                <div class="swiper-wrapper mdp-swiper-wrapper">
+                    {% for product in recommendations.products limit: section.settings.number_of_products %}
+                        <div class="swiper-slide mdp-swiper-slide">
+                            {% render 'mdp-weare-product-card', product: product %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="swiper-button-prev swiper-button-prev-slideshow-recommendations"></div>
+                <div class="swiper-button-next swiper-button-next-slideshow-recommendations"></div>
+
+                <div class="swiper-pagination swiper-pagination-slideshow-recommendations"></div>
+
+            </div>
+
+        </div>
+    {% endif %}
+
+</div>
+
+<script>
+    /** Calculate the height of the image depending on the length of the container */
+    function breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(width) {
+
+        let perView = `{{ section.settings.slides_per_view }}`;
+
+        if (width >= 769 && width <= 1440) {
+            perView = 2;
+        }
+
+        if (width >= 426 && width <= 768) {
+            perView = 1;
+        }
+
+        if (width >= 320 && width <= 425) {
+            perView = 1;
+        }
+
+        return perView;
+    }
+
+    function heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}() {
+        let winWidthPage = window.innerWidth;
+        let grid = document.getElementById("mdp-weare-product-recommendations");
+        let winWidth = grid.offsetWidth;
+        let perView = breakpointsWidth_{{ section.id | replace: "--", "" | replace: "-", "" }}(winWidthPage);
+        let allGap = winWidthPage >= 769 ? perView * 15 : 0;
+        let paddingSide = '{{ section.settings.boxed }}' === 'false' && winWidthPage >= 1441 ? 80 * 2 : 15 * 2;
+        let winWidthGap = winWidth - allGap - paddingSide;
+        let colSize = 100 / perView;
+        let height = (winWidthGap * colSize / 100) + '{{ section.settings.images_form }}';
+        let item = grid.querySelectorAll(".mdp-img-product");
+
+        for (let i = 0; i <= item.length - 1; i++) {
+            item[i].setAttribute("style", `height: ${Math.round(height)}px;`);
+        }
+    }
+
+    addEventListener("resize", (event) => {
+        heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    });
+
+    heightImg_{{ section.id | replace: "--", "" | replace: "-", "" }}();
+    /** End */
+
+    swiperSlideshowR = new Swiper('.swiper-slideshow-recommendations', {
+        // Optional parameters
+        lidesPerView: 'auto',
+        direction: 'horizontal',
+        centeredSlides: false,
+        slidesPerView: 4,
+        speed: 500,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000
+        },
+        effect: 'slide',
+        allowTouchMove: true,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        hashNavigation: false,
+        pagination: {
+            el: '.swiper-pagination-slideshow-recommendations'
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 10
+            },
+            426: {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 30
+            },
+            769: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 30
+            },
+            1441: {
+                slidesPerView: 4,
+                slidesPerGroup: 4,
+                spaceBetween: 30
+            }
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next-slideshow-recommendations',
+            prevEl: '.swiper-button-prev-slideshow-recommendations',
+        }
+    });
+
+    swiperSlideshowR.init();
+</script>
+
+{% schema %}
+{
+  "name": "Product recommendations",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Related Products"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "range",
+      "id": "number_of_products",
+      "label": "Number of products",
+      "default": 10,
+      "min": 2,
+      "max": 12,
+      "step": 1
+    },
+    {
+      "type": "text",
+      "id": "images_form",
+      "label": "Images form",
+      "info": "If the shape of the image does not suit you in terms of height, enter in the field the number of pixels by which the desired height will increase."
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Product size",
+      "default": "270x370_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "checkbox",
+      "id": "separator",
+      "label": "Top separator",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Strings"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_string",
+      "label": "Sold out string",
+      "default": "Sold out"
+    },
+    {
+      "type": "text",
+      "id": "sale_string",
+      "label": "Sale string",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "new_string",
+      "label": "New string",
+      "default": "New"
+    },
+    {
+      "type": "text",
+      "id": "select_options_string",
+      "label": "Select options string",
+      "default": "Select options"
+    },
+    {
+      "type": "text",
+      "id": "add_cart_string",
+      "label": "Add cart string",
+      "default": "Add to cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product recommendations",
+      "category": "SectionHub: weare"
+    }
+  ]
+}
+{% endschema %}

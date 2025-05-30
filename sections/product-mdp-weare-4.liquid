@@ -1,0 +1,481 @@
+{{"product-mdp-weare-4.css" | asset_url | stylesheet_tag }}
+
+{% assign boxed = section.settings.product_boxed %}
+{% assign tabs = section.settings.product_tabs %}
+{% assign sidePadding = section.settings.side_padding %}
+{% assign oneRow = section.settings.one_row %}
+{% assign btn_color = section.settings.button_text_color %}
+
+{% assign boxedClass = '' %}
+{% if boxed == true %}
+	{% assign boxedClass = 'mdp-container' %}
+{% endif %}
+
+{% assign sidePaddingClass = '' %}
+{% if sidePadding == true %}
+	{% assign sidePaddingClass = 'mdp-product-padding' %}
+{% endif %}
+
+{% if section.settings.selected_product != blank %}
+	{% assign current_product = all_products[section.settings.selected_product] %}
+{% else %}
+	{% assign current_product = product %}
+{% endif %}
+
+{% assign variant = current_product.selected_or_first_available_variant %}
+<script>
+    if (!('mdp' in window)) {
+        window.mdp = {};
+    }
+    window.mdp.money_format = '{{shop.money_format}}';
+</script>
+<div id="mdp-weare-{{ section.id }}" class="mdp {{boxedClass}} mdp-weare-single-product mdp-slider mdp-grid"
+     data-columns="1" data-gap="30"
+     style="margin-top: {{ section.settings.margin_top }}px;
+             margin-bottom: {{ section.settings.margin_bottom }}px;">
+  <div class="mdp-product {{sidePaddingClass}}">
+    <div class="mdp-media">
+      <div class="swiper product-swiper mdp-swiper-container" data-loop="true" data-pagination="false" data-slidesPerView="3">
+        <div class="swiper-wrapper">
+          {% for media in current_product.media %}
+            {% case media.media_type %}
+              {% when 'image' %}
+                <div class="swiper-slide swiper-slide-product {% if section.settings.zoom %}mdp-hover-zoom{% endif %}" data-zoom="{{media | img_url : '2000x'}}" data-media-id="{{ media.id }}">
+                  <div class="mdp-placeholder" style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
+                    <img class="mdp-image lazyload" data-src="{{media | img_url : section.settings.image_size}}" alt="{{media.alt}}" >
+                  </div>
+                </div>
+              {% when 'external_video' %}
+                <div class="swiper-slide swiper-slide-product" style="padding-top: {{ 1 | divided_by: media.aspect_ratio | times: 100}}%;" data-media-id="{{ media.id }}">
+                  {{ media | external_video_tag }}
+                </div>
+              {% when 'video' %}
+                <div class="swiper-slide swiper-slide-product" data-media-id="{{ media.id }}">
+                  {{ media | video_tag: controls: true }}
+                </div>
+              {% when 'model' %}
+                <div class="swiper-slide swiper-slide-product" data-media-id="{{ media.id }}">
+                  {{ media | model_viewer_tag }}
+                </div>
+              {% else %}
+                <div class="swiper-slide swiper-slide-product" data-media-id="{{ media.id }}">
+                  {{ media | media_tag }}
+                </div>
+            {% endcase %}          
+          {% endfor %}                    
+        </div>
+        <div class="swiper-button-prev swiper-button-prev-product"></div>
+        <div class="swiper-button-next swiper-button-next-product"></div>
+      </div>
+
+      {% if current_product.available %}
+        {% if current_product.compare_at_price > current_product.price %}
+	        <div class="mdp-sale">
+              {{ section.settings.sale_string }}      
+              {{ current_product.compare_at_price | minus: current_product.price | times: 100 | divided_by: current_product.compare_at_price }}%
+            </div>
+        {% else %}
+          {% if current_product.tags contains 'new' %}
+              <div class="mdp-new">
+                {{ section.settings.new_string }}      
+              </div>
+          {% endif %}
+      	{% endif %}
+      {% else %}
+        <div class="mdp-sold-out">
+          {{ section.settings.sold_out_string }}
+        </div>
+      {% endif %}
+    </div>    
+    <div class="mdp-data
+               {% if oneRow == true %}mdp-data-columns{% endif %}
+               {% if section.settings.product_content_full_width == true %} mdp-data-full-width {% else %} mdp-data-width {% endif %}">
+      {% render 'mdp-weare-product-blocks', current_product: current_product, variant: variant, oneRow: oneRow, btn_color: btn_color%}
+    </div>
+    <script type="application/json" class="mdp-product-json">
+      {{ current_product | json }}
+    </script>
+  </div>
+  
+  {% if tabs == true %}
+  <div class="mdp-tabs">
+    <div class="mdp-titles">
+      <span data-target="#{{ current_product.title | handleize }}-description">{{ section.settings.description_string }}</span>
+      <span data-target="#{{ current_product.title | handleize }}-reviews">{{ section.settings.reviews_string }}</span>
+    </div>
+    <div class="mdp-content">
+      <div class="mdp-item mdp-description" id="{{ current_product.title | handleize }}-description">
+        {{ current_product.description }}
+      </div>
+      <div class="mdp-item" id="{{ current_product.title | handleize }}-reviews">
+        <div id="looxReviews" data-product-id="{{product.id}}" class="loox-reviews-default">{{ product.metafields.loox.reviews }}</div>
+      </div>            
+    </div>
+  </div>   
+  {% endif %}
+</div>
+
+<style>
+  .mdp-weare-single-product>.mdp-product>.mdp-data .shopify-payment-button>div>div>div .shopify-payment-button__button{
+    color: {{ btn_color }};
+  }
+</style>
+
+<script>
+  const swiperProduct4 = new Swiper('.product-swiper', {
+    // Optional parameters
+    lidesPerView: 'auto',
+    direction: 'horizontal',
+    slidesPerView: 3,
+    centeredSlides: false,
+    speed: 500,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    effect: 'slide',
+    allowTouchMove: true,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    hashNavigation: false,
+    breakpoints: {
+      320: {
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      375: {
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      425: {
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      426: {
+        slidesPerView: 3,
+        spaceBetween: 0
+      }
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next-product',
+      prevEl: '.swiper-button-prev-product',
+    }
+  });
+
+  swiperProduct4.init();
+
+</script>
+
+{% schema %}
+  {
+    "name": "Single product 4",
+	"blocks": [
+      {
+        "type": "title",
+        "name": "Title"
+      },
+      {
+        "type": "rating",
+        "name": "Rating"
+      },
+      {
+        "type": "price",
+        "name": "Price"
+      },
+      {
+        "type": "sku",
+        "name": "SKU"
+      },
+      {
+        "type": "metafield",
+        "name": "Metafield",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name",
+			"default": "Metafield 1"
+          },
+          {
+            "type": "text",
+            "id": "namespace",
+            "label": "Namespace"
+          },
+          {
+            "type": "text",
+            "id": "key",
+            "label": "Key"
+          }
+        ]
+      },
+      {
+        "type": "payment_terms",
+        "name": "Payment terms"
+      },
+      {
+        "type": "visitors",
+        "name": "Visitors",
+        "settings": [
+          {
+             "type":      "text",
+             "id":        "min",
+             "label":     "Live views min",
+             "default":   "20"
+          },
+          {
+             "type":      "text",
+             "id":        "max",
+             "label":     "Live views max",
+             "default":   "30"
+          },
+          {
+             "type":      "text",
+             "id":        "duration",
+             "label":     "Live views duration (sec)",
+             "default":   "10"
+          },
+          {
+             "type":      "text",
+             "id":        "text",
+             "label":     "Text",
+             "default":   "people are viewing this right now"
+          }
+        ]
+      },
+      {
+        "type": "options",
+        "name": "Options",
+        "settings": [
+          {
+             "type":      "radio",
+             "id":        "variants_group",
+             "label":     "Variants group",
+             "options": [
+               { "value": "together", "label": "Together" },
+               { "value": "separately", "label": "Separately" }
+             ],
+             "default":   "separately"
+          }
+        ]
+      },
+      {
+        "type": "buttons",
+        "name": "Buttons"
+      },
+      {
+        "type": "dynamic_checkout",
+        "name": "Dynamic checkout"
+      },
+      {
+        "type": "availability",
+        "name": "Availability"
+      },
+      {
+        "type": "description",
+        "name": "Description",
+        "settings": [
+          {
+            "type": "range",
+            "id": "excerpt_words",
+            "label": "Excerpt words number",
+            "info": "Set 0 if no need to truncate description",
+            "default": 0,
+            "min": 0,
+            "max": 500,
+            "step": 10
+          },
+          {
+            "type": "text",
+            "id": "excerpt_ellipsis",
+            "label": "Excerpt ellipsis",
+            "default": "..."
+          },
+          {
+            "type": "checkbox",
+            "id": "read_more",
+            "label": "Read more",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "share",
+        "name": "Share"
+      },
+      {
+		"type": "@app"
+      },
+      {
+        "type": "custom_liquid",
+        "name": "Custom liquid",
+        "settings": [
+          {
+            "type": "liquid",
+            "id": "custom_liquid",
+            "label": "Custom liquid"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "product",
+        "id": "selected_product",
+        "label": "Product"
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Product size",
+         "default": "800x800_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "checkbox",
+        "id": "zoom",
+        "label": "Images zoom",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "redirect",
+        "label": "Redirect to cart page",
+        "default": false
+      },
+	  {
+        "type": "checkbox",
+        "id": "product_boxed",
+        "label": "Boxed",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_content_full_width",
+        "label": "Content full width",
+        "default": true
+      },
+	  {
+        "type": "checkbox",
+        "id": "one_row",
+        "label": "Title & description in one row",
+        "default": false
+      },
+	  {
+        "type": "checkbox",
+        "id": "product_tabs",
+        "label": "Tabs",
+        "default": true
+      },
+	  {
+        "type": "checkbox",
+        "id": "side_padding",
+        "label": "Side padding",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text color",
+        "default": "#FFFFFF"
+      },
+      {
+		"type": "header",
+		"content": "Strings"
+	  },
+      {
+         "type": "text",
+         "id": "sold_out_string",
+         "label": "'Sold out' string",
+         "default": "Sold out"
+      },
+      {
+         "type": "text",
+         "id": "sale_string",
+         "label": "'Sale' string",
+         "default": "Sale"
+      },
+      {
+         "type": "text",
+         "id": "new_string",
+         "label": "'New' string",
+         "default": "New"
+      },
+      {
+         "type": "text",
+         "id": "add_cart_string",
+         "label": "'Add cart' string",
+         "default": "Add to cart"
+      },
+      {
+         "type": "text",
+         "id": "description_string",
+         "label": "'Description' string",
+         "default": "Description"
+      },
+      {
+         "type": "text",
+         "id": "reviews_string",
+         "label": "'Reviews' string",
+         "default": "Reviews"
+      },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],
+    "presets": [{
+      "name": "Single product Slider",
+      "category": "SectionHub: weare",
+      "blocks": [
+        {
+        "type": "title"
+        },
+        {
+        "type": "price"
+        },
+        {
+        "type": "payment_terms"
+        },
+        {
+        "type": "options"
+        },
+        {
+        "type": "buttons"
+        },
+        {
+        "type": "dynamic_checkout"
+        },
+        {
+        "type": "availability"
+        },
+        {
+        "type": "description"
+        },
+        {
+        "type": "share"
+        }
+      ]
+    }]
+  }
+{% endschema %}

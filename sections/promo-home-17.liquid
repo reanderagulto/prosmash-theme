@@ -1,0 +1,121 @@
+{{"promo-home-17.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}" class="mdp promo-home-17 mdp-promo-home-17-{{ section.id }}"
+     data-variant="{{section.settings.variant}}">
+    <div class="mdp-container mdp-grid" data-columns="2" data-gap="0">
+        {% if section.settings.image != blank %}
+            <div class="mdp-media">
+                <img class="mdp-image lazyload"
+                     src="{{section.settings.image | img_url : section.settings.image_size}}" alt="" >
+                <div class="mdp-content">
+                  <h3 class="mdp-title">{{ section.settings.image_text }}</h3>
+                  <div class="mdp-text">
+                    {{ section.settings.paragraph_left }}
+                  </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if section.settings.image_second != blank %}
+            <div class="mdp-media">
+              <img class="mdp-image lazyload"
+                   src="{{section.settings.image_second | img_url : section.settings.image_size_second}}" alt="" >
+              <div class="mdp-content">
+                <h3 class="mdp-title">{{ section.settings.image_text_right }}</h3>
+                <div class="mdp-text">
+                  {{ section.settings.paragraph_right }}
+                </div>
+              </div>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% style %}
+  .mdp-promo-home-17-{{ section.id }}{
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Promo home 17",
+  "settings": [
+    {
+      "type": "text",
+      "id": "image_text",
+      "label": "Image text",
+      "default": "New Vegan Formula"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_left",
+      "label": "Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Image size",
+      "default": "600x600_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_second",
+      "label": "Image second"
+    },
+    {
+      "type": "text",
+      "id": "image_size_second",
+      "label": "Image size second",
+      "default": "600x600_crop_center",
+      "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+    },
+    {
+      "type": "text",
+      "id": "image_text_right",
+      "label": "Image text",
+      "default": "New Vegan Formula"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_right",
+      "label": "Paragraph"
+    },
+    {
+      "type": "text",
+      "id": "padding_top",
+      "label": "Padding top (px)"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ],
+  "presets": [{
+    "name": "Promo home 17",
+    "category": "SectionHub: weare"
+  }]
+}
+{% endschema %}

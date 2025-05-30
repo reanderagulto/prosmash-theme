@@ -1,0 +1,349 @@
+{%- assign split_template = template | split: '.' -%}
+{%- assign template_param = split_template[1] | remove: '-' | remove: 'ajax' -%}
+{%- assign default_view_length = section.settings.number_of_products | abs -%}
+{%- if template_param != blank -%}
+    {%- assign view_length = template_param | abs -%}
+{%- endif -%}
+{%- if view_length == 0 -%}
+    {%- assign view_length = default_view_length -%}
+{%- endif -%}
+{%- assign sort_by_handles = 'manual|best-selling|price-ascending|price-descending|created-ascending|created-descending|title-ascending|title-descending' | split: '|' -%}
+{%- assign sort_by = collection.sort_by -%}
+{%- unless sort_by_handles contains sort_by -%}
+    {%- assign sort_by = collection.default_sort_by -%}
+{%- endunless -%}
+{%- assign custom_filters_id = 'custom-filter' -%}
+{%- assign custom_filters_names = 'tag=|vendor=|type=|title=|price=|only_available=|page=' | split: '|' -%}
+{%- assign only_available = null -%}
+{%- if current_tags contains custom_filters_id -%}
+    {%- for tag in current_tags -%}
+        {%- unless tag contains 'page=' -%}
+            {% capture tags_url %}{{ tags_url }}{% if tags_url %}+{% endif %}{{ tag }}{% endcapture %}
+        {%- endunless -%}
+    {%- endfor -%}
+    {%- assign filters_current_page = 1 -%}
+    {%- assign custom_filters = current_tags | join: '|' | remove: custom_filters_id | split: '|' -%}
+    {%- for filter in custom_filters -%}
+        {%- for name in custom_filters_names -%}
+            {%- if filter contains name -%}
+                {%- assign value = filter | remove: name | handleize -%}
+                {% case name %}
+                {% when custom_filters_names[0] %}
+                    {% capture filter_by_tags %}{{ filter_by_tags }}{% if filter_by_tags != blank %}|{% endif %}{{ value }}{% endcapture %}
+                {% when custom_filters_names[1] %}
+                    {% capture filter_by_vendors %}{{ filter_by_vendors }}{% if filter_by_vendors != blank %}|{% endif %}{{ value }}{% endcapture %}
+                {% when custom_filters_names[2] %}
+                    {% capture filter_by_types %}{{ filter_by_types }}{% if filter_by_types != blank %}|{% endif %}{{ value }}{% endcapture %}
+                {% when custom_filters_names[3] %}
+                    {%- assign filter_by_title = value -%}
+                {% when custom_filters_names[4] %}
+                    {%- assign filter_by_price = value | split: '-' -%}
+                {%- when custom_filters_names[5] -%}
+                    {%- case value -%}
+                    {%- when 'true' -%}{%- assign only_available = true -%}
+                    {%- when 'false' -%}{%- assign only_available = false -%}
+                    {%- endcase -%}
+                {% when custom_filters_names[6] %}
+                    {%- assign filters_current_page = value | abs -%}
+                {% endcase %}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endfor -%}
+    {%- assign filter_by_tags = filter_by_tags | split: '|' -%}
+    {%- assign filter_by_vendors = filter_by_vendors | split: '|' -%}
+    {%- assign filter_by_types = filter_by_types | split: '|' -%}
+    {%- paginate collections[collection.handle].products by 1000 -%}
+        {%- assign current_products = collections[collection.handle].products -%}
+        {%- case sort_by -%}
+        {%- when 'price-ascending' -%}
+            {%- assign current_products = current_products | sort: 'price' -%}
+        {%- when 'price-descending' -%}
+            {%- assign current_products = current_products | sort: 'price' | reverse -%}
+        {%- when 'title-ascending' -%}
+            {%- assign current_products = current_products | sort: 'title' -%}
+        {%- when 'title-descending' -%}
+            {%- assign current_products = current_products | sort: 'title' | reverse -%}
+        {%- when 'created-ascending' -%}
+            {%- assign current_products = current_products | sort: 'published_at' -%}
+        {%- when 'created-descending' -%}
+            {%- assign current_products = current_products | sort: 'published_at' | reverse -%}
+        {%- endcase -%}
+        {%- assign current_page = filters_current_page -%}
+        {%- assign facrot = current_page | minus: 1 -%}
+        {%- assign filter_products_from = view_length | times: facrot | plus: 1 -%}
+        {%- assign filter_products_to = view_length | times: current_page -%}
+        {%- capture products_html -%}
+            {%- assign filter_products_count = 0 -%}
+            {%- for product in current_products -%}
+                {%- assign passed_the_filters = true -%}
+                {%- if only_available and product.available != true -%}
+                    {%- assign passed_the_filters = false -%}
+                {%- endif -%}
+                {%- if filter_by_tags -%}
+                    {%- assign product_tags = product.tags | join: '___' | handleize  | split: '___' -%}
+                    {%- for value in filter_by_tags -%}
+                        {%- unless product_tags contains value -%}
+                        {%- assign passed_the_filters = false -%}
+                        {%- continue -%}
+                        {%- endunless -%}
+                    {%- endfor -%}
+                {%- endif -%}
+                {%- if filter_by_vendors -%}
+                    {%- assign product_vendor = product.vendor | handleize  -%}
+                    {%- for value in filter_by_vendors -%}
+                        {%- unless product_vendor == value -%}
+                        {%- assign passed_the_filters = false -%}
+                        {%- continue -%}
+                        {%- endunless -%}
+                    {%- endfor -%}
+                {%- endif -%}
+                {%- if filter_by_types -%}
+                    {%- assign product_type = product.type | handleize  -%}
+                    {%- for value in filter_by_types -%}
+                        {%- unless product_type == value -%}
+                        {%- assign passed_the_filters = false -%}
+                        {%- continue -%}
+                        {%- endunless -%}
+                    {%- endfor -%}
+                {%- endif -%}
+                {%- if filter_by_title -%}
+                    {%- assign product_title = product.title | handleize  -%}
+                    {%- unless product_title contains filter_by_title -%}
+                    {%- assign passed_the_filters = false -%}
+                    {%- endunless -%}
+                {%- endif -%}
+                {%- if filter_by_price -%}
+                    {% assign filter_min = filter_by_price[0] | abs %}
+                    {% assign filter_max = filter_by_price[1] | abs %}
+                    {%- if product.price_min < filter_min or product.price_max > filter_max -%}
+                        {%- assign passed_the_filters = false -%}
+                    {%- endif -%}
+                {%- endif -%}
+                {%- if passed_the_filters == true -%}
+                    {%- assign filter_products_count = filter_products_count | plus: 1 -%}
+                    {%- if filter_products_count >= filter_products_from and filter_products_count <= filter_products_to -%}                        
+                        {% render 'mdp-weare-product-card', product: product %}
+                    {%- endif -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- assign filter_pages = view_length -%}
+            {%- assign filter_pages = filter_pages | times: 1.0 -%}
+            {%- assign filter_pages = filter_products_count | divided_by: filter_pages | ceil -%}
+        {%- endcapture -%}
+        {%- capture pagination -%}
+            {% render 'mdp-weare-filtered-pagination' %}
+        {%- endcapture -%}
+    {%- endpaginate -%}
+{%- else -%}
+    {%- paginate collection.products by view_length -%}
+        {%- assign current_page =  paginate.current_page -%}
+        {%- assign filter_pages = paginate.pages -%}
+        {%- assign filter_products_count = collection.products_count -%}
+        {%- capture products_html -%}
+            {%- for product in collection.products -%}                
+                {% render 'mdp-weare-product-card', product: product %}
+            {%- endfor -%}
+        {%- endcapture -%}
+        {%- capture pagination -%}
+            {% render 'mdp-weare-pagination', paginate: paginate %}
+        {%- endcapture -%}
+    {%- endpaginate -%}
+{%- endif -%}
+
+{{"sectionhub-weare.css" | asset_url | stylesheet_tag }}
+
+<script>
+    if(!('mdp' in window)) {
+      window.mdp = {};
+    }    
+    if(!('default' in window.mdp)) {
+      window.mdp.default = {};
+    }    
+    window.mdp.default.view_length = {{ section.settings.number_of_products | json }};
+    window.mdp.default.sort_by = {{ collection.default_sort_by | json }};
+    window.mdp.default.only_available = {{ section.settings.only_available | json }};
+</script>
+
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-container mdp-weare-collection-template">
+  {% unless collection.image == blank %}
+  <div class="mdp-media">
+    <div class="mdp-placeholder" style="padding-top: 30%;">
+      <img class="mdp-image lazyload" data-src="{{collection.image | img_url : '2000x' }}" alt="{{ collection.title }}">
+    </div>    
+  </div>
+  {% endunless %}
+  {% unless collection.title == blank and collection.description == blank %}
+  <div class="mdp-header">
+    {% unless collection.title == blank %}
+    <h2 class="mdp-title">{{ collection.title }}</h2>
+    {% endunless %}
+    {% unless collection.description == blank %}
+    <div class="mdp-subtitle">{{ collection.description }}</div>
+    {% endunless %}
+  </div>
+  {% endunless %}
+  
+  <div class="mdp-collection-header">
+    <div class="mdp-sorting">
+      {% if collection %}                            
+        {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+        <span>{{ section.settings.sort_by_string }}</span>
+        <select name="sort_by" class="mdp-sort-by" data-default-sortby="{{ collection.default_sort_by }}">
+          {% for option in collection.sort_options %}
+          	<option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+    </div>
+    <div class="mdp-filters" style="display: none">
+      {% if collection and section.settings.tags_dropdown %}                            
+        {% if collection.all_tags.size > 0 %}
+          <span>{{ section.settings.filter_by_string }}</span>
+          <select class="mdp-filter-tags">
+            {% if current_tags %}
+            	{% if collection.handle %}
+            		<option value="/collections/{{ collection.handle }}">{{ section.settings.all_products_string }}</option>
+            	{% elsif collection.current_type %}
+            		<option value="{{ collection.current_type | url_for_type }}">{{ section.settings.all_products_string }}</option>
+            	{% elsif collection.current_vendor %}
+            		<option value="{{ collection.current_vendor | url_for_vendor }}">{{ section.settings.all_products_string }}</option>
+            	{% endif %}
+            {% else %}
+            	<option value="">{{ section.settings.all_products_string }}</option>
+            {% endif %}
+            {% for tag in collection.all_tags %}
+            	<option value="/collections/{% if collection.handle != blank %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handleize }}"{% if current_tags contains tag %} selected="selected"{% endif %}>{{ tag }}</option>
+            {% endfor %}
+          </select>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="mdp-count">
+      {% if filter_products_count %}                            
+      	<span>{{ filter_products_count }} {{ section.settings.products_string }}</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="mdp-grid" data-columns="{{section.settings.col_per_row}}" data-gap="30">
+    {{ products_html }}
+  </div>  
+  <div class="mdp-collection-pagination">
+	{{ pagination }}
+    <input type="hidden" name="page" value="{{ current_page }}">
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Grid",
+    "settings": [
+	  {
+        "type": "range",
+        "id": "number_of_products",
+        "label": "Number of products",
+        "default": 12,
+        "min": 2,
+        "max": 12,
+        "step": 1
+      },
+	  {
+   		"type":      "checkbox",
+   		"id":        "only_available",
+   		"label":     "Only available products",
+   		"default":   false
+	  },
+	  {
+        "type": "range",
+        "id": "col_per_row",
+        "label": "Col per row",
+        "default": 3,
+        "min": 2,
+        "max": 5,
+        "step": 1
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Product size",
+         "default": "270x370_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider",
+        "label": "Images slider",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_dropdown",
+        "label": "Tags dropdown",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Strings"
+      },
+      {
+         "type": "text",
+         "id": "sort_by_string",
+         "label": "'Sort by' string",
+         "default": "Sort by"
+      },
+      {
+         "type": "text",
+         "id": "filter_by_string",
+         "label": "'Filter by' string",
+         "default": "Filter by"
+      },
+      {
+         "type": "text",
+         "id": "all_products_string",
+         "label": "'All products' string",
+         "default": "All products"
+      },
+      {
+         "type": "text",
+         "id": "products_string",
+         "label": "'Products' string",
+         "default": "Products"
+      },
+      {
+         "type": "text",
+         "id": "sold_out_string",
+         "label": "'Sold out' string",
+         "default": "Sold out"
+      },
+      {
+         "type": "text",
+         "id": "sale_string",
+         "label": "'Sale' string",
+         "default": "Sale"
+      },
+      {
+         "type": "text",
+         "id": "new_string",
+         "label": "'New' string",
+         "default": "New"
+      },
+      {
+         "type": "text",
+         "id": "select_options_string",
+         "label": "Select options string",
+         "default": "Select options"
+      },
+      {
+         "type": "text",
+         "id": "add_cart_string",
+         "label": "'Add cart' string",
+         "default": "Add to cart"
+      } 
+    ]
+  }
+{% endschema %}

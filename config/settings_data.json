@@ -1,0 +1,483 @@
+{
+  "current": {
+    "favicon": "shopify://shop_images/favicon_weare.png",
+    "weare_logo_font_size": 24,
+    "weare_logo_letter_spacing": 0.2,
+    "weare_logo_transform": "lowercase",
+    "weare_logo_font_weight": "700",
+    "weare_logo_color": "#2a2a2a",
+    "menu_activ_color": "#e9384f",
+    "mdp_header_color": "#343434",
+    "mdp_header_font_size": 38,
+    "mdp_header_line_height": 1.2,
+    "weare_font_text": "Open Sans",
+    "mdp_paragraph_color": "#343434",
+    "mdp_paragraph_font_size": 16,
+    "mdp_paragraph_line_height": 1.6,
+    "mdp_brand_color": "#5838e9",
+    "mdp_button_color": "#4c90c7",
+    "mdp_border_color": "#343434",
+    "mdp_header_family": "futura_n6",
+    "mdp_paragraph_family": "futura_n4",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "rgba(0,0,0,0)",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "rgba(0,0,0,0)",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#452cfc",
+    "checkout_button_color": "#452cfc",
+    "checkout_error_color": "#e32c2b",
+    "weare_font_body": "Epilogue",
+    "link_color": "#343434",
+    "link_hover_color": "#E9384F",
+    "btn_color": "#343434",
+    "btn_background": "#343434",
+    "btn_hover_color": "#FFFFFF",
+    "btn_hover_background": "#E9384F",
+    "sections": {
+      "mdp-weare-menu-2":{
+        "type":"mdp-weare-menu-2",
+        "settings":{
+          "menu":"",
+          "enabled_topbar": true,
+          "enabled_menu": false,
+          "enabled_shadow": false,
+          "info_text": false,
+          "social_icons": true,
+          "discounts": true,
+          "work_time": true,
+          "country_selector": false,
+          "language_selector": false,
+          "bg_color": "#FFE8E8",
+          "icon_color": "#343434",
+          "discount_color": "#E9384F",
+          "work_time_color": "#343434"
+        },
+        "blocks": {
+          "facebook": {
+            "type": "icons",
+            "settings": {
+              "icon_class": "fab fa-facebook-f",
+              "social_link": "https://www.facebook.com/merkuloveteam"
+            }
+          },
+          "instagram": {
+            "type": "icons",
+            "settings": {
+              "icon_class": "fab fa-instagram",
+              "social_link": "https://www.instagram.com/merkulove.team/"
+            }
+          },
+          "tiktok": {
+            "type": "icons",
+            "settings": {
+              "icon_class": "fab fa-tiktok",
+              "social_link": "https://www.tiktok.com/"
+            }
+          },
+          "whatsapp": {
+            "type": "icons",
+            "settings": {
+              "icon_class": "fab fa-whatsapp",
+              "social_link": "https://www.whatsapp.com/"
+            }
+          },
+          "discounts-1": {
+            "type": "discounts",
+            "settings": {
+              "discounts_text": "Up to 50% off Our Best Bits"
+            }
+          },
+          "discounts-2": {
+            "type": "discounts",
+            "settings": {
+              "discounts_text": "Limited Time Only"
+            }
+          },
+          "discounts-3": {
+            "type": "discounts",
+            "settings": {
+              "discounts_text": "Discover More",
+              "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+            }
+          },
+          "work_time": {
+            "type": "work_time",
+            "settings": {
+              "work_time_text": "Mon-Fri 08:00 - 18:00"
+            }
+          }
+        },
+        "block_order": [
+          "facebook",
+          "instagram",
+          "tiktok",
+          "whatsapp",
+          "discounts-1",
+          "discounts-2",
+          "discounts-3",
+          "work_time"
+        ]
+      },
+      "mdp-weare-menu-1":{
+        "type": "mdp-weare-menu-1",
+        "settings":{
+          "logo_size": "50x50",
+          "menu": "main-menu",
+          "search": true,
+          "inverted": false
+        }
+      },
+      "mdp-weare-accordion-1-hub-7534": {
+        "type": "mdp-weare-accordion-1-hub-7534",
+        "blocks": {
+          "1594453548580": {
+            "type": "text_item",
+            "settings": {
+              "title": "What about the delivery of my purchase?",
+              "content": "<p>Mauris elementum felis et libero aliquet, varius porta diam sollicitudin. Sed ornare sit amet urna vitae vestibulum. In non nisi tristique, scelerisque lorem eu, vulputate mi. Nulla neque quam, tincidunt blandit nisl non, tempor varius mauris. Quisque auctor consectetur arcu quis pellentesque. Vivamus nec eleifend justo. Nulla rhoncus aliquet ultrices. Nam tristique justo pharetra nulla rhoncus malesuada. Nulla efficitur vestibulum nibh, sit amet congue nisl egestas non. Donec quis mauris convallis, condimentum orci eget, interdum tortor. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt lectus ac neque dapibus, in lobortis ex egestas. Sed semper a massa at aliquet.<br\/><br\/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non condimentum lorem. Integer varius tellus nec ultricies fringilla. Curabitur mattis mauris a lectus lacinia mollis. Nunc arcu urna, mollis vel pharetra ut, vulputate vel tortor. Nullam sed arcu viverra, accumsan neque quis, placerat leo. Sed lacinia aliquet maximus. Phasellus augue dui, congue eu arcu vitae, varius cursus mi. Vestibulum vehicula feugiat molestie.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "1594453551466": {
+            "type": "text_item",
+            "settings": {
+              "title": "Do you offer price adjustments on sale items?",
+              "content": "<p>Mauris elementum felis et libero aliquet, varius porta diam sollicitudin. Sed ornare sit amet urna vitae vestibulum. In non nisi tristique, scelerisque lorem eu, vulputate mi. Nulla neque quam, tincidunt blandit nisl non, tempor varius mauris.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "1594453554247": {
+            "type": "text_item",
+            "settings": {
+              "title": "Where can I find information on sustainability and environmental policy?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "1594453567451": {
+            "type": "text_item",
+            "settings": {
+              "title": "What size should I buy?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "1594453570856": {
+            "type": "text_item",
+            "settings": {
+              "title": "How do I reset my password?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "1594453575079": {
+            "type": "text_item",
+            "settings": {
+              "title": "What packaging options can I choose from?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "c7eb2d18-6a45-4759-96e0-08127db227e3": {
+            "type": "text_item",
+            "settings": {
+              "title": "How do I contact your PR or Buying Team?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "1e9cffb2-926c-48f1-9970-76d86d1774ff": {
+            "type": "text_item",
+            "settings": {
+              "title": "Can I amend or cancel an item from my order?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "3d048ccd-8545-45f7-ae10-c7f7896c8e8c": {
+            "type": "text_item",
+            "settings": {
+              "title": "Do I need an account to place an order?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          },
+          "8761bfa3-02f3-4623-bb0f-b74fccbecac3": {
+            "type": "text_item",
+            "settings": {
+              "title": "What personal data do we collect from you and how?",
+              "content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "button_string": "Get more info",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1594453548580",
+          "1594453551466",
+          "1594453554247",
+          "1594453567451",
+          "1594453570856",
+          "1594453575079",
+          "c7eb2d18-6a45-4759-96e0-08127db227e3",
+          "1e9cffb2-926c-48f1-9970-76d86d1774ff",
+          "3d048ccd-8545-45f7-ae10-c7f7896c8e8c",
+          "8761bfa3-02f3-4623-bb0f-b74fccbecac3"
+        ],
+        "settings": {
+          "margin_top": "0",
+          "margin_bottom": "0"
+        }
+      },
+      "mdp-weare-need-help-faq": {
+        "type": "mdp-weare-need-help-faq",
+        "settings": {
+          "title": "Need help? <br> ..",
+          "subtitle": "",
+          "topcontent": "<p>We’re ready to help you 24/7  and ask any of your question</p>",
+          "content": "<p>For <strong>PRESS & ADVERTISING</strong>, please contact <a href='mailto:infopress@weare.com'>infopress@weare.com</a></p>",
+          "image_size": "600x600_crop_center",
+          "bg_color": "",
+          "variant": "left_text",
+          "padding_top": "",
+          "padding_bottom": "",
+          "margin_top": "",
+          "margin_bottom": ""
+        },
+        "blocks": {
+          "list-1": {
+            "type": "list",
+            "settings": {
+              "icon_class": "",
+              "text": "<span>For <strong>CUSTOMERS</strong>, please contact</span>"
+            }
+          },
+          "list-2": {
+            "type": "list_link",
+            "settings": {
+              "icon_class_link": "fas fa-envelope",
+              "text_link": "help@weare.com",
+              "link_url": "mailto:help@weare.com"
+            }
+          },
+          "list-3": {
+            "type": "list_link",
+            "settings": {
+              "icon_class_link": "fas fa-phone-volume",
+              "text_link": "+1-202-303-404",
+              "link_url": "tel:+1-202-303-404"
+            }
+          },
+          "list-4": {
+            "type": "list",
+            "settings": {
+              "icon_class": "fas fa-comment-dots",
+              "text": "502-101-202"
+            }
+          }
+        },
+        "block_order": [
+          "list-1",
+          "list-2",
+          "list-3",
+          "list-4"
+        ]
+      },
+      "mdp-weare-hero-faq-1": {
+        "type": "mdp-weare-hero-faq-1",
+        "settings": {
+          "title_herotwo": "Frequently Asked Questions",
+          "subtitle_herotwo": "Customer Care",
+          "heading_margin_left_herotwo": "0",
+          "heading_color_herotwo": "",
+          "image_herotwo": "shopify:\/\/shop_images\/fqimmg.jpg",
+          "background_size_herotwo": "cover",
+          "background_image_herotwo": "rgba(0,0,0,0)",
+          "content_herotwo": "",
+          "image_size_herotwo": "2000x500_crop_center",
+          "button_string_herotwo": "Start shopping",
+          "link_herotwo": "",
+          "boxed": true,
+          "inverted_herotwo": false,
+          "backed_herotwo": false,
+          "subscribe_herotwo": false,
+          "variant_herotwo": "left_text",
+          "padding_top_herotwo": "95",
+          "padding_bottom_herotwo": "95",
+          "margin_top_herotwo": "0",
+          "margin_bottom_herotwo": "85"
+        }
+      },
+      "mdp-weare-icon-list-faq-1": {
+        "type": "mdp-weare-icon-list-faq-1",
+        "blocks": {
+          "d49eb3b5-6c75-4df1-a0b7-de2099a0936f": {
+            "type": "list_collection",
+            "settings": {
+              "collection": "female"
+            }
+          },
+          "5057eb50-21eb-4d95-8eaf-402ca8f39f38": {
+            "type": "list_collection",
+            "settings": {
+              "collection": "shoes"
+            }
+          },
+          "ab7012e3-ffc6-4425-8958-c1cacc5d5f2c": {
+            "type": "list_collection",
+            "settings": {
+              "collection": "male"
+            }
+          },
+          "e6f0ffbd-129d-459f-b710-4a892d702a1a": {
+            "type": "list_collection",
+            "settings": {
+              "collection": "accessories"
+            }
+          },
+          "920e90b7-08e1-483a-b32f-6d6ec58c8819": {
+            "type": "list_collection",
+            "settings": {
+              "collection": "handbags"
+            }
+          }
+        },
+        "block_order": [
+          "d49eb3b5-6c75-4df1-a0b7-de2099a0936f",
+          "5057eb50-21eb-4d95-8eaf-402ca8f39f38",
+          "ab7012e3-ffc6-4425-8958-c1cacc5d5f2c",
+          "e6f0ffbd-129d-459f-b710-4a892d702a1a",
+          "920e90b7-08e1-483a-b32f-6d6ec58c8819"
+        ],
+        "settings": {
+          "col_per_row": 3,
+          "gap": "15",
+          "margin_top": "62",
+          "margin_bottom": "0"
+        }
+      },
+      "mdp-weare-hero-faq-2": {
+        "type": "mdp-weare-hero-faq-2",
+        "settings": {
+          "title_herotwo": "Get Coupon SALE WEEK 64%",
+          "subtitle_herotwo": "",
+          "heading_margin_left_herotwo": "0",
+          "heading_color_herotwo": "",
+          "background_size_herotwo": "auto",
+          "background_image_herotwo": "#ffe8e8",
+          "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor<\/p>",
+          "image_size_herotwo": "2000x500_crop_center",
+          "button_string_herotwo": "Start shopping",
+          "link_herotwo": "",
+          "inverted_herotwo": false,
+          "backed_herotwo": false,
+          "subscribe_herotwo": false,
+          "variant_herotwo": "left_text",
+          "padding_top_herotwo": "30",
+          "padding_bottom_herotwo": "30",
+          "margin_top_herotwo": "85",
+          "margin_bottom_herotwo": "0"
+        }
+      },
+      "mdp-weare-icon-list-faq-2": {
+        "type": "mdp-weare-icon-list-faq-2",
+        "blocks": {
+          "ca0c2a84-c7a7-4d10-b2ff-c3ae05a83cbf": {
+            "type": "list_item",
+            "settings": {
+              "icon_class": "fas fa-shipping-fast",
+              "content": "<p><a href=\"#\" title=\"#\">Free Shipping.<\/a> All orders of $49 or more of eligible items across any product category qualify.<\/p>"
+            }
+          },
+          "fc498dd1-d9df-4b61-ba8c-b93f66274719": {
+            "type": "list_item",
+            "settings": {
+              "icon_class": "fas fa-money-check-alt",
+              "content": "<p><a href=\"#\" title=\"#\">Payment Methods.<\/a> Credit Card: Visa, MasterCard, Maestro, American Express.<\/p>"
+            }
+          },
+          "b144a623-40e4-4754-84c3-6bcb5052e48f": {
+            "type": "list_item",
+            "settings": {
+              "icon_class": "fas fa-history",
+              "content": "<p><a href=\"#\" title=\"#\">Returns & Refunds.<\/a> You can return any item purchased on SectionHub within 20 days of the delivery date.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "ca0c2a84-c7a7-4d10-b2ff-c3ae05a83cbf",
+          "fc498dd1-d9df-4b61-ba8c-b93f66274719",
+          "b144a623-40e4-4754-84c3-6bcb5052e48f"
+        ],
+        "settings": {
+          "col_per_row": 3,
+          "gap": "30",
+          "margin_top": "65",
+          "margin_bottom": "92"
+        }
+      },
+      "mdp-weare-footer-1":{
+        "type": "mdp-weare-footer-1",
+        "settings": {
+          "show_payment_icons":true,
+          "show_powered_by":true,
+          "show_border":true,
+          "margin_top":"0"
+        },
+        "blocks": {
+          "about-us": {
+            "type": "text",
+            "settings": {
+              "title": "About Us",
+              "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+            }
+          },
+          "quick-links": {
+            "type": "menu",
+            "settings": {
+              "title": "Quick Links",
+              "footer_link_list": "footer"
+            }
+          },
+          "follow-us": {
+            "type": "social_medias",
+            "settings": {
+              "facebook_link": "#",
+              "twitter_link": "#",
+              "instagram_link": "#",
+              "pinterest_link": "#"
+            }
+          },
+          "subscribe": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Subscribe to our newsletter",
+              "subtitle": "A short sentence describing what someone will receive by subscribing"
+            }
+          }
+        },
+        "block_order": [
+          "about-us",
+          "quick-links",
+          "follow-us",
+          "subscribe"
+        ]
+      }
+    },
+    "content_for_index": []
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "name": "Home 14",
+  "layout":"theme.landing",
+  "sections": {
+    "menu-2":{
+      "type":"mdp-weare-menu-2",
+      "settings":{
+        "menu":"",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#4C4237",
+        "icon_color": "#FFFFFF",
+        "discount_color": "#FFFFFF",
+        "work_time_color": "#FFFFFF"
+      },
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ]
+    },
+    "menu-1":{
+      "type": "mdp-weare-menu-1",
+      "settings":{
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true,
+        "inverted": false
+      },
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ]
+    },
+    "slideshow-home": {
+      "type":"slideshow-home-14",
+      "settings": {
+        "margin_top": "0",
+        "margin_bottom": "0",
+        "padding_top": "600",
+        "padding_bottom": "600"
+      },
+      "blocks": {
+        "slideshow-1": {
+          "type": "slide",
+          "settings": {
+            "title": "Author's and traditional ceramics for the home",
+            "heading_color": "#ffffff",
+            "content": "<p>Sed sem elit, pharetra eget urna at, pretium placerat orci.</p><p>Duis semper metus eu nisi efficitur, ac dictum lorem placerat</p>",
+            "image": "shopify://shop_images/slideshow-1-home-14.jpg",
+            "text_alignment": "center",
+            "button_string": "Shop Collection",
+            "link": "#"
+          }
+        },
+        "slideshow-2": {
+          "type": "slide",
+          "settings": {
+            "title": "Author's and traditional ceramics for the home",
+            "heading_color": "#ffffff",
+            "content": "<p>Sed sem elit, pharetra eget urna at, pretium placerat orci.</p><p>Duis semper metus eu nisi efficitur, ac dictum lorem placerat</p>",
+            "image": "shopify://shop_images/slideshow-2-home-14.jpg",
+            "text_alignment": "center",
+            "button_string": "Shop Collection",
+            "link": "#"
+          }
+        },
+        "slideshow-3": {
+          "type": "slide",
+          "settings": {
+            "title": "Author's and traditional ceramics for the home",
+            "heading_color": "#ffffff",
+            "content": "<p>Sed sem elit, pharetra eget urna at, pretium placerat orci.</p><p>Duis semper metus eu nisi efficitur, ac dictum lorem placerat</p>",
+            "image": "shopify://shop_images/slideshow-3-home-14.jpg",
+            "text_alignment": "center",
+            "button_string": "Shop Collection",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "slideshow-1",
+        "slideshow-2",
+        "slideshow-3"
+      ]
+    },
+    "promo-products-1": {
+      "type":"promo-products-right-home-14",
+      "settings":{
+        "title_promotwo": "",
+        "box_height": "1200",
+        "boxed": false,
+        "reverse": true,
+        "product_list": [
+          "maker-tea-cooking-set",
+          "ceramic-glazed-teapot",
+          "porcelain-dish-plate",
+          "ceramic-hot-water-kettle",
+          "ceramic-teapot-and-cup-collection"
+        ],
+        "margin_top_promotwo": "35",
+        "margin_bottom_promotwo": "0"
+      }
+    },
+    "promo-products-2": {
+      "type":"promo-products-home-14",
+      "settings":{
+        "title_promotwo": "",
+        "boxed": false,
+        "product_list": [
+          "haandmade-mugs",
+          "ceramic-glazed-teapot-mugs-set",
+          "ceramic-milk-set",
+          "metal-hot-water-kettle",
+          "ceramic-teapot"
+        ],
+        "margin_top_promotwo": "0",
+        "margin_bottom_promotwo": "70"
+      }
+    },
+    "call-to-action": {
+      "type":"mdp-weare-call-to-action-1",
+      "settings":{
+        "title": "The Best Teapot For Brewing <br> Loose Tea",
+        "image": "shopify://shop_images/bg-action-home-14.jpg",
+        "text_color": "#ffffff",
+        "font_size_heading": 38,
+        "line_height_heading": 48,
+        "bg_color": "#4C4237",
+        "parallax": true,
+        "bg_color_boxtext": "transparent",
+        "content": "<p>Take 20% Off/ Sale Must-Haves</p>",
+        "padding_top": "135",
+        "padding_bottom": "135",
+        "margin_bottom": "0"
+      }
+    },
+    "icon-list": {
+      "type":"mdp-weare-icon-list-2",
+      "settings":{
+        "col_per_row": 3,
+        "gap": "30",
+        "color_content": "#ffffff",
+        "background": "#4C4237",
+        "margin_top": "0",
+        "margin_bottom": "0",
+        "padding_top": "65",
+        "padding_bottom": "65"
+      },
+      "blocks": {
+        "list-item-1":{
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-shipping-fast",
+            "content": "<p>Free Shipping. All orders of $49 or more of eligible items across any product category qualify.</p>"
+          }
+        },
+        "list-item-2":{
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-money-check-alt",
+            "content": "<p>Payment Methods. Credit Card: Visa, MasterCard, Maestro, American Express.</p>"
+          }
+        },
+        "list-item-3":{
+          "type": "list_item",
+          "settings": {
+            "icon_class": "fas fa-history",
+            "content": "<p>Returns & Refunds. You can return any item purchased on SectionHub within 20 days of the delivery date.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list-item-1",
+        "list-item-2",
+        "list-item-3"
+      ]
+    },
+    "footer-1":{
+      "type":"mdp-weare-footer-1",
+      "settings":{
+        "show_payment_icons":true,
+        "show_powered_by":true,
+        "show_border": true,
+        "margin_top":"0"
+      },
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ]
+    }
+  },
+  "order":[
+    "menu-2",
+    "menu-1",
+    "slideshow-home",
+    "promo-products-1",
+    "promo-products-2",
+    "call-to-action",
+    "icon-list",
+    "footer-1"
+  ]
+}

@@ -1,0 +1,60 @@
+{{"sectionhub-weare.css" | asset_url | stylesheet_tag }}
+
+<div id="mdp-weare-{{ section.id }}"
+     class="mdp mdp-container mdp-weare-collection-grid"
+     style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+  {% unless section.settings.title == blank and section.settings.subtitle == blank %}
+  <div class="mdp-header">
+    {% unless section.settings.title == blank %}
+    <h2 class="mdp-title">{{ section.settings.title | escape }}</h2>
+    {% endunless %}
+  </div>
+  {% endunless %}
+  <div class="mdp-grid mdp-wishlist"
+       data-columns="{{section.settings.col_per_row}}"
+       data-gap="30"
+       data-view="mdp-weare-card">
+  </div>
+</div>
+
+{% schema %}
+{
+  "name":"Wishlist",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "My wishlist"
+    },
+    {
+      "type": "range",
+      "id": "number_of_products",
+      "label": "Number of products",
+      "default": 10,
+      "min": 2,
+      "max": 12,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "col_per_row",
+      "label": "Col per row",
+      "default": 4,
+      "min": 2,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    },
+    {
+      "type": "text",
+      "id": "margin_bottom",
+      "label": "Margin bottom (px)"
+    }
+  ]
+}
+{% endschema %}
