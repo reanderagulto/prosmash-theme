@@ -157,6 +157,14 @@
           {
             "value": "Work Sans",
             "label": "Work Sans"
+          },
+           {
+            "value": "Red Hat Display",
+            "label": "Red Hat Display"
+          },
+          {
+            "value": "Lexend",
+            "label": "Lexend"
           }
         ],
         "default": "Epilogue"
