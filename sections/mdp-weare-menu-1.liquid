@@ -13,6 +13,155 @@
         {{ 'layout.navigation.back' | t }}
     </div>
     <div data-sticky-class="mdp-sticky-menu">
+        <div class="top-header">
+          <div class="mdp-container mdp-grid">
+           <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
+            <div class="mdp-col mdp-row-full">
+              <div class="mdp-row-center">
+                    {% if section.settings.menu != blank %}
+                        <div class="mdp-menu-element" data-mega-menu="12">
+
+                            <div class="mdp-menu-wrapper">
+                                <div class="mdp-menu-root">
+
+                                    <div class="mdp-mobile-devices-header">
+                                        <a href="/" class="mdp-logo">
+                                            {% if section.settings.use_logo_img == false %}
+                                                <span>{{ shop.name }}</span>
+                                            {% else %}
+                                                <img src="{{ logo }}" alt="logo">
+                                            {% endif %}
+                                        </a>
+                                    </div>
+
+                                    {% for link in linklists[section.settings.menu].links %}
+                                        {% if link.links != blank %}
+                                            <div class="mdp-menu-item mdp-has-children {% if link.active %}mdp-active{% endif %} {% if link.child_active %}mdp-active-ancestor{% endif %} {% if link.current %}mdp-current{% endif %} {% if link.child_current %}mdp-current-ancestor{% endif %}">
+                                                <a href="{{ link.url }}" class="mdp-menu-link">
+                                                    {{ link.title | escape }}
+                                                    <span class="mdp-down-icon"><i class="fas fa-angle-down"></i></span>
+                                                </a>
+                                                <input id="{{ link.url | md5 | slice: 0, 5 | prepend: 'id' }}"
+                                                       type="checkbox">
+                                                <label for="{{ link.url | md5 | slice: 0, 5 | prepend: 'id' }}"><span
+                                                            class="mdp-down-icon"><i
+                                                                class="fas fa-angle-down"></i></span><span
+                                                            class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
+                                                <div class="mdp-sub-menu">
+                                                    {% for childlink in link.links %}
+                                                        {% if childlink.links != blank %}
+                                                            <div class="mdp-menu-item mdp-has-children {% if childlink.active %}mdp-active{% endif %} {% if childlink.child_active %}mdp-active-ancestor{% endif %} {% if childlink.current %}mdp-current{% endif %} {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                                <a href="{{ childlink.url }}" class="mdp-menu-link">
+                                                                    {{ childlink.title | escape }}
+                                                                    <span class="mdp-right-icon">{% render 'mdp-weare-icon' with '007' %}</span>
+                                                                </a>
+                                                                <input id="{{ childlink.url | md5 | slice: 0, 5 | prepend: 'id' }}"
+                                                                       type="checkbox">
+                                                                <label for="{{ childlink.url | md5 | slice: 0, 5 | prepend: 'id' }}"><span
+                                                                            class="mdp-down-icon"><i
+                                                                                class="fas fa-angle-down"></i></span><span
+                                                                            class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
+                                                                <div class="mdp-sub-menu">
+                                                                    {% for grandchildlink in childlink.links %}
+                                                                        <div class="mdp-menu-item {% if grandchildlink.active %}mdp-active{% endif %} {% if grandchildlink.child_active %}mdp-active-ancestor{% endif %} {% if grandchildlink.current %}mdp-current{% endif %} {% if grandchildlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                                            <a href="{{ grandchildlink.url }}"
+                                                                               class="mdp-menu-link">{{ grandchildlink.title | escape }}</a>
+                                                                        </div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                        {% else %}
+                                                            <div class="mdp-menu-item {% if childlink.active %}mdp-active{% endif %} {% if childlink.child_active %}mdp-active-ancestor{% endif %} {% if childlink.current %}mdp-current{% endif %} {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                                <a href="{{ childlink.url }}"
+                                                                   class="mdp-menu-link">{{ childlink.title | escape }}</a>
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="mdp-menu-item {% if link.active %}mdp-active{% endif %} {% if link.child_active %}mdp-active-ancestor{% endif %} {% if link.current %}mdp-current{% endif %} {% if link.child_current %}mdp-current-ancestor{% endif %}">
+                                                <a href="{{ link.url }}"
+                                                   class="mdp-menu-link">{{ link.title | escape }}</a>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    <div class="mdp-mobile-devices-footer">
+
+                                        <div class="mdp-language-region">
+                                            <h3>Language & Region:</h3>
+                                            {% form 'localization' %}
+                                                <select name="country_code">
+                                                    {% for country in localization.available_countries %}
+                                                        <option value="{{ country.iso_code }}" {% if country == localization.country %} selected="selected"{% endif %}>
+                                                            {{ country.name }} ({{ country.iso_code }})
+                                                            - {{ country.currency.symbol }}
+                                                        </option>
+                                                    {% endfor %}
+                                                </select>
+                                            {% endform %}
+
+                                            {% form 'localization' %}
+                                                <select name="language_code">
+                                                    {% for language in localization.available_languages %}
+                                                        <option value="{{ language.iso_code }}" {% if language == localization.language %} selected="selected"{% endif %}>
+                                                            {{ language.endonym_name }}
+                                                        </option>
+                                                    {% endfor %}
+                                                </select>
+                                            {% endform %}
+                                        </div>
+
+                                        <div class="mdp-follow-us">
+                                            <h3>Follow Us:</h3>
+                                            <span class="mdp-info-list">
+                                                {% for block in section.blocks %}
+                                                    {% if block.type == "mobile_icons" %}
+                                                        <span class="mdp-info">
+                                                        <a href="{{ block.settings.social_link }}"
+                                                           class="mdp-social-link"><i
+                                                                    class="{{ block.settings.icon_class }}"></i></a>
+                                                        </span>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </span>
+                                        </div>
+
+                                        <div class="mdp-my-account">
+                                            <h3>My Account:</h3>
+                                            <a href="/account/register" class="mdp-sign-up-devices">Sign Up</a>
+                                            <a href="/account" class="mdp-login-devices">Login</a>
+                                        </div>
+
+                                        <div class="mdp-work-time-box">
+                                            {% for block in section.blocks %}
+                                                {% if block.type == "work_time" %}
+                                                    <span class="mdp-info-list">
+                                                        <span class="mdp-info mdp-work-time">
+                                                            <span><i class="fas fa-clock"></i> Opening time:&nbsp;</span>
+                                                            <span>{{ block.settings.work_time_text }}</span>
+                                                        </span>
+                                                    </span>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+                   
+
+                </div>
+            </div>
+           </div>
+          </div>
+        </div>
 
         <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
 
@@ -185,178 +334,6 @@
                     </a>
 
                 </div>
-{% comment %} TOP PART MENU {% endcomment %}
-<div class="mdp-col .mdp-row-full">
-<div class="mdp-row-left">
-
-                    {% if section.settings.menu != blank %}
-                        <div class="mdp-menu-element" data-mega-menu="12">
-                            <input id="mdp-menu" type="checkbox">
-                            <label for="mdp-menu">
-                                {% render 'mdp-weare-icon' with '191' %}
-                            </label>
-
-                            <div class="mdp-menu-wrapper mdp-menu-mobile">
-                                <div class="mdp-menu-root">
-
-                                    <div class="mdp-mobile-devices-header">
-                                        <a href="/" class="mdp-logo">
-                                            {% if section.settings.use_logo_img == false %}
-                                                <span>{{ shop.name }}</span>
-                                            {% else %}
-                                                <img src="{{ logo }}" alt="logo">
-                                            {% endif %}
-                                        </a>
-                                    </div>
-
-                                    {% for link in linklists[section.settings.menu].links %}
-                                        {% if link.links != blank %}
-                                            <div class="mdp-menu-item mdp-has-children
-                                                        {% if link.active %}mdp-active{% endif %}
-                                                        {% if link.child_active %}mdp-active-ancestor{% endif %}
-                                                        {% if link.current %}mdp-current{% endif %}
-                                                        {% if link.child_current %}mdp-current-ancestor{% endif %}">
-                                                <a href="{{ link.url }}" class="mdp-menu-link">
-                                                    {{ link.title | escape }}
-                                                    <span class="mdp-down-icon"><i class="fas fa-angle-down"></i></span>
-                                                </a>
-                                                <input id="{{ link.url | md5 | slice: 0, 5 | prepend: 'id' }}"
-                                                       type="checkbox">
-                                                <label for="{{ link.url | md5 | slice: 0, 5 | prepend: 'id' }}"><span
-                                                            class="mdp-down-icon"><i
-                                                                class="fas fa-angle-down"></i></span><span
-                                                            class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
-                                                <div class="mdp-sub-menu">
-                                                    {% for childlink in link.links %}
-                                                        {% if childlink.links != blank %}
-                                                            <div class="mdp-menu-item mdp-has-children {% if childlink.active %}mdp-active{% endif %} {% if childlink.child_active %}mdp-active-ancestor{% endif %} {% if childlink.current %}mdp-current{% endif %} {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
-                                                                <a href="{{ childlink.url }}" class="mdp-menu-link">
-                                                                    {{ childlink.title | escape }}
-                                                                    <span class="mdp-right-icon">{% render 'mdp-weare-icon' with '007' %}</span>
-                                                                </a>
-                                                                <input id="{{ childlink.url | md5 | slice: 0, 5 | prepend: 'id' }}"
-                                                                       type="checkbox">
-                                                                <label for="{{ childlink.url | md5 | slice: 0, 5 | prepend: 'id' }}"><span
-                                                                            class="mdp-down-icon"><i
-                                                                                class="fas fa-angle-down"></i></span><span
-                                                                            class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
-                                                                <div class="mdp-sub-menu">
-                                                                    {% for grandchildlink in childlink.links %}
-                                                                        <div class="mdp-menu-item
-                                                                                    {% if grandchildlink.active %}mdp-active{% endif %}
-                                                                                    {% if grandchildlink.child_active %}mdp-active-ancestor{% endif %}
-                                                                                    {% if grandchildlink.current %}mdp-current{% endif %}
-                                                                                    {% if grandchildlink.child_current %}mdp-current-ancestor{% endif %}">
-                                                                            <a href="{{ grandchildlink.url }}"
-                                                                               class="mdp-menu-link">{{ grandchildlink.title | escape }}</a>
-                                                                        </div>
-                                                                    {% endfor %}
-                                                                </div>
-                                                            </div>
-                                                        {% else %}
-                                                            <div class="mdp-menu-item
-                                                                        {% if childlink.active %}mdp-active{% endif %}
-                                                                        {% if childlink.child_active %}mdp-active-ancestor{% endif %}
-                                                                        {% if childlink.current %}mdp-current{% endif %}
-                                                                        {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
-                                                                <a href="{{ childlink.url }}"
-                                                                   class="mdp-menu-link">{{ childlink.title | escape }}</a>
-                                                            </div>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </div>
-                                            </div>
-                                        {% else %}
-                                            <div class="mdp-new-menu-item
-                                                        {% if link.active %}mdp-active{% endif %}
-                                                        {% if link.child_active %}mdp-active-ancestor{% endif %}
-                                                        {% if link.current %}mdp-current{% endif %}
-                                                        {% if link.child_current %}mdp-current-ancestor{% endif %}">
-                                                <a href="{{ link.url }}"
-                                                   class="mdp-menu-link">{{ link.title | escape }}</a>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-
-                                    <div class="mdp-mobile-devices-footer">
-
-                                        <div class="mdp-language-region">
-                                            <h3>Language & Region:</h3>
-                                            {% form 'localization' %}
-                                                <select name="country_code">
-                                                    {% for country in localization.available_countries %}
-                                                        <option value="{{ country.iso_code }}" {% if country == localization.country %} selected="selected"{% endif %}>
-                                                            {{ country.name }} ({{ country.iso_code }})
-                                                            - {{ country.currency.symbol }}
-                                                        </option>
-                                                    {% endfor %}
-                                                </select>
-                                            {% endform %}
-
-                                            {% form 'localization' %}
-                                                <select name="language_code">
-                                                    {% for language in localization.available_languages %}
-                                                        <option value="{{ language.iso_code }}" {% if language == localization.language %} selected="selected"{% endif %}>
-                                                            {{ language.endonym_name }}
-                                                        </option>
-                                                    {% endfor %}
-                                                </select>
-                                            {% endform %}
-                                        </div>
-
-                                        <div class="mdp-follow-us">
-                                            <h3>Follow Us:</h3>
-                                            <span class="mdp-info-list">
-                                                {% for block in section.blocks %}
-                                                    {% if block.type == "mobile_icons" %}
-                                                        <span class="mdp-info">
-                                                        <a href="{{ block.settings.social_link }}"
-                                                           class="mdp-social-link"><i
-                                                                    class="{{ block.settings.icon_class }}"></i></a>
-                                                        </span>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </span>
-                                        </div>
-
-                                        <div class="mdp-my-account">
-                                            <h3>My Account:</h3>
-                                            <a href="/account/register" class="mdp-sign-up-devices">Sign Up</a>
-                                            <a href="/account" class="mdp-login-devices">Login</a>
-                                        </div>
-
-                                        <div class="mdp-work-time-box">
-                                            {% for block in section.blocks %}
-                                                {% if block.type == "work_time" %}
-                                                    <span class="mdp-info-list">
-                                                        <span class="mdp-info mdp-work-time">
-                                                            <span><i class="fas fa-clock"></i> Opening time:&nbsp;</span>
-                                                            <span>{{ block.settings.work_time_text }}</span>
-                                                        </span>
-                                                    </span>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    {% endif %}
-
-                    <a href="/" class="mdp-logo">
-                        {% if section.settings.use_logo_img == false %}
-                            <span>{{ shop.name }}</span>
-                        {% else %}
-                                <img src="{{ logo }}" alt="logo">
-                        {% endif %}
-                    </a>
-
-                </div>
-
-
-</div>
 
 
 
