@@ -161,7 +161,7 @@
                                                 {% if block.type == "work_time" %}
                                                     <span class="mdp-info-list">
                                                         <span class="mdp-info mdp-work-time">
-                                                            <span><i class="fas fa-clock"></i> OOpening time:&nbsp;</span>
+                                                            <span><i class="fas fa-clock"></i> Opening time:&nbsp;</span>
                                                             <span>{{ block.settings.work_time_text }}</span>
                                                         </span>
                                                     </span>
@@ -187,6 +187,13 @@
                 </div>
 {% comment %} CENTER {% endcomment %}
                 <div class="mdp-row-center">
+                    <div class="mdp-search-display mdp-search-display-block">
+                        <form class="mdp-search-bar" action="/search" method="get">
+                            <input type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}"
+                                    value="{{ search.terms | escape }}">
+                            <button type="submit" class="">{{ 'general.search.submit' | t }}</button>
+                        </form>
+                    </div>
 
                     <a href="/" class="mdp-logo">
                         {% if section.settings.use_logo_img == false %}
