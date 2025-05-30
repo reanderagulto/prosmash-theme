@@ -142,7 +142,8 @@
         "work_time"
       ],
       "settings": {
-        "use_logo_img": false,
+        "use_logo_img": true,
+        "logo": "shopify://shop_images/Logo.png",
         "logo_size": "150x70",
         "menu": "main-menu",
         "search": true
