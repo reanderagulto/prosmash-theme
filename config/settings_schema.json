@@ -212,6 +212,14 @@
           {
             "value": "Poppins",
             "label": "Poppins"
+          },
+          {
+            "value": "Red Hat Display",
+            "label": "Red Hat Display"
+          },
+          {
+            "value": "Lexend",
+            "label": "Lexend"
           }
         ],
         "default": "'Open Sans', sans-serif"
