@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Home 2",
-  "layout":"theme.landing",
+  "layout": "theme.landing",
   "sections": {
-    "menu-2":{
-      "type":"mdp-weare-menu-2",
-      "settings":{
-        "menu":"",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": false,
-        "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
-      },
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      }
     },
-    "menu-1":{
+    "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings":{
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,30 +138,27 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "slideshow": {
-      "type":"mdp-weare-slideshow-1",
-      "settings": {
-        "boxed": false,
-        "text_collection": "New In /",
-        "variant": "style_1",
-        "height": "860",
-        "margin_top": "0",
-        "margin_bottom": "0"
-      },
+      "type": "mdp-weare-slideshow-1",
       "blocks": {
         "slide-1": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/SLIDE1.png",
+            "mobile_image": "shopify://shop_images/moile-slider1-home-2.png",
             "background_size": "contain",
             "background_position_x": "bottom",
             "background_position_y": "right",
             "background_color": "#F9F5F2",
             "image_product": "",
             "image_pagination": "shopify://shop_images/SMALL1.png",
-            "mobile_image": "shopify://shop_images/moile-slider1-home-2.png",
             "subtitle": "New Jewelry Collectoion <br>..",
             "title": "The alchemy of <br>luxury crystals",
             "content": "",
@@ -173,13 +172,13 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/SLIDE2.png",
+            "mobile_image": "shopify://shop_images/moile-slider2-home-2.png",
             "background_size": "contain",
             "background_position_x": "bottom",
             "background_position_y": "left",
             "background_color": "#F9F5F2",
             "image_product": "",
             "image_pagination": "shopify://shop_images/SMALL21.png",
-            "mobile_image": "shopify://shop_images/moile-slider2-home-2.png",
             "subtitle": "New Jewelry Collectoion <br>..",
             "title": "Golden stories <br>about jewelry",
             "content": "",
@@ -193,13 +192,13 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/SLIDE3.png",
+            "mobile_image": "shopify://shop_images/moile-slider3-home-2.png",
             "background_size": "contain",
             "background_position_x": "bottom",
             "background_position_y": "right",
             "background_color": "#FFFAF6",
             "image_product": "",
             "image_pagination": "shopify://shop_images/SMALL3.png",
-            "mobile_image": "shopify://shop_images/moile-slider3-home-2.png",
             "subtitle": "New Jewelry Collectoion <br>..",
             "title": "Will never go <br>out of style",
             "content": "",
@@ -213,13 +212,13 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/SLIDE4.png",
+            "mobile_image": "shopify://shop_images/moile-slider4-home-2.png",
             "background_size": "contain",
             "background_position_x": "bottom",
             "background_position_y": "left",
             "background_color": "#F9F5F2",
             "image_product": "",
             "image_pagination": "shopify://shop_images/SMALL4.png",
-            "mobile_image": "shopify://shop_images/moile-slider4-home-2.png",
             "subtitle": "New Jewelry Collectoion <br>..",
             "title": "If you love <br>unique designs",
             "content": "",
@@ -235,10 +234,16 @@
         "slide-2",
         "slide-3",
         "slide-4"
-      ]
+      ],
+      "settings": {
+        "boxed": false,
+        "text_collection": "New In /",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
     },
     "call-action": {
-      "type":"mdp-weare-call-to-action-1",
+      "type": "mdp-weare-call-to-action-1",
       "settings": {
         "title": "The best gift for Valentine's",
         "text_color": "",
@@ -260,7 +265,6 @@
       "type": "mdp-weare-collection-carousel",
       "settings": {
         "title": "",
-        "subtitle": "",
         "selected_collection": "earings",
         "print_price": true,
         "number_of_products": 10,
@@ -270,10 +274,8 @@
         "slides_per_view_xs": 1,
         "images_form": "50",
         "image_size": "340x415_crop_center",
-        "slider": false,
         "boxed": true,
         "background_container": "",
-        "font_size_header": 16,
         "heading_alignment": "left",
         "margin_top": "0",
         "margin_bottom": "70"
@@ -296,13 +298,6 @@
     },
     "collection-lists": {
       "type": "mdp-weare-collection-lists",
-      "settings": {
-        "number_of_products": 5,
-        "image_size": "100x100_crop_center",
-        "bg_image": "",
-        "margin_top": "0",
-        "margin_bottom": "0"
-      },
       "blocks": {
         "collection-1": {
           "type": "collection",
@@ -338,7 +333,12 @@
         "collection-2",
         "collection-3",
         "collection-title"
-      ]
+      ],
+      "settings": {
+        "number_of_products": 5,
+        "image_size": "100x100_crop_center",
+        "bg_image": ""
+      }
     },
     "hero": {
       "type": "mdp-weare-hero-2-1",
@@ -346,7 +346,7 @@
         "title_herotwo": "Get Coupon SALE WEEK 64%",
         "heading_margin_left_herotwo": "0",
         "heading_color_herotwo": "#343434",
-        "text_color_herotwo":  "#343434",
+        "text_color_herotwo": "#343434",
         "background_image_herotwo": "#FFE8E8",
         "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor</p>",
         "boxed": true,
@@ -358,33 +358,23 @@
       }
     },
     "icon-list": {
-      "type":"mdp-weare-icon-list-2",
-      "settings":{
-        "col_per_row": 3,
-        "gap": "30",
-        "color_content": "#343434",
-        "background": "#ffffff",
-        "margin_top": "0",
-        "margin_bottom": "80",
-        "padding_top": "0",
-        "padding_bottom": "0"
-      },
+      "type": "mdp-weare-icon-list-2",
       "blocks": {
-        "list-item-1":{
+        "list-item-1": {
           "type": "list_item",
           "settings": {
             "icon_class": "fas fa-shipping-fast",
             "content": "<p>Free Shipping. All orders of $49 or more of eligible items across any product category qualify.</p>"
           }
         },
-        "list-item-2":{
+        "list-item-2": {
           "type": "list_item",
           "settings": {
             "icon_class": "fas fa-money-check-alt",
             "content": "<p>Payment Methods. Credit Card: Visa, MasterCard, Maestro, American Express.</p>"
           }
         },
-        "list-item-3":{
+        "list-item-3": {
           "type": "list_item",
           "settings": {
             "icon_class": "fas fa-history",
@@ -396,7 +386,17 @@
         "list-item-1",
         "list-item-2",
         "list-item-3"
-      ]
+      ],
+      "settings": {
+        "col_per_row": 3,
+        "gap": "30",
+        "color_content": "#343434",
+        "background": "#ffffff",
+        "margin_top": "0",
+        "margin_bottom": "80",
+        "padding_top": "0",
+        "padding_bottom": "0"
+      }
     },
     "collection-row": {
       "type": "mdp-weare-collection-row-shop",
@@ -409,20 +409,13 @@
         "col_per_row": 5,
         "images_form": "50",
         "image_size": "270x370_crop_center",
-        "slider": false,
         "indents": "60",
         "margin_top": "0",
         "margin_bottom": "0"
       }
     },
-    "footer-1":{
-      "type":"mdp-weare-footer-1",
-      "settings":{
-        "show_payment_icons":true,
-        "show_powered_by":true,
-        "show_border":true,
-        "margin_top":"0"
-      },
+    "footer-1": {
+      "type": "mdp-weare-footer-1",
       "blocks": {
         "about-us": {
           "type": "text",
@@ -460,10 +453,16 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
     }
   },
-  "order":[
+  "order": [
     "menu-2",
     "menu-1",
     "slideshow",

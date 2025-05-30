@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Home 3",
-  "layout":"theme.landing",
+  "layout": "theme.landing",
   "sections": {
-    "menu-2":{
-      "type":"mdp-weare-menu-2",
-      "settings":{
-        "menu":"",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": false,
-        "language_selector": false,
-        "bg_color": "#343434",
-        "icon_color": "#F9F9F9",
-        "discount_color": "#F9F9F9",
-        "work_time_color": "#F9F9F9"
-      },
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#343434",
+        "icon_color": "#F9F9F9",
+        "discount_color": "#F9F9F9",
+        "work_time_color": "#F9F9F9"
+      }
     },
-    "menu-1":{
+    "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings":{
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,16 +138,15 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "slideshow": {
-      "type":"mdp-weare-slideshow-home-3",
-      "settings": {
-        "boxed": false,
-        "variant": "style_1",
-        "margin_top": "0",
-        "margin_bottom": "0"
-      },
+      "type": "mdp-weare-slideshow-home-3",
       "blocks": {
         "slide-1": {
           "type": "slide",
@@ -185,21 +186,15 @@
         "slide-1",
         "slide-2",
         "slide-3"
-      ]
+      ],
+      "settings": {
+        "boxed": false,
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
     },
     "collections": {
       "type": "mdp-weare-collections-home-3",
-      "settings": {
-        "display_type": "selected",
-        "sort": "alphabetical",
-        "number_of_collections": 3,
-        "col_per_row": 3,
-        "gap": "0",
-        "image_size": "583x269_crop_center",
-        "variant": "style_1",
-        "margin_top": "80",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "collection-1": {
           "type": "collection",
@@ -224,19 +219,21 @@
         "collection-1",
         "collection-2",
         "collection-3"
-      ]
+      ],
+      "settings": {
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "number_of_collections": 3,
+        "col_per_row": 3,
+        "gap": "0",
+        "image_size": "583x269_crop_center",
+        "variant": "style_1",
+        "margin_top": "80",
+        "margin_bottom": "80"
+      }
     },
     "promo": {
       "type": "mdp-weare-promo-home-3",
-      "settings": {
-        "title_promotwo": "",
-        "subtitle_promotwo": "",
-        "image_promotwo": "shopify://shop_images/home3-promo-1.png",
-        "image_size_promotwo": "600x600_crop_center",
-        "variant_promotwo": "right_text",
-        "margin_top_promotwo": "0",
-        "margin_bottom_promotwo": "0"
-      },
       "blocks": {
         "product": {
           "type": "product_link",
@@ -253,13 +250,21 @@
       },
       "block_order": [
         "product"
-      ]
+      ],
+      "settings": {
+        "title_promotwo": "",
+        "subtitle_promotwo": "",
+        "image_promotwo": "shopify://shop_images/home3-promo-1.png",
+        "image_size_promotwo": "600x600_crop_center",
+        "variant_promotwo": "right_text",
+        "margin_top_promotwo": "0",
+        "margin_bottom_promotwo": "0"
+      }
     },
     "collection-carousel": {
       "type": "mdp-weare-collection-carousel-home-3",
-        "settings": {
+      "settings": {
         "title": "Modern Re-interpretation",
-        "subtitle": "",
         "selected_collection": "modern-re-interpretation",
         "print_price": true,
         "number_of_products": 10,
@@ -276,12 +281,6 @@
     },
     "slideshow-footer": {
       "type": "mdp-weare-slideshow-home-3-1",
-      "settings": {
-        "boxed": true,
-        "variant": "style_1",
-        "margin_top": "0",
-        "margin_bottom": "70"
-      },
       "blocks": {
         "slide-1": {
           "type": "slide",
@@ -309,7 +308,12 @@
       "block_order": [
         "slide-1",
         "slide-2"
-      ]
+      ],
+      "settings": {
+        "boxed": true,
+        "margin_top": "0",
+        "margin_bottom": "70"
+      }
     },
     "video": {
       "type": "mdp-weare-video-home-3",
@@ -339,12 +343,6 @@
     },
     "promo-footer": {
       "type": "mdp-weare-promo-products",
-      "settings": {
-        "title": "",
-        "subtitle": "",
-        "margin_top": "80",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "product-1": {
           "type": "product",
@@ -368,16 +366,16 @@
       "block_order": [
         "product-1",
         "product-2"
-      ]
+      ],
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "margin_top": "80",
+        "margin_bottom": "80"
+      }
     },
-    "footer-1":{
-      "type":"mdp-weare-footer-1",
-      "settings":{
-        "show_payment_icons":true,
-        "show_powered_by":true,
-        "show_border":true,
-        "margin_top":"0"
-      },
+    "footer-1": {
+      "type": "mdp-weare-footer-1",
       "blocks": {
         "about-us": {
           "type": "text",
@@ -415,10 +413,16 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
     }
   },
-  "order":[
+  "order": [
     "menu-2",
     "menu-1",
     "slideshow",

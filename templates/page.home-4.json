@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Home 4",
-  "layout":"theme.landing",
+  "layout": "theme.landing",
   "sections": {
-    "menu-2":{
-      "type":"mdp-weare-menu-2",
-      "settings":{
-        "menu":"",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": false,
-        "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
-      },
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      }
     },
-    "menu-1":{
+    "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings":{
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,16 +138,15 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "slideshow": {
       "type": "mdp-weare-slideshow-home-4",
-      "settings": {
-        "boxed": false,
-        "height": "1050",
-        "margin_top": "0",
-        "margin_bottom": "0"
-      },
       "blocks": {
         "slide-1": {
           "type": "slide",
@@ -165,11 +166,16 @@
       "block_order": [
         "slide-1",
         "slide-2"
-      ]
+      ],
+      "settings": {
+        "boxed": false,
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
     },
     "promo": {
       "type": "mdp-weare-promo-home-2",
-      "settings":{
+      "settings": {
         "image": "shopify://shop_images/left.png",
         "image_size": "600x600_crop_center",
         "header_left": "Unisex Backpacks",
@@ -183,14 +189,7 @@
       }
     },
     "collection-lists": {
-      "type":"mdp-weare-collection-lists",
-      "settings": {
-        "number_of_products": 4,
-        "image_size": "100x100_crop_center",
-        "bg_image": "",
-        "margin_top": "0",
-        "margin_bottom": "80"
-      },
+      "type": "mdp-weare-collection-lists",
       "blocks": {
         "collection-1": {
           "type": "collection",
@@ -226,10 +225,15 @@
         "collection-2",
         "collection-3",
         "collection-title"
-      ]
+      ],
+      "settings": {
+        "number_of_products": 4,
+        "image_size": "100x100_crop_center",
+        "bg_image": ""
+      }
     },
     "call-action": {
-      "type":"mdp-weare-call-to-action-1",
+      "type": "mdp-weare-call-to-action-1",
       "settings": {
         "title": "Final Clearance",
         "text_color": "#343434",
@@ -247,12 +251,6 @@
     },
     "lookbook": {
       "type": "mdp-weare-lookbook-1",
-      "settings": {
-        "title": "",
-        "col_per_row": 2,
-        "margin_top": "0",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "image-1": {
           "type": "image",
@@ -276,15 +274,16 @@
       "block_order": [
         "image-1",
         "image-2"
-      ]
-    },
-    "logos": {
-      "type":"mdp-weare-logos-1",
-      "settings":{
-        "image_size": "200x90",
+      ],
+      "settings": {
+        "title": "",
+        "col_per_row": 2,
         "margin_top": "0",
         "margin_bottom": "80"
-      },
+      }
+    },
+    "logos": {
+      "type": "mdp-weare-logos-1",
       "blocks": {
         "logo-1": {
           "type": "logo",
@@ -316,7 +315,12 @@
         "logo-2",
         "logo-3",
         "logo-4"
-      ]
+      ],
+      "settings": {
+        "image_size": "200x90",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
     },
     "collection-carousel": {
       "type": "mdp-weare-collection-carousel-home-3",
@@ -336,14 +340,8 @@
         "margin_bottom": "0"
       }
     },
-    "footer-1":{
+    "footer-1": {
       "type": "mdp-weare-footer-1",
-      "settings":{
-        "show_payment_icons":true,
-        "show_powered_by":true,
-        "show_border":true,
-        "margin_top":"0"
-      },
       "blocks": {
         "about-us": {
           "type": "text",
@@ -381,10 +379,16 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
     }
   },
-  "order":[
+  "order": [
     "menu-2",
     "menu-1",
     "slideshow",

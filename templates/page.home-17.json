@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Home 17",
-  "layout":"theme.landing",
+  "layout": "theme.landing",
   "sections": {
-    "menu-2":{
-      "type":"mdp-weare-menu-2",
-      "settings":{
-        "menu":"",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": false,
-        "language_selector": false,
-        "bg_color": "#A8FCFF",
-        "icon_color": "#343434",
-        "discount_color": "#343434",
-        "work_time_color": "#343434"
-      },
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#A8FCFF",
+        "icon_color": "#343434",
+        "discount_color": "#343434",
+        "work_time_color": "#343434"
+      }
     },
-    "menu-1":{
+    "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings":{
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,7 +138,12 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "hero-top": {
       "type": "hero-top-home-17",
@@ -144,11 +151,11 @@
         "title_herotwo": "Vegan Pharmacy",
         "heading_margin_left_herotwo": "90",
         "heading_color_herotwo": "#343434",
-        "content_herotwo": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis laoreet ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. Pellentesque lacinia, sapien</p>",
         "text_color_herotwo": "#343434",
         "image_herotwo": "shopify://shop_images/aloe-vera-face-serum-in-a-bottle-and-aloe-leaf-on-2021-12-09-06-02-13-utc.jpg",
         "background_size_herotwo": "cover",
         "background_image_herotwo": "rgba(255, 255, 255, 0.7)",
+        "content_herotwo": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis laoreet ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. Pellentesque lacinia, sapien</p>",
         "padding_top_herotwo": "90",
         "padding_bottom_herotwo": "100",
         "margin_top_herotwo": "0",
@@ -156,27 +163,20 @@
       }
     },
     "collection-grid": {
-      "type":"mdp-weare-collection-grid",
-      "settings":{
+      "type": "mdp-weare-collection-grid",
+      "settings": {
         "title": "",
-        "selected_collection": "tablets-min",
-        "number_of_products": 3,
         "col_per_row": 3,
         "images_form": "40",
-          "image_size": "original",
-        "slider": false,
+        "selected_collection": "tablets-min",
+        "image_size": "original",
         "show_price": true,
         "margin_top": "0",
         "margin_bottom": "80"
       }
     },
-    "collection-lists":   {
-      "type":"mdp-weare-collection-lists",
-      "settings":{
-        "number_of_products": 4,
-        "mdp_margin_top": "0",
-        "mdp_margin_bottom": "80"
-      },
+    "collection-lists": {
+      "type": "mdp-weare-collection-lists",
       "blocks": {
         "collection-1": {
           "type": "collection",
@@ -211,11 +211,16 @@
         "collection-2",
         "collection-3",
         "title"
-      ]
+      ],
+      "settings": {
+        "number_of_products": 4,
+        "mdp_margin_top": "0",
+        "mdp_margin_bottom": "80"
+      }
     },
     "promo": {
-      "type":"promo-home-17",
-      "settings":{
+      "type": "promo-home-17",
+      "settings": {
         "image_text": "Unisex Backpacks",
         "paragraph_left": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia, sapien</a></p>",
         "image": "shopify://shop_images/prmo-home-17.jpg",
@@ -227,8 +232,8 @@
       }
     },
     "hero-text": {
-      "type":"mdp-weare-hero-2-1",
-      "settings":{
+      "type": "mdp-weare-hero-2-1",
+      "settings": {
         "title_herotwo": "Get Coupon SALE WEEK 64%",
         "heading_color_herotwo": "#343434",
         "text_color_herotwo": "#343434",
@@ -242,29 +247,23 @@
       }
     },
     "icon-list": {
-      "type":"mdp-weare-icon-list-2",
-      "settings":{
-        "col_per_row": 3,
-        "gap": "30",
-        "margin_top": "80",
-        "margin_bottom": "80"
-      },
+      "type": "mdp-weare-icon-list-2",
       "blocks": {
-        "list-item-1":{
+        "list-item-1": {
           "type": "list_item",
           "settings": {
             "icon_class": "fas fa-shipping-fast",
             "content": "<p>Free Shipping. All orders of $49 or more of eligible items across any product category qualify.</p>"
           }
         },
-        "list-item-2":{
+        "list-item-2": {
           "type": "list_item",
           "settings": {
             "icon_class": "fas fa-money-check-alt",
             "content": "<p>Payment Methods. Credit Card: Visa, MasterCard, Maestro, American Express.</p>"
           }
         },
-        "list-item-3":{
+        "list-item-3": {
           "type": "list_item",
           "settings": {
             "icon_class": "fas fa-history",
@@ -276,7 +275,13 @@
         "list-item-1",
         "list-item-2",
         "list-item-3"
-      ]
+      ],
+      "settings": {
+        "col_per_row": 3,
+        "gap": "30",
+        "margin_top": "80",
+        "margin_bottom": "80"
+      }
     },
     "hero-footer": {
       "type": "hero-home-17",
@@ -284,14 +289,14 @@
         "title_herotwo": "Up to 50% Off",
         "use_local_styles_17": false,
         "heading_color_herotwo": "#009CB8",
-        "content_herotwo": "<p>Nam non velit et ipsum pulvinar imperdiet. In orci ante, molestie id mattis imperdiet, dapibus ac nisl</p>",
         "text_color_herotwo": "#343434",
         "image_herotwo": "shopify://shop_images/home17-footer-banner-pills-big.png",
         "background_size_herotwo": "cover",
+        "background_image_herotwo": "",
+        "content_herotwo": "<p>Nam non velit et ipsum pulvinar imperdiet. In orci ante, molestie id mattis imperdiet, dapibus ac nisl</p>",
+        "image_size_herotwo": "2450x430",
         "button_string_herotwo": "Shop Now",
         "link_herotwo": "#",
-        "background_image_herotwo": "",
-        "image_size_herotwo": "2450x430",
         "padding_top_herotwo": "110",
         "padding_bottom_herotwo": "110",
         "margin_top_herotwo": "0",
@@ -299,8 +304,8 @@
       }
     },
     "new-in": {
-      "type":"mdp-weare-collection-row-shop",
-      "settings":{
+      "type": "mdp-weare-collection-row-shop",
+      "settings": {
         "selected_collection": "new-pills",
         "name_collection": "New In/",
         "button_string": "Shop Now",
@@ -312,14 +317,8 @@
         "margin_bottom": "65"
       }
     },
-    "footer-1":{
-      "type":"mdp-weare-footer-1",
-      "settings":{
-        "show_payment_icons":true,
-        "show_powered_by":true,
-        "show_border": true,
-        "margin_top":"0"
-      },
+    "footer-1": {
+      "type": "mdp-weare-footer-1",
       "blocks": {
         "about-us": {
           "type": "text",
@@ -357,10 +356,16 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
     }
   },
-  "order":[
+  "order": [
     "menu-2",
     "menu-1",
     "hero-top",

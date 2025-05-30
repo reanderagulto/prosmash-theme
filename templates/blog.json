@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Blog",
-  "layout":"theme.landing",
+  "layout": "theme.landing",
   "sections": {
-    "menu-2":{
-      "type":"mdp-weare-menu-2",
-      "settings":{
-        "menu":"",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": false,
-        "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
-      },
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      }
     },
-    "menu-1":{
+    "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings":{
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,21 +138,19 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "breadcrumbs": {
       "type": "breadcrumbs",
-      "settings":{}
+      "settings": {}
     },
     "slideshow-blog": {
       "type": "mdp-weare-slideshow-blog",
-      "settings": {
-        "boxed": true,
-        "variant": "style_1",
-        "height": "",
-        "margin_top": "15",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "slide-1": {
           "type": "slide",
@@ -193,20 +193,16 @@
         "slide-1",
         "slide-2",
         "slide-3"
-      ]
+      ],
+      "settings": {
+        "boxed": true,
+        "height": "",
+        "margin_top": "15",
+        "margin_bottom": "80"
+      }
     },
     "icon-list": {
       "type": "mdp-weare-icon-list-blog",
-      "settings": {
-        "col_per_row": 6,
-        "gap": "30",
-        "color_content": "#343434",
-        "background": "#ffffff",
-        "margin_top": "0",
-        "margin_bottom": "65",
-        "padding_top": "0",
-        "padding_bottom": "0"
-      },
       "blocks": {
         "header": {
           "type": "list_header",
@@ -252,23 +248,20 @@
         "collection-3",
         "collection-4",
         "collection-5"
-      ]
+      ],
+      "settings": {
+        "col_per_row": 6,
+        "gap": "30",
+        "color_content": "#343434",
+        "background": "#ffffff",
+        "margin_top": "0",
+        "margin_bottom": "65",
+        "padding_top": "0",
+        "padding_bottom": "0"
+      }
     },
     "product": {
       "type": "product-mdp-weare-4",
-      "settings": {
-        "selected_product": "small-black-bag",
-        "image_size": "400x480_crop_center",
-        "slider": true,
-        "zoom": true,
-        "redirect": false,
-        "product_boxed": true,
-        "one_row": true,
-        "product_tabs": false,
-        "side_padding": false,
-        "margin_top": "0",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "title": {
           "type": "title",
@@ -286,7 +279,19 @@
       "block_order": [
         "title",
         "description"
-      ]
+      ],
+      "settings": {
+        "selected_product": "small-black-bag",
+        "image_size": "400x480_crop_center",
+        "zoom": true,
+        "redirect": false,
+        "product_boxed": true,
+        "one_row": true,
+        "product_tabs": false,
+        "side_padding": false,
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
     },
     "hero": {
       "type": "mdp-weare-hero-blog",
@@ -304,8 +309,6 @@
         "content": "<p>Maecenas vulputate, magna vel rutrum mattis, ex est accumsan tellus</p>",
         "margin_left": "0",
         "image_size": "2000x500_crop_center",
-        "button_color": "#E9384F",
-        "inverted": false,
         "backed": false,
         "subscribe": true,
         "variant": "center_text",
@@ -327,7 +330,6 @@
         "image_size": "345x470_crop_center",
         "bg_color": "",
         "boxed": true,
-        "inverted": false,
         "show_read_more": false,
         "excerpt_words": 20,
         "excerpt_ellipsis": "...",
@@ -352,22 +354,14 @@
         "col_per_row": 5,
         "images_form": "50",
         "image_size": "198x236_crop_center",
-        "slider": false,
-        "variant": "style_1",
         "reverse": false,
         "indents": "45",
         "margin_top": "0",
         "margin_bottom": "0"
       }
     },
-    "footer-1":{
+    "footer-1": {
       "type": "mdp-weare-footer-1",
-      "settings": {
-        "show_payment_icons":true,
-        "show_powered_by":true,
-        "show_border":true,
-        "margin_top":"0"
-      },
       "blocks": {
         "about-us": {
           "type": "text",
@@ -405,10 +399,16 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
     }
   },
-  "order":[
+  "order": [
     "menu-2",
     "menu-1",
     "breadcrumbs",

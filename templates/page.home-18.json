@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Home 18",
-  "layout":"theme.landing",
+  "layout": "theme.landing",
   "sections": {
-    "menu-2":{
-      "type":"mdp-weare-menu-2",
-      "settings":{
-        "menu":"",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": false,
-        "language_selector": false,
-        "bg_color": "#343434",
-        "icon_color": "#FFFFFF",
-        "discount_color": "#FFFFFF",
-        "work_time_color": "#FFFFFF"
-      },
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#343434",
+        "icon_color": "#FFFFFF",
+        "discount_color": "#FFFFFF",
+        "work_time_color": "#FFFFFF"
+      }
     },
-    "menu-1":{
+    "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings":{
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,7 +138,12 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "hero-top": {
       "type": "mdp-weare-hero-footer-home-7",
@@ -145,9 +152,8 @@
         "heading_color_herotwo": "#343434",
         "image_herotwo": "shopify://shop_images/cheese-2021-08-26-16-00-35-utc.jpg",
         "background_size_herotwo": "cover",
-        "image_size_herotwo": "1600x1000_crop_center",
         "background_image_herotwo": "#FFFFFF",
-        "boxed": false,
+        "image_size_herotwo": "1600x1000_crop_center",
         "variant_herotwo": "end",
         "padding_top_herotwo": "320",
         "padding_bottom_herotwo": "320",
@@ -157,7 +163,7 @@
     },
     "collection-carousel": {
       "type": "mdp-weare-collection-carousel",
-      "settings":{
+      "settings": {
         "title": "",
         "selected_collection": "popular-cheeses",
         "print_price": true,
@@ -165,7 +171,6 @@
         "slides_per_view": 4,
         "images_form": "0",
         "image_size": "500x500",
-        "slider": false,
         "boxed": false,
         "background_container": "",
         "margin_top": "0",
@@ -174,12 +179,12 @@
     },
     "hero-img": {
       "type": "mdp-weare-hero-home-7",
-      "settings":{
+      "settings": {
         "title_herotwo": "to Building the Perfect <br/> Cheese Board",
         "subtitle_herotwo": "5 Ways",
         "heading_margin_left_herotwo": "0",
-        "heading_color_herotwo": "#ffffff",
         "subtitle_color_herotwo": "#FFFEA7",
+        "heading_color_herotwo": "#ffffff",
         "text_color_herotwo": "#ffffff",
         "image_herotwo": "shopify://shop_images/new-baner-home-18.jpg",
         "background_size_herotwo": "cover",
@@ -196,15 +201,13 @@
     },
     "collection": {
       "type": "mdp-weare-collection-grid",
-      "settings":{
+      "settings": {
         "title": "",
-        "boxed": false,
-        "selected_collection": "cheese",
-        "number_of_products": 18,
         "col_per_row": 6,
         "gap": "35",
+        "boxed": false,
+        "selected_collection": "cheese",
         "image_size": "500x500",
-        "slider": false,
         "show_price": true,
         "show_btn_cl": true,
         "btn_text_collection": "Discover more",
@@ -218,9 +221,8 @@
         "heading_color_herotwo": "#343434",
         "image_herotwo": "shopify://shop_images/different-types-of-cheese-2021-08-31-20-19-48-utc.jpg",
         "background_size_herotwo": "cover",
-        "image_size_herotwo": "1600x1000_crop_center",
         "background_image_herotwo": "#FFFFFF",
-        "boxed": false,
+        "image_size_herotwo": "1600x1000_crop_center",
         "variant_herotwo": "end",
         "padding_top_herotwo": "240",
         "padding_bottom_herotwo": "240",
@@ -228,14 +230,8 @@
         "margin_bottom_herotwo": "0"
       }
     },
-    "footer-1":{
-      "type":"mdp-weare-footer-1",
-      "settings":{
-        "show_payment_icons":true,
-        "show_powered_by":true,
-        "show_border": false,
-        "margin_top":"0"
-      },
+    "footer-1": {
+      "type": "mdp-weare-footer-1",
       "blocks": {
         "about-us": {
           "type": "text",
@@ -273,10 +269,16 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": false,
+        "margin_top": "0"
+      }
     }
   },
-  "order":[
+  "order": [
     "menu-2",
     "menu-1",
     "hero-top",

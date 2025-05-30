@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Gallery",
-  "layout":"theme.landing",
+  "layout": "theme.landing",
   "sections": {
-    "menu-2":{
-      "type":"mdp-weare-menu-2",
-      "settings":{
-        "menu":"",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": false,
-        "language_selector": false,
-        "bg_color": "#E9384F",
-        "icon_color": "#FFFFFF",
-        "discount_color": "#FFFFFF",
-        "work_time_color": "#FFFFFF"
-      },
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#E9384F",
+        "icon_color": "#FFFFFF",
+        "discount_color": "#FFFFFF",
+        "work_time_color": "#FFFFFF"
+      }
     },
-    "menu-1":{
+    "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings":{
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,16 +138,15 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "slideshow": {
       "type": "mdp-weare-slideshow-home-4",
-      "settings": {
-        "boxed": false,
-        "height": "1050",
-        "margin_top": "0",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "slide-1": {
           "type": "slide",
@@ -165,21 +166,15 @@
       "block_order": [
         "slide-1",
         "slide-2"
-      ]
+      ],
+      "settings": {
+        "boxed": false,
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
     },
     "gallery": {
       "type": "mdp-weare-gallery-1-hub-7550",
-      "settings": {
-        "title": "",
-        "subtitle": "",
-        "col_per_row": 4,
-        "gap": "0",
-        "image_size": "400x600_crop_center",
-        "magnific_gallery": true,
-        "variant": "style_1",
-        "margin_top": "0",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "slide-1": {
           "type": "gallery_item",
@@ -263,16 +258,20 @@
         "slide-6",
         "slide-7",
         "slide-8"
-      ]
-    },
-    "logos": {
-      "type":"mdp-weare-logos-1",
-      "settings":{
-        "boxed": false,
-        "image_size": "200x90",
+      ],
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "col_per_row": 4,
+        "gap": "0",
+        "image_size": "400x600_crop_center",
+        "magnific_gallery": true,
         "margin_top": "0",
         "margin_bottom": "80"
-      },
+      }
+    },
+    "logos": {
+      "type": "mdp-weare-logos-1",
       "blocks": {
         "logo-1": {
           "type": "logo",
@@ -304,16 +303,16 @@
         "logo-2",
         "logo-3",
         "logo-4"
-      ]
-    },
-    "footer-1":{
-      "type": "mdp-weare-footer-1",
+      ],
       "settings": {
-        "show_payment_icons":true,
-        "show_powered_by":true,
-        "show_border":true,
-        "margin_top":"0"
-      },
+        "boxed": false,
+        "image_size": "200x90",
+        "margin_top": "0",
+        "margin_bottom": "80"
+      }
+    },
+    "footer-1": {
+      "type": "mdp-weare-footer-1",
       "blocks": {
         "about-us": {
           "type": "text",
@@ -351,10 +350,16 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
     }
   },
-  "order":[
+  "order": [
     "menu-2",
     "menu-1",
     "slideshow",

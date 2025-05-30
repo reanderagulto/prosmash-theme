@@ -1,25 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Default page",
   "layout": "theme.landing",
   "sections": {
     "menu-2": {
       "type": "mdp-weare-menu-2",
-      "settings": {
-        "menu": "",
-        "enabled_topbar": true,
-        "enabled_menu": false,
-        "enabled_shadow": false,
-        "info_text": false,
-        "social_icons": true,
-        "discounts": true,
-        "work_time": true,
-        "country_selector": true,
-        "language_selector": true,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
-      },
       "blocks": {
         "facebook": {
           "type": "icons",
@@ -84,16 +76,26 @@
         "discounts-2",
         "discounts-3",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": true,
+        "language_selector": true,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      }
     },
     "menu-1": {
       "type": "mdp-weare-menu-1",
-      "settings": {
-        "logo_size": "150x70",
-        "menu": "main-menu",
-        "search": true,
-        "inverted": false
-      },
       "blocks": {
         "facebook": {
           "type": "mobile_icons",
@@ -136,7 +138,12 @@
         "tiktok",
         "whatsapp",
         "work_time"
-      ]
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
     },
     "hero": {
       "type": "mdp-weare-hero-2",
@@ -155,7 +162,6 @@
         "image_size": "2500x870_crop_center",
         "button_string": "Discover more",
         "link": "#",
-        "button_color": "#343434",
         "variant": "left_text",
         "padding_top": "200",
         "padding_bottom": "200",
@@ -165,16 +171,6 @@
     },
     "icon-list": {
       "type": "mdp-weare-icon-list-2",
-      "settings": {
-        "col_per_row": 3,
-        "gap": "30",
-        "color_content": "#343434",
-        "background": "#ffffff",
-        "margin_top": "80",
-        "margin_bottom": "80",
-        "padding_top": "0",
-        "padding_bottom": "0"
-      },
       "blocks": {
         "list-item-1": {
           "type": "list_item",
@@ -202,23 +198,20 @@
         "list-item-1",
         "list-item-2",
         "list-item-3"
-      ]
+      ],
+      "settings": {
+        "col_per_row": 3,
+        "gap": "30",
+        "color_content": "#343434",
+        "background": "#ffffff",
+        "margin_top": "80",
+        "margin_bottom": "80",
+        "padding_top": "0",
+        "padding_bottom": "0"
+      }
     },
     "collections": {
       "type": "mdp-weare-collections-3",
-      "settings": {
-        "display_type": "selected",
-        "sort": "alphabetical",
-        "number_of_collections": 3,
-        "col_per_row": 2,
-        "gap": "30",
-        "image_size": "600x350_crop_center",
-        "button_string": "Discover more",
-        "indent_bottom": "10",
-        "variant": "style_1",
-        "margin_top": "0",
-        "margin_bottom": "0"
-      },
       "blocks": {
         "collection-1": {
           "type": "collection",
@@ -236,18 +229,22 @@
       "block_order": [
         "collection-1",
         "collection-2"
-      ]
+      ],
+      "settings": {
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "number_of_collections": 3,
+        "col_per_row": 2,
+        "gap": "30",
+        "image_size": "600x350_crop_center",
+        "button_string": "Discover more",
+        "indent_bottom": "10",
+        "margin_top": "0",
+        "margin_bottom": "0"
+      }
     },
     "testimonials": {
       "type": "mdp-weare-testimonials-2",
-      "settings": {
-        "title": "Testimonials/",
-        "col_per_row": 2,
-        "gap": "35",
-        "show_rating": true,
-        "margin_top": "80",
-        "margin_bottom": "80"
-      },
       "blocks": {
         "testimonial-1": {
           "type": "testimonial",
@@ -269,16 +266,18 @@
       "block_order": [
         "testimonial-1",
         "testimonial-2"
-      ]
+      ],
+      "settings": {
+        "title": "Testimonials/",
+        "col_per_row": 2,
+        "gap": "35",
+        "show_rating": true,
+        "margin_top": "80",
+        "margin_bottom": "80"
+      }
     },
     "footer-1": {
       "type": "mdp-weare-footer-1",
-      "settings": {
-        "show_payment_icons": true,
-        "show_powered_by": true,
-        "show_border": true,
-        "margin_top": "0"
-      },
       "blocks": {
         "about-us": {
           "type": "text",
@@ -316,7 +315,13 @@
         "quick-links",
         "follow-us",
         "subscribe"
-      ]
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
     }
   },
   "order": [
