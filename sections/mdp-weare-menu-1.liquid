@@ -14,7 +14,6 @@
     </div>
     <div data-sticky-class="mdp-sticky-menu">
         <div class="top-header">
-          <div class="mdp-container mdp-grid">
            <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
             <div class="mdp-col mdp-row-full">
               <div class="mdp-row-center">
@@ -160,15 +159,13 @@
                 </div>
             </div>
            </div>
-          </div>
+          
         </div>
 
-        <div class="mdp-container mdp-grid custom-header" data-columns="1" data-gap="30">
-
+        <div class="bottom-header">
+            <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
             <div class="mdp-col mdp-row-full">
-
                 <div class="mdp-row-left">
-
                     {% if section.settings.menu != blank %}
                         <div class="mdp-menu-element" data-mega-menu="12">
                             <input id="mdp-menu" type="checkbox">
@@ -334,11 +331,19 @@
                     </a>
 
                 </div>
-
-
-
-{% comment %} CENTER {% endcomment %}
-                <div class="mdp-row-center">
+                <div class="mdp-row-center testing-center">
+                    <div class="collection-select-wrapper">
+                        <select id="collection-dropdown">
+                            <option value="" selected disabled hidden>All Categories</option>
+                            <option value="/collections/rackets">Rackets</option>
+                            <option value="/collections/shoes">Shoes</option>
+                            <option value="/collections/clothing">Clothing</option>
+                            <option value="/collections/bags">Bags</option>
+                            <option value="/collections/balls">Balls</option>
+                            <option value="/collections/accessories">Accessories</option>
+                            <option value="/collections/brands">Brands</option>
+                        </select>
+                    </div>
                     <div class="mdp-search-display mdp-search-display-block">
                         <form class="mdp-search-bar" action="/search" method="get">
                             <input type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}"
@@ -346,49 +351,226 @@
                             <button type="submit" class="">{{ 'general.search.submit' | t }}</button>
                         </form>
                     </div>
-
+                    <div class="filter-btn">
+                        <a href="#">
+                            <img src="{{ 'Filter.svg' | asset_url }}" alt="" srcset="">
+                        </a>
+                    </div>
                 </div>
-
                 <div class="mdp-row-right">
-                    {% if section.settings.search %}
-                        <a href="javascript:void(0);" class="mdp-search-link"><i
-                                    class="fas fa-search mdp-menu-icon"></i></a>
-                    {% endif %}
-
+                    {% comment %}  
+                        {% if section.settings.search %}
+                            <a href="javascript:void(0);" class="mdp-search-link"><i
+                                        class="fas fa-search mdp-menu-icon"></i></a>
+                        {% endif %}
+                    {% endcomment %}
                     {% if shop.customer_accounts_enabled %}
                         <a class="mdp-account" href="/account">
                             <i class="fas fa-user mdp-menu-icon"></i>
                         </a>
                     {% endif %}
-
                     <a class="mdp-cart" href="/cart">
                         <i class="fas fa-shopping-bag mdp-menu-icon"></i>
                         <span class="mdp-cart-count">{{ cart.item_count }}</span>
                     </a>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
 
 <script>
-    let searchLink = document.querySelector('.mdp-search-link');
-    let searchBar = document.querySelector('.mdp-search-display');
+    
+    // let searchLink = document.querySelector('.mdp-search-link');
+    // let searchBar = document.querySelector('.mdp-search-display');
 
-    searchLink.addEventListener("click", event => {
+    // searchLink.addEventListener("click", event => {
 
-        if (searchBar.classList[1] == 'mdp-search-display-none') {
-            searchBar.classList.remove("mdp-search-display-none");
-            searchBar.classList.add("mdp-search-display-block");
-        } else {
-            searchBar.classList.remove("mdp-search-display-block");
-            searchBar.classList.add("mdp-search-display-none");
-        }
+    //     if (searchBar.classList[1] == 'mdp-search-display-none') {
+    //         searchBar.classList.remove("mdp-search-display-none");
+    //         searchBar.classList.add("mdp-search-display-block");
+    //     } else {
+    //         searchBar.classList.remove("mdp-search-display-block");
+    //         searchBar.classList.add("mdp-search-display-none");
+    //     }
 
+    // });
+
+
+
+
+    jQuery(document).ready(function ($) {
+        console.log('chuy');
+        $('#collection-dropdown').select2({
+            dropdownParent: $('#collection-dropdown').closest('.mdp-row-center'),
+            minimumResultsForSearch: Infinity,
+            placeholder: 'All Categories',
+            dropdownCssClass: 'collection-dropdown-fullwidth'
+        });
+
+
+        $('#collection-dropdown').on('select2:select', function (e) {
+            const url = $(this).val();
+            if (url) {
+            window.location.href = url;
+            }
+        });
+
+        // Prevent "All Categories" from appearing in dropdown list
+        $("#collection-dropdown option:first").attr("disabled", "disabled");
+
+        // Ensure dropdown closes on outside click (Select2 handles this by default)
     });
 </script>
+
+<style>
+    .top-header .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper .mdp-menu-root>.mdp-menu-item:nth-child(2) a {
+        padding-left: 0 !important;
+    }
+    .top-header .mdp-menu-link {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #42662B !important;
+        line-height: 150% !important;
+    }
+    .top-header .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper {
+        min-height: auto !important;
+    }
+    .top-header .mdp-container {
+        border-bottom: 1px solid #42662B;
+    }
+    .bottom-header {
+        padding: 20px 0;
+    }
+    .bottom-header .mdp-search-display {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .bottom-header.mdp-logo {
+        max-width: 250px;
+        height: 100%;
+    }
+    .bottom-header .mdp-logo img {
+        width: 100%;
+        object-fit: contain;
+        min-width: 250px;
+    }
+    .bottom-header .mdp-col.mdp-row-full {
+        gap: 100px;
+    }
+    .bottom-header .mdp-row-center {
+        width: 100%;
+    }
+    
+
+    .top-header .mdp-col.mdp-row-full {
+    margin: 0 !important;
+    }
+
+    .bottom-header .mdp-row-center {
+        display: flex;
+        align-items: stretch;
+        }
+    .bottom-header .mdp-row-center .mdp-search-display {
+        flex: 1;
+    }
+
+
+    .bottom-header .mdp-row-center {
+        position: relative;
+        font-family: 'Lexend';
+        padding: 5px;
+        border: 1px solid rgba(102,102,102,0.5);
+        max-height: 48px;
+    }
+
+    .bottom-header span.select2-dropdown.collection-dropdown-fullwidth.select2-dropdown--below {
+        width: 100% !important;
+        margin-top: 13px;
+        padding: 24px;
+        border: none;
+        box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.19);
+    }
+
+    .bottom-header span.select2.select2-container {
+        width: 100% !important;
+        height: 100%;
+
+    }
+    .bottom-header .select2-selection {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center;
+    }
+    .bottom-header .select2-container--default .select2-selection--single {
+    border-radius: 0;
+    background: #42662B;
+    padding: 12px;
+    }
+    .bottom-header #select2-collection-dropdown-container {
+        padding: 0 8px 0 0;
+    }
+    .bottom-header .select2-selection__placeholder {
+    color: white !important;
+    }
+    .bottom-header .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background: white;
+    color: #607F4C;
+    }
+    .bottom-header .select2-container--default .select2-results>.select2-results__options {
+    max-height: unset;
+    }
+    .bottom-header .mdp-search-bar {
+    align-items: stretch !important;
+    }
+    .bottom-header .mdp-search-bar input[type="search"] {
+    border: none !important;
+    }
+    .bottom-header .mdp-search-bar input[type="search"]::placeholder {
+    font-family: 'Lexend';
+    }
+    .bottom-header .select2-container--open {
+        left: 0 !important;
+        width: 100%;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        position: relative;
+        background-image: url('{{ 'caret.svg' | asset_url }}');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 12px;
+        border: none;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        display: none;
+    }
+
+    @media (max-width: 1200px) {
+
+        .bottom-header .mdp-row-center {
+            position: relative !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            transform: translate(0, 0) !important;
+            display: flex !important;
+            width: 100% !important;
+        }
+        .bottom-header .mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-left, .mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-center, .mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-right, .mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-right a {
+            display: flex !important;
+        }
+    }
+    @media (max-width: 767px) {
+        .bottom-header .mdp-row-center {
+            visibility: hidden;
+            position: absolute;
+            z-index: -999999;
+        }
+    }
+
+   
+</style>
 
 {% schema %}
 {
