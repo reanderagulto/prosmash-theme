@@ -149,6 +149,16 @@
         "search": true
       }
     },
+    "prosmash_hp_newin_dVVLWz": {
+      "type": "prosmash-hp-newin",
+      "name": "Prosmash HP New Arrivals",
+      "settings": {
+        "heading": "New In",
+        "cta_text": "SHOP NOW",
+        "cta_link": "",
+        "collection": ""
+      }
+    },
     "hero": {
       "type": "mdp-weare-hero-2",
       "settings": {
@@ -642,6 +652,7 @@
   "order": [
     "menu-2",
     "menu-1",
+    "prosmash_hp_newin_dVVLWz",
     "hero",
     "icon-list",
     "collections",
