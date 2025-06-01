@@ -1,4 +1,5 @@
 {{"mdp-weare-icon-list-2.css" | asset_url | stylesheet_tag }}
+{{ "prosmash-hp-iconlist.css" | asset_url | stylesheet_tag }}
 
 <div id="mdp-weare-{{ section.id }}"
      class="mdp mdp-weare-icon-list-2"
@@ -22,8 +23,10 @@
         
         <div class="mdp-media">
           <span class="mdp-icon">
-            <i class="{{block.settings.icon_class}}"
-               {% if section.settings.use_local_styles_list == true %}style="color: {{ section.settings.color_content }};"{% endif %}></i>
+            {% if block.settings.svg_icon != blank %}
+              <img src="{{ block.settings.svg_icon | image_url: width: 48 }}" width="48" height="48" alt="">
+            {% endif %}
+
           </span>
         </div>
        
@@ -36,6 +39,11 @@
           </div>
           {% endunless %}
 
+          <div class="mdp-header">
+            <div class="mdp-title">
+              {{block.settings.icon_box_title}}
+            </div>
+          </div>
          
           {% unless block.settings.content == blank %}
           <div class="mdp-content">
@@ -80,12 +88,16 @@
   .mdp-weare-icon-list-2 .mdp-grid[data-columns][data-gap] .mdp-icon-list-item .mdp-data .mdp-content p {
     color: {{ section.settings.color_content }};
   }
+
+
+
+
 </style>
 {% endif %}
 
 {% schema %}
   {
-    "name": "Icon list 2",
+    "name": "Prosmash HP Icon List",
     "settings": [
 	  {
         "type": "range",
@@ -189,9 +201,20 @@
             "id": "icon_class",
             "label": "Icon Class"
 		  },		
+      {
+          "type": "image_picker",
+          "id": "svg_icon",
+          "label": "Icon"
+        },
+      {
+			"type": "text",
+            "id": "icon_box_title",
+            "label": "Title"
+		  },		
+      
       
           {
-            "type": "richtext",
+            "type": "textarea",
             "id": "content",
             "label": "Content"
           }
@@ -222,8 +245,8 @@
       }
 	],
     "presets": [{
-      "name": "Icon list Text",
-      "category": "SectionHub: weare"
+      "name": "Prosmash HP Icon List",
+      "category": "Prosmash"
     }]
   }
 {% endschema %}

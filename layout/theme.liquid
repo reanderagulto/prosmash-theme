@@ -54,7 +54,7 @@
 
   <script src="{{ 'jquery.min.js' | asset_url }}"></script>
   <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
-  <script src="{{ 'select2.min.js' | asset_url }}"></script>
+  
 
   {%- if request.page_type contains 'customers/' -%}
     <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
@@ -77,5 +77,7 @@
 
 <script src="{{ 'sectionhub.js' | asset_url }}" defer></script>
 	{{ shop.metafields.loox["global_html_body"] }}
+
+  <script src="{{ 'select2.min.js' | asset_url }}"></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+{{ "prosmash-hp-categories.css" | asset_url | stylesheet_tag }}
+
+<section class="categories">
+  <div class="mdp-container">
+    <div class="heading-container">
+      <h2>Categories</h2>
+    </div>
+    <div class="mdp-col mdp-row-full categories-grid">
+      {% for block in section.blocks %}
+        {% assign col = block.settings.collection %}
+        {% if col != blank %}
+          <div class="category-item">
+            <a href="{{ col.url }}">
+              {% if col.featured_image %}
+                <img src="{{ col.featured_image | image_url: width: 500 }}" alt="{{ col.title }}">
+              {% endif %}
+              <h3>{{ col.title }}</h3>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Prosmash HP Categories",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Prosmash HP Categories",
+      "category": "Prosmash"
+    }
+  ]
+}
+{% endschema %}

@@ -1,5 +1,6 @@
 {{ "mdp-weare-menu-1.css" | asset_url | stylesheet_tag }}
 {{ "prosmash-header.css" | asset_url | stylesheet_tag }}
+{{ "prosmash-header.js" |  asset_url |  script_tag }}
 
 {% assign logo = section.settings.logo | img_url: section.settings.logo_size %}
 
@@ -406,27 +407,7 @@
 
 
 
-    jQuery(document).ready(function ($) {
-        $('#collection-dropdown').select2({
-            dropdownParent: $('#collection-dropdown').closest('.mdp-row-center'),
-            minimumResultsForSearch: Infinity,
-            placeholder: 'All Categories',
-            dropdownCssClass: 'collection-dropdown-fullwidth'
-        });
-
-
-        $('#collection-dropdown').on('select2:select', function (e) {
-            const url = $(this).val();
-            if (url) {
-            window.location.href = url;
-            }
-        });
-
-        // Prevent "All Categories" from appearing in dropdown list
-        $("#collection-dropdown option:first").attr("disabled", "disabled");
-
-        // Ensure dropdown closes on outside click (Select2 handles this by default)
-    });
+    
 </script>
 
 {% schema %}
