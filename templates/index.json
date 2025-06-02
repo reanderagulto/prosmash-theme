@@ -286,18 +286,18 @@
     "prosmash_hp_newin_ieJxi7": {
       "type": "prosmash-hp-newin",
       "name": "Prosmash HP New Arrivals",
-      "settings": {
-        "heading": "New In",
-        "cta_text": "SHOP NOW",
-        "cta_link": "#",
-        "collection": "new-arrivals"
-      }
+      "settings": {}
+    },
+    "prosmash_hp_featured_wHgQkF": {
+      "type": "prosmash-hp-featured",
+      "name": "Prosmash HP Featured",
+      "settings": {}
     },
     "collection-carousel": {
       "type": "mdp-weare-collection-carousel",
       "settings": {
         "title": "Featured Products",
-        "selected_collection": "woman",
+        "selected_collection": "new-arrivals",
         "print_price": true,
         "number_of_products": 10,
         "slides_per_view": 4,
@@ -686,6 +686,7 @@
     "prosmash_hp_iconlist_zLBzmn",
     "prosmash_hp_categories_qA7RAq",
     "prosmash_hp_newin_ieJxi7",
+    "prosmash_hp_featured_wHgQkF",
     "collection-carousel",
     "slideshow",
     "video",
