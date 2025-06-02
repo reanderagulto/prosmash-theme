@@ -149,41 +149,87 @@
         "search": true
       }
     },
-    "prosmash_hp_newin_dVVLWz": {
-      "type": "prosmash-hp-newin",
-      "name": "Prosmash HP New Arrivals",
+    "prosmash_hp_banner_fLfFbM": {
+      "type": "prosmash-hp-banner",
+      "blocks": {
+        "slide_wwyWaf": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/jon-matthews-4uxbx9POMSU-unsplash.jpg"
+          }
+        },
+        "slide_46CWJe": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/hero-image-b.jpg"
+          }
+        },
+        "slide_knNwrr": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/hero-image-c.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slide_wwyWaf",
+        "slide_46CWJe",
+        "slide_knNwrr"
+      ],
+      "name": "Prosmash HP Banner",
       "settings": {
-        "heading": "New In",
-        "cta_text": "SHOP NOW",
-        "cta_link": "",
-        "collection": "top-shirts"
+        "section_main_header": "The biggestsportswear brand",
+        "cta_title": "",
+        "cta_link": ""
       }
     },
-    "hero": {
-      "type": "mdp-weare-hero-2",
+    "prosmash_hp_iconlist_zLBzmn": {
+      "type": "prosmash-hp-iconlist",
+      "blocks": {
+        "list_item_ELW8gf": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "",
+            "svg_icon": "shopify://shop_images/tag.svg",
+            "icon_box_title": "Limited Time Offers",
+            "content": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit."
+          }
+        },
+        "list_item_Wd7qXh": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "",
+            "svg_icon": "shopify://shop_images/credit-card.svg",
+            "icon_box_title": "Secured Payment",
+            "content": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit."
+          }
+        },
+        "list_item_L3jNXe": {
+          "type": "list_item",
+          "settings": {
+            "icon_class": "",
+            "svg_icon": "shopify://shop_images/truck.svg",
+            "icon_box_title": "Free Shipping",
+            "content": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit."
+          }
+        }
+      },
+      "block_order": [
+        "list_item_ELW8gf",
+        "list_item_Wd7qXh",
+        "list_item_L3jNXe"
+      ],
+      "name": "Prosmash HP Icon List",
       "settings": {
-        "title": "Woman <br> collection",
-        "subtitle": "fall winter/ <br> <span>2 .. 024</span>",
-        "use_local_styles": true,
-        "heading_margin_left": "60",
-        "text_transform": "none",
-        "heading_color": "#343434",
-        "button_text_color": "#ffffff",
-        "heading_text_size": "80",
-        "background_size": "cover",
-        "background_image": "#f9f9f9",
-        "content": "<p>Curabitur dapibus blandit metus, eget sollicitudin orci hendrerit sed. Vivamus nulla eros, ullamcorper</p>",
-        "margin_left": "60",
-        "image_size": "2500x870_crop_center",
-        "button_string": "Discover more",
-        "link": "#",
-        "backed": false,
-        "subscribe": false,
-        "variant": "left_text",
-        "padding_top": "200",
-        "padding_bottom": "200",
+        "col_per_row": 3,
+        "gap": "10",
+        "use_local_styles_list": true,
+        "color_content": "#343434",
+        "background": "#ffffff",
         "margin_top": "0",
-        "margin_bottom": "0"
+        "margin_bottom": "0",
+        "padding_top": "60",
+        "padding_bottom": "40"
       }
     },
     "icon-list": {
@@ -652,8 +698,8 @@
   "order": [
     "menu-2",
     "menu-1",
-    "prosmash_hp_newin_dVVLWz",
-    "hero",
+    "prosmash_hp_banner_fLfFbM",
+    "prosmash_hp_iconlist_zLBzmn",
     "icon-list",
     "collections",
     "collection-carousel",
