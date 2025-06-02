@@ -283,39 +283,14 @@
       "name": "Prosmash HP Categories",
       "settings": {}
     },
-    "collections": {
-      "type": "mdp-weare-collections-3",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "female",
-            "title": ""
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "male",
-            "title": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2"
-      ],
+    "prosmash_hp_newin_ieJxi7": {
+      "type": "prosmash-hp-newin",
+      "name": "Prosmash HP New Arrivals",
       "settings": {
-        "display_type": "selected",
-        "sort": "alphabetical",
-        "number_of_collections": 3,
-        "col_per_row": 2,
-        "gap": "30",
-        "image_size": "600x350_crop_center",
-        "button_string": "Discover more",
-        "indent_bottom": "10",
-        "margin_top": "0",
-        "margin_bottom": "0"
+        "heading": "New In",
+        "cta_text": "SHOP NOW",
+        "cta_link": "",
+        "collection": ""
       }
     },
     "collection-carousel": {
@@ -710,7 +685,7 @@
     "prosmash_hp_banner_fLfFbM",
     "prosmash_hp_iconlist_zLBzmn",
     "prosmash_hp_categories_qA7RAq",
-    "collections",
+    "prosmash_hp_newin_ieJxi7",
     "collection-carousel",
     "slideshow",
     "video",
