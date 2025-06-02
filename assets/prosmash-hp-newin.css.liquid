@@ -1,0 +1,86 @@
+.new-products .mdp-container {
+    display: flex;
+    gap: 75px;
+}
+.new-products .col-right .product-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+}
+.new-products .col-right .product-grid .product-card {
+    max-width: calc((100% / 4) - 16px);
+    transition: 0.3s;
+}
+.new-products .col-right .product-grid .product-card:hover {
+    transform: translateY(-5px);
+}
+.new-products .col-right .product-grid .product-card img {
+    max-width: 247px;
+    width: 100%;
+}
+.new-products .col-right .product-grid .product-card a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+.new-products .col-right .product-grid .product-card h3,
+.new-products .col-right .product-grid .product-card p {
+    padding: 0;
+    margin: 0;
+}
+.new-products .col-right .product-grid .product-card h3 {
+    color: black;
+    font-family: 'Lexend';
+    font-size: 20px;
+    line-height: 120%;
+    font-weight: 700;
+    padding-top: 24px;
+}
+.new-products .col-right .product-grid .product-card p {
+    font-family: 'Red Hat Display';
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 600;
+    color: black;
+    padding-top: 8px;
+}
+
+.new-products .mdp-container .col-left h2 {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lexend';
+    font-size: 48px;
+    line-height: 120%;
+    font-weight: 700;
+}
+.new-products {
+    padding: 60px 0;
+}
+.new-products .col-left .cta-btn {
+    margin-top: 12px;
+}
+.new-products .col-left .cta-btn a {
+    font-family: 'Red Hat Display';
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 800;
+    line-height: 120%;
+    color: black;
+}
+
+@media (max-width: 1024px) {
+    .new-products .col-right .product-grid {
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 767px) {
+    .new-products .mdp-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+    .new-products .col-right .product-grid .product-card {
+        max-width: calc((100% / 2) - 16px);
+    }
+}
