@@ -11,20 +11,24 @@
 
     <div class="col-right">
       <div class="product-grid">
-        {% assign new_products = collections['new-arrivals'].products | slice: 0, 4 %}
-        {% if new_products.size > 0 %}
-          {% for product in new_products %}
-            <div class="product-card">
-              <a href="{{ product.url }}">
-                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
-                <h3>{{ product.title }}</h3>
-                <p>{{ product.price | money }}</p>
-              </a>
-            </div>
-          {% endfor %}
-        {% else %}
-          <p>No products found in New Arrivals collection.</p>
-        {% endif %}
+        {% assign collection_handle = section.settings.collection.handle %}
+{% assign new_arrivals_collection = collections[collection_handle] %}
+
+{% if new_arrivals_collection and new_arrivals_collection.products_count > 0 %}
+  {% assign new_products = new_arrivals_collection.products | slice: 0, 4 %}
+  {% for product in new_products %}
+    <div class="product-card">
+      <a href="{{ product.url }}">
+        <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.price | money }}</p>
+      </a>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No new arrival products found.</p>
+{% endif %}
+
       </div>
     </div>
   </div>
