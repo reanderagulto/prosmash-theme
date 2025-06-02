@@ -1,0 +1,86 @@
+.featured {
+    padding: 60px 0;
+}
+.featured h2 {
+    text-align: center;
+    font-family: 'Lexend';
+    font-size: 32px;
+    color: black;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    padding: 0 0 40px;
+}
+.featured .featured-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+}
+.featured .featured-card img {
+    max-width: 304px;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+.featured .featured-card a {
+    text-decoration: none;
+}
+.featured .featured-card h3,
+.featured .featured-card p {
+    padding: 0;
+    margin: 0;
+}
+.featured .featured-card h3 {
+    font-size: 20px;
+    color: black;
+    font-family: 'Lexend';
+    font-weight: 700;
+    line-height: 120%;
+    padding-top: 24px;
+}
+.featured .featured-card p {
+    font-family: 'Red Hat Display';
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 600;
+    color: black;
+    padding-top: 8px;
+}
+.featured .cta-btn {
+    text-align: center;
+    margin-top: 50px;
+}
+.featured .cta-btn a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 17px 40px;
+    background: #42662B;
+    color: white;
+    font-family: 'Lexend';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+}
+
+@media (max-width: 1024px) {
+    .featured .featured-products {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 767px) {
+    .featured .featured-products {
+        grid-template-columns: 1fr 1fr;
+    }
+    .featured .featured-card img {
+        max-height: auto;
+        height: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .featured .featured-products {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

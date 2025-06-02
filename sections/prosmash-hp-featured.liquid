@@ -1,6 +1,8 @@
+{{ "prosmash-hp-featured.css" | asset_url | stylesheet_tag }}
+
 <section class="featured">
   <div class="mdp-container">
-    <h3>FEATURED PRODUCTS</h3>
+    <h2>FEATURED PRODUCTS</h2>
 
     <div class="featured-products">
       {% for product in collections['featured'].products %}
@@ -19,6 +21,7 @@
     </div>
   </div>
 </section>
+
 
 
 
