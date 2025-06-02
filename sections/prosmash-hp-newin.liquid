@@ -13,7 +13,7 @@
       <div class="product-grid">
         {% assign counter = 0 %}
         {% for product in all_products %}
-          {% if product.metafields.global.new_arrival == true %}
+          {% if product.metafields.global.new_arrival.value == true %}
             <div class="product-card">
               <a href="{{ product.url }}">
                 <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
@@ -34,6 +34,7 @@
     </div>
   </div>
 </section>
+
 
 
 
