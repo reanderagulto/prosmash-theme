@@ -289,8 +289,8 @@
       "settings": {
         "heading": "New In",
         "cta_text": "SHOP NOW",
-        "cta_link": "",
-        "collection": ""
+        "cta_link": "#",
+        "collection": "new-arrivals"
       }
     },
     "collection-carousel": {

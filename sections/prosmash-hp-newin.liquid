@@ -14,7 +14,7 @@
         {% assign collection_handle = section.settings.collection.handle %}
 {% assign new_arrivals_collection = collections[collection_handle] %}
 
-{% if new_arrivals_collection and new_arrivals_collection.products_count | plus: 0 > 0 %}
+{% if new_arrivals_collection and new_arrivals_collection.products_count > 0 %}
   {% assign new_products = new_arrivals_collection.products | slice: 0, 4 %}
   {% for product in new_products %}
     <div class="product-card">
@@ -28,7 +28,6 @@
 {% else %}
   <p>No new arrival products found.</p>
 {% endif %}
-
 
       </div>
     </div>
