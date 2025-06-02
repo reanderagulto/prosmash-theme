@@ -1,72 +1,21 @@
 <section class="new-products">
   <div class="mdp-container">
     <div class="col-left">
-      <div class="heading-container">
-        <h2>{{ section.settings.heading }}</h2>
-      </div>
-      <div class="cta-btn">
-        <a href="{{ section.settings.cta_link }}">{{ section.settings.cta_text }}</a>
-      </div>
+      <h2>New In</h2>
     </div>
 
     <div class="col-right">
       <div class="product-grid">
-        {% assign new_arrivals_collection = collections['new-arrivals'] %}
-
-        {% if new_arrivals_collection and new_arrivals_collection.products_count | plus: 0 > 0 %}
-          {% assign new_products = new_arrivals_collection.products | slice: 0, 4 %}
-          {% for product in new_products %}
-            <div class="product-card">
-              <a href="{{ product.url }}">
-                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
-                <h3>{{ product.title }}</h3>
-                <p>{{ product.price | money }}</p>
-              </a>
-            </div>
-          {% endfor %}
-        {% else %}
-          <p>No new arrival products found.</p>
-        {% endif %}
+        {% for product in collections['new-arrivals'].products %}
+          <div class="product-card">
+            <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price | money }}</p>
+            </a>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
 </section>
-
-
-
-{% schema %}
-{
-  "name": "Prosmash HP New Arrivals",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Section Heading",
-      "default": "New In"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "Button Text",
-      "default": "SHOP NOW"
-    },
-    {
-      "type": "url",
-      "id": "cta_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Product Collection"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Prosmash HP New Arrivals",
-      "category": "Prosmash"
-    }
-  ]
-}
-{% endschema %}
-
