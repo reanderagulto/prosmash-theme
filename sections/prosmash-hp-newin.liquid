@@ -8,23 +8,34 @@
         <a href="{{ section.settings.cta_link }}">{{ section.settings.cta_text }}</a>
       </div>
     </div>
+
     <div class="col-right">
       <div class="product-grid">
-        {% assign collection_handle = section.settings.collection | handle %}
-        {% assign new_products = collections[collection_handle].products | slice: 0, 4 %}
-        {% for product in new_products %}
-          <div class="product-card">
-            <a href="{{ product.url }}">
-              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.price | money }}</p>
-            </a>
-          </div>
+        {% assign counter = 0 %}
+        {% for product in all_products %}
+          {% if product.metafields.custom.new_arrival == true %}
+            <div class="product-card">
+              <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.price | money }}</p>
+              </a>
+            </div>
+            {% assign counter = counter | plus: 1 %}
+            {% if counter == 4 %}
+              {% break %}
+            {% endif %}
+          {% endif %}
         {% endfor %}
+        {% if counter == 0 %}
+          <p>No new arrival products found.</p>
+        {% endif %}
       </div>
     </div>
   </div>
 </section>
+
+
 
 
 
