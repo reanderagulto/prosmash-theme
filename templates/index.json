@@ -232,47 +232,56 @@
         "padding_bottom": "40"
       }
     },
-    "icon-list": {
-      "type": "mdp-weare-icon-list-2",
+    "prosmash_hp_categories_qA7RAq": {
+      "type": "prosmash-hp-categories",
       "blocks": {
-        "list-item-1": {
-          "type": "list_item",
+        "collection_htQegr": {
+          "type": "collection",
           "settings": {
-            "icon_class": "fas fa-shipping-fast",
-            "content": "<p>Free Shipping. All orders of $49 or more of eligible items across any product category qualify.</p>"
+            "collection": "padel"
           }
         },
-        "list-item-2": {
-          "type": "list_item",
+        "collection_8MYEdT": {
+          "type": "collection",
           "settings": {
-            "icon_class": "fas fa-money-check-alt",
-            "content": "<p>Payment Methods. Credit Card: Visa, MasterCard, Maestro, American Express.</p>"
+            "collection": "top-shirts"
           }
         },
-        "list-item-3": {
-          "type": "list_item",
+        "collection_nnkdgf": {
+          "type": "collection",
           "settings": {
-            "icon_class": "fas fa-history",
-            "content": "<p>Returns & Refunds. You can return any item purchased on SectionHub within 20 days of the delivery date.</p>"
+            "collection": "footwear"
+          }
+        },
+        "collection_h8DVHy": {
+          "type": "collection",
+          "settings": {
+            "collection": "shorts"
+          }
+        },
+        "collection_UTqt7G": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "collection_fEAV8m": {
+          "type": "collection",
+          "settings": {
+            "collection": "equipment"
           }
         }
       },
       "block_order": [
-        "list-item-1",
-        "list-item-2",
-        "list-item-3"
+        "collection_htQegr",
+        "collection_8MYEdT",
+        "collection_nnkdgf",
+        "collection_h8DVHy",
+        "collection_UTqt7G",
+        "collection_fEAV8m"
       ],
-      "settings": {
-        "col_per_row": 3,
-        "gap": "30",
-        "use_local_styles_list": true,
-        "color_content": "#343434",
-        "background": "#ffffff",
-        "margin_top": "80",
-        "margin_bottom": "80",
-        "padding_top": "0",
-        "padding_bottom": "0"
-      }
+      "name": "Prosmash HP Categories",
+      "settings": {}
     },
     "collections": {
       "type": "mdp-weare-collections-3",
@@ -700,7 +709,7 @@
     "menu-1",
     "prosmash_hp_banner_fLfFbM",
     "prosmash_hp_iconlist_zLBzmn",
-    "icon-list",
+    "prosmash_hp_categories_qA7RAq",
     "collections",
     "collection-carousel",
     "slideshow",
