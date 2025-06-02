@@ -3,18 +3,15 @@
     <h3>FEATURED PRODUCTS</h3>
 
     <div class="featured-products">
-      {% assign counter = 0 %}
-      {% for product in all_products %}
-        {% if product.metafields.custom.featured == true %}
-          <div class="featured-product">
-            <div class="prod-title">{{ product.title }}</div>
+      {% for product in collections['featured'].products %}
+          <div class="featured-card">
+            <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price | money }}</p>
+            </a>
           </div>
-          {% assign counter = counter | plus: 1 %}
-          {% if counter == 4 %}
-            {% break %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
+        {% endfor %}
     </div>
 
     <div class="cta-btn">
