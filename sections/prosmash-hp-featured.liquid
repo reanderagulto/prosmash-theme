@@ -1,17 +1,39 @@
 <section class="featured">
-    <div class="mdp-container">
-        <h3>FEATURED PRODUCTS</h3>
+  <div class="mdp-container">
+    <h3>FEATURED PRODUCTS</h3>
 
-        <div class="featured-products">
-            <div class="featured-product">
-                <img src="" alt="">
-                <div class="prod-title">Sample</div>
-                <div class="price">$200</div>
-            </div>
-        </div>
-
-        <div class="cta-btn">
-            <a href="#">SHOP NOW</a>
-        </div>
+    <div class="featured-products">
+      {% assign counter = 0 %}
+      {% for product in all_products %}
+        {% if product.metafields.custom.featured == true %}
+          <div class="featured-product">
+            <div class="prod-title">{{ product.title }}</div>
+          </div>
+          {% assign counter = counter | plus: 1 %}
+          {% if counter == 4 %}
+            {% break %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     </div>
+
+    <div class="cta-btn">
+      <a href="#">SHOP NOW</a>
+    </div>
+  </div>
 </section>
+
+
+
+{% schema %}
+{
+  "name": "Prosmash HP Featured",
+  "settings": [
+    
+  ],
+  "presets": [{
+    "name": "Prosmash HP Featured",
+    "category": "Prosmash"
+  }]
+}
+{% endschema %}
