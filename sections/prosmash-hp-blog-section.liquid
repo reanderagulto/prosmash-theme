@@ -1,0 +1,34 @@
+{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
+{{ "prosmash-hp-blog.css" | asset_url | stylesheet_tag }}
+
+<section class="blogs">
+  <div class="mdp-container">
+    <div class="blogs-container">
+      {% assign latest_posts = blogs.news.articles | slice: 0, 3 %}
+      {% for article in latest_posts %}
+        <div class="blog-item">
+          <a href="{{ article.url }}">
+            <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}">
+            <div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+            <div class="title">{{ article.title }}</div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Prosmash HP Blog Section",
+  "settings": [
+   
+  ],
+  "presets": [{
+    "name": "Prosmash HP Blog Section",
+    "category": "Prosmash"
+  }]
+}
+{% endschema %}
