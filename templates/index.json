@@ -296,7 +296,11 @@
     "prosmash_hp_cta_section_4ApD4i": {
       "type": "prosmash-hp-cta-section",
       "name": "Prosmash HP CTA Section",
-      "settings": {}
+      "settings": {
+        "cta_title": "MAXIMIZE <br> STABILITY",
+        "cta_description": "Take 20% Off/ Sale Must-Haves",
+        "cta_bg": "shopify://shop_images/CTA-BG.jpg"
+      }
     },
     "video": {
       "type": "mdp-weare-video-1",
