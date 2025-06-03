@@ -293,119 +293,10 @@
       "name": "Prosmash HP Featured",
       "settings": {}
     },
-    "collection-carousel": {
-      "type": "mdp-weare-collection-carousel",
-      "settings": {
-        "title": "Featured Products",
-        "selected_collection": "new-arrivals",
-        "print_price": true,
-        "number_of_products": 10,
-        "slides_per_view": 4,
-        "slides_per_view_md": 3,
-        "slides_per_view_sm": 2,
-        "slides_per_view_xs": 1,
-        "images_form": "20",
-        "image_size": "original",
-        "view_all_string": "",
-        "sold_out_string": "Sold out",
-        "sale_string": "Sale",
-        "new_string": "New",
-        "select_options_string": "Select options",
-        "add_cart_string": "Add to cart",
-        "boxed": true,
-        "background_container": "#ffffff",
-        "heading_alignment": "center",
-        "margin_top": "65",
-        "margin_bottom": "90",
-        "padding_top": "0",
-        "padding_bottom": "0"
-      }
-    },
-    "slideshow": {
-      "type": "mdp-weare-slideshow-1",
-      "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-            "background_size": "contain",
-            "background_position_x": "28",
-            "background_position_y": "100",
-            "background_color": "#f9f9f9",
-            "button_text_color": "#ffffff",
-            "subtitle": "Make the /",
-            "title": "Outfit",
-            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
-            "button_string": "View more",
-            "link": "#",
-            "margin_left_text": "85",
-            "justify_content_text": "center"
-          }
-        },
-        "slide-2": {
-          "type": "slide",
-          "settings": {
-            "background_size": "contain",
-            "background_position_x": "28",
-            "background_position_y": "100",
-            "background_color": "#f9f9f9",
-            "button_text_color": "#ffffff",
-            "subtitle": "Make the /",
-            "title": "Outfit",
-            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
-            "button_string": "View more",
-            "link": "#",
-            "margin_left_text": "85",
-            "justify_content_text": "center"
-          }
-        },
-        "slide-3": {
-          "type": "slide",
-          "settings": {
-            "background_size": "contain",
-            "background_position_x": "28",
-            "background_position_y": "100",
-            "background_color": "#f9f9f9",
-            "button_text_color": "#ffffff",
-            "subtitle": "Make the /",
-            "title": "Outfit",
-            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
-            "button_string": "View more",
-            "link": "#",
-            "margin_left_text": "85",
-            "justify_content_text": "center"
-          }
-        },
-        "slide-4": {
-          "type": "slide",
-          "settings": {
-            "background_size": "contain",
-            "background_position_x": "28",
-            "background_position_y": "100",
-            "background_color": "#f9f9f9",
-            "button_text_color": "#ffffff",
-            "subtitle": "Make the /",
-            "title": "Outfit",
-            "content": "<p>Aliquam vel diam porttitor, lacinia mauris vitae, accumsan arcu. Vestibulum pretium lectus quis purus malesuada, sit amet vehicula libero luctus</p>",
-            "button_string": "View more",
-            "link": "#",
-            "margin_left_text": "85",
-            "justify_content_text": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3",
-        "slide-4"
-      ],
-      "settings": {
-        "boxed": false,
-        "text_collection": "You may <br>also like/",
-        "link_collection": "",
-        "margin_top": "0",
-        "margin_bottom": "0"
-      }
+    "prosmash_hp_cta_section_4ApD4i": {
+      "type": "prosmash-hp-cta-section",
+      "name": "Prosmash HP CTA Section",
+      "settings": {}
     },
     "video": {
       "type": "mdp-weare-video-1",
@@ -419,62 +310,6 @@
         "view_more_link": "",
         "margin_top": "80",
         "margin_bottom": "80"
-      }
-    },
-    "collection-lists": {
-      "type": "mdp-weare-collection-lists",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "handbags"
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "accessories"
-          }
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "shoes"
-          }
-        },
-        "collection-title": {
-          "type": "title",
-          "settings": {
-            "title": "Featured Collection/ <br>Become Trendy",
-            "subtitle": "Nulla facilisi. Sed commodo libero turpis, id aliquam ante",
-            "button_text_color": "#ffffff",
-            "button_string": "View More",
-            "link": "#"
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3",
-        "collection-title"
-      ],
-      "settings": {
-        "number_of_products": 5,
-        "image_size": "100x100_crop_center",
-        "mdp_bg_color": "",
-        "sold_out_string": "Sold out",
-        "sale_string": "Sale",
-        "new_string": "New",
-        "select_options_string": "Select options",
-        "add_cart_string": "Add to cart",
-        "mdp_padding_top": "",
-        "mdp_padding_bottom": "",
-        "mdp_margin_top": "",
-        "mdp_margin_bottom": ""
       }
     },
     "call-action": {
@@ -687,10 +522,8 @@
     "prosmash_hp_categories_qA7RAq",
     "prosmash_hp_newin_ieJxi7",
     "prosmash_hp_featured_wHgQkF",
-    "collection-carousel",
-    "slideshow",
+    "prosmash_hp_cta_section_4ApD4i",
     "video",
-    "collection-lists",
     "call-action",
     "collection-row",
     "single-post-info",
