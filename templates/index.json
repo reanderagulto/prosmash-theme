@@ -313,7 +313,7 @@
       "settings": {
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "image": "shopify://shop_images/video-thumbnail.jpg",
-        "image_size": "original",
+        "image_size": "",
         "text_color": "#343434",
         "bg_color": "#343434",
         "video_header": "",
