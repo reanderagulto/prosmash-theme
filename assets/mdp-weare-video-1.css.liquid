@@ -1,6 +1,16 @@
 .video-section {
     min-height: 450px;
 }
+@media (max-width: 1024px) {
+    .mdp-weare-video-1 {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 767px) {
+    .mdp-video-border {
+        min-height: 250px;
+    }
+}
 
 .mdp-weare-video-1 .mdp-media {
     position: relative;
@@ -22,7 +32,8 @@
     top: 56%;
     transform: translate(-50%, -50%);
     color: #2a2a2a;
-    background-color: rgba(255, 255, 255, 0.752067);
+    /* background-color: rgba(255, 255, 255, 0.752067); */
+    background-color: #42662B;
     border-radius: 50%;
     width: 123px;
     height: 123px;
@@ -36,7 +47,8 @@
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
-    color: #343434;
+    /* color: #343434; */
+    color: white;
 }
 .mdp-weare-video-1 .mdp-media .mdp-magnific-popup .mdp-icon {
     display: inline-block;
@@ -48,7 +60,7 @@
 }
 .mdp-weare-video-1 .mdp-media .mdp-magnific-popup:hover {
     color: white;
-    background-color: #E9384F;
+    background-color: #42662B;
 }
 
 .mdp-weare-video-1 .mdp-media .mdp-magnific-popup:hover .mdp-icon-play{
@@ -62,7 +74,8 @@
     height: 100%;
     border-radius: 50%;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.2);
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    background-color: rgba(66, 102, 43, 0.2);
     top: 0;
     left: 0;
     opacity: 1;

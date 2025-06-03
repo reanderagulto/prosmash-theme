@@ -45,7 +45,16 @@
 
 
 <style>
-
+ 
+  .mdp-video-border{
+  	background-image: url('{{section.settings.image | image_url}}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    display: flex;
+    align-items: center;
+  }
 </style>
 
 
@@ -78,12 +87,7 @@
         "label": "Text color",
         "default": "#343434"
       },
-	  {
-        "type": "color",
-        "id": "bg_color",
-        "label": "Background color",
-        "default": "#343434"
-      },
+	 
 	  {
         "type": "text",
         "id": "video_header",
