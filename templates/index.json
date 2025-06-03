@@ -186,51 +186,38 @@
     "prosmash_hp_iconlist_zLBzmn": {
       "type": "prosmash-hp-iconlist",
       "blocks": {
-        "list_item_ELW8gf": {
-          "type": "list_item",
+        "icon_Dip3QC": {
+          "type": "icon",
           "settings": {
-            "icon_class": "",
-            "svg_icon": "shopify://shop_images/tag.svg",
-            "icon_box_title": "Limited Time Offers",
-            "content": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit."
+            "title": "Limited Time Offers",
+            "description": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
+            "image": "shopify://shop_images/tag.svg"
           }
         },
-        "list_item_Wd7qXh": {
-          "type": "list_item",
+        "icon_8Krj76": {
+          "type": "icon",
           "settings": {
-            "icon_class": "",
-            "svg_icon": "shopify://shop_images/credit-card.svg",
-            "icon_box_title": "Secured Payment",
-            "content": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit."
+            "title": "Secured Payment",
+            "description": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
+            "image": "shopify://shop_images/credit-card.svg"
           }
         },
-        "list_item_L3jNXe": {
-          "type": "list_item",
+        "icon_EBXTtf": {
+          "type": "icon",
           "settings": {
-            "icon_class": "",
-            "svg_icon": "shopify://shop_images/truck.svg",
-            "icon_box_title": "Free Shipping",
-            "content": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit."
+            "title": "Free Shipping",
+            "description": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
+            "image": "shopify://shop_images/truck.svg"
           }
         }
       },
       "block_order": [
-        "list_item_ELW8gf",
-        "list_item_Wd7qXh",
-        "list_item_L3jNXe"
+        "icon_Dip3QC",
+        "icon_8Krj76",
+        "icon_EBXTtf"
       ],
       "name": "Prosmash HP Icon List",
-      "settings": {
-        "col_per_row": 3,
-        "gap": "10",
-        "use_local_styles_list": true,
-        "color_content": "#343434",
-        "background": "#ffffff",
-        "margin_top": "0",
-        "margin_bottom": "0",
-        "padding_top": "60",
-        "padding_bottom": "40"
-      }
+      "settings": {}
     },
     "prosmash_hp_categories_qA7RAq": {
       "type": "prosmash-hp-categories",
