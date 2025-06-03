@@ -1,8 +1,8 @@
 .mdp-info,
 .mdp-info a {
     font-size: 13px;
-    font-size: 13px;
     font-family: 'Red Hat Display';
+    font-weight: 400;
 }
 .top-header .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper .mdp-menu-root>.mdp-menu-item:nth-child(2) a {
     padding-left: 0 !important;
@@ -10,14 +10,17 @@
 .top-header .mdp-menu-link {
     font-size: 14px;
     text-transform: uppercase;
-    color: #42662B !important;
+    color: black !important;
     line-height: 150% !important;
 }
 .top-header .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper {
     min-height: auto !important;
 }
-.top-header .mdp-container {
-    border-bottom: 1px solid #42662B;
+.top-header .mdp-col {
+    border-bottom: 1px solid black;
+}
+.mdp-topbar-discounts {
+    font-weight: 400 !important;
 }
 .top-header .mdp-menu-item.mdp-has-children {
     display: none;
@@ -70,6 +73,7 @@
     border: none;
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.19);
 }
+
 .bottom-header span.select2.select2-container {
     width: 100% !important;
     height: 100%;
@@ -81,18 +85,21 @@
 }
 .bottom-header .select2-container--default .select2-selection--single {
     border-radius: 0;
-    background: #42662B;
+    /* background: #42662B; */
+    background: white;
+    border: 1px solid #66666680;
     padding: 12px;
 }
 .bottom-header #select2-collection-dropdown-container {
     padding: 0 8px 0 0;
 }
 .bottom-header .select2-selection__placeholder {
-    color: white !important;
+    color: black !important;
 }
 .bottom-header .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
     background: white;
     color: #607F4C;
+    display: inline-block;
 }
 .bottom-header .select2-container--default .select2-results>.select2-results__options {
     max-height: unset;
@@ -102,6 +109,9 @@
 }
 .bottom-header .mdp-search-bar input[type="search"] {
     border: none !important;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Lexend';
 }
 .bottom-header .mdp-search-bar input[type="search"]::placeholder {
     font-family: 'Lexend';
@@ -117,6 +127,7 @@
     background-position: center;
     background-size: 12px 12px;
     border: none;
+    filter: invert(1);
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
     display: none;

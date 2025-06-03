@@ -335,19 +335,17 @@
 
                 </div>
                 <div class="mdp-row-center testing-center">
+{% comment %} FOR TESTING {% endcomment %}
                     <div class="collection-select-wrapper">
-                        <select id="collection-dropdown">
-                            <option value="" selected disabled hidden>All Categories</option>
-                            <option value="/collections/rackets">Rackets</option>
-                            <option value="/collections/shoes">Shoes</option>
-                            <option value="/collections/clothing">Clothing</option>
-                            <option value="/collections/bags">Bags</option>
-                            <option value="/collections/balls">Balls</option>
-                            <option value="/collections/accessories">Accessories</option>
-                            <option value="/collections/brands">Brands</option>
-                        </select>
-                        
-                        <div class="test">Testing</div>
+                        {% assign all_categories_menu = linklists['all-categories'] %}
+                        {% if all_categories_menu.links.size > 0 %}
+                            <select id="collection-dropdown" name="all-categories">
+                                <option value="">Select a Category</option>
+                                {% for link in all_categories_menu.links %}
+                                    <option value="{{ link.url }}">{{ link.title }}</option>
+                                {% endfor %}
+                            </select>
+                        {% endif %}
                     </div>
                     <div class="mdp-search-display mdp-search-display-block">
                         <form class="mdp-search-bar" action="/search" method="get">
@@ -388,6 +386,28 @@
     </div>
 </div>
 </div>
+
+<style>
+    .bottom-header span.select2-dropdown.collection-dropdown-fullwidth.select2-dropdown--below::after {
+        content: "";
+        display: block;
+        /* width: 50%; */
+        width: calc(60% - 24px);
+        background-image: url('{{ section.settings.static_image | image_url }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* height: 100%; */
+        height: calc(100% - 48px);
+        position: absolute;
+        /* top: 0; */
+        top: 24px;
+        /* right: 0; */
+        right: 24px;
+        z-index: 1;
+        pointer-events: none;
+    }
+</style>
 
 <script>
     
@@ -443,6 +463,11 @@
       "id": "search",
       "label": "Search",
       "default": true
+    },
+    {
+        "type": "image_picker",
+        "id": "static_image",
+        "label": "Dropdown Image"
     }
   ],
   "blocks": [
