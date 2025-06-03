@@ -307,6 +307,22 @@
       "name": "Prosmash HP Blog Section",
       "settings": {}
     },
+    "prosmash_hp_video_zV6zFF": {
+      "type": "prosmash-hp-video",
+      "name": "Prosmash HP Video",
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "image": "shopify://shop_images/video-thumbnail.jpg",
+        "image_size": "original",
+        "text_color": "#343434",
+        "bg_color": "#343434",
+        "video_header": "",
+        "video_view_more": "",
+        "view_more_link": "",
+        "margin_top": "",
+        "margin_bottom": ""
+      }
+    },
     "footer-1": {
       "type": "mdp-weare-footer-1",
       "blocks": {
@@ -371,6 +387,7 @@
     "prosmash_hp_featured_wHgQkF",
     "prosmash_hp_cta_section_4ApD4i",
     "prosmash_hp_blog_section_ki6Yze",
+    "prosmash_hp_video_zV6zFF",
     "footer-1"
   ]
 }
