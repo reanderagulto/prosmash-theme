@@ -1,21 +1,32 @@
-{% comment %} {{ "prosmash-hp-featured.css" | asset_url | stylesheet_tag }} {% endcomment %}
+{{ "prosmash-hp-cta-section.css" | asset_url | stylesheet_tag }}
 
-<section class="featured">
+<section class="cta-section" style="background-image: url('{{ section.settings.cta_bg | image_url }}')">
   <div class="mdp-container">
-    <h2>Maximize
-Stability</h2>
-<p>Take 20% Off/ Sale Must-Haves</p>
+    <h2> {{ section.settings.cta_title }}</h2>
+    <p>{{ section.settings.cta_description }}</p>
   </div>
 </section>
-
-
 
 
 {% schema %}
 {
   "name": "Prosmash HP CTA Section",
   "settings": [
-    
+   {
+    "type": "text",
+    "id": "cta_title",
+    "label": "Title"
+    },
+   {
+    "type": "textarea",
+    "id": "cta_description",
+    "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_bg",
+      "label": "Background"
+    },
   ],
   "presets": [{
     "name": "Prosmash HP CTA Section",
