@@ -315,7 +315,7 @@
         "image": "shopify://shop_images/video-thumbnail.jpg",
         "image_size": "",
         "text_color": "#343434",
-        "bg_color": "#343434",
+        "bg_color": "#ffffff",
         "video_header": "",
         "video_view_more": "",
         "view_more_link": "",
