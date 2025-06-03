@@ -315,7 +315,6 @@
         "image": "shopify://shop_images/video-thumbnail.jpg",
         "image_size": "",
         "text_color": "#343434",
-        "bg_color": "#ffffff",
         "video_header": "",
         "video_view_more": "",
         "view_more_link": "",
@@ -371,8 +370,8 @@
       ],
       "settings": {
         "show_payment_icons": true,
-        "show_powered_by": true,
-        "show_border": true,
+        "show_powered_by": false,
+        "show_border": false,
         "margin_top": "0"
       }
     }
