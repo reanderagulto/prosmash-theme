@@ -1,252 +1,58 @@
 {{"mdp-weare-icon-list-2.css" | asset_url | stylesheet_tag }}
 {{ "prosmash-hp-iconlist.css" | asset_url | stylesheet_tag }}
 
-<div id="mdp-weare-{{ section.id }}"
-     class="mdp mdp-weare-icon-list-2 prosmash-icon-list"
-     style="{% unless section.settings.margin_top == blank %}
-             margin-top: {{ section.settings.margin_top }}px;
-            {% endunless %}
-            {% unless section.settings.margin_bottom == blank %}
-             margin-bottom: {{ section.settings.margin_bottom }}px;
-            {% endunless %}
-             padding-top: {{ section.settings.padding_top }}px;
-             padding-bottom: {{ section.settings.padding_bottom }}px;
-             background-color: {{ section.settings.background }};">
+<section class="prosmash-icon-list">
   <div class="mdp-container">
-  <div class="mdp-grid"
-       data-columns="{{section.settings.col_per_row}}"
-       data-gap="{{section.settings.gap}}">
-    {% for block in section.blocks %}  
-    {% case block.type %}
-	{% when 'list_item' %}
-      <div class="mdp-icon-list-item">
-        
-        <div class="mdp-media">
-          <span class="mdp-icon">
-            {% if block.settings.svg_icon != blank %}
-              <img src="{{ block.settings.svg_icon | image_url: width: 48 }}" width="48" height="48" alt="">
+    <div class="icon-list-container">
+      {% for block in section.blocks %}
+        <div class="icon-item">
+          <div class="img">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 100 }}" alt="{{ block.settings.title }}">
             {% endif %}
-
-          </span>
-        </div>
-       
-        <div class="mdp-data">
-          {% unless block.settings.title == blank %}
-          <div class="mdp-header">
-            <div class="mdp-title">
-              {{block.settings.title}}
-            </div>
           </div>
-          {% endunless %}
-
-          <div class="mdp-header">
-            <div class="mdp-title">
-              {{block.settings.icon_box_title}}
-            </div>
-          </div>
-         
-          {% unless block.settings.content == blank %}
-          <div class="mdp-content">
-            {{block.settings.content}}
-          </div>
-          {% endunless %}
-          <div class="mdp-footer">
-            {% unless block.settings.link == blank %}
-            <a class="mdp-button" href="{{block.settings.link}}">
-              <span class="mdp-text">{{block.settings.button_string}}</span>
-              <span class="mdp-icon">{% render 'mdp-weare-icon' with '003' %}</span>
-            </a>
-            {% endunless %}
-          </div>    
-        </div>
-      </div>
-	
-      {% when 'list_header' %}
-        <div class="mdp-icon-list-item">
-          <div class="mdp-data">
-			<div class="mdp-header">
-              <h3 class="mdp-title">
-                {{block.settings.heading}}
-              </h3>
-          	</div>
+          <div class="content">
+            <div class="title">{{ block.settings.title }}</div>
+            <div class="desc">{{ block.settings.description }}</div>
           </div>
         </div>
-      {% when 'list_collection' %}
-        <div class="mdp-icon-list-item">
-            <div class="mdp-data">
-              <a href="{{block.settings.collection.url}}" class="mdp-btn-link">{{block.settings.collection.title}}</a>
-            </div>
-        </div>
-      {% endcase %}
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
-  </div>
-</div>
-
-{% if section.settings.use_local_styles_list == true %}
-<style>
-  .mdp-weare-icon-list-2 .mdp-grid[data-columns][data-gap] .mdp-icon-list-item .mdp-data .mdp-content p {
-    color: {{ section.settings.color_content }};
-  }
-
-
-
-
-</style>
-{% endif %}
+</section>
 
 {% schema %}
-  {
-    "name": "Prosmash HP Icon List",
-    "settings": [
-	  {
-        "type": "range",
-        "id": "col_per_row",
-        "label": "Col per row",
-        "default": 3,
-        "min": 1,
-        "max": 6,
-        "step": 1
-      },
-      {
-        "type": "select",
-        "id": "gap",
-        "label": "Gap(px)",
-        "default": "10",
-        "options": [
-          {
-            "label": "0",
-            "value": "0"
-          },
-          {
-            "label": "5",
-            "value": "5"
-          },
-          {
-            "label": "10",
-            "value": "10"
-          },
-          {
-            "label": "15",
-            "value": "15"
-          },
-          {
-            "label": "20",
-            "value": "20"
-          },
-          {
-            "label": "25",
-            "value": "25"
-          },
-          {
-            "label": "30",
-            "value": "30"
-          },
-          {
-            "label": "35",
-            "value": "35"
-          }
-        ]
-      },
-      {
-        "type": "checkbox",
-        "id": "use_local_styles_list",
-        "label": "Use local styles",
-        "default": true
-      },
-      {
-        "type": "color",
-        "id": "color_content",
-        "label": "Color content",
-        "default": "#343434"
-      },
-      {
-        "type": "color_background",
-        "id": "background",
-        "label": "Background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "text",
-        "id": "margin_top",
-        "label": "Margin top (px)",
-        "default": "0"
-      },
-      {
-        "type": "text",
-        "id": "margin_bottom",
-        "label": "Margin bottom (px)",
-        "default": "0"
-      },
-      {
-        "type": "text",
-        "id": "padding_top",
-        "label": "Padding top (px)",
-        "default": "0"
-      },
-      {
-        "type": "text",
-        "id": "padding_bottom",
-        "label": "Padding bottom (px)",
-        "default": "0"
-      }
-    ],
-	"blocks": [
-      {
-        "type": "list_item",
-        "name": "List item",
-        "settings": [
-          {
-			"type": "text",
-            "id": "icon_class",
-            "label": "Icon Class"
-		  },		
-      {
-          "type": "image_picker",
-          "id": "svg_icon",
-          "label": "Icon"
+{
+  "name": "Prosmash HP Icon List",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon Box",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Icon Box Title"
         },
-      {
-			"type": "text",
-            "id": "icon_box_title",
-            "label": "Title"
-		  },		
-      
-      
-          {
-            "type": "textarea",
-            "id": "content",
-            "label": "Content"
-          }
-        ]
-      },
-	  {
-        "type": "list_collection",
-        "name": "Collection",
-        "settings": [
-          {
-            "type": "collection",
-            "id": "collection",
-            "label": "Collection"
-          }
-        ]
-      },
-	  {
-        "type": "list_header",
-        "name": "Heading",
-        "settings": [
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading",
-            "default": "Heading"
-          }
-        ]
-      }
-	],
-    "presets": [{
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Icon Box Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Box Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
       "name": "Prosmash HP Icon List",
       "category": "Prosmash"
-    }]
-  }
+    }
+  ]
+}
 {% endschema %}

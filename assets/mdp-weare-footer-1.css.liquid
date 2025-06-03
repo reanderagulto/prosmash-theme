@@ -1,3 +1,22 @@
+@media (max-width: 767px) {
+    .mdp-weare-footer-1 .mdp-footer {
+        gap: 25px;
+        justify-content: center !important;
+    }
+    .mdp-weare-footer-1 .mdp-footer .mdp-footer-text {
+        margin: 0;
+    }
+    .mdp-footer .mdp-item {
+        width: 100% !important;
+        text-align: center;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .mdp-footer .mdp-link-menu {
+        justify-content: center;
+    }
+}
+
 .mdp-weare-footer-1 {
     padding-top: 95px;
     margin-top: 50px;
@@ -21,24 +40,27 @@
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-menu{
     width: calc(15% - 30px);
-    margin-right: 30px;
+    margin-right: 70px;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-social_medias{
     width: calc(15% - 30px);
     margin-right: 30px;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter{
-    width: 40%;
+    width: 35%;
 }
 
 .mdp-weare-footer-1 .mdp-footer .mdp-item .mdp-title {
     margin-bottom: 15px;
-    font-family: "{{ settings.weare_font_header }}";
+    /* font-family: "{{ settings.weare_font_header }}"; */
+    font-family: 'Lexend';
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
-    line-height: {{ settings.mdp_header_line_height }}em;
-    letter-spacing: 0.4px;
+    /* font-size: 16px; */
+    font-size: 18px;
+    /* line-height: {{ settings.mdp_header_line_height }}em; */
+    line-height: 120%;
+    /* letter-spacing: 0.4px; */
     text-transform: uppercase;
     color: {{ settings.mdp_header_color }};
 }
@@ -47,8 +69,9 @@
     font-style: normal;
     font-weight: normal;
     font-size: {{ settings.mdp_paragraph_font_size }}px;
-    line-height: {{ settings.mdp_paragraph_line_height }}em;
-    letter-spacing: 0.4px;
+    /* line-height: {{ settings.mdp_paragraph_line_height }}em; */
+    line-height: 150%;
+    /* letter-spacing: 0.4px; */
     color: {{ settings.mdp_paragraph_color }};
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-item .mdp-text p {
@@ -122,13 +145,16 @@
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter .mdp-signup-form .contact-form .mdp-row .mdp-submit {
     width: 130px;
-    background-color: {{ settings.btn_background }};
-    border-radius: 2px;
-    font-family: {{ settings.weare_font_text }};
+    /* background-color: {{ settings.btn_background }}; */
+    background-color: #42662B;
+    /* border-radius: 2px; */
+    /* font-family: {{ settings.weare_font_text }}; */
+    font-family: 'Lexend';
     font-style: normal;
     font-weight: bold;
-    font-size: 14px !important;
-    line-height: 19px;
+    font-size: 16px !important;
+    /* line-height: 19px; */
+    line-height: 100%;
     text-align: center;
     letter-spacing: 0.4px;
     text-transform: uppercase;
@@ -149,9 +175,11 @@
     font-family: "{{ settings.weare_font_text }}";
     font-style: normal;
     font-weight: normal;
-    font-size: {{ settings.mdp_paragraph_font_size }}px;
-    line-height: {{ settings.mdp_paragraph_line_height }}em;
-    letter-spacing: 0.4px;
+    /* font-size: {{ settings.mdp_paragraph_font_size }}px; */
+    font-size: 14px;
+    /* line-height: {{ settings.mdp_paragraph_line_height }}em; */
+    line-height: 150%;
+    /* letter-spacing: 0.4px; */
     color: {{ settings.mdp_paragraph_color }};
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter .mdp-signup-form .mdp-row {
@@ -238,8 +266,9 @@
 
 @media (min-width: 665px) and (max-width: 768px) {
     .mdp-weare-footer-1 {
-        padding-top: 50px !important;
-        margin-top: 50px !important;
+        /* padding-top: 50px !important;
+        margin-top: 50px !important; */
+        padding-top: 60px;
     }
     .mdp-weare-footer-1 .mdp-footer {
         justify-content: space-between;
@@ -324,8 +353,9 @@
 
 @media (min-width: 376px) and (max-width: 425px) {
     .mdp-weare-footer-1 {
-        padding-top: 40px !important;
-        margin-top: 60px !important;
+        /* padding-top: 40px !important;
+        margin-top: 60px !important; */
+        padding-top: 60px;
     }
     .mdp-weare-footer-1 .mdp-footer {
         justify-content: space-between;
@@ -435,8 +465,9 @@
 
 @media (max-width: 320px) {
     .mdp-weare-footer-1 {
-        padding-top: 40px !important;
-        margin-top: 60px !important;
+        /* padding-top: 40px !important;
+        margin-top: 60px !important; */
+        padding-top: 60px;
     }
     .mdp-weare-footer-1 .mdp-footer {
         justify-content: space-between;

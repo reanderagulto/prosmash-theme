@@ -1,51 +1,60 @@
-.prosmash-icon-list .mdp-title {
+.prosmash-icon-list {
+    padding: 60px 40px;
+}
+
+.prosmash-icon-list .icon-list-container {
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    gap: 50px;
+}
+.prosmash-icon-list .icon-list-container .icon-item {
+    display: flex;
+    gap: 24px;
+    width: calc((100% / 3) - 50px);
+}
+.prosmash-icon-list .icon-list-container .icon-item .content .title {
     font-family: 'Lexend';
-    font-size: 24px !important;
+    font-size: 24px;
     font-weight: 700;
-    text-transform: capitalize !important;
+    line-height: 130%;
     padding-bottom: 20px;
 }
-.prosmash-icon-list .mdp-content {
-    font-size: 16px !important;
+.prosmash-icon-list .icon-list-container .icon-item .content .desc {
     font-family: 'Red Hat Display';
-    line-height: 150% !important;
-    color: black !important;
-    margin: 0;
-    padding: 0;
+    font-size: 16px;
     font-weight: 500;
-}
-.prosmash-icon-list .mdp-data {
-    padding-left: 25px !important;
-}
-.prosmash-icon-list .mdp-weare-icon-list-2 .mdp-container .mdp-grid .mdp-icon-list-item:not(:first-child) {
-    display: flex !important;
+    line-height: 150%;
+    color: black;
 }
 
 @media (max-width: 1024px) {
-    .prosmash-icon-list .mdp-grid {
-        display: grid !important;
-        gap: 50px;
-        grid-template-columns: 1fr 1fr;
+    .prosmash-icon-list .icon-list-container {
+        flex-wrap: wrap;
     }
-    .prosmash-icon-list .mdp-grid[data-columns][data-gap][data-columns="3"][data-gap="10"]>div {
-        width: 100% !important;
+    .prosmash-icon-list .icon-list-container .icon-item {
+        width: calc((100% / 2) - 50px);
     }
 }
 @media (max-width: 767px) {
-    .prosmash-icon-list .mdp.mdp-weare-icon-list-2 {
-        padding-bottom: 0 !important;
-        padding-top: 0 !important;
+    .prosmash-icon-list .icon-list-container .icon-item {
+        width: 100%;
     }
-    .prosmash-icon-list .mdp-grid {
-        grid-template-columns: 1fr;
+    .prosmash-icon-list {
+        padding: 60px 0;
+    }
+    .prosmash-icon-list .icon-list-container {
         gap: 25px;
     }
-    .prosmash-icon-list .mdp-grid[data-columns][data-gap][data-columns="3"][data-gap="10"]>div {
+    .prosmash-icon-list .icon-list-container .icon-item {
         justify-content: center;
-    }
-    .prosmash-icon-list .mdp-weare-icon-list-2 .mdp-container .mdp-grid .mdp-icon-list-item {
         flex-direction: column;
-        justify-content: center !important;
-        align-items: center !important;
+        align-items: center;
+    }
+    .prosmash-icon-list .icon-list-container .icon-item .content {
+        text-align: center;
+    }
+    .prosmash-icon-list .icon-list-container .icon-item .content br {
+        display: none;
     }
 }
