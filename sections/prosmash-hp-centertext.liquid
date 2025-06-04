@@ -1,3 +1,5 @@
+{{  "prosmash-global.css" | asset_url | stylesheet_tag }}
+
 <div class="video-section-top-title">
   <h3>PADEL IS LOVE</h3>
   <p>Where passion meets play — unite, compete, and fall in love with the game.</p>
@@ -7,14 +9,16 @@
 <style>
 .video-section-top-title {
     text-align: center;
+    padding: 60px 0;
 }
-.video-section-top-title h2 {
+.video-section-top-title h3 {
     margin: 0;
     padding: 0;
     font-family: var(--font-lexend);
     font-weight: 700;
     color: var(--black);
     line-height: 120%;
+    padding-bottom: 20px;
 }
 .video-section-top-title p {
     margin: 0;
@@ -23,6 +27,12 @@
     line-height: 150%;
     font-weight: 500;
 }
+@media (max-width: 767px) {
+    .video-section-top-title {
+        padding: 0 0 25px;
+    }
+}
+
 </style>
 
 

@@ -4,27 +4,19 @@
 .new-products .mdp-container {
     display: flex;
     gap: 75px;
+    align-items: center;
 }
 .new-products .mdp-container .col-left {
-    width: 22%;
+    width: 16%;
 }
-.new-products .mdp-container .col-right {
-    width: 78%;
-}
+
 .new-products .col-right .product-grid {
     display: flex;
     gap: 16px;
     flex-wrap: nowrap;
 }
-.new-products .col-right .product-grid .product-card {
-    max-width: calc((100% / 4) - 16px);
-    transition: 0.3s;
-}
-.new-products .col-right .product-grid .product-card:hover {
-    transform: translateY(-5px);
-}
 .new-products .col-right .product-grid .product-card .prod-img {
-    width: 247px;
+    max-width: 247px;
     height: 304px;
     overflow: hidden;
 }

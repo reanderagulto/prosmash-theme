@@ -9,7 +9,7 @@ section.blogs {
     flex: 1;
 }
 .blog-item .card-img {
-    width: 416px;
+    max-width: 416px;
     height: 420px;
     overflow: hidden;
     flex: 1;
@@ -39,17 +39,27 @@ section.blogs {
     line-height: 120%;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
     .blogs .blogs-container {
         flex-wrap: wrap;
     }
     .blogs .blogs-container .blog-item {
-        width: calc((100% / 2) - 32px);
+        width: calc((100% / 2) - 16px);
+        flex: unset;
     }
 }
-@media (max-width: 480px) {
-    .blogs .blogs-container .blog-item {
+@media (max-width: 767px) {
+    .blogs .blogs-container {
+        justify-content: center;
+        align-items: center;
+    }
+     .blogs .blogs-container .blog-item {
         width: 100%;
         text-align: center;
     }
+     .blogs .blogs-container .blog-item .card-img {
+         text-align: center;
+         margin: 0 auto;
+         max-width: 100%;
+     }
 }
