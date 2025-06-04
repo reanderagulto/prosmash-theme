@@ -294,6 +294,11 @@
       "name": "Prosmash HP Blog Section",
       "settings": {}
     },
+    "prosmash_hp_centertext_NHMVmj": {
+      "type": "prosmash-hp-centertext",
+      "name": "Prosmash Text Center",
+      "settings": {}
+    },
     "prosmash_hp_video_zV6zFF": {
       "type": "prosmash-hp-video",
       "name": "Prosmash HP Video",
@@ -373,6 +378,7 @@
     "prosmash_hp_featured_wHgQkF",
     "prosmash_hp_cta_section_4ApD4i",
     "prosmash_hp_blog_section_ki6Yze",
+    "prosmash_hp_centertext_NHMVmj",
     "prosmash_hp_video_zV6zFF",
     "footer-1"
   ]
