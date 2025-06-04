@@ -143,10 +143,11 @@
       ],
       "settings": {
         "use_logo_img": true,
-        "logo": "shopify://shop_images/Logo.png",
-        "logo_size": "150x70",
+        "logo": "shopify://shop_images/Prosmash_Horizontal_Logo.png",
+        "logo_size": "248x70",
         "menu": "main-menu",
-        "search": true
+        "search": true,
+        "static_image": "shopify://shop_images/Img.jpg"
       }
     },
     "prosmash_hp_banner_fLfFbM": {
