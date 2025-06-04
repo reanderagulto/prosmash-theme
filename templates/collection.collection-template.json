@@ -1,0 +1,335 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "theme.landing",
+  "sections": {
+    "menu-2": {
+      "type": "mdp-weare-menu-2",
+      "blocks": {
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "discounts-1": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Up to 50% off Our Best Bits"
+          }
+        },
+        "discounts-2": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Limited Time Only"
+          }
+        },
+        "discounts-3": {
+          "type": "discounts",
+          "settings": {
+            "discounts_text": "Discover More",
+            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "discounts-1",
+        "discounts-2",
+        "discounts-3",
+        "work_time"
+      ],
+      "settings": {
+        "menu": "",
+        "enabled_topbar": true,
+        "enabled_menu": false,
+        "enabled_shadow": false,
+        "info_text": false,
+        "social_icons": true,
+        "discounts": true,
+        "work_time": true,
+        "country_selector": false,
+        "language_selector": false,
+        "bg_color": "#FFE8E8",
+        "icon_color": "#343434",
+        "discount_color": "#E9384F",
+        "work_time_color": "#343434"
+      }
+    },
+    "menu-1": {
+      "type": "mdp-weare-menu-1",
+      "blocks": {
+        "facebook": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
+          }
+        },
+        "instagram": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-instagram",
+            "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "tiktok": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-tiktok",
+            "social_link": "https://www.tiktok.com/"
+          }
+        },
+        "whatsapp": {
+          "type": "mobile_icons",
+          "settings": {
+            "icon_class": "fab fa-whatsapp",
+            "social_link": "https://www.whatsapp.com/"
+          }
+        },
+        "work_time": {
+          "type": "work_time",
+          "settings": {
+            "work_time_text": "Mon-Fri 08:00 - 18:00"
+          }
+        }
+      },
+      "block_order": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "whatsapp",
+        "work_time"
+      ],
+      "settings": {
+        "logo_size": "150x70",
+        "menu": "main-menu",
+        "search": true
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "call-to-action": {
+      "type": "mdp-weare-call-to-action-shop",
+      "settings": {
+        "title": "Shop Weare <br> ..",
+        "bg_color": "",
+        "image": "shopify://shop_images/banner1-shop.jpg",
+        "parallax": false,
+        "content": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia</a>, <a href='#'>sapien</a></p>",
+        "boxed": true,
+        "padding_top": "70",
+        "padding_bottom": "70",
+        "margin_top": "",
+        "margin_bottom": "70"
+      }
+    },
+    "collections-shop": {
+      "type": "mdp-weare-collections-shop",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "clothing-lingerie"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "shoe-accessories"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "watches-jewelry"
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "sports-wear-accessories"
+          }
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "gadgets-electronics"
+          }
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {
+            "collection": "home-gifts-healthcare"
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6"
+      ],
+      "settings": {
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "number_of_collections": 3,
+        "col_per_row": 6,
+        "gap": "30",
+        "image_size": "original",
+        "variant": "style_1",
+        "margin_top": "0",
+        "margin_bottom": "65"
+      }
+    },
+    "collection-grid": {
+      "type": "collection-mdp-weare-1",
+      "settings": {
+        "number_of_products": 12,
+        "col_per_row": 3,
+        "images_form": "100"
+      }
+    },
+    "hero": {
+      "type": "mdp-weare-hero-shop",
+      "settings": {
+        "title": "Sale/",
+        "subtitle": "",
+        "heading_margin_left": "0",
+        "heading_color": "#ffffff",
+        "image": "shopify://shop_images/banner2-shop.jpg",
+        "background_size": "cover",
+        "background_image": "",
+        "header_content": "Up to 50% Off",
+        "content": "<p>Nam non velit et ipsum pulvinar imperdiet. In orci ante, molestie id mattis imperdiet, dapibus ac nisl</p>",
+        "image_size": "2000x500_crop_center",
+        "button_string": "Shop Now",
+        "link": "/products/dress",
+        "variant": "left_text",
+        "padding_top": "140",
+        "padding_bottom": "140",
+        "margin_top": "80",
+        "margin_bottom": "0"
+      }
+    },
+    "collection-row": {
+      "type": "mdp-weare-collection-row-shop",
+      "settings": {
+        "selected_collection": "new-in-all-shop",
+        "bg_color": "",
+        "color_text": "#343434",
+        "print_price_row": false,
+        "name_collection": "New In/",
+        "button_string": "Shop Now",
+        "number_of_products": 4,
+        "col_per_row": 5,
+        "images_form": "50",
+        "image_size": "198x236_crop_center",
+        "reverse": false,
+        "indents": "0",
+        "margin_top": "80",
+        "margin_bottom": "65"
+      }
+    },
+    "footer-1": {
+      "type": "mdp-weare-footer-1",
+      "blocks": {
+        "about-us": {
+          "type": "text",
+          "settings": {
+            "title": "About Us",
+            "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
+          }
+        },
+        "quick-links": {
+          "type": "menu",
+          "settings": {
+            "title": "Quick Links",
+            "footer_link_list": "footer"
+          }
+        },
+        "follow-us": {
+          "type": "social_medias",
+          "settings": {
+            "facebook_link": "#",
+            "twitter_link": "#",
+            "instagram_link": "#",
+            "pinterest_link": "#"
+          }
+        },
+        "subscribe": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe to our newsletter",
+            "subtitle": "A short sentence describing what someone will receive by subscribing"
+          }
+        }
+      },
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "show_powered_by": true,
+        "show_border": true,
+        "margin_top": "0"
+      }
+    }
+  },
+  "order": [
+    "menu-2",
+    "menu-1",
+    "breadcrumbs",
+    "call-to-action",
+    "collections-shop",
+    "collection-grid",
+    "hero",
+    "collection-row",
+    "footer-1"
+  ]
+}
