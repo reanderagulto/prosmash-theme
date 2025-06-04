@@ -178,7 +178,7 @@
       ],
       "name": "Prosmash HP Banner",
       "settings": {
-        "section_main_header": "THE BIGGEST  SPORTSWEAR BRAND",
+        "section_main_header": "THE BIGGEST <br> SPORTSWEAR BRAND",
         "cta_title": "SHOP NOW",
         "cta_link": "#"
       }
