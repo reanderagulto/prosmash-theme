@@ -155,7 +155,7 @@
         "slide_wwyWaf": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/jon-matthews-4uxbx9POMSU-unsplash.jpg"
+            "slide_image": "shopify://shop_images/hero-banner-a.jpg"
           }
         },
         "slide_46CWJe": {
@@ -178,7 +178,7 @@
       ],
       "name": "Prosmash HP Banner",
       "settings": {
-        "section_main_header": "THE BIGGEST <br> SPORTSWEAR BRAND",
+        "section_main_header": "THE BIGGEST  SPORTSWEAR BRAND",
         "cta_title": "SHOP NOW",
         "cta_link": "#"
       }
@@ -190,7 +190,7 @@
           "type": "icon",
           "settings": {
             "title": "Limited Time Offers",
-            "description": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
+            "description": "Smash your savings while the offer lasts—don’t miss the shot.",
             "image": "shopify://shop_images/tag.svg"
           }
         },
@@ -198,7 +198,7 @@
           "type": "icon",
           "settings": {
             "title": "Secured Payment",
-            "description": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
+            "description": "Play hard, pay safe. Enjoy worry-free shopping on every order.",
             "image": "shopify://shop_images/credit-card.svg"
           }
         },
@@ -206,7 +206,7 @@
           "type": "icon",
           "settings": {
             "title": "Free Shipping",
-            "description": "Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
+            "description": "From our court to your door. No shipping fees, just game-ready gear.",
             "image": "shopify://shop_images/truck.svg"
           }
         }
@@ -284,9 +284,9 @@
       "type": "prosmash-hp-cta-section",
       "name": "Prosmash HP CTA Section",
       "settings": {
-        "cta_title": "MAXIMIZE <br> STABILITY",
-        "cta_description": "Take 20% Off/ Sale Must-Haves",
-        "cta_bg": "shopify://shop_images/CTA-BG.jpg"
+        "cta_title": "MAXIMIZE<br>  STABILITY",
+        "cta_description": "Take<span> 20% Off</span>/ Sale Must-Haves",
+        "cta_bg": "shopify://shop_images/54bf5a2f1cabca59e01634417facb8a1cf8ee46a.jpg"
       }
     },
     "prosmash_hp_blog_section_ki6Yze": {
