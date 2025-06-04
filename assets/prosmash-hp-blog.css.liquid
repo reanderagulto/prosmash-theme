@@ -1,23 +1,30 @@
-    section.blogs {
+section.blogs {
     padding: 60px 0;
 }
 .blogs .blogs-container {
     display: flex;
     gap: 32px;
 }
-.blogs .blogs-container .blog-item {
-    width: calc((100% / 3) - 32px);
+.blog-item {
+    flex: 1;
 }
-.blogs .blogs-container .blog-item img {
-    max-width: 416px;
+.blog-item .card-img {
+    width: 416px;
+    height: 420px;
+    overflow: hidden;
+    flex: 1;
+}
+.blog-item .card-img img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .blogs .blogs-container .blog-item a {
     text-decoration: none;
 }
 .blogs .blogs-container .blog-item .date {
-    font-family: "Gabarito", sans-serif;
-    color: black;
+    font-family: var(--font-gabarito);
+    color: var(--black);
     font-size: 16px;
     line-height: 120%;
     font-weight: 400;
@@ -25,8 +32,8 @@
 }
 .blogs .blogs-container .blog-item .title {
     padding-top: 16px;
-    color: black;
-    font-family: 'Lexend';
+    color: var(--black);
+    font-family: var(--font-lexend);
     font-size: 24px;
     font-weight: 700;
     line-height: 120%;

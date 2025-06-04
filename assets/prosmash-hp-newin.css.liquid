@@ -1,6 +1,15 @@
+.new-products {
+    background: var(--grey);
+}
 .new-products .mdp-container {
     display: flex;
     gap: 75px;
+}
+.new-products .mdp-container .col-left {
+    width: 22%;
+}
+.new-products .mdp-container .col-right {
+    width: 78%;
 }
 .new-products .col-right .product-grid {
     display: flex;
@@ -14,9 +23,16 @@
 .new-products .col-right .product-grid .product-card:hover {
     transform: translateY(-5px);
 }
-.new-products .col-right .product-grid .product-card img {
-    max-width: 247px;
+.new-products .col-right .product-grid .product-card .prod-img {
+    width: 247px;
+    height: 304px;
+    overflow: hidden;
+}
+
+.new-products .col-right .product-grid .product-card .prod-img img {
     width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .new-products .col-right .product-grid .product-card a {
     text-decoration: none;
@@ -28,30 +44,31 @@
     padding: 0;
     margin: 0;
 }
-.new-products .col-right .product-grid .product-card h3 {
-    color: black;
-    font-family: 'Lexend';
-    font-size: 20px;
+.new-products .col-right .product-grid .product-card .prod-title {
+    color: var(--black);
+    font-family: var(--font-lexend);
+    font-size: 19px;
     line-height: 120%;
     font-weight: 700;
     padding-top: 24px;
 }
-.new-products .col-right .product-grid .product-card p {
-    font-family: 'Red Hat Display';
+.new-products .col-right .product-grid .prod-price {
+    font-family: var(--font-redhat);
     font-size: 16px;
     line-height: 150%;
     font-weight: 600;
-    color: black;
+    color: var(--text);
     padding-top: 8px;
 }
 
 .new-products .mdp-container .col-left h2 {
     padding: 0;
     margin: 0;
-    font-family: 'Lexend';
-    font-size: 48px;
+    font-family: var(--font-lexend);
+    color: var(--black);
     line-height: 120%;
     font-weight: 700;
+    text-transform: uppercase;
 }
 .new-products {
     padding: 60px 0;
@@ -60,12 +77,12 @@
     margin-top: 12px;
 }
 .new-products .col-left .cta-btn a {
-    font-family: 'Red Hat Display';
+    font-family: var(--font-redhat);
+    color: var(--black);
     font-size: 20px;
     text-decoration: none;
     font-weight: 800;
     line-height: 120%;
-    color: black;
 }
 
 @media (max-width: 1024px) {

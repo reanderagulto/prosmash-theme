@@ -1,10 +1,11 @@
 {{ "prosmash-hp-cta-section.css" | asset_url | stylesheet_tag }}
+{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
 
 
 <section class="cta-section" style="background-image: url('{{ section.settings.cta_bg | image_url }}')">
   <div class="mdp-container">
-    <h2> {{ section.settings.cta_title }}</h2>
-    <p>{{ section.settings.cta_description }}</p>
+    <div class="cta-title">{{ section.settings.cta_title }}</div>
+    <div class="cta-desc">{{ section.settings.cta_description }}</div>
   </div>
 </section>
 

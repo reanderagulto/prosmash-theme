@@ -1,7 +1,7 @@
 .featured {
     padding: 60px 0;
 }
-.featured h2 {
+.featured h3 {
     text-align: center;
     font-family: 'Lexend';
     font-size: 32px;
@@ -21,35 +21,42 @@
 .featured .featured-card {
     width: calc((100% / 4) - 32px);
 }
-.featured .featured-card img {
-    max-width: 304px;
-    width: 100%;
+.featured .card-img {
+    width: 304px;
     height: 320px;
-    object-fit: cover;
+    background: red;
+}
+.featured .card-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center;
 }
 .featured .featured-card a {
     text-decoration: none;
     display: inline-block;
 }
-.featured .featured-card h3,
+.featured .featured-card h2,
 .featured .featured-card p {
     padding: 0;
     margin: 0;
 }
-.featured .featured-card h3 {
-    font-size: 20px;
-    color: black;
-    font-family: 'Lexend';
-    font-weight: 700;
-    line-height: 120%;
+.featured .card-content {
     padding-top: 24px;
 }
-.featured .featured-card p {
-    font-family: 'Red Hat Display';
+.featured .card-content .card-title {
+    font-family: var(--font-lexend);
+    color: var(--black);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 120%;
+}
+.featured .card-content .card-price {
+    font-family: var(--font-redhat);
+    color: var(--text);
     font-size: 16px;
-    line-height: 150%;
     font-weight: 600;
-    color: black;
+    line-height: 150%;
     padding-top: 8px;
 }
 .featured .cta-btn {

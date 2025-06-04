@@ -1,4 +1,6 @@
 {{ "prosmash-hp-newin.css" | asset_url | stylesheet_tag }}
+{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
+
 
 <section class="new-products">
   <div class="mdp-container">
@@ -14,9 +16,13 @@
         {% for product in collections['new-arrivals'].products %}
           <div class="product-card">
             <a href="{{ product.url }}">
-              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.price | money }}</p>
+              <div class="prod-img">
+                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+              </div>
+              <div class="prod-details">
+                <div class="prod-title">{{ product.title |  truncate: 25 }}</div>
+                <div class="prod-price">{{ product.price | money }}</div>
+              </div>
             </a>
           </div>
         {% endfor %}

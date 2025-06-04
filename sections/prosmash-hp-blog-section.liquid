@@ -8,9 +8,13 @@
       {% for article in latest_posts %}
         <div class="blog-item">
           <a href="{{ article.url }}">
-            <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}">
-            <div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>
-            <div class="title">{{ article.title }}</div>
+            <div class="card-img">
+              <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}">
+            </div>
+            <div class="card-content">
+              <div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+              <div class="title">{{ article.title }}</div>
+            </div>
           </a>
         </div>
       {% endfor %}

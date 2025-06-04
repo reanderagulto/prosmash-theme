@@ -1,37 +1,33 @@
 .cta-section {
+    padding: 120px 0;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-  }
-
-  .cta-section {
-    padding: 120px 0;
-    background: black;
 }
-.cta-section h2 {
-    color: white;
-    padding: 0;
-    margin: 0;
-    font-family: 'Lexend';
+.cta-section .cta-title {
+    font-family: var(--font-lexend);
     font-size: 62px;
+    font-weight: 900;
     line-height: 120%;
-    font-weight: 800;
+    color: var(--black);
+    padding-bottom: 16px;
 }
-.cta-section p {
-    font-family: 'Red Hat Display';
+.cta-section .cta-desc {
+    font-family: var(--font-redhat);
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 120%;
-    color: white;
-    margin: 0;
-    padding: 16px 0 0;
+}
+.cta-section .cta-desc span {
+    color: var(--green);
+    font-weight: 900;
 }
 @media (max-width: 767px) {
-    .cta-section h2 {
+    .cta-section .cta-title {
         font-size: 52px;
         text-align: center;
     }
-    .cta-section p {
+    .cta-section .cta-desc {
         text-align: center;
     }
     .cta-section {

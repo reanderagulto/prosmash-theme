@@ -20,9 +20,8 @@
     z-index: 2; /* ensure it's above background */
 }
 .hp-banner h1 {
-    font-family: 'Red Hat Display';
-    font-size: 62px;
-    font-weight: 800;
+    font-family: var(--font-redhat);
+    font-weight: 900;
     line-height: 120%;
     padding: 0;
     margin: 0;
@@ -33,9 +32,9 @@
 }
 .hp-banner .cta-btn a {
     display: inline-block;
-    background: #42662B;
+    background: var(--white);
     padding: 17px 40px;
-    color: white;
+    color: var(--black);
     text-decoration: none;
     font-size: 16px;
     font-family: 'Lexend';
@@ -87,7 +86,6 @@ ul.slick-dots li.slick-active {
 
 @media (max-width: 767px) {
     .hp-banner h1 {
-        font-size: 50px;
         text-align: center;
         line-height: 100%;
         word-break: break-word;

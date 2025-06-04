@@ -1,1 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --text: #5B5B5B;
+    --green: #42662B;
+    --grey: #F0F0F0;
+    --font-redhat: "Red Hat Display", sans-serif;
+    --font-lexend: "Lexend", sans-serif;
+    --font-gabarito: "Gabarito", sans-serif;
+
+}
+
+
+h1 {
+    font-size: 62px;
+    color: var(--black);
+    font-family: var(--font-lexend);
+}
+h2 {
+    font-size: 48px;
+}
+h3 {
+    font-size: 32px;
+}
+p {
+    font-size: 16px;
+    color: var(--text);
+    font-family: var(--font-lexend);
+}
+
+
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 38px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+}
