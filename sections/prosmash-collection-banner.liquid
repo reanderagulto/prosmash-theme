@@ -1,15 +1,65 @@
-<section class="prosmash-collection">
+{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
+
+<section class="collection-banner" style="background-image: url('{{ section.settings.background_img | image_url: width: 1600 }}')">
     <div class="custom-container">
-        <h1>TESTINGs</h1>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+            <a href="{{ routes.root_url }}">Home</a>
+            <span class="breadcrumb-separator"> > </span>
+            <span>{{ collection.title }}</span>
+        </nav>
+
+        <div class="collection-banner-title">
+            Shop Exclusive<br> sportswear brands
+        </div>
     </div>
 </section>
+
+
+<style>
+.collection-banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.collection-banner .custom-container {
+    max-width: 1312px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 47px 15px;
+}
+.collection-banner .collection-banner-title {
+    font-family: 'Red Hat Display';
+    font-family: var(--font-redhat);
+    font-size: 48px;
+    line-height: 120%;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--white);
+}
+.breadcrumb {
+    padding-bottom: 16px;
+    color: white;
+    font-family: var(--font-lexend);
+}
+.breadcrumb a {
+    text-decoration: none;
+    color: white;
+}
+</style>
 
 
 {% schema %}
   {
     "name": "Collection Banner",
-    "settings": [	  	       
-      
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background_img",
+            "label": "Background Image"
+        }	  	       
+     
+
     ],	
     "presets": [{
       "name": "Prosmash Collection Banner",
