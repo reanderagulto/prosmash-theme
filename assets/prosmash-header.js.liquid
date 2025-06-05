@@ -17,5 +17,38 @@ jQuery(document).ready(function ($) {
     // Prevent "All Categories" from appearing in dropdown list
     $("#collection-dropdown option:first").attr("disabled", "disabled");
 
+
+    function injectPreviewImageContainer() {
+  const resultsContainer = $('.select2-results');
+
+  // Only inject once
+  if ($('#dropdown-image-preview').length === 0) {
+    resultsContainer.append(`
+      <div class="collection-preview-container">
+        <img id="dropdown-image-preview" src="{{ 'placeholder.jpg' | asset_url }}" alt="Preview" />
+      </div>
+    `);
+  }
+}
+
+$('#collection-dropdown').on('select2:open', function () {
+  // Inject image container once the dropdown is opened
+  setTimeout(injectPreviewImageContainer, 0);
+});
+
+$(document).on('mouseenter', '.select2-results__option', function () {
+  const hoveredText = $(this).text().trim();
+
+  const matchingOption = $('#collection-dropdown option').filter(function () {
+    return $(this).text().trim() === hoveredText;
+  });
+
+  if (matchingOption.length > 0) {
+    const imageUrl = matchingOption.data('image');
+    $('#dropdown-image-preview').attr('src', imageUrl);
+  }
+});
+
+
     // Ensure dropdown closes on outside click (Select2 handles this by default)
 });

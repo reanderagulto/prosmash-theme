@@ -335,28 +335,35 @@
 
                 </div>
                 <div class="mdp-row-center testing-center">
-{% comment %} FOR TESTING {% endcomment %}
                     <div class="collection-select-wrapper">
                         {% assign all_categories_menu = linklists['all-categories'] %}
                         {% if all_categories_menu.links.size > 0 %}
                             <select id="collection-dropdown" name="all-categories">
-                                <option value="">Select a Category</option>
-                                {% for link in all_categories_menu.links %}
-                                    <option value="{{ link.url }}">{{ link.title }}</option>
-                                {% endfor %}
+                            <option value="">Select a Category</option>
+                            {% for link in all_categories_menu.links %}
+                                {% assign handle = link.url | split: '/' | last %}
+                                {% assign collection = collections[handle] %}
+                                <option 
+                                value="{{ link.url }}"
+                                data-image="{{ collection.featured_image | image_url: width: 400 }}">
+                                {{ link.title }}
+                                </option>
+                            {% endfor %}
                             </select>
+                          
+
                         {% endif %}
                     </div>
                     <div class="mdp-search-display mdp-search-display-block">
                         <form class="mdp-search-bar" action="/search" method="get">
-                            <input type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}"
-                                    value="{{ search.terms | escape }}">
-                            <button type="submit" class="">{{ 'general.search.submit' | t }}</button>
+                        <input type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms | escape }}">
+                        <button type="submit">{{ 'general.search.submit' | t }}</button>
                         </form>
                     </div>
+
                     <div class="filter-btn">
                         <a href="#">
-                            <img src="{{ 'Filter.svg' | asset_url }}" alt="" srcset="">
+                        <img src="{{ 'Filter.svg' | asset_url }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -406,6 +413,22 @@
         right: 24px;
         z-index: 1;
         pointer-events: none;
+    }
+        span.select2-results {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .collection-preview-container {
+        max-width: 420px;
+        max-height: 258px;
+        overflow: hidden;
+    }
+    .collection-preview-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: right;
     }
 </style>
 
