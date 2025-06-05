@@ -62,4 +62,22 @@
     .categories-grid {
         flex-wrap: wrap;
     }
+    .new-products .mdp-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+    .new-products .mdp-container .col-left,
+    .new-products .mdp-container .col-right {
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .new-products .col-right .product-grid .product-card .prod-img {
+        height: auto;
+    }
+    .new-products .col-right .product-grid .product-card .prod-title {
+        font-size: 16px;
+        padding-top: 12px;
+    }
 }
