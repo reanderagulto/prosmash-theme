@@ -1,4 +1,5 @@
 {{"product-mdp-weare-1.css" | asset_url | stylesheet_tag }}
+{{"prosmash-product-mdp-weare-1.css" | asset_url | stylesheet_tag }}
 
 {% if section.settings.selected_product != blank %}
 	{% assign current_product = all_products[section.settings.selected_product] %}
@@ -112,6 +113,8 @@
         </div>
         <div class="mdp-swiper-button-prev swiper-button-prev-slideshow-product-1"></div>
         <div class="mdp-swiper-button-next swiper-button-next-slideshow-product-1"></div>
+        {% comment %} asdasd {% endcomment %}
+         {% render 'prosmash-mdp-weare-social-sharing', share_title: current_product.title, share_permalink: current_product.url, share_image: current_product.featured_media %}
       </div>      
       {% else %}      
       <div class="mdp-placeholder" style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
@@ -138,7 +141,8 @@
           {{ section.settings.sold_out_string }}
         </div>
       {% endif %}
-    </div> 
+    </div>
+    
     </div>
 
     <div class="mdp-data">
@@ -295,6 +299,28 @@
         "name": "Availability"
       },
       {
+        "type": "stock",
+        "name": "Stock"
+      },
+      {
+        "type": "swatches",
+        "name": "Swatches"
+      },
+      {
+        "type": "three-col",
+        "name": "Three Column Options"
+      },
+      {
+        "type": "two-col",
+        "name": "Two Column Buttons"
+      },
+      {
+        "type": "delivery-notice",
+        "name": "Notice"
+      },
+
+
+      {
         "type": "description",
         "name": "Description",
         "settings": [
@@ -441,6 +467,21 @@
         },
         {
         "type": "share"
+        },
+        {
+        "type": "stock"
+        },
+        { 
+          "type": "swatches" 
+        },
+        { 
+          "type": "three-col" 
+        },
+        { 
+          "type": "two-col" 
+        },
+        { 
+          "type": "delivery-notice" 
         }
       ]
     }]

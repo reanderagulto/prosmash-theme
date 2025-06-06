@@ -40,12 +40,43 @@
     {%- when 'sku' -%}
       <div class="mdp-dl">
         <div class="mdp-dt">
-          SKU:
+          Product Code:
         </div>
         <div class="mdp-dd">
           {{variant.sku}}
         </div>
       </div>
+    
+    {%- when 'swatches' -%}
+  {% unless current_product.options.size == 1 and current_product.variants[0].title == 'Default Title' %}
+    <div class="mdp-product-swatches">
+      {% for option in current_product.options_with_values %}
+        {% if option.name == 'Color' %}
+          <div class="mdp-option">
+            {% comment %} <label>{{ option.name }}</label> {% endcomment %}
+             <div class="swatch-option-label">Colors</div>
+            <div class="mdp-option-swatches" data-index="option{{ forloop.index }}">
+              {% for value in option.values %}
+                {% assign matching_variant = current_product.variants | where: 'option1', value | first %}
+                <label class="swatch-label">
+                  <input 
+                    type="radio" 
+                    name="option{{ forloop.index }}" 
+                    value="{{ value | escape }}" 
+                    data-variant-id="{{ matching_variant.id }}"
+                    {% if matching_variant.featured_media %}data-media-id="{{ matching_variant.featured_media.id }}"{% endif %}
+                    {% if forloop.first %}checked{% endif %}>
+                  <span class="swatch" style="background-color: {{ value | downcase }}"></span>
+                </label>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endunless %}
+
+
     {%- when 'metafield' -%}
       <div class="mdp-dl">
         <div class="mdp-dt">
@@ -99,9 +130,118 @@
         {% endif %}
       </div>
       {% endunless %}
+
+      {% comment %} THREE COLUMN COMBINATION {% endcomment %}
+      {%- when 'three-col' -%}
+      <div class="prosmash-three-col-option mdp-product-columns mdp-three-column">
+  
+        <!-- Quantity -->
+        <div class="mdp-col mdp-col-qty">
+          <label for="qty-field">Quantity</label>
+          <div class="mdp-quantity-wrapper">
+            <a class="mdp-quantity-minus">
+              <span><span class="mdp-quantity-icon-minus"><i class="fa-solid fa-minus"></i></span></span>
+            </a>
+            <input id="qty-field" type="text" name="quantity" value="1" min="1" class="mdp-qty"/>
+            <a class="mdp-quantity-plus">
+              <span><span class="mdp-quantity-icon-plus"><i class="fa-solid fa-plus"></i></span></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Stock -->
+        <div class="mdp-col mdp-col-stock">
+          <label>In Stock</label>
+          {% if variant.inventory_management and variant.inventory_quantity != nil %}
+            <div class="mdp-stock-number">
+              {{ variant.inventory_quantity }}
+            </div>
+          {% else %}
+            <div class="mdp-stock-number">
+              —
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- SKU -->
+        <div class="mdp-col mdp-col-sku">
+          <label>Product Code</label>
+          <div class="mdp-sku-number">
+            {{ variant.sku }}
+          </div>
+        </div>
+
+      </div>
+
+
+      {% comment %} END OF THREE COLUMN {% endcomment %}
+
+
+      {% comment %} ADD TO CART AND ADD TO WISHLIST BUTTONS {% endcomment %}
+        {%- when 'two-col' -%}
+        {% form 'product', current_product %}
+          <input name="id" type="hidden" value="{{ variant.id }}" data-productid="{{ current_product.id }}">
+
+          <div class="prosmash-two-col-buttons">
+            <!-- Add to Cart Button -->
+            <button type="submit"
+                    class="mdp-add-to-cart {% if section.settings.redirect %}mdp-redirect-to-cart{% endif %} {% if current_product.available %}mdp-available{% endif %}"
+                    style="color: {{ btn_color }}"
+                    data-product-id="{{ variant.id }}"
+                    data-quantity="1"
+                    data-add-to-cart="{{ section.settings.add_cart_string }}"
+                    data-sold-out="{{ section.settings.sold_out_string }}">
+              {% if current_product.available %}
+                {{ section.settings.add_cart_string }}
+              {% else %}
+                {{ section.settings.sold_out_string }}
+              {% endif %}
+              <i class="fa-regular fa-cart-shopping"></i>
+            </button>
+            <!-- Add to Wishlist Button -->
+            <div class="mdp-add-to-wishlist" data-product-handle="{{ current_product.handle }}">
+              <span class="mdp-add">
+                <span class="mdp-text-wishlist">Add to Wishlist</span>
+                <i class="far fa-heart"></i>
+              </span>
+              <span class="mdp-adding"></span>
+              <span class="mdp-added">
+                <span class="mdp-text-wishlist">Add to Wishlist</span>
+                <i class="fas fa-heart"></i>
+              </span>
+            </div>
+          </div>
+        {% endform %}
+
+
+
+      {% comment %} END OF ADD TO CART AND ADD TO WISHLIST BUTTONS {% endcomment %}
+         {%- when 'delivery-notice' -%}
+
+          <div class="delivery-notice">
+            <div class="content">
+              <p><strong>Delivery</strong></p>
+              <p>Your order gets a free standard delivery.</p>
+              <ul>
+                <li><p>Standard delivered 1-5 Business Days</p></li>
+                <li><p>Express delivered 1-2 Business Days</p></li>
+              </ul>
+              <p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>
+            </div>
+          </div>
+
+      {% comment %} DELIVERY NOTICE {% endcomment %}
+
+
+
+
+
+      {% comment %} END OF DELIVERY NOTICE  {% endcomment %}
+
+
     {%- when 'buttons' -%}
       {% form "product", current_product %} 	
-        <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">          
+        <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">         
 		<div class="mdp-product-options">
 			<h3>Quantity</h3>
 		</div>
