@@ -26,7 +26,7 @@
         {% for block in section.blocks %}
         {% assign image = block.settings.slide_image %}
             {% if image != blank %}
-                <div class="slide">
+                <div class="slide {{ block.settings.slide_class }}">
                 <div class="img-holder" style="background-image: url('{{ image | image_url: width: 1600 }}')"></div>
                 </div>
             {% endif %}
@@ -41,9 +41,10 @@
   "name": "Prosmash HP Banner",
   "settings": [
     {
-      "type": "text",
+      "type": "textarea",
       "id": "section_main_header",
-      "label": "Section Main Header"
+      "label": "Section Main Header",
+      "info": "You can put <br> for line breaks."
     },
     {
       "type": "text",
@@ -65,6 +66,12 @@
           "type": "image_picker",
           "id": "slide_image",
           "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "slide_class",
+          "label": "Slide Class",
+          "info": "You can use 'white' class for the white headings and button."
         }
       ]
     }

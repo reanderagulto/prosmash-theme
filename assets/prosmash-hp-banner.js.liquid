@@ -11,3 +11,32 @@
         
     });
 })
+
+
+$(document).ready(function () {
+  function updateHeadingColor() {
+    const currentSlide = $('.bg-slider .slick-slide.slick-current');
+
+    if (currentSlide.hasClass('white')) {
+      $('.heading-content h1').css('color', 'white');
+       $('.hp-banner .cta-btn a').css({
+        'color': 'black',
+        'background': 'white'
+      });
+    } else {
+      $('.heading-content h1').css('color', 'black'); // or default color
+      $('.hp-banner .cta-btn a').css({
+        'color': 'white',
+        'background': '#42662B'
+      });
+    }
+  }
+
+  // Initial check
+  updateHeadingColor();
+
+  // On slide change
+  $('.bg-slider').on('afterChange', function () {
+    updateHeadingColor();
+  });
+});

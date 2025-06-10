@@ -1,7 +1,8 @@
 {{"mdp-weare-footer-1.css" | asset_url | stylesheet_tag }}
+{{"prosmash-footer.css" | asset_url | stylesheet_tag }}
 
 <div id="mdp-weare-{{ section.id }}" 
-     class="mdp mdp-weare-footer-1"  
+     class="mdp mdp-weare-footer-1 prosmash-footer"  
      style="margin-top: {{ section.settings.margin_top }}px;{% if section.settings.show_border == true %}border-top: 3px solid #343434;{% endif %}">
   <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
   {% if section.blocks.size > 0 %}
@@ -78,14 +79,14 @@
             <div class="mdp-social-icons">
               {% if block.settings.facebook_link != blank %}
               <a class="" target="_blank" href="{{ block.settings.facebook_link | escape }}" >
-                <i class="fab fa-facebook-f"></i>
+                <img src="{{ 'Facebook.svg' | asset_url }}" alt="Facebook Icon">
                 <span>Facebook</span>
               </a>
               {% endif %}
               {% if block.settings.twitter_link != blank %}
               <a class="" target="_blank" href="{{ block.settings.twitter_link | escape }}" >
-                <i class="fab fa-twitter"></i>
-                <span>Twitter</span>
+                <img src="{{ 'twitter.svg' | asset_url }}" alt="Twitter Icon">
+                <span>X</span>
               </a>
               {% endif %}
               {% if block.settings.pinterest_link != blank %}
@@ -96,7 +97,7 @@
               {% endif %}
               {% if block.settings.instagram_link != blank %}
               <a class="" target="_blank" href="{{ block.settings.instagram_link | escape }}" >
-                <i class="fab fa-instagram"></i>
+                <img src="{{ 'Instagram.svg' | asset_url }}" alt="Instagram Icon">
                 <span>Instagram</span>
               </a>
               {% endif %}
@@ -104,6 +105,12 @@
               <a class="" target="_blank" href="{{ block.settings.youtube_link | escape }}" >
                 {% render 'mdp-weare-icon' with '211' %}
                 <span>YouTube</span>
+              </a>
+              {% endif %}
+              {% if block.settings.linkedin_link != blank %}
+              <a class="" target="_blank" href="{{ block.settings.linkedin_link | escape }}" >
+                <img src="{{ 'LinkedIn.svg' | asset_url }}" alt="LinkedIn">
+                <span>LinkedIn</span>
               </a>
               {% endif %}
             </div>
@@ -316,6 +323,11 @@
             "type": "url",
             "id": "pinterest_link",
             "label": "Pinterest link"
+          },
+          {
+            "type": "url",
+            "id": "linkedin_link",
+            "label": "LinkedIn link"
           }
         ]
       },

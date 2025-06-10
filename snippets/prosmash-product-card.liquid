@@ -1,38 +1,98 @@
-<section class="prosmash-collection-grid">
-  <div class="mdp-container">
-    <div class="filter-section">
-      <div class="custom-container">
-        <div class="col-left">
-            <div class="collection-title">{{ collection.title }} ({{ collection.products_count }})</div>
-        </div>
-        <div class="col-right">
-          <div class="filter-container">
-            <div class="sort">
-              <div class="label-group"><img src="{{ 'sort.svg' | asset_url }}" alt="Sort Icon"><label for="SortBy" class="visually-hidden">Sort by: </label></div>
-              {% if collection.sort_options.size > 1 %}
-                  <form method="get" class="collection-sort-form" id="SortByForm">
-                      <select name="sort_by" id="SortBy" onchange="this.form.submit()">
-                      {% for option in collection.sort_options %}
-                          <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
-                          {{ option.name }}
-                          </option>
-                      {% endfor %}
-                      </select>
-                  </form>
-              {% endif %}
-            </div>
-            
-          </div>
-        </div>
-      </div>
+<div class="collection-grid-item">
+  <!-- Featured Image -->
+  <div class="gallery-container">
+    <div class="main-img">
+      <img class="main-product-image"
+          src="{{ product.media[0].preview_image | image_url: width: 400 }}"
+          alt="{{ product.title }}">
+      {% if product.metafields.custom.limited_edition == true %}
+        <div class="limited-edition">Limited Edition</div>
+      {% endif %}
     </div>
-    <div class="collection-grid">
-      {% for product in collection.products %}
-        {% render 'prosmash-product-card', product: product %}
+    <div class="product-thumbnails">
+      {% for media in product.media limit: 4 %}
+        {% if media.media_type == 'image' %}
+          <div class="thumbnail-container">
+            <img
+              src="{{ media.preview_image | image_url: width: 100 }}"
+              alt="{{ product.title }} thumbnail"
+              class="thumbnail-img"
+              data-full="{{ media.preview_image | image_url: width: 400 }}">
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
-</section>
+
+  <div class="product-details">
+    <div class="prod-title">{{ product.title | truncate: 25 }}</div>
+    <div class="prod-price">{{ product.price | money }}</div>
+
+    {% if product.metafields.custom.short_description != blank %}
+      <div class="short-description">
+        {{ product.metafields.custom.short_description }}
+      </div>
+    {% endif %}
+
+    <div class="infos">
+      {% assign color_option_index = -1 %}
+      {% for option in product.options_with_values %}
+        {% if option.name == 'Color' %}
+          {% assign color_option_index = forloop.index0 %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign color_string = '' %}
+      {% for variant in product.variants %}
+        {% if color_option_index == 0 %}
+          {% assign color_value = variant.option1 %}
+        {% elsif color_option_index == 1 %}
+          {% assign color_value = variant.option2 %}
+        {% elsif color_option_index == 2 %}
+          {% assign color_value = variant.option3 %}
+        {% else %}
+          {% assign color_value = '' %}
+        {% endif %}
+
+        {% unless color_string contains color_value %}
+          {% assign color_string = color_string | append: color_value | append: ',' %}
+        {% endunless %}
+      {% endfor %}
+
+      {% assign color_array = color_string | split: ',' | compact %}
+      {% assign color_count = color_array.size %}
+
+      {% if color_option_index != -1 %}
+        <div class="variant">{{ color_count }} color{% if color_count > 1 %}s{% endif %}</div>
+      {% endif %}
+
+      <div class="stocks">
+        {% assign inventory = product.variants.first.inventory_quantity %}
+        {% if inventory > 0 %}
+          <p>{{ inventory }} in stocks</p>
+        {% else %}
+          <p class="out-of-stock">Out of stock</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="product-buttons">
+      {% if inventory > 0 %}
+        <div class="mdp-add-to-cart mdp-available add-cart-btn"
+          data-product-id="{{ product.variants.first.id }}"
+          data-add-to-cart="Add to cart"
+          data-sold-out="Sold out">
+          Add to cart
+        </div>
+      {% else %}
+        <button class="btn add-cart-btn" disabled>Out of Stock</button>
+      {% endif %}
+
+      <a href="{{ product.url }}" class="btn view-btn">View Product</a>
+    </div>
+  </div>
+</div>
+
 
 <style>
   .filter-section .custom-container {
@@ -288,40 +348,3 @@
 }
 
 </style>
-
-
-<script>
-  $(document).ready(function () {
-    $('.collection-grid-item').each(function () {
-      $(this).find('.thumbnail-container').first().addClass('active');
-    });
-    $('.thumbnail-img').on('click', function () {
-      var newSrc = $(this).data('full');
-
-      // Find this product's container
-      var productContainer = $(this).closest('.collection-grid-item');
-
-      // Update the main image
-      productContainer.find('.main-product-image').attr('src', newSrc);
-
-      // Remove 'active' from all thumbnail-containers in this product
-      productContainer.find('.thumbnail-container').removeClass('active');
-
-      // Add 'active' to the clicked thumbnail's container
-      $(this).closest('.thumbnail-container').addClass('active');
-    });
-  });
-</script>
-
-{% schema %}
-  {
-    "name": "Collection Grid",
-    "settings": [
-
-    ],	
-    "presets": [{
-      "name": "Prosmash Collection Grid",
-      "category": "Prosmash: Collection"
-    }]
-  }
-{% endschema %}

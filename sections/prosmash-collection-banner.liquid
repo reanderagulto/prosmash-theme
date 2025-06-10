@@ -5,8 +5,8 @@
         <!-- Breadcrumbs -->
         <nav class="breadcrumb" aria-label="breadcrumbs">
             <a href="{{ routes.root_url }}">Home</a>
-            <span class="breadcrumb-separator"> > </span>
-            <span>{{ collection.title }}</span>
+            <span class="breadcrumb-separator"> <img src="{{ 'CaretRight.svg' | asset_url }}" alt="Separator"></span>
+            <span style="border-bottom: 2px solid white;font-weight:600;">{{ collection.title }}</span>
         </nav>
 
         <div class="collection-banner-title">
@@ -41,6 +41,9 @@
     padding-bottom: 16px;
     color: white;
     font-family: var(--font-lexend);
+}
+.breadcrumb-separator img {
+    vertical-align: middle;
 }
 .breadcrumb a {
     text-decoration: none;

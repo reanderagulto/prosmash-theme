@@ -395,25 +395,21 @@
 </div>
 
 <style>
-    .bottom-header span.select2-dropdown.collection-dropdown-fullwidth.select2-dropdown--below::after {
+    /* .bottom-header span.select2-dropdown.collection-dropdown-fullwidth.select2-dropdown--below::after {
         content: "";
         display: block;
-        /* width: 50%; */
         width: calc(60% - 24px);
         background-image: url('{{ section.settings.static_image | image_url }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        /* height: 100%; */
         height: calc(100% - 48px);
         position: absolute;
-        /* top: 0; */
         top: 24px;
-        /* right: 0; */
         right: 24px;
         z-index: 1;
         pointer-events: none;
-    }
+    } */
         span.select2-results {
         display: flex;
         justify-content: space-between;
@@ -426,7 +422,7 @@
     }
     .collection-preview-container img {
         width: 100%;
-        height: 100%;
+        height: 258px;
         object-fit: contain;
         object-position: right;
     }

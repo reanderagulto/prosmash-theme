@@ -14,7 +14,8 @@
             <a href="{{ col.url }}">
               {% if col.featured_image %}
                 <div class="img-container">
-                  <img src="{{ col.featured_image | image_url: width: 500 }}" alt="{{ col.title }}">
+                  <img src="{{ block.settings.collection_img | image_url }}" alt="{{ col.title }}">
+                  {% comment %} <img src="{{ col.featured_image | image_url: width: 500 }}" alt="{{ col.title }}"> {% endcomment %}
                 </div>
               {% endif %}
               <div class="item-title">{{ col.title }}</div>
@@ -41,7 +42,12 @@
           "type": "collection",
           "id": "collection",
           "label": "Select Collection"
-        }
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_img",
+          "label": "Collection Image"
+        },
       ]
     }
   ],
