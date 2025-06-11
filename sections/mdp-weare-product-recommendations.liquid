@@ -1,7 +1,8 @@
 {{ "mdp-product-recommendations.css" | asset_url | stylesheet_tag }}
+{{ "prosmash-product-recommendation.css" | asset_url | stylesheet_tag }}
 
 <div id="mdp-weare-product-recommendations"
-     class="mdp-weare-product-recommendations mdp-container mdp-grid"
+     class="mdp-weare-product-recommendations mdp-container mdp-grid prosmash-prod-recommendation"
      data-columns="1"
      data-gap="30"
      data-base-url="{{ routes.product_recommendations_url }}"
@@ -30,7 +31,7 @@
                     {% for product in recommendations.products limit: section.settings.number_of_products %}
                         <div class="swiper-slide mdp-swiper-slide">
                             {% comment %} {% render 'mdp-weare-product-card', product: product %} {% endcomment %}
-                            {% render 'prosmash-product-card', product: product %}
+                            {% render 'prosmash-related-product-card', product: product %}
                         </div>
                     {% endfor %}
                 </div>
@@ -101,9 +102,10 @@
         speed: 500,
         spaceBetween: 30,
         loop: true,
-        autoplay: {
-            delay: 5000
-        },
+        // autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: true
+        // },
         effect: 'slide',
         allowTouchMove: true,
         freeMode: true,
@@ -153,7 +155,7 @@
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Related Products"
+      "default": "You might also like"
     },
     {
       "type": "text",

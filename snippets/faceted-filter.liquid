@@ -1,0 +1,100 @@
+<div class="filter-toggle-container">
+
+  <form method="get" id="CollectionFiltersForm" class="collection-filters">
+
+    <div class="filter-toggle-button">
+      <span>Filter {% if collection.filters.size > 0 %} ({{ collection.filters.size }}){% endif %}</span>
+
+      <div class="filter-form-container" style="display: none;">
+        {%- for filter in collection.filters -%}
+          <div class="filter-group">
+            {% for value in filter.values %}
+                <label class="filter-option">
+                    <input type="checkbox"
+                        name="{{ value.param_name }}"
+                        value="{{ value.value }}"
+                        {% if value.active %}checked{% endif %}
+                        {% if value.count == 0 and value.active == false %}disabled{% endif %}>
+                    {{ value.label }} ({{ value.count }})
+                </label>
+            {% endfor %}
+            
+            </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="sort">
+      <label for="SortBy">Sort by:</label>
+      <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+        {% for option in collection.sort_options %}
+          <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
+            {{ option.name }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+  </form>
+
+</div>
+
+
+<style>
+.filter-toggle-container form.collection-filters {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.filter-section .filter-container .sort {
+    align-items: center;
+}
+.filter-toggle-button {
+    position: relative;
+}
+
+.filter-form-container {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    min-width: 148px;
+    width: 100%;
+    z-index: 5;
+}
+.filter-form-container .filter-group {
+    display: flex;
+    flex-direction: column;
+}
+.filter-form-container .filter-group .filter-option {
+    background: var(--white);
+    padding: 16px;
+}
+</style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const filterToggle = document.querySelector('.filter-toggle-button');
+  const filterFormContainer = document.querySelector('.filter-form-container');
+
+  if (filterToggle && filterFormContainer) {
+    filterToggle.addEventListener('click', function () {
+      filterFormContainer.style.display =
+        filterFormContainer.style.display === 'none' ? 'block' : 'none';
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('CollectionFiltersForm');
+  const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+
+  checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      form.submit();
+    });
+  });
+});
+
+
+</script>

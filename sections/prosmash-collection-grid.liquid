@@ -7,7 +7,14 @@
         </div>
         <div class="col-right">
           <div class="filter-container">
-            <div class="sort">
+                {% render 'faceted-filter' %}
+            {% comment %} <div class="filter">
+              <div class="label-group"><img src="{{ 'FunnelSimple.svg' | asset_url }}" alt="Fiter Icon"><label for="SortBy" class="visually-hidden">Filter: </label></div>
+              {% render 'faceted-filter' %}
+            </div> {% endcomment %}
+
+
+            {% comment %} <div class="sort">
               <div class="label-group"><img src="{{ 'sort.svg' | asset_url }}" alt="Sort Icon"><label for="SortBy" class="visually-hidden">Sort by: </label></div>
               {% if collection.sort_options.size > 1 %}
                   <form method="get" class="collection-sort-form" id="SortByForm">
@@ -20,7 +27,7 @@
                       </select>
                   </form>
               {% endif %}
-            </div>
+            </div> {% endcomment %}
             
           </div>
         </div>
@@ -91,16 +98,25 @@
     align-items: center;
 }
 
+.filter-section .filter-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.filter-section .filter-container .filter {
+    display: flex;
+    align-items: center;
+}
+
 
 
 
 /* PROD GRID */
 .collection-grid {
-    display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
     gap: 40px;
     padding: 0 0 80px;
+    flex-wrap: wrap;
 }
 .main-img {
     /* max-width: 298px;
@@ -130,17 +146,12 @@
     padding: 8px;
 }
 .thumbnail-container {
-    /* background: #F9F9F9;
-    margin: 8px; */
     background: white;
     max-width: 48px;
     height: 48px;
     cursor: pointer;
 }
 .thumbnail-container img {
-    /* width: 100%;
-    height: 100%;
-    object-fit: cover; */
     width: 48px;
     height: 48px;
     object-fit: cover;
@@ -165,6 +176,7 @@
     border: 1px solid var(--white);
     transition: 0.3s;
     background: #F9F9F9;
+    width: calc((100% / 4) - 40px);
 }
 .collection-grid-item:hover {
     border: 1px solid var(--green);
@@ -270,20 +282,53 @@
   background: #607F4C; 
 }
 
+@media (max-width: 1200px) {
+    .collection-grid .collection-grid-item {
+        width: calc((100% / 3) - 40px);
+    } 
+}
 @media (max-width: 1024px) {
-    .collection-banner .collection-banner-title {
-        font-size: 38px;
+    .product-thumbnails {
+        max-width: 100%;
+        width: auto;
+        margin: 0 20px;
+    }
+    .thumbnail-container {
+        max-width: 35px;
+        height: 35px;
+    }
+    .thumbnail-container img {
+        width: 35px;
+        height: 35px;
     }
 }
+
+
 @media (max-width: 767px) {
+    .collection-grid {
+        justify-content: center;
+        align-items: center;
+    }
+   .collection-grid .collection-grid-item {
+        width: calc((100% / 2) - 40px);
+    } 
     .filter-section .custom-container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .collection-banner .collection-banner-title {
-        font-size: 30px;
-        text-align: center;
+}
+@media (max-width: 480px) {
+     .collection-grid .collection-grid-item {
+       width: 100%;
+    } 
+    .main-img {
+        max-height: 100%;
+        height: 100%;
+    }
+    .main-img img {
+        height: 100%;
+        width: 100%;
     }
 }
 

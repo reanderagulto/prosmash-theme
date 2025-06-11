@@ -1,16 +1,13 @@
 {{ "prosmash-global.css" | asset_url | stylesheet_tag }}
 
 <section class="collection-banner" style="background-image: url('{{ section.settings.background_img | image_url: width: 1600 }}')">
-    <div class="custom-container">
-        <!-- Breadcrumbs -->
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-            <a href="{{ routes.root_url }}">Home</a>
-            <span class="breadcrumb-separator"> <img src="{{ 'CaretRight.svg' | asset_url }}" alt="Separator"></span>
-            <span style="border-bottom: 2px solid white;font-weight:600;">{{ collection.title }}</span>
-        </nav>
+    <div class="mdp-container">
+        <div class="mdp-col mdp-row-full">
+            {% render 'prosmash-breadcrumb' %}
 
-        <div class="collection-banner-title">
-            Shop Exclusive<br> sportswear brands
+            <div class="collection-banner-title">
+                Shop Exclusive<br> sportswear brands
+            </div>
         </div>
     </div>
 </section>
@@ -21,6 +18,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 50px 0;
 }
 .collection-banner .custom-container {
     max-width: 1312px;
@@ -37,18 +35,20 @@
     text-transform: uppercase;
     color: var(--white);
 }
-.breadcrumb {
-    padding-bottom: 16px;
-    color: white;
-    font-family: var(--font-lexend);
+
+
+@media (max-width: 1024px) {
+    .collection-banner .collection-banner-title {
+        font-size: 38px;
+    }
 }
-.breadcrumb-separator img {
-    vertical-align: middle;
+@media (max-width: 767px) {
+    .collection-banner .collection-banner-title {
+        font-size: 30px;
+        text-align: left !important;
+    }
 }
-.breadcrumb a {
-    text-decoration: none;
-    color: white;
-}
+
 </style>
 
 

@@ -9,7 +9,7 @@
     <div class="mdp-col mdp-row-full categories-grid">
       {% for block in section.blocks %}
         {% assign col = block.settings.collection %}
-        {% if col != blank %}
+        {% if col != blank %}t
           <div class="category-item">
             <a href="{{ col.url }}">
               {% if col.featured_image %}
