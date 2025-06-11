@@ -90,10 +90,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#ffe8e8",
-        "icon_color": "#343434",
-        "discount_color": "#e9384f",
-        "work_time_color": "#343434"
+        "bg_color": "#42662b",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -142,8 +142,9 @@
         "work_time"
       ],
       "settings": {
-        "use_logo_img": false,
-        "logo_size": "150x70",
+        "use_logo_img": true,
+        "logo": "shopify://shop_images/Prosmash_Horizontal_Logo.png",
+        "logo_size": "250x70",
         "menu": "main-menu",
         "search": true
       }
@@ -182,24 +183,45 @@
         },
         "payment_terms": {
           "type": "payment_terms",
+          "disabled": true,
+          "settings": {}
+        },
+        "swatches_3jrHy6": {
+          "type": "swatches",
+          "settings": {}
+        },
+        "three_col_yEmGPq": {
+          "type": "three-col",
+          "settings": {}
+        },
+        "two_col_YM38Jr": {
+          "type": "two-col",
+          "settings": {}
+        },
+        "delivery_notice_Yx6DPY": {
+          "type": "delivery-notice",
           "settings": {}
         },
         "options": {
           "type": "options",
+          "disabled": true,
           "settings": {
             "variants_group": "separately"
           }
         },
         "buttons": {
           "type": "buttons",
+          "disabled": true,
           "settings": {}
         },
         "availability": {
           "type": "availability",
+          "disabled": true,
           "settings": {}
         },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {}
         }
       },
@@ -209,6 +231,10 @@
         "description",
         "visitors",
         "payment_terms",
+        "swatches_3jrHy6",
+        "three_col_yEmGPq",
+        "two_col_YM38Jr",
+        "delivery_notice_Yx6DPY",
         "options",
         "buttons",
         "availability",
@@ -273,7 +299,8 @@
             "twitter_link": "#",
             "instagram_link": "#",
             "youtobe_link": "",
-            "pinterest_link": "#"
+            "pinterest_link": "#",
+            "linkedin_link": ""
           }
         },
         "subscribe": {
