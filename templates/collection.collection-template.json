@@ -150,103 +150,60 @@
         "static_image": "shopify://shop_images/Img.jpg"
       }
     },
-    "breadcrumbs": {
-      "type": "breadcrumbs",
+    "prosmash_collection_banner_wDMYiA": {
+      "type": "prosmash-collection-banner",
+      "name": "Prosmash Collection Banner",
+      "settings": {
+        "background_img": "shopify://shop_images/7f0b0e89a7b956733ecef9743f10e28b33cc8d41.jpg"
+      }
+    },
+    "prosmash_collection_grid_8Lnfxc": {
+      "type": "prosmash-collection-grid",
+      "name": "Prosmash Collection Grid",
       "settings": {}
     },
-    "call-to-action": {
-      "type": "mdp-weare-call-to-action-shop",
+    "prosmash_hp_cta_section_4fYcAK": {
+      "type": "prosmash-hp-cta-section",
+      "name": "Prosmash HP CTA Section",
       "settings": {
-        "title": "Shop Weare  ..",
-        "bg_color": "",
-        "parallax": false,
-        "parallax_speed": 0.2,
-        "video_url": "",
-        "content": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href=\"#\">laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href=\"#\">Pellentesque lacinia</a>, <a href=\"#\">sapien</a></p>",
-        "button_string": "Get more info",
-        "link": "",
-        "boxed": true,
-        "padding_top": "70",
-        "padding_bottom": "70",
-        "margin_top": "",
-        "margin_bottom": "70"
+        "cta_title": "MAXIMIZE <br> STABILITY",
+        "cta_description": "Take 20% Off / Sale Must-Haves",
+        "cta_bg": "shopify://shop_images/54bf5a2f1cabca59e01634417facb8a1cf8ee46a.jpg"
       }
     },
-    "collections-shop": {
-      "type": "mdp-weare-collections-shop",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "clothing-lingerie",
-            "title": "",
-            "collection_link": ""
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "shoe-accessories",
-            "title": "",
-            "collection_link": ""
-          }
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": {
-            "collection": "watches-jewelry",
-            "title": "",
-            "collection_link": ""
-          }
-        },
-        "collection-4": {
-          "type": "collection",
-          "settings": {
-            "collection": "sports-wear-accessories",
-            "title": "",
-            "collection_link": ""
-          }
-        },
-        "collection-5": {
-          "type": "collection",
-          "settings": {
-            "collection": "gadgets-electronics",
-            "title": "",
-            "collection_link": ""
-          }
-        },
-        "collection-6": {
-          "type": "collection",
-          "settings": {
-            "collection": "home-gifts-healthcare",
-            "title": "",
-            "collection_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3",
-        "collection-4",
-        "collection-5",
-        "collection-6"
-      ],
+    "prosmash_hp_blog_section_pTXiFF": {
+      "type": "prosmash-hp-blog-section",
+      "name": "Prosmash HP Blog Section",
+      "settings": {}
+    },
+    "prosmash_hp_centertext_gVNATA": {
+      "type": "prosmash-hp-centertext",
+      "name": "Prosmash Text Center",
+      "settings": {}
+    },
+    "prosmash_hp_video_L9QhdG": {
+      "type": "prosmash-hp-video",
+      "name": "Prosmash HP Video",
       "settings": {
-        "display_type": "selected",
-        "sort": "alphabetical",
-        "number_of_collections": 3,
-        "col_per_row": 6,
-        "gap": "30",
-        "image_size": "original",
-        "button_string": "Discover more",
-        "variant": "style_1",
-        "margin_top": "0",
-        "margin_bottom": "65"
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "image": "shopify://shop_images/edc905d60fc8485ea97047d559e7ab891b0eb44c_1.png",
+        "image_size": "1000x1000_crop_center",
+        "text_color": "#343434",
+        "video_header": "",
+        "video_view_more": "",
+        "view_more_link": "",
+        "margin_top": "",
+        "margin_bottom": ""
       }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
     },
     "collection-grid": {
       "type": "collection-mdp-weare-1",
+      "disabled": true,
       "settings": {
         "number_of_products": 12,
         "col_per_row": 3,
@@ -260,56 +217,6 @@
         "new_string": "New",
         "select_options_string": "Select options",
         "add_cart_string": "Add to cart"
-      }
-    },
-    "hero": {
-      "type": "mdp-weare-hero-shop",
-      "settings": {
-        "title": "Sale/",
-        "subtitle": "",
-        "use_local_styles": true,
-        "heading_margin_left": "0",
-        "heading_color": "#ffffff",
-        "background_size": "cover",
-        "background_image": "",
-        "header_content": "Up to 50% Off",
-        "content": "<p>Nam non velit et ipsum pulvinar imperdiet. In orci ante, molestie id mattis imperdiet, dapibus ac nisl</p>",
-        "image_size": "2000x500_crop_center",
-        "button_string": "Shop Now",
-        "link": "/products/dress",
-        "inverted": false,
-        "backed": false,
-        "subscribe": false,
-        "variant": "left_text",
-        "padding_top": "140",
-        "padding_bottom": "140",
-        "margin_top": "80",
-        "margin_bottom": "0"
-      }
-    },
-    "collection-row": {
-      "type": "mdp-weare-collection-row-shop",
-      "settings": {
-        "selected_collection": "new-in-all-shop",
-        "use_local_styles": true,
-        "bg_color": "",
-        "color_text": "#343434",
-        "print_price_row": false,
-        "name_collection": "New In/",
-        "button_string": "Shop Now",
-        "number_of_products": 4,
-        "col_per_row": 5,
-        "images_form": "50",
-        "image_size": "198x236_crop_center",
-        "sold_out_string": "Sold out",
-        "sale_string": "Sale",
-        "new_string": "New",
-        "select_options_string": "Select options",
-        "add_cart_string": "Add to cart",
-        "reverse": false,
-        "indents": "0",
-        "margin_top": "80",
-        "margin_bottom": "65"
       }
     },
     "footer-1": {
@@ -340,7 +247,8 @@
             "twitter_link": "#",
             "instagram_link": "#",
             "youtobe_link": "",
-            "pinterest_link": "#"
+            "pinterest_link": "#",
+            "linkedin_link": ""
           }
         },
         "subscribe": {
@@ -369,12 +277,14 @@
   "order": [
     "menu-2",
     "menu-1",
+    "prosmash_collection_banner_wDMYiA",
+    "prosmash_collection_grid_8Lnfxc",
+    "prosmash_hp_cta_section_4fYcAK",
+    "prosmash_hp_blog_section_pTXiFF",
+    "prosmash_hp_centertext_gVNATA",
+    "prosmash_hp_video_L9QhdG",
     "breadcrumbs",
-    "call-to-action",
-    "collections-shop",
     "collection-grid",
-    "hero",
-    "collection-row",
     "footer-1"
   ]
 }
