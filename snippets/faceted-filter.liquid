@@ -3,8 +3,8 @@
   <form method="get" id="CollectionFiltersForm" class="collection-filters">
 
     <div class="filter-toggle-button">
-      <span>Filter {% if collection.filters.size > 0 %} ({{ collection.filters.size }}){% endif %}</span>
-
+      <div class="filter-label"><img src="{{ 'FunnelSimple.svg' | asset_url }}" alt="Filter">
+Filter {% if collection.filters.size > 0 %} ({{ collection.filters.size }}){% endif %}</div>
       <div class="filter-form-container" style="display: none;">
         {%- for filter in collection.filters -%}
           <div class="filter-group">
@@ -18,14 +18,13 @@
                     {{ value.label }} ({{ value.count }})
                 </label>
             {% endfor %}
-            
             </div>
         {%- endfor -%}
       </div>
     </div>
 
     <div class="sort">
-      <label for="SortBy">Sort by:</label>
+      <label for="SortBy"><img src="{{ 'sort.svg' | asset_url }}" alt="Sort">Sort by:</label>
       <select name="sort_by" id="SortBy" onchange="this.form.submit()">
         {% for option in collection.sort_options %}
           <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
@@ -41,6 +40,9 @@
 
 
 <style>
+.filter-section .custom-container {
+    align-items: center;
+}
 .filter-toggle-container form.collection-filters {
     display: flex;
     align-items: center;
@@ -51,8 +53,19 @@
 }
 .filter-toggle-button {
     position: relative;
+    min-width: 150px;
+    cursor: pointer;
 }
-
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sort label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 .filter-form-container {
     position: absolute;
     top: 25px;
@@ -68,6 +81,12 @@
 .filter-form-container .filter-group .filter-option {
     background: var(--white);
     padding: 16px;
+    cursor: pointer;
+}
+@media (max-width: 767px) {
+  .filter-toggle-container form.collection-filters {
+    flex-direction: column;
+  }
 }
 </style>
 
