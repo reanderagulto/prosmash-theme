@@ -44,13 +44,15 @@
         "discounts-1": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Up to 50% off Our Best Bits"
+            "discounts_text": "Up to 50% off Our Best Bits",
+            "discounts_link": ""
           }
         },
         "discounts-2": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Limited Time Only"
+            "discounts_text": "Limited Time Only",
+            "discounts_link": ""
           }
         },
         "discounts-3": {
@@ -88,10 +90,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
+        "bg_color": "#42662b",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -140,7 +142,9 @@
         "work_time"
       ],
       "settings": {
-        "logo_size": "150x70",
+        "use_logo_img": true,
+        "logo": "shopify://shop_images/Logo.png",
+        "logo_size": "250x70",
         "menu": "main-menu",
         "search": true
       }
@@ -154,9 +158,12 @@
       "settings": {
         "title": "Shop Weare <br> ..",
         "bg_color": "",
-        "image": "shopify://shop_images/banner1-shop.jpg",
         "parallax": false,
+        "parallax_speed": 0.2,
+        "video_url": "",
         "content": "<p>Vestibulum erat lorem, viverra sit amet risus sit amet, convallis <a href='#'>laoreet</a> ligula. Pellentesque vulputate condimentum neque, a finibus ipsum dictum non. <a href='#'>Pellentesque lacinia</a>, <a href='#'>sapien</a></p>",
+        "button_string": "Get more info",
+        "link": "",
         "boxed": true,
         "padding_top": "70",
         "padding_bottom": "70",
@@ -170,37 +177,49 @@
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "clothing-lingerie"
+            "collection": "clothing-lingerie",
+            "title": "",
+            "collection_link": ""
           }
         },
         "collection-2": {
           "type": "collection",
           "settings": {
-            "collection": "shoe-accessories"
+            "collection": "shoe-accessories",
+            "title": "",
+            "collection_link": ""
           }
         },
         "collection-3": {
           "type": "collection",
           "settings": {
-            "collection": "watches-jewelry"
+            "collection": "watches-jewelry",
+            "title": "",
+            "collection_link": ""
           }
         },
         "collection-4": {
           "type": "collection",
           "settings": {
-            "collection": "sports-wear-accessories"
+            "collection": "sports-wear-accessories",
+            "title": "",
+            "collection_link": ""
           }
         },
         "collection-5": {
           "type": "collection",
           "settings": {
-            "collection": "gadgets-electronics"
+            "collection": "gadgets-electronics",
+            "title": "",
+            "collection_link": ""
           }
         },
         "collection-6": {
           "type": "collection",
           "settings": {
-            "collection": "home-gifts-healthcare"
+            "collection": "home-gifts-healthcare",
+            "title": "",
+            "collection_link": ""
           }
         }
       },
@@ -219,6 +238,7 @@
         "col_per_row": 6,
         "gap": "30",
         "image_size": "original",
+        "button_string": "Discover more",
         "variant": "style_1",
         "margin_top": "0",
         "margin_bottom": "65"
@@ -229,7 +249,16 @@
       "settings": {
         "number_of_products": 12,
         "col_per_row": 3,
-        "images_form": "100"
+        "images_form": "100",
+        "sort_by_string": "Sort by",
+        "filter_by_string": "Filter by",
+        "all_products_string": "All products",
+        "products_string": "Products",
+        "sold_out_string": "Sold out",
+        "sale_string": "Sale",
+        "new_string": "New",
+        "select_options_string": "Select options",
+        "add_cart_string": "Add to cart"
       }
     },
     "hero": {
@@ -237,9 +266,9 @@
       "settings": {
         "title": "Sale/",
         "subtitle": "",
+        "use_local_styles": true,
         "heading_margin_left": "0",
         "heading_color": "#ffffff",
-        "image": "shopify://shop_images/banner2-shop.jpg",
         "background_size": "cover",
         "background_image": "",
         "header_content": "Up to 50% Off",
@@ -247,6 +276,9 @@
         "image_size": "2000x500_crop_center",
         "button_string": "Shop Now",
         "link": "/products/dress",
+        "inverted": false,
+        "backed": false,
+        "subscribe": false,
         "variant": "left_text",
         "padding_top": "140",
         "padding_bottom": "140",
@@ -258,6 +290,7 @@
       "type": "mdp-weare-collection-row-shop",
       "settings": {
         "selected_collection": "new-in-all-shop",
+        "use_local_styles": true,
         "bg_color": "",
         "color_text": "#343434",
         "print_price_row": false,
@@ -267,6 +300,11 @@
         "col_per_row": 5,
         "images_form": "50",
         "image_size": "198x236_crop_center",
+        "sold_out_string": "Sold out",
+        "sale_string": "Sale",
+        "new_string": "New",
+        "select_options_string": "Select options",
+        "add_cart_string": "Add to cart",
         "reverse": false,
         "indents": "0",
         "margin_top": "80",
@@ -279,7 +317,10 @@
         "about-us": {
           "type": "text",
           "settings": {
+            "height_logo": 50,
             "title": "About Us",
+            "email": "",
+            "phone": "",
             "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
           }
         },
@@ -293,17 +334,21 @@
         "follow-us": {
           "type": "social_medias",
           "settings": {
+            "title": "Follow us",
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "pinterest_link": "#"
+            "youtobe_link": "",
+            "pinterest_link": "#",
+            "linkedin_link": ""
           }
         },
         "subscribe": {
           "type": "newsletter",
           "settings": {
             "title": "Subscribe to our newsletter",
-            "subtitle": "A short sentence describing what someone will receive by subscribing"
+            "subtitle": "A short sentence describing what someone will receive by subscribing",
+            "button_text_color": "#ffffff"
           }
         }
       },
