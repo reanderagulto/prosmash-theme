@@ -149,12 +149,60 @@
         "search": true
       }
     },
+    "prosmash_collection_banner_Uy7q8U": {
+      "type": "prosmash-collection-banner",
+      "name": "Prosmash Collection Banner",
+      "settings": {
+        "background_img": "shopify://shop_images/7f0b0e89a7b956733ecef9743f10e28b33cc8d41.jpg"
+      }
+    },
+    "prosmash_collection_grid_KtHQd9": {
+      "type": "prosmash-collection-grid",
+      "name": "Prosmash Collection Grid",
+      "settings": {}
+    },
+    "prosmash_hp_cta_section_kmATWJ": {
+      "type": "prosmash-hp-cta-section",
+      "name": "Prosmash HP CTA Section",
+      "settings": {
+        "cta_title": "MAXIMIZE <br> STABILITY",
+        "cta_description": "Take <span>20% Off</span> / Sale Must-Haves",
+        "cta_bg": "shopify://shop_images/54bf5a2f1cabca59e01634417facb8a1cf8ee46a.jpg"
+      }
+    },
+    "prosmash_hp_blog_section_XmAWbb": {
+      "type": "prosmash-hp-blog-section",
+      "name": "Prosmash HP Blog Section",
+      "settings": {}
+    },
+    "prosmash_hp_centertext_L7FNJr": {
+      "type": "prosmash-hp-centertext",
+      "name": "Prosmash Text Center",
+      "settings": {}
+    },
+    "prosmash_hp_video_LnhYwq": {
+      "type": "prosmash-hp-video",
+      "name": "Prosmash HP Video",
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "image": "shopify://shop_images/edc905d60fc8485ea97047d559e7ab891b0eb44c_1.png",
+        "image_size": "1000x1000_crop_center",
+        "text_color": "#343434",
+        "video_header": "",
+        "video_view_more": "",
+        "view_more_link": "",
+        "margin_top": "",
+        "margin_bottom": ""
+      }
+    },
     "breadcrumbs": {
       "type": "breadcrumbs",
+      "disabled": true,
       "settings": {}
     },
     "call-to-action": {
       "type": "mdp-weare-call-to-action-shop",
+      "disabled": true,
       "settings": {
         "title": "Shop Weare <br> ..",
         "bg_color": "",
@@ -231,6 +279,7 @@
         "collection-5",
         "collection-6"
       ],
+      "disabled": true,
       "settings": {
         "display_type": "selected",
         "sort": "alphabetical",
@@ -246,6 +295,7 @@
     },
     "collection-grid": {
       "type": "collection-mdp-weare-1",
+      "disabled": true,
       "settings": {
         "number_of_products": 12,
         "col_per_row": 3,
@@ -263,6 +313,7 @@
     },
     "hero": {
       "type": "mdp-weare-hero-shop",
+      "disabled": true,
       "settings": {
         "title": "Sale/",
         "subtitle": "",
@@ -288,6 +339,7 @@
     },
     "collection-row": {
       "type": "mdp-weare-collection-row-shop",
+      "disabled": true,
       "settings": {
         "selected_collection": "new-in-all-shop",
         "use_local_styles": true,
@@ -369,6 +421,12 @@
   "order": [
     "menu-2",
     "menu-1",
+    "prosmash_collection_banner_Uy7q8U",
+    "prosmash_collection_grid_KtHQd9",
+    "prosmash_hp_cta_section_kmATWJ",
+    "prosmash_hp_blog_section_XmAWbb",
+    "prosmash_hp_centertext_L7FNJr",
+    "prosmash_hp_video_LnhYwq",
     "breadcrumbs",
     "call-to-action",
     "collections-shop",
