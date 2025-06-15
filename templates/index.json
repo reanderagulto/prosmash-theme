@@ -162,28 +162,24 @@
         "slide_46CWJe": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_2.jpg",
             "slide_class": ""
           }
         },
         "slide_knNwrr": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_1.jpg",
             "slide_class": ""
           }
         },
         "slide_C6diDj": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_5.jpg",
             "slide_class": ""
           }
         },
         "slide_UWHice": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_3.jpg",
             "slide_class": ""
           }
         }
@@ -280,7 +276,7 @@
           "type": "collection",
           "settings": {
             "collection": "equipment",
-            "collection_img": "shopify://shop_images/Net-compressed.jpg"
+            "collection_img": "shopify://shop_images/equipment-a.jpg"
           }
         }
       },
