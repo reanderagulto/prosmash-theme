@@ -1,0 +1,21 @@
+ $(document).ready(function () {
+    $('.collection-grid-item').each(function () {
+      $(this).find('.thumbnail-container').first().addClass('active');
+    });
+    $('.thumbnail-img').on('click', function () {
+        console.log('clicked');
+      var newSrc = $(this).data('full');
+
+      // Find this product's container
+      var productContainer = $(this).closest('.collection-grid-item');
+
+      // Update the main image
+      productContainer.find('.main-product-image').attr('src', newSrc);
+
+      // Remove 'active' from all thumbnail-containers in this product
+      productContainer.find('.thumbnail-container').removeClass('active');
+
+      // Add 'active' to the clicked thumbnail's container
+      $(this).closest('.thumbnail-container').addClass('active');
+    });
+  });

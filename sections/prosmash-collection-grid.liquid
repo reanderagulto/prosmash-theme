@@ -22,35 +22,77 @@
 
 <style>
 
+.filter-section .custom-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+  }
+  .filter-section .collection-title {
+      font-family: var(--font-lexend);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 130%;
+      color: var(--black);
+  }
 
+  .filter-section .custom-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+.filter-section .collection-title {
+    font-family: var(--font-lexend);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 130%;
+    color: var(--black);
+}
+
+.filter-section .filter-container {
+    font-family: var(--font-lexend);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--black);
+    padding: 16px;
+}
+.filter-section .filter-container select {
+    font-family: var(--font-lexend);
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: var(--white);
+    padding: 8px;
+    background: white;
+}
+.filter-section .filter-container select:hover {
+    background-color: #D9E0D5;
+}
+.filter-section .filter-container .sort {
+    display: flex;
+    gap: 16px;
+}
+.filter-section .filter-container .sort .label-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.collection-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 
 
 </style>
 
 
-<script>
-  $(document).ready(function () {
-    $('.collection-grid-item').each(function () {
-      $(this).find('.thumbnail-container').first().addClass('active');
-    });
-    $('.thumbnail-img').on('click', function () {
-      var newSrc = $(this).data('full');
 
-      // Find this product's container
-      var productContainer = $(this).closest('.collection-grid-item');
-
-      // Update the main image
-      productContainer.find('.main-product-image').attr('src', newSrc);
-
-      // Remove 'active' from all thumbnail-containers in this product
-      productContainer.find('.thumbnail-container').removeClass('active');
-
-      // Add 'active' to the clicked thumbnail's container
-      $(this).closest('.thumbnail-container').addClass('active');
-    });
-  });
-</script>
 
 {% schema %}
   {

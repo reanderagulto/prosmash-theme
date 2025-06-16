@@ -66,6 +66,7 @@
   {{ shop.metafields.loox["global_html_head"] }}
   {{ "prosmash-global.css" | asset_url | stylesheet_tag }}
   {{ 'prosmash-hp-style.css' | asset_url | stylesheet_tag }}
+  {{ 'prosmash-product-card.css' | asset_url | stylesheet_tag }}
 </head>
 
 <body class="template-{{ request.page_type | handle }}">
@@ -81,5 +82,6 @@
 	{{ shop.metafields.loox["global_html_body"] }}
 
   <script src="{{ 'select2.min.js' | asset_url }}"></script>
+  <script src="{{ 'prosmash-product-card.js' | asset_url }}"></script>
 </body>
 </html>

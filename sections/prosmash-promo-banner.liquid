@@ -1,0 +1,95 @@
+
+
+<section class="promo-banner">
+    <div class="mdp-container" style="
+        background: linear-gradient(90deg, #000 47.27%, rgba(0, 0, 0, 0.00) 70.78%, rgba(0, 0, 0, 0.00) 100%), url({{ section.settings.banner_bg | image_url }}) lightgray 50% / cover no-repeat;
+        background-size: cover; 
+        background-position: center;
+    ">
+        <div class="heading-container">
+            <div class="main-heading">Get Coupon SALE WEEK 50%</div>
+            <div class="sub-heading">Train Hard. Pay Half. Get a 1 week discount from our selected items.</div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+.promo-banner {
+    display: flex;
+    padding: 80px 64px 100px 64px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}
+.promo-banner .mdp-container {
+    max-width: 1312px;
+    width: 100%;
+    display: flex;
+    padding: 56px !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    background: black;
+}
+.promo-banner .heading-container {
+    display: flex;
+    max-width: 662px;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.promo-banner .heading-container .main-heading {
+    color: var(--Primary-White, #FFF);
+    font-family: Lexend;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.promo-banner .heading-container .sub-heading {
+    color: var(--Primary-White, #FFF);
+    font-family: "Red Hat Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+}
+@media (max-width: 767px) {
+  
+  .promo-banner {
+    padding: 0px 15px 60px;
+  }
+  .promo-banner .mdp-container {
+    padding: 25px !important;
+  }
+  .promo-banner .heading-container .main-heading,
+  .promo-banner .heading-container .sub-heading {
+    text-align: center;
+  }
+  
+}
+</style>
+
+{% schema %}
+{
+  "name": "Promo Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_bg",
+      "label": "Background Image"
+    }
+    
+  ],
+  "presets": [
+    {
+      "name": "Promo Banner",
+      "category": "Prosmash: Contact Us"
+    }
+  ]
+}
+{% endschema %}
