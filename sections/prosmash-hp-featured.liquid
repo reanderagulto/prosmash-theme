@@ -1,16 +1,22 @@
-{{ "prosmash-hp-featured.css" | asset_url | stylesheet_tag }}
-{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
-
 <section class="featured">
   <div class="mdp-container">
-    <h3>FEATURED PRODUCTS</h3>
-
+    <div class="heading-container">
+      <h3>FEATURED PRODUCTS</h3>
+    </div>
     <div class="featured-products">
       {% for product in collections['featured'].products %}
           <div class="featured-card">
             <a href="{{ product.url }}">
               <div class="card-img">
-                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+                  <div class="canvas" style="
+                      background-image: url('{{ product.featured_image | image_url: width: 304 }}');
+                      background-color: #F0F0F0;
+                      background-size: cover;
+                      background-position: center;
+                      width: 304px;
+                      height: 320px;">
+                  </div>
+                {% comment %} <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}"> {% endcomment %}
               </div>
               <div class="card-content">
                 <div class="card-title">{{ product.title }}</div>
@@ -19,10 +25,10 @@
             </a>
           </div>
         {% endfor %}
-    </div>
 
-    <div class="cta-btn">
-      <a href="#">SHOP NOW</a>
+        <div class="cta-btn">
+          <a href="#">SHOP NOW</a>
+        </div>
     </div>
   </div>
 </section>

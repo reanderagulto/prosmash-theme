@@ -9,7 +9,14 @@
         <div class="blog-item">
           <a href="{{ article.url }}">
             <div class="card-img">
-              <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}">
+              <div class="canvas" style="
+                  background-image: url('{{ article.image | image_url: width: 416 }}');
+                  background-color: #F0F0F0;
+                  background-size: cover;
+                  background-position: center;
+                  ">
+              </div>
+              {% comment %} <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}"> {% endcomment %}
             </div>
             <div class="card-content">
               <div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>

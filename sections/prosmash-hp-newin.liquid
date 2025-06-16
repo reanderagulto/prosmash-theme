@@ -1,14 +1,13 @@
-{{ "prosmash-hp-newin.css" | asset_url | stylesheet_tag }}
-{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
-
-
 <section class="new-products">
   <div class="mdp-container">
     <div class="col-left">
-      <h2>New In</h2>
-      <div class="cta-btn">
-        <a href="#">SHOP NOW</a>
+      <div class="heading-container">
+        <h2>New In</h2>
+        <div class="cta-btn">
+          <a href="#">SHOP NOW</a>
+        </div>
       </div>
+      
     </div>
 
     <div class="col-right">
@@ -17,7 +16,18 @@
           <div class="product-card">
             <a href="{{ product.url }}">
               <div class="prod-img">
-                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+                <div class="img-container">
+                  <div class="canvas" style="
+                      background-image: url('{{ product.featured_image | image_url: width: 246 }}');
+                      background-color: #F0F0F0;
+                      background-size: cover;
+                      background-position: center;
+                      width: 246px;
+                      height: 304px;">
+                  </div>
+
+                </div>
+                {% comment %} <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}"> {% endcomment %}
               </div>
               <div class="prod-details">
                 <div class="prod-title">{{ product.title |  truncate: 25 }}</div>
