@@ -1,6 +1,6 @@
-{{ "prosmash-hp-cta-section.css" | asset_url | stylesheet_tag }}
 {{ "prosmash-global.css" | asset_url | stylesheet_tag }}
 
+{% assign cta_bg = section.settings.cta_bg | default: 'assets/default-cta-img.jpg' %}
 
 <section class="cta-section" style="background: linear-gradient(85deg, rgba(255, 255, 255, 0.80) 37.89%, rgba(255, 255, 255, 0.00) 56.25%, rgba(255, 255, 255, 0.00) 100%), url('{{ section.settings.cta_bg | image_url }}') lightgray 50% / cover no-repeat;">
   <div class="mdp-container">

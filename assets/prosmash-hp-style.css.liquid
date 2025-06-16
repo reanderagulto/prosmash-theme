@@ -29,6 +29,7 @@
     padding: 0;
     margin: 0;
     color: white;
+    transition: 0.3s;
 }
 .hp-banner .cta-btn {
     margin-top: 40px;
@@ -40,9 +41,10 @@
     color: var(--black);
     text-decoration: none;
     font-size: 16px;
-    font-family: 'Lexend';
+    font-family: var(--font-lexend);
     line-height: 100%;
     font-weight: 700;
+    transition: 0.3s;
 }
 .hp-banner .bg-slider {
     position: absolute;
@@ -186,8 +188,11 @@ ul.slick-dots li.slick-active {
     display: flex;
     padding: 60px 64px;
     align-items: center;
-    gap: 76px;
+    /* gap: 76px; */
+    gap: 40px;
     align-self: stretch;
+    max-width: 1312px;
+    width: 100%;
 }
 .new-products .mdp-container .col-left .heading-container {
     display: flex;
