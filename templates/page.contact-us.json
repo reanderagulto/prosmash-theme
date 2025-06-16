@@ -44,13 +44,15 @@
         "discounts-1": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Up to 50% off Our Best Bits"
+            "discounts_text": "Up to 50% off Our Best Bits",
+            "discounts_link": ""
           }
         },
         "discounts-2": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Limited Time Only"
+            "discounts_text": "Limited Time Only",
+            "discounts_link": ""
           }
         },
         "discounts-3": {
@@ -88,10 +90,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
+        "bg_color": "#42662b",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -140,7 +142,9 @@
         "work_time"
       ],
       "settings": {
-        "logo_size": "150x70",
+        "use_logo_img": true,
+        "logo": "shopify://shop_images/Prosmash_Horizontal_Logo.png",
+        "logo_size": "250x70",
         "menu": "main-menu",
         "search": true
       }
@@ -192,9 +196,10 @@
       "settings": {
         "title": "Contacts Us <br>..",
         "subtitle": "",
-        "image": "shopify://shop_images/contact-promo-1.png",
         "content": "<p>For <strong>PRESS & ADVERTISING</strong>, please contact <a href='mailto:infopress@weare.com'>infopress@weare.com</a></p>",
         "image_size": "535x452_crop_center",
+        "button_string": "Get more info",
+        "link": "",
         "bg_color": "",
         "variant": "right_text",
         "padding_top": "",
@@ -360,9 +365,10 @@
       "settings": {
         "title_promotwo": "Store Locations <br>..",
         "subtitle_promotwo": "",
-        "image_promotwo": "shopify://shop_images/contact-promo-2.png",
         "content_promotwo": "",
         "image_size_promotwo": "600x600_crop_center",
+        "button_string_promotwo": "Get more info",
+        "link_promotwo": "",
         "bg_color_promotwo": "",
         "variant_promotwo": "left_text",
         "padding_top_promotwo": "0",
@@ -376,14 +382,22 @@
       "settings": {
         "title": "",
         "subtitle": "",
+        "use_local_styles": true,
         "heading_margin_left": "0",
         "text_transform": "none",
         "heading_color": "",
-        "image": "shopify://shop_images/new-contact-page-hero-img-big.jpg",
-        "mobile_image": "shopify://shop_images/mob-_ontact-hero.jpg",
+        "button_text_color": "#ffffff",
+        "heading_text_size": "32",
         "background_size": "cover",
-        "background_image": "#FFFFFF",
+        "background_image": "#ffffff",
+        "content": "",
+        "margin_left": "",
         "image_size": "2450x450",
+        "button_string": "Start shopping",
+        "link": "",
+        "backed": false,
+        "subscribe": false,
+        "variant": "left_text",
         "padding_top": "225",
         "padding_bottom": "225",
         "margin_top": "0",
@@ -396,17 +410,17 @@
         "item-1": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/contact-promo-3-1.png",
             "title": "Heading one",
-            "content": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+            "content": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "link": ""
           }
         },
         "item-2": {
           "type": "gallery_item",
           "settings": {
-            "image": "shopify://shop_images/contact-promo-3-2.png",
             "title": "Heading two",
-            "content": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>"
+            "content": "<p>Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "link": ""
           }
         }
       },
@@ -430,12 +444,17 @@
       "type": "mdp-weare-hero-2-1",
       "settings": {
         "title_herotwo": "Get Coupon SALE WEEK 64%",
+        "title_link": "",
         "heading_margin_left_herotwo": "0",
+        "use_local_styles": true,
         "heading_color_herotwo": "#343434",
         "text_color_herotwo": "#343434",
-        "background_image_herotwo": "#FFE8E8",
+        "background_size_herotwo": "auto",
+        "background_image_herotwo": "#ffe8e8",
         "content_herotwo": "<p>Duis posuere interdum eros, eu tincidunt libero tempus tempor</p>",
         "image_size_herotwo": "2000x500_crop_center",
+        "button_string_herotwo": "Start shopping",
+        "link_herotwo": "",
         "boxed": true,
         "inverted_herotwo": false,
         "backed_herotwo": false,
@@ -480,6 +499,7 @@
       "settings": {
         "col_per_row": 3,
         "gap": "30",
+        "use_local_styles_list": true,
         "color_content": "#343434",
         "background": "#ffffff",
         "margin_top": "0",
@@ -494,7 +514,10 @@
         "about-us": {
           "type": "text",
           "settings": {
+            "height_logo": 50,
             "title": "About Us",
+            "email": "",
+            "phone": "",
             "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
           }
         },
@@ -508,17 +531,21 @@
         "follow-us": {
           "type": "social_medias",
           "settings": {
+            "title": "Follow us",
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "pinterest_link": "#"
+            "youtobe_link": "",
+            "pinterest_link": "#",
+            "linkedin_link": ""
           }
         },
         "subscribe": {
           "type": "newsletter",
           "settings": {
             "title": "Subscribe to our newsletter",
-            "subtitle": "A short sentence describing what someone will receive by subscribing"
+            "subtitle": "A short sentence describing what someone will receive by subscribing",
+            "button_text_color": "#ffffff"
           }
         }
       },
