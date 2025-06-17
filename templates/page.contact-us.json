@@ -149,8 +149,94 @@
         "search": true
       }
     },
+    "prosmash_contact_us_banner_hjBU9a": {
+      "type": "prosmash-contact-us-banner",
+      "name": "Image with Get In Touch",
+      "settings": {
+        "contact_image": "shopify://shop_images/bf346890821f47ac242a73d0bc5dcc0193b48d47.jpg"
+      }
+    },
+    "prosmash_promo_banner_9UYVb4": {
+      "type": "prosmash-promo-banner",
+      "name": "Promo Banner",
+      "settings": {
+        "banner_bg": "shopify://shop_images/c31bcf66b0eb37852fce5649ea2e797a3c946fce.jpg"
+      }
+    },
+    "prosmash_hot_products_WLVVVr": {
+      "type": "prosmash-hot-products",
+      "blocks": {
+        "product_yenzPU": {
+          "type": "product",
+          "settings": {
+            "product": "extreme-motion-paula-josemaria-2024"
+          }
+        },
+        "product_cY4xWA": {
+          "type": "product",
+          "settings": {
+            "product": "speed-motion-ari-sanchez-2024"
+          }
+        },
+        "product_PGAnhy": {
+          "type": "product",
+          "settings": {
+            "product": "speed-pro-2025"
+          }
+        },
+        "product_qFEaRa": {
+          "type": "product",
+          "settings": {
+            "product": "extreme-one-2023"
+          }
+        }
+      },
+      "block_order": [
+        "product_yenzPU",
+        "product_cY4xWA",
+        "product_PGAnhy",
+        "product_qFEaRa"
+      ],
+      "name": "Hot Products",
+      "settings": {}
+    },
+    "prosmash_hp_cta_section_fP4dV8": {
+      "type": "prosmash-hp-cta-section",
+      "name": "Prosmash HP CTA Section",
+      "settings": {
+        "cta_title": "MAXIMIZE <br> STABILITY",
+        "cta_description": "Take <span>20% Off</span> / Sale Must-Haves",
+        "cta_bg": "shopify://shop_images/54bf5a2f1cabca59e01634417facb8a1cf8ee46a.jpg"
+      }
+    },
+    "prosmash_hp_blog_section_J7ntde": {
+      "type": "prosmash-hp-blog-section",
+      "name": "Prosmash HP Blog Section",
+      "settings": {}
+    },
+    "prosmash_hp_centertext_Pma4Pk": {
+      "type": "prosmash-hp-centertext",
+      "name": "Prosmash Text Center",
+      "settings": {}
+    },
+    "prosmash_hp_video_ewtznE": {
+      "type": "prosmash-hp-video",
+      "name": "Prosmash HP Video",
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "image": "shopify://shop_images/video-thumbnail.jpg",
+        "image_size": "1000x1000_crop_center",
+        "text_color": "#343434",
+        "video_header": "",
+        "video_view_more": "",
+        "view_more_link": "",
+        "margin_top": "",
+        "margin_bottom": ""
+      }
+    },
     "breadcrumbs": {
       "type": "breadcrumbs",
+      "disabled": true,
       "settings": {}
     },
     "promo-top": {
@@ -193,6 +279,7 @@
         "item-3",
         "item-4"
       ],
+      "disabled": true,
       "settings": {
         "title": "Contacts Us <br>..",
         "subtitle": "",
@@ -362,6 +449,7 @@
         "item-17",
         "item-18"
       ],
+      "disabled": true,
       "settings": {
         "title_promotwo": "Store Locations <br>..",
         "subtitle_promotwo": "",
@@ -379,6 +467,7 @@
     },
     "hero-img": {
       "type": "mdp-weare-hero-blog",
+      "disabled": true,
       "settings": {
         "title": "",
         "subtitle": "",
@@ -428,6 +517,7 @@
         "item-1",
         "item-2"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "subtitle": "",
@@ -442,6 +532,7 @@
     },
     "hero": {
       "type": "mdp-weare-hero-2-1",
+      "disabled": true,
       "settings": {
         "title_herotwo": "Get Coupon SALE WEEK 64%",
         "title_link": "",
@@ -496,6 +587,7 @@
         "item-2",
         "item-3"
       ],
+      "disabled": true,
       "settings": {
         "col_per_row": 3,
         "gap": "30",
@@ -566,6 +658,13 @@
   "order": [
     "menu-2",
     "menu-1",
+    "prosmash_contact_us_banner_hjBU9a",
+    "prosmash_promo_banner_9UYVb4",
+    "prosmash_hot_products_WLVVVr",
+    "prosmash_hp_cta_section_fP4dV8",
+    "prosmash_hp_blog_section_J7ntde",
+    "prosmash_hp_centertext_Pma4Pk",
+    "prosmash_hp_video_ewtznE",
     "breadcrumbs",
     "promo-top",
     "promo-contact",
