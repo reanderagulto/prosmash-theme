@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "favicon": "shopify://shop_images/favicon_weare.png",
+    "favicon": "shopify://shop_images/prosmash-favicon.png",
     "weare_logo_font_size": 24,
     "weare_logo_letter_spacing": 0.2,
     "weare_logo_transform": "lowercase",
@@ -479,13 +479,6 @@
         }
       }
     },
-    "content_for_index": [],
-    "blocks": {
-      "6097499278999377719": {
-        "type": "shopify://apps/globo-mega-menu/blocks/app-embed/7a00835e-fe40-45a5-a615-2eb4ab697b58",
-        "disabled": false,
-        "settings": {}
-      }
-    }
+    "content_for_index": []
   }
 }
