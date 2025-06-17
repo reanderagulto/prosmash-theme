@@ -1,8 +1,30 @@
-<nav class="breadcrumb" aria-label="breadcrumbs">
-    <a href="{{ routes.root_url }}">Home</a>
-    <span class="breadcrumb-separator"> <img src="{{ 'CaretRight.svg' | asset_url }}" alt="Separator"></span>
-    <span style="border-bottom: 2px solid white;font-weight:600;">{{ collection.title }}</span>
-</nav>
+
+
+{%- render 'prosmash-breadcrumb' -%}
+
+<style>
+  .breadcrumb-product {
+    padding-top: 45px;
+    padding-bottom: 40px;
+}
+nav.breadcrumb a {
+    color: var(--black);
+    font-family: var(--font-lexend);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+nav.breadcrumb span:last-child {
+    color: var(--black);
+    font-family: var(--font-lexend);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+    border-bottom: 2px solid black !important;
+}
+</style>
 
 {% schema %}
   {

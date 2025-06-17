@@ -12,10 +12,12 @@
         </div>
       </div>
     </div>
-    <div class="collection-grid">
-      {% for product in collection.products %}
-        {% render 'prosmash-product-card', product: product %}
-      {% endfor %}
+    <div id="CollectionProductGrid">
+      <div class="collection-grid">
+        {% for product in collection.products %}
+          {% render 'prosmash-product-card', product: product %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
@@ -91,6 +93,35 @@
 
 </style>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('#CollectionFiltersForm');
+  const productGrid = document.querySelector('#CollectionProductGrid');
+
+  if (!form) return;
+
+  form.addEventListener('change', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const searchParams = new URLSearchParams(formData).toString();
+
+    // The magic: reload this section via Section Rendering API
+    fetch(`${window.location.pathname}?section_id=prosmash-collection-grid&${searchParams}`)
+      .then(response => response.text())
+      .then(responseText => {
+        const parser = new DOMParser();
+        const html = parser.parseFromString(responseText, 'text/html');
+        const newGrid = html.querySelector('#CollectionProductGrid');
+        if (newGrid) {
+          productGrid.innerHTML = newGrid.innerHTML;
+          window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}`);
+        }
+      });
+  });
+});
+
+</script>
 
 
 

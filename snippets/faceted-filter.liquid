@@ -25,7 +25,7 @@ Filter {% if collection.filters.size > 0 %} ({{ collection.filters.size }}){% en
 
     <div class="sort">
       <label for="SortBy"><img src="{{ 'sort.svg' | asset_url }}" alt="Sort">Sort by:</label>
-      <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+      <select name="sort_by" id="SortBy">
         {% for option in collection.sort_options %}
           <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
             {{ option.name }}
@@ -104,16 +104,16 @@ Filter {% if collection.filters.size > 0 %} ({{ collection.filters.size }}){% en
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('CollectionFiltersForm');
-  const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const form = document.getElementById('CollectionFiltersForm');
+//   const checkboxes = form.querySelectorAll('input[type="checkbox"]');
 
-  checkboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('change', function() {
-      form.submit();
-    });
-  });
-});
+//   checkboxes.forEach(function(checkbox) {
+//     checkbox.addEventListener('change', function() {
+//       form.submit();
+//     });
+//   });
+// });
 
 
 </script>

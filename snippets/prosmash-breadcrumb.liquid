@@ -1,8 +1,72 @@
-<!-- Breadcrumbs -->
-<nav class="breadcrumb" aria-label="breadcrumbs">
-    <a href="{{ routes.root_url }}">Home</a>
-    <span class="breadcrumb-separator"> <img src="{{ 'CaretRight.svg' | asset_url }}" alt="Separator"></span>
-    <span style="border-bottom: 2px solid white;font-weight:600;">{{ collection.title }}</span>
+<nav class="breadcrumb{% if template.name contains 'product' %} breadcrumb-product{% endif %}" aria-label="breadcrumbs">
+
+  {%- comment -%} Determine separator per template {%- endcomment -%}
+  {%- if template.name contains 'product' -%}
+    {%- assign breadcrumb_separator = 'CaretRight-black.svg' | asset_url -%}
+  {%- else -%}
+    {%- assign breadcrumb_separator = 'CaretRight.svg' | asset_url -%}
+  {%- endif -%}
+
+  <a href="{{ routes.root_url }}">Home</a>
+
+  {%- if template.name contains 'collection' -%}
+    <span class="breadcrumb-separator">
+      <img src="{{ breadcrumb_separator }}" alt="Separator">
+    </span>
+    <span style="border-bottom: 2px solid white; font-weight:600;">
+      {{ collection.title }}
+    </span>
+
+  {%- elsif template.name contains 'product' -%}
+    {%- assign breadcrumb_collection = collection -%}
+    {%- if breadcrumb_collection == blank and product.collections.size > 0 -%}
+      {%- assign breadcrumb_collection = product.collections.first -%}
+    {%- endif -%}
+
+    {%- if breadcrumb_collection -%}
+      <span class="breadcrumb-separator">
+        <img src="{{ breadcrumb_separator }}" alt="Separator">
+      </span>
+      <a href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
+    {%- endif -%}
+
+    <span class="breadcrumb-separator" style="color: white">
+      <img src="{{ breadcrumb_separator }}" alt="Separator">
+    </span>
+    <span style="color: white;border-bottom: 2px solid black; font-weight:600;">
+      {{ product.title }}
+    </span>
+
+  {%- elsif template.name contains 'blog' -%}
+    <span class="breadcrumb-separator">
+      <img src="{{ breadcrumb_separator }}" alt="Separator">
+    </span>
+    <span style="border-bottom: 2px solid white; font-weight:600;">
+      {{ blog.title }}
+    </span>
+
+  {%- elsif template.name contains 'article' -%}
+    <span class="breadcrumb-separator">
+      <img src="{{ breadcrumb_separator }}" alt="Separator">
+    </span>
+    <a href="{{ blog.url }}">{{ blog.title }}</a>
+
+    <span class="breadcrumb-separator">
+      <img src="{{ breadcrumb_separator }}" alt="Separator">
+    </span>
+    <span style="border-bottom: 2px solid white; font-weight:600;">
+      {{ article.title }}
+    </span>
+
+  {%- else -%}
+    <span class="breadcrumb-separator">
+      <img src="{{ breadcrumb_separator }}" alt="Separator">
+    </span>
+    <span style="border-bottom: 2px solid white; font-weight:600;">
+      {{ page_title }}
+    </span>
+  {%- endif -%}
+
 </nav>
 
 <style>
@@ -10,6 +74,19 @@
     padding-bottom: 16px;
     color: white;
     font-family: var(--font-lexend);
+}
+
+.breadcrumb-product {
+    padding-top: 45px;
+    padding-bottom: 40px;
+    color: black;
+    background: white;
+}
+.breadcrumb-product a {
+    color: black !important;
+}
+.breadcrumb-product span {
+    color: black !important;
 }
 .breadcrumb-separator img {
     vertical-align: middle;
