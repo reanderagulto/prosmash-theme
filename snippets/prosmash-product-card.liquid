@@ -32,6 +32,11 @@
       <div class="short-description">
         {{ product.metafields.custom.short_description }}
       </div>
+      {%  else %}
+      <div class="short-description">
+        <!-- Replace this with your desired fallback text -->
+        Discover more about this product.
+      </div>
     {% endif %}
 
     <div class="infos">

@@ -3,7 +3,9 @@
     <div class="filter-section">
       <div class="custom-container">
         <div class="col-left">
-            <div class="collection-title">{{ collection.title }} ({{ collection.products_count }})</div>
+          <div class="collection-title">
+            {{ collection.title }} ({{ collection.products_count }})
+          </div>
         </div>
         <div class="col-right">
           <div class="filter-container">
@@ -12,62 +14,129 @@
         </div>
       </div>
     </div>
+
     <div id="CollectionProductGrid">
-      <div class="collection-grid">
-        {% for product in collection.products %}
-          {% render 'prosmash-product-card', product: product %}
-        {% endfor %}
-      </div>
+      {% paginate collection.products by 12 %}
+        <div class="collection-grid">
+          {% for product in collection.products %}
+            {% render 'prosmash-product-card', product: product %}
+          {% endfor %}
+        </div>
+
+        {% if paginate.next %}
+          <div class="load-more-wrapper">
+            <button class="load-more" data-next-url="{{ paginate.next.url }}">Load More</button>
+          </div>
+        {% endif %}
+      {% endpaginate %}
     </div>
   </div>
 </section>
 
+
 <style>
+  #CollectionProductGrid {
+    max-width: 1342px;
+    width: 100%;
+    margin: 0 auto;
+  }
 
-
-
-.collection-grid {
+  .collection-grid {
     display: flex;
     align-items: flex-start;
     gap: 40px;
-    align-self: stretch;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 64px;
+  }
+
+  button.load-more {
+    color: var(--black);
+    font-family: var(--font-lexend);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 16px */
+    text-transform: uppercase;
+    background: var(--white);
+    padding: 16px 40px;
+    margin: 0;
+    cursor: pointer;
+    border: 0px;
+    transition: 0.3s;
+  }
+  button.load-more:hover {
+    background: #D9E0D5;
 }
-
-
-
+  .load-more-wrapper {
+      margin: 0 0 80px;
+      text-align: center;;
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-  const form = document.querySelector('#CollectionFiltersForm');
-  const productGrid = document.querySelector('#CollectionProductGrid');
+    const form = document.querySelector('#CollectionFiltersForm');
+    const productGrid = document.querySelector('#CollectionProductGrid');
 
-  if (!form) return;
+    if (!form || !productGrid) return;
 
-  form.addEventListener('change', function (e) {
-    e.preventDefault();
+    form.addEventListener('change', function (e) {
+      e.preventDefault();
 
-    const formData = new FormData(form);
-    const searchParams = new URLSearchParams(formData).toString();
+      const formData = new FormData(form);
+      const searchParams = new URLSearchParams(formData).toString();
 
-    // The magic: reload this section via Section Rendering API
-    fetch(`${window.location.pathname}?section_id=prosmash-collection-grid&${searchParams}`)
-      .then(response => response.text())
-      .then(responseText => {
-        const parser = new DOMParser();
-        const html = parser.parseFromString(responseText, 'text/html');
-        const newGrid = html.querySelector('#CollectionProductGrid');
-        if (newGrid) {
-          productGrid.innerHTML = newGrid.innerHTML;
-          window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}`);
-        }
+      fetch(`${window.location.pathname}?section_id=prosmash-collection-grid&${searchParams}`)
+        .then(response => response.text())
+        .then(responseText => {
+          const parser = new DOMParser();
+          const html = parser.parseFromString(responseText, 'text/html');
+          const newGrid = html.querySelector('#CollectionProductGrid');
+          if (newGrid) {
+            productGrid.innerHTML = newGrid.innerHTML;
+            window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}`);
+            bindLoadMore(); // re-bind load more after refresh
+          }
+        });
+    });
+
+    function bindLoadMore() {
+      const loadMoreBtn = document.querySelector('.load-more');
+      if (!loadMoreBtn) return;
+
+      loadMoreBtn.addEventListener('click', function () {
+        const nextUrl = loadMoreBtn.dataset.nextUrl;
+        if (!nextUrl) return;
+
+        loadMoreBtn.disabled = true;
+        loadMoreBtn.innerText = 'Loading...';
+
+        fetch(`${nextUrl}&section_id=prosmash-collection-grid`)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const newItems = doc.querySelectorAll('.collection-grid > *');
+            const newButton = doc.querySelector('.load-more-wrapper');
+
+            const grid = productGrid.querySelector('.collection-grid');
+            newItems.forEach(item => grid.appendChild(item));
+
+            loadMoreBtn.parentElement.remove();
+
+            if (newButton) {
+              productGrid.appendChild(newButton);
+              bindLoadMore(); // rebind new button
+            }
+          });
       });
-  });
-});
+    }
 
+    bindLoadMore(); // bind on initial load
+  });
 </script>
+
 
 
 
