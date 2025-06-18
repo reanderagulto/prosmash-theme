@@ -1,14 +1,16 @@
 <div class="collection-grid-item">
   <!-- Featured Image -->
   <div class="gallery-container">
-    <div class="main-img">
-      <img class="main-product-image"
-          src="{{ product.media[0].preview_image | image_url: width: 400 }}"
-          alt="{{ product.title }}">
-      {% if product.metafields.custom.limited_edition == true %}
-        <div class="limited-edition">Limited Edition</div>
-      {% endif %}
-    </div>
+    <a href="{{ product.url }}">
+      <div class="main-img">
+        <img class="main-product-image"
+            src="{{ product.media[0].preview_image | image_url: width: 400 }}"
+            alt="{{ product.title }}">
+        {% if product.metafields.custom.limited_edition == true %}
+          <div class="limited-edition">Limited Edition</div>
+        {% endif %}
+      </div>
+    </a>
     <div class="product-thumbnails">
       {% for media in product.media limit: 4 %}
         {% if media.media_type == 'image' %}
@@ -32,6 +34,10 @@
       <div class="short-description">
         {{ product.metafields.custom.short_description }}
       </div>
+      {%- else -%}
+        <div class="short-description">
+          Play with great vibe
+        </div>
     {% endif %}
 
     <div class="infos">
