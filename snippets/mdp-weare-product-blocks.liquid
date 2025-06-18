@@ -206,7 +206,7 @@
               </span>
               <span class="mdp-adding"></span>
               <span class="mdp-added">
-                <span class="mdp-text-wishlist">Add to Wishlist</span>
+                <span class="mdp-text-wishlist">Add to Wishlisted</span>
                 <i class="fas fa-heart"></i>
               </span>
             </div>
@@ -216,23 +216,23 @@
 
 
       {% comment %} END OF ADD TO CART AND ADD TO WISHLIST BUTTONS {% endcomment %}
-         {%- when 'delivery-notice' -%}
-
-          <div class="delivery-notice">
-            <div class="content">
-              <p><strong>Delivery</strong></p>
-              <p>Your order gets a free standard delivery.</p>
-              <ul>
-                <li><p>Standard delivered 1-5 Business Days</p></li>
-                <li><p>Express delivered 1-2 Business Days</p></li>
-              </ul>
-              <p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>
-            </div>
-          </div>
+         
 
       {% comment %} DELIVERY NOTICE {% endcomment %}
 
+    {%- when 'delivery-notice' -%}
 
+    <div class="delivery-notice">
+      <div class="content">
+        <p><strong>Delivery</strong></p>
+        <p>Your order gets a free standard delivery.</p>
+        <ul>
+          <li><p>Standard delivered 1-5 Business Days</p></li>
+          <li><p>Express delivered 1-2 Business Days</p></li>
+        </ul>
+        <p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>
+      </div>
+    </div>
 
 
 
