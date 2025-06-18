@@ -324,16 +324,6 @@
       "name": "Prosmash Text Center",
       "settings": {}
     },
-    "mdp_weare_wishlist_1_rzFHiK": {
-      "type": "mdp-weare-wishlist-1",
-      "name": "Wishlist",
-      "settings": {
-        "title": "test",
-        "col_per_row": 4,
-        "margin_top": "",
-        "margin_bottom": "50"
-      }
-    },
     "prosmash_hp_video_zV6zFF": {
       "type": "prosmash-hp-video",
       "name": "Prosmash HP Video",
@@ -415,7 +405,6 @@
     "prosmash_hp_cta_section_4ApD4i",
     "prosmash_hp_blog_section_ki6Yze",
     "prosmash_hp_centertext_NHMVmj",
-    "mdp_weare_wishlist_1_rzFHiK",
     "prosmash_hp_video_zV6zFF",
     "footer-1"
   ]
