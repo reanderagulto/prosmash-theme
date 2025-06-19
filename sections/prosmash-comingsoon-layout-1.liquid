@@ -36,12 +36,13 @@
 </section>
 
 <style>
-  #coming-soon-1 {
+  /* #coming-soon-1 {
     min-height: 100vh;
-  }
+  } */
   #coming-soon-1 .custom-container {
     display: inline-flex;
-    padding: 475px 80px 80px 80px;
+    min-height: 100vh;
+    /* padding: 475px 80px 80px 80px; */
     justify-content: center;
     align-items: flex-end;
     gap: 240px;
@@ -88,6 +89,50 @@
     font-weight: 500;
     line-height: normal;
   }
+
+  .form-container {
+    display: flex;
+    width: 440px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+
+.mdp-signup-form .mdp-row {
+    display: flex;
+    height: 48px;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+.mdp-signup-form .mdp-row input {
+    display: flex;
+    padding: 14.5px 16px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border: none;
+    background: transparent;
+    border: 1px solid var(--Primary-White, #FFF);
+}
+.mdp-signup-form .mdp-row button {
+    display: flex;
+    height: 48px;
+    padding: 14px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--Secondary-1-Dark-Moss-Green, #42662B);
+    color: var(--Primary-White, #FFF);
+    font-family: Lexend;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 16px */
+    text-transform: uppercase;
+    border: none;
+}
 </style>
 
 {% schema %}
