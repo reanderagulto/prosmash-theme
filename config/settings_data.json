@@ -82,13 +82,15 @@
           "discounts-1": {
             "type": "discounts",
             "settings": {
-              "discounts_text": "Up to 50% off Our Best Bits"
+              "discounts_text": "Up to 50% off Our Best Bits",
+              "discounts_link": ""
             }
           },
           "discounts-2": {
             "type": "discounts",
             "settings": {
-              "discounts_text": "Limited Time Only"
+              "discounts_text": "Limited Time Only",
+              "discounts_link": ""
             }
           },
           "discounts-3": {
@@ -126,16 +128,18 @@
           "work_time": true,
           "country_selector": false,
           "language_selector": false,
-          "bg_color": "#FFE8E8",
-          "icon_color": "#343434",
-          "discount_color": "#E9384F",
-          "work_time_color": "#343434"
+          "bg_color": "#42662b",
+          "icon_color": "#ffffff",
+          "discount_color": "#ffffff",
+          "work_time_color": "#ffffff"
         }
       },
       "mdp-weare-menu-1": {
         "type": "mdp-weare-menu-1",
         "settings": {
-          "logo_size": "50x50",
+          "use_logo_img": true,
+          "logo": "shopify://shop_images/Prosmash_Horizontal_Logo.png",
+          "logo_size": "270x50",
           "menu": "main-menu",
           "search": true
         }
@@ -437,7 +441,10 @@
           "about-us": {
             "type": "text",
             "settings": {
+              "height_logo": 50,
               "title": "About Us",
+              "email": "",
+              "phone": "",
               "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
             }
           },
@@ -451,17 +458,21 @@
           "follow-us": {
             "type": "social_medias",
             "settings": {
+              "title": "Follow us",
               "facebook_link": "#",
               "twitter_link": "#",
               "instagram_link": "#",
-              "pinterest_link": "#"
+              "youtobe_link": "",
+              "pinterest_link": "#",
+              "linkedin_link": ""
             }
           },
           "subscribe": {
             "type": "newsletter",
             "settings": {
               "title": "Subscribe to our newsletter",
-              "subtitle": "A short sentence describing what someone will receive by subscribing"
+              "subtitle": "A short sentence describing what someone will receive by subscribing",
+              "button_text_color": "#ffffff"
             }
           }
         },
@@ -477,6 +488,10 @@
           "show_border": true,
           "margin_top": "0"
         }
+      },
+      "breadcrumbs": {
+        "type": "breadcrumbs",
+        "settings": {}
       }
     },
     "content_for_index": []
