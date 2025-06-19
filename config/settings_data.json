@@ -503,7 +503,7 @@
         "settings": {
           "title": "Opening Soon",
           "subtitle": "Be the first to know when we launch.",
-          "inverted": false,
+          "inverted": true,
           "facebook_link": "",
           "twitter_link": "",
           "instagram_link": "",
