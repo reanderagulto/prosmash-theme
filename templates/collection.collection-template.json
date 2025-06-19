@@ -146,8 +146,7 @@
         "logo": "shopify://shop_images/Prosmash_Horizontal_Logo.png",
         "logo_size": "250x27",
         "menu": "main-menu",
-        "search": true,
-        "static_image": "shopify://shop_images/Img.jpg"
+        "search": true
       }
     },
     "prosmash_collection_banner_wDMYiA": {
@@ -186,7 +185,7 @@
       "name": "Prosmash HP Video",
       "settings": {
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "image": "shopify://shop_images/edc905d60fc8485ea97047d559e7ab891b0eb44c_1.png",
+        "image": "shopify://shop_images/video-thumbnail.jpg",
         "image_size": "1000x1000_crop_center",
         "text_color": "#343434",
         "video_header": "",
