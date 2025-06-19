@@ -21,7 +21,7 @@
             {% form "customer" %}
               {{ form.errors | default_errors }}
               <div class="mdp-row">
-                <input  type="email" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}" name="contact[email]"/>
+                <input  type="email" placeholder="Subscribe by Email" name="contact[email]"/>
                 <button type="submit" class="mdp-submit">
                   {{ 'general.newsletter_form.submit' | t }}
                 </button>    
@@ -46,7 +46,6 @@
   }
   #coming-soon-1 .custom-container {
     display: inline-flex;
-    min-height: 100vh;
     /* padding: 475px 80px 80px 80px; */
     justify-content: center;
     align-items: flex-end;
@@ -77,6 +76,14 @@
     align-items: flex-start;
     gap: 16px;
   }
+  #coming-soon-1 input[type="email"]::placeholder {
+    color: var(--Primary-White, #FFF);
+    font-family: "Red Hat Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
   #coming-soon-1 .main-header {
     color: var(--Primary-White, #FFF);
     font-family: Lexend;
@@ -99,7 +106,7 @@
     display: flex;
     width: 440px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 16px;
 }
 
