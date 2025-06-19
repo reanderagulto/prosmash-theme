@@ -44,13 +44,15 @@
         "discounts-1": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Up to 50% off Our Best Bits"
+            "discounts_text": "Up to 50% off Our Best Bits",
+            "discounts_link": ""
           }
         },
         "discounts-2": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Limited Time Only"
+            "discounts_text": "Limited Time Only",
+            "discounts_link": ""
           }
         },
         "discounts-3": {
@@ -88,10 +90,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
+        "bg_color": "#42662b",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -140,7 +142,9 @@
         "work_time"
       ],
       "settings": {
-        "logo_size": "150x70",
+        "use_logo_img": true,
+        "logo": "shopify://shop_images/Prosmash_Horizontal_Logo.png",
+        "logo_size": "270x70",
         "menu": "main-menu",
         "search": true
       }
@@ -168,7 +172,10 @@
         "image_size": "400x540_crop_center",
         "bg_color": "",
         "boxed": true,
+        "show_read_more": false,
+        "read_more_string": "Read more",
         "excerpt_words": 20,
+        "excerpt_ellipsis": "...",
         "variant": "style_3",
         "padding_top": "0",
         "padding_bottom": "0",
@@ -217,13 +224,16 @@
       "settings": {
         "title": "We focus on brands that tell a strong story through their products",
         "subtitle": "Our Mission",
-        "image": "shopify://shop_images/promo-about-us.png",
+        "content": "",
         "image_size": "536x500_crop_center",
         "button_string": "Read More",
+        "button_text_color": "#ffffff",
         "link": "#",
         "bg_color": "#ffffff",
         "variant": "left_text",
         "text_align": "left",
+        "padding_top": "",
+        "padding_bottom": "",
         "margin_top": "0",
         "margin_bottom": "0"
       }
@@ -234,25 +244,25 @@
         "logo-1": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo4.png"
+            "link": ""
           }
         },
         "logo-2": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo2.png"
+            "link": ""
           }
         },
         "logo-3": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo3.png"
+            "link": ""
           }
         },
         "logo-4": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/logo5.png"
+            "link": ""
           }
         }
       },
@@ -263,6 +273,7 @@
         "logo-4"
       ],
       "settings": {
+        "boxed": true,
         "image_size": "200x90",
         "margin_top": "80",
         "margin_bottom": "80"
@@ -271,7 +282,7 @@
     "video": {
       "type": "mdp-weare-video-1",
       "settings": {
-        "image": "shopify://shop_images/photo_2021-12-21_10-31-44.jpg",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "image_size": "960x600_crop_center",
         "text_color": "#ffffff",
         "bg_color": "#343434",
@@ -294,6 +305,13 @@
         "images_form": "50",
         "image_size": "270x370_crop_center",
         "separator": false,
+        "button_text_color": "#ffffff",
+        "sold_out_string": "Sold out",
+        "sale_string": "Sale",
+        "new_string": "New",
+        "select_options_string": "Select options",
+        "add_cart_string": "Add to cart",
+        "reverse": false,
         "margin_top": "80",
         "margin_bottom": "0"
       }
@@ -304,7 +322,6 @@
         "testimonial-1": {
           "type": "testimonial",
           "settings": {
-            "image": "",
             "name": "John Samuel",
             "title": "Customer",
             "content": "<p>“Duis sit amet ornare elit. Vivamus pharetra ornare ipsum, at bibendum metus pretium tristique. Nam sapien tellus, hendrerit egestas sapien et, congue laoreet odio”</p>"
@@ -313,7 +330,6 @@
         "testimonial-2": {
           "type": "testimonial",
           "settings": {
-            "image": "",
             "name": "Miranda Kerr",
             "title": "Customer",
             "content": "<p>“Cras pretium porta auctor. Proin consectetur placerat massa sit amet malesuada. Ut egestas justo et leo auctor, et efficitur justo ultrices”</p>"
@@ -342,7 +358,10 @@
         "about-us": {
           "type": "text",
           "settings": {
+            "height_logo": 50,
             "title": "About Us",
+            "email": "",
+            "phone": "",
             "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
           }
         },
@@ -356,17 +375,21 @@
         "follow-us": {
           "type": "social_medias",
           "settings": {
+            "title": "Follow us",
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "pinterest_link": "#"
+            "youtobe_link": "",
+            "pinterest_link": "#",
+            "linkedin_link": ""
           }
         },
         "subscribe": {
           "type": "newsletter",
           "settings": {
             "title": "Subscribe to our newsletter",
-            "subtitle": "A short sentence describing what someone will receive by subscribing"
+            "subtitle": "A short sentence describing what someone will receive by subscribing",
+            "button_text_color": "#ffffff"
           }
         }
       },
