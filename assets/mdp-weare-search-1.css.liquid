@@ -34,7 +34,8 @@
     padding: 15px 45px;
     font-size: 14px;
     line-height: 18px;
-    background-color: #343434;
+    /* background-color: #343434; */
+    background-color: #42662B;
     text-align: center;
     letter-spacing: 0.4px;
     text-transform: uppercase;
@@ -45,7 +46,8 @@
 }
 
 .mdp-weare-search-1 .mdp-search-bar button:hover {
-    background-color: #E9384F;
+    /* background-color: #E9384F; */
+    background-color: #607f4c;
     color: white;
     transition: background-color 500ms, color 500ms;
 }
@@ -144,6 +146,7 @@
 .mdp-weare-search-1 .mdp-search-results div .mdp-item .mdp-media .mdp-img-product {
     width: 100%;
     max-width: initial;
+    height: auto !important;
 }
 
 .mdp-weare-search-1 .mdp-search-results div .mdp-item .mdp-data .mdp-header {
@@ -161,6 +164,8 @@
     font-size: {{ settings.mdp_paragraph_font_size }}px;
     line-height: {{ settings.mdp_paragraph_line_height }}em;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .mdp-weare-search-1 .mdp-search-results div .mdp-item .mdp-data .mdp-footer > span {

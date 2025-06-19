@@ -306,5 +306,21 @@
       }
     ]
 
+  },
+  {
+    "name": "Coming Soon Layout",
+    "settings": [
+      {
+        "type": "radio",
+        "id": "coming_soon_layout",
+        "label": "Select Coming Soon Layout",
+        "options": [
+          { "value": "default-layout", "label": "Default Layout" },
+          { "value": "layout-1", "label": "Layout 1" },
+          { "value": "layout-2", "label": "Layout 2" }
+        ],
+        "default": "default-layout"
+      }
+    ]
   }
 ]

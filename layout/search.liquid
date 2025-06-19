@@ -71,7 +71,8 @@
   {% section 'mdp-weare-menu-2' %}
   {% section 'mdp-weare-menu-1' %}
 
-  {% section 'breadcrumbs' %}
+  {% comment %} {% section 'breadcrumbs' %} {% endcomment %}
+  {% section 'custom-breadcrumbs' %}
 
   {%- if search.filters.size > 0 -%}
     <div class="mdp mdp-weare-collection-with-sidebar mdp-container">

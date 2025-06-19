@@ -1,4 +1,8 @@
-<nav class="breadcrumb{% if template.name contains 'product' %} breadcrumb-product{% endif %}" aria-label="breadcrumbs">
+<nav class="breadcrumb
+  {% if template.name contains 'product' %} breadcrumb-product{% endif %}
+  {% if template.name contains 'search' %} breadcrumb-search{% endif %}
+  "
+aria-label="breadcrumbs">
 
   {%- comment -%} Determine separator per template {%- endcomment -%}
   {%- if template.name contains 'product' -%}
@@ -6,6 +10,8 @@
   {%- else -%}
     {%- assign breadcrumb_separator = 'CaretRight.svg' | asset_url -%}
   {%- endif -%}
+
+  {%- assign black_separator = 'CaretRight-black.svg' | asset_url -%}
 
   <a href="{{ routes.root_url }}">Home</a>
 
@@ -57,6 +63,14 @@
     <span style="border-bottom: 2px solid white; font-weight:600;">
       {{ article.title }}
     </span>
+  
+  {%- elsif template.name contains 'search' -%}
+    <span class="breadcrumb-separator">
+      <img src="{{ black_separator }}" alt="Separator">
+    </span>
+    <span style="border-bottom: 2px solid black; font-weight:600;">
+      Search Results
+    </span>
 
   {%- else -%}
     <span class="breadcrumb-separator">
@@ -76,16 +90,19 @@
     font-family: var(--font-lexend);
 }
 
-.breadcrumb-product {
+.breadcrumb-product,
+.breadcrumb-search {
     padding-top: 45px;
     padding-bottom: 40px;
     color: black;
     background: white;
 }
-.breadcrumb-product a {
+.breadcrumb-product a,
+.breadcrumb-search a {
     color: black !important;
 }
-.breadcrumb-product span {
+.breadcrumb-product span,
+.breadcrumb-search span {
     color: black !important;
 }
 .breadcrumb-separator img {
