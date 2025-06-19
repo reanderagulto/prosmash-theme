@@ -29,7 +29,7 @@
     "btn_background": "#343434",
     "btn_hover_color": "#FFFFFF",
     "btn_hover_background": "#E9384F",
-    "coming_soon_layout": "layout-1",
+    "coming_soon_layout": "default-layout",
     "mdp_brand_color": "#5838e9",
     "mdp_button_color": "#4c90c7",
     "mdp_border_color": "#343434",
@@ -503,7 +503,6 @@
         "settings": {
           "title": "Opening Soon",
           "subtitle": "Be the first to know when we launch.",
-          "image": "shopify://shop_images/coming-soon-image-a.jpg",
           "inverted": true,
           "facebook_link": "",
           "twitter_link": "",
