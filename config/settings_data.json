@@ -504,11 +504,11 @@
           "title": "Opening Soon",
           "subtitle": "Be the first to know when we launch.",
           "inverted": true,
-          "facebook_link": "",
-          "twitter_link": "",
-          "instagram_link": "",
-          "youtobe_link": "",
-          "pinterest_link": ""
+          "facebook_link": "/",
+          "twitter_link": "/",
+          "instagram_link": "/",
+          "youtobe_link": "/",
+          "pinterest_link": "/"
         }
       },
       "prosmash-comingsoon-layout-1": {
