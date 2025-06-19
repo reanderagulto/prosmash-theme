@@ -185,7 +185,7 @@
       "name": "Prosmash HP Video",
       "settings": {
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "image": "shopify://shop_images/edc905d60fc8485ea97047d559e7ab891b0eb44c_1.png",
+        "image": "shopify://shop_images/video-thumbnail.jpg",
         "image_size": "1000x1000_crop_center",
         "text_color": "#343434",
         "video_header": "",
