@@ -44,13 +44,15 @@
         "discounts-1": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Up to 50% off Our Best Bits"
+            "discounts_text": "Up to 50% off Our Best Bits",
+            "discounts_link": ""
           }
         },
         "discounts-2": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Limited Time Only"
+            "discounts_text": "Limited Time Only",
+            "discounts_link": ""
           }
         },
         "discounts-3": {
@@ -88,10 +90,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
+        "bg_color": "#42662b",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -140,6 +142,7 @@
         "work_time"
       ],
       "settings": {
+        "use_logo_img": false,
         "logo_size": "150x70",
         "menu": "main-menu",
         "search": true
@@ -162,7 +165,6 @@
           "type": "image",
           "settings": {
             "name": "Image #1",
-            "image": "shopify://shop_images/6023168700_2_7_3.jpg",
             "lookbook_image_size": "475x353_crop_center",
             "image_size": "475x353_crop_center"
           }
@@ -171,7 +173,6 @@
           "type": "image",
           "settings": {
             "name": "Image #2",
-            "image": "shopify://shop_images/pexels-nataliya-vaitkevich-4456684.jpg",
             "lookbook_image_size": "500x700_crop_center",
             "image_size": "300x300_crop_center"
           }
@@ -248,10 +249,13 @@
         "col_per_row": 3,
         "gap": "30",
         "images_form": "50",
+        "reduces_form": "",
+        "big_image_news": false,
         "image_size": "original",
         "bg_color": "",
         "boxed": true,
         "show_read_more": false,
+        "read_more_string": "Read more",
         "excerpt_words": 20,
         "excerpt_ellipsis": "...",
         "variant": "style_3",
@@ -267,7 +271,10 @@
         "about-us": {
           "type": "text",
           "settings": {
+            "height_logo": 50,
             "title": "About Us",
+            "email": "",
+            "phone": "",
             "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
           }
         },
@@ -281,17 +288,21 @@
         "follow-us": {
           "type": "social_medias",
           "settings": {
+            "title": "Follow us",
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "pinterest_link": "#"
+            "youtobe_link": "",
+            "pinterest_link": "#",
+            "linkedin_link": ""
           }
         },
         "subscribe": {
           "type": "newsletter",
           "settings": {
             "title": "Subscribe to our newsletter",
-            "subtitle": "A short sentence describing what someone will receive by subscribing"
+            "subtitle": "A short sentence describing what someone will receive by subscribing",
+            "button_text_color": "#ffffff"
           }
         }
       },
