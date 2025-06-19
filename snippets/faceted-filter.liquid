@@ -15,6 +15,7 @@
       </div>
       <div class="filter-form-container" style="display: none;">
         {%- for filter in collection.filters -%}
+          {% if filter.label == 'Gender filters' %}
           <div class="filter-group">
             {% for value in filter.values %}
                 <label class="filter-option">
@@ -28,6 +29,7 @@
                 </label>
             {% endfor %}
             </div>
+            {% endif %}
         {%- endfor -%}
       </div>
     </div>
