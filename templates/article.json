@@ -142,8 +142,9 @@
         "work_time"
       ],
       "settings": {
-        "use_logo_img": false,
-        "logo_size": "150x70",
+        "use_logo_img": true,
+        "logo": "shopify://shop_images/Prosmash_Horizontal_Logo.png",
+        "logo_size": "270x70",
         "menu": "main-menu",
         "search": true
       }
@@ -222,6 +223,7 @@
         "product-3",
         "product-4"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "subtitle": "",
