@@ -1,7 +1,7 @@
 <section class="featured">
   <div class="mdp-container">
     <div class="heading-container">
-      <h3>FEATURED PRODUCTS</h3>
+      <h3>{{ section.settings.main_heading }}</h3>
     </div>
     <div class="featured-products">
       {% for product in collections['featured'].products %}
@@ -16,7 +16,6 @@
                       width: 304px;
                       height: 320px;">
                   </div>
-                {% comment %} <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}"> {% endcomment %}
               </div>
               <div class="card-content">
                 <div class="card-title">{{ product.title }}</div>
@@ -27,7 +26,7 @@
         {% endfor %}
 
         <div class="cta-btn">
-          <a href="#">SHOP NOW</a>
+          <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
         </div>
     </div>
   </div>
@@ -40,7 +39,23 @@
 {
   "name": "Prosmash HP Featured",
   "settings": [
-    
+    {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "text",
+      "label": "Button Text",
+      "id": "button_text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "label": "Button Link",
+      "id": "button_link"
+    }
   ],
   "presets": [{
     "name": "Prosmash HP Featured",

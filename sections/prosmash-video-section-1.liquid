@@ -1,0 +1,186 @@
+<section id="video-text-section" style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
+  <div class="mdp-container">
+    <div class="heading-container">
+      <h3>{{ section.settings.main_heading }}</h3>
+      <p>{{ section.settings.description }}</p>
+    </div>
+  </div>
+  <div class="mdp-full" style="background: linear-gradient(85deg, rgba(255, 255, 255, 0.80) 37.89%, rgba(255, 255, 255, 0.00) 56.25%, rgba(255, 255, 255, 0.00) 100%),
+         url('{% if section.settings.bg_image %}{{ section.settings.bg_image | image_url }}{% else %}{{ 'video-bg.jpg' | asset_url }}{% endif %}')
+         lightgray 50% / cover no-repeat;">
+    <div class="video-section" style="position: relative; text-align: center;">
+   
+      
+      {% if section.settings.video_url != blank %}
+        <a class="mdp-magnific-popup" href="{{ section.settings.video_url }}">
+          <i class="fas fa-play mdp-icon-play"></i>
+        </a>
+      {% elsif section.settings.video_file != blank %}
+        <a class="mdp-magnific-popup" href="{{ section.settings.video_file }}">
+          <i class="fas fa-play mdp-icon-play"></i>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+    #video-text-section .heading-container h3 {
+        text-align: center;
+        padding: 60px 0;
+        margin: 0;
+        font-family: var(--font-lexend);
+        font-weight: 700;
+        color: var(--black);
+        line-height: 120%;
+        padding-bottom: 20px;
+    }
+    #video-text-section .heading-container p {
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-redhat);
+        line-height: 150%;
+        font-weight: 500;
+        text-align: center;
+    }
+    #video-text-section .mdp-full {
+        display: flex;
+        height: 450px;
+        padding: 112px 64px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+<script>
+    $(document).ready(function() {
+        $('.mdp-magnific-popup').magnificPopup({
+            type: 'iframe',
+            iframe: {
+            markup: '<div class="mfp-iframe-scaler">'+
+                    '<div class="mfp-close"></div>'+
+                    '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+                    '</div>',
+            patterns: {
+                youtube: {
+                index: 'youtube.com/',
+                id: 'v=',
+                src: '//www.youtube.com/embed/%id%?autoplay=1'
+                },
+                vimeo: {
+                index: 'vimeo.com/',
+                id: '/',
+                src: '//player.vimeo.com/video/%id%?autoplay=1'
+                },
+                // Custom pattern for local video files
+                local: {
+                index: '', // No domain necessary
+                src: '%id%'
+                }
+            },
+            srcAction: 'iframe_src',
+            }
+        });
+
+        $('.mdp-magnific-popup').magnificPopup({
+            type: 'inline',
+            callbacks: {
+                elementParse: function(item) {
+                if (item.src.match(/\.(mp4|webm|ogg)$/)) {
+                    item.type = 'inline';
+                    item.src = '<div class="mfp-video-wrapper"><video controls autoplay style="width:100%;"><source src="' + item.src + '" type="video/mp4"></video></div>';
+                } else {
+                    item.type = 'iframe'; // YouTube or Vimeo
+                }
+                }
+            }
+        });
+
+    });
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "Prosmash Video with Text",
+    "settings": [
+        {
+            "type": "text",
+            "label": "Main Heading",
+            "id": "main_heading",
+            "default": "Padel is love"
+        },
+        {
+            "type": "textarea",
+            "label": "Description",
+            "id": "description",
+            "default": "Where passion meets play — unite, compete, and fall in love with the game."
+        },	  	       
+      {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["youtube", "vimeo"],
+        "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+      },
+      {
+        "type": "url",
+        "id": "video_file",
+        "label": "Local Video File (MP4)"
+    },
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background Image"
+      },
+      {
+         "type": "text",
+         "id": "image_size",
+         "label": "Image size",
+         "default": "1000x1000_crop_center",
+         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#343434"
+      },
+	 
+	  {
+        "type": "text",
+        "id": "video_header",
+        "label": "Video header"
+      },
+	  {
+        "type": "text",
+        "id": "video_view_more",
+        "label": "Video view more"
+      },
+      {
+        "type": "url",
+        "id": "view_more_link",
+        "label": "View more link"
+ 	  },
+      {
+        "type": "text",
+        "id": "margin_top",
+        "label": "Margin top (px)"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom",
+        "label": "Margin bottom (px)"
+      }
+    ],	
+    "presets": [{
+      "name": "Prosmash Video with Text",
+      "category": "Prosmash"
+    }]
+  }
+{% endschema %}

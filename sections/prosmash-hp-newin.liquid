@@ -2,9 +2,9 @@
   <div class="mdp-container">
     <div class="col-left">
       <div class="heading-container">
-        <h2>New In</h2>
+        <h2>{{ section.settings.main_heading }}</h2>
         <div class="cta-btn">
-          <a href="#">SHOP NOW</a>
+          <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
         </div>
       </div>
       
@@ -27,7 +27,6 @@
                   </div>
 
                 </div>
-                {% comment %} <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}"> {% endcomment %}
               </div>
               <div class="prod-details">
                 <div class="prod-title">{{ product.title |  truncate: 25 }}</div>
@@ -45,7 +44,23 @@
 {
   "name": "Prosmash HP New In Store",
   "settings": [
-    
+    {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "New In"
+    },
+    {
+      "type": "text",
+      "label": "Button Text",
+      "id": "button_text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "label": "Button Link",
+      "id": "button_link"
+    }
   ],
   "presets": [{
     "name": "Prosmash HP New In Store",
