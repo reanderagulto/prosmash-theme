@@ -175,24 +175,17 @@
       "name": "Prosmash HP Blog Section",
       "settings": {}
     },
-    "prosmash_hp_centertext_gVNATA": {
-      "type": "prosmash-hp-centertext",
-      "name": "Prosmash Text Center",
-      "settings": {}
-    },
-    "prosmash_hp_video_L9QhdG": {
-      "type": "prosmash-hp-video",
-      "name": "Prosmash HP Video",
+    "prosmash_video_section_1_AX6ArB": {
+      "type": "prosmash-video-section-1",
+      "name": "Prosmash Video with Text",
       "settings": {
+        "main_heading": "Padel is love",
+        "description": "Where passion meets play — unite, compete, and fall in love with the game.",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "image": "shopify://shop_images/video-thumbnail.jpg",
-        "image_size": "1000x1000_crop_center",
-        "text_color": "#343434",
+        "video_file": "",
         "video_header": "",
         "video_view_more": "",
-        "view_more_link": "",
-        "margin_top": "",
-        "margin_bottom": ""
+        "view_more_link": ""
       }
     },
     "breadcrumbs": {
@@ -280,8 +273,7 @@
     "prosmash_collection_grid_8Lnfxc",
     "prosmash_hp_cta_section_4fYcAK",
     "prosmash_hp_blog_section_pTXiFF",
-    "prosmash_hp_centertext_gVNATA",
-    "prosmash_hp_video_L9QhdG",
+    "prosmash_video_section_1_AX6ArB",
     "breadcrumbs",
     "collection-grid",
     "footer-1"
