@@ -155,35 +155,35 @@
         "slide_wwyWaf": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/hero-banner-a.jpg",
+            "slide_image": "shopify://shop_images/Size_Medium_Banner_1.jpg",
             "slide_class": "white"
           }
         },
         "slide_46CWJe": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_2.jpg",
+            "slide_image": "shopify://shop_images/Size_Medium_Banner_2.jpg",
             "slide_class": ""
           }
         },
         "slide_knNwrr": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_1.jpg",
+            "slide_image": "shopify://shop_images/Size_Medium_Banner_3.jpg",
             "slide_class": ""
           }
         },
         "slide_C6diDj": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_5.jpg",
+            "slide_image": "shopify://shop_images/Size_Medium_Banner_4.jpg",
             "slide_class": ""
           }
         },
         "slide_UWHice": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Banner_3.jpg",
+            "slide_image": "shopify://shop_images/Size_Medium_Banner_5.jpg",
             "slide_class": ""
           }
         }
@@ -199,7 +199,7 @@
       "settings": {
         "section_main_header": "THE BIGGEST <br> SPORTSWEAR BRAND",
         "cta_title": "SHOP NOW",
-        "cta_link": "#"
+        "cta_link": "shopify://collections/all"
       }
     },
     "prosmash_hp_iconlist_zLBzmn": {
@@ -293,17 +293,27 @@
         "collection_fEAV8m"
       ],
       "name": "Prosmash HP Categories",
-      "settings": {}
+      "settings": {
+        "main_heading": "Categories"
+      }
     },
     "prosmash_hp_newin_ieJxi7": {
       "type": "prosmash-hp-newin",
       "name": "Prosmash HP New Arrivals",
-      "settings": {}
+      "settings": {
+        "main_heading": "New In",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/all"
+      }
     },
     "prosmash_hp_featured_wHgQkF": {
       "type": "prosmash-hp-featured",
       "name": "Prosmash HP Featured",
-      "settings": {}
+      "settings": {
+        "main_heading": "Featured Products",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/all"
+      }
     },
     "prosmash_hp_cta_section_4ApD4i": {
       "type": "prosmash-hp-cta-section",
@@ -319,24 +329,17 @@
       "name": "Prosmash HP Blog Section",
       "settings": {}
     },
-    "prosmash_hp_centertext_NHMVmj": {
-      "type": "prosmash-hp-centertext",
-      "name": "Prosmash Text Center",
-      "settings": {}
-    },
-    "prosmash_hp_video_zV6zFF": {
-      "type": "prosmash-hp-video",
-      "name": "Prosmash HP Video",
+    "prosmash_video_section_1_7BBmVG": {
+      "type": "prosmash-video-section-1",
+      "name": "Prosmash Video with Text",
       "settings": {
+        "main_heading": "Padel is love",
+        "description": "Where passion meets play — unite, compete, and fall in love with the game.",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "image": "shopify://shop_images/video-thumbnail.jpg",
-        "image_size": "",
-        "text_color": "#343434",
+        "video_file": "",
         "video_header": "",
         "video_view_more": "",
-        "view_more_link": "",
-        "margin_top": "",
-        "margin_bottom": ""
+        "view_more_link": ""
       }
     },
     "footer-1": {
@@ -404,8 +407,7 @@
     "prosmash_hp_featured_wHgQkF",
     "prosmash_hp_cta_section_4ApD4i",
     "prosmash_hp_blog_section_ki6Yze",
-    "prosmash_hp_centertext_NHMVmj",
-    "prosmash_hp_video_zV6zFF",
+    "prosmash_video_section_1_7BBmVG",
     "footer-1"
   ]
 }
