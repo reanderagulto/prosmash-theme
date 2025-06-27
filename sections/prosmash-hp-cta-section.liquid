@@ -3,7 +3,7 @@
 {% assign cta_bg = section.settings.cta_bg | default: 'assets/default-cta-img.jpg' %}
 
 <section class="cta-section" style="background: linear-gradient(85deg, rgba(255, 255, 255, 0.80) 37.89%, rgba(255, 255, 255, 0.00) 56.25%, rgba(255, 255, 255, 0.00) 100%),
-         url('{% if section.settings.cta_bg %}{{ section.settings.cta_bg | image_url }}{% else %}{{ 'default-cta-img.jpg' | asset_url }}{% endif %}')
+         url('{% if section.settings.cta_bg %}{{ section.settings.cta_bg | image_url }}{% else %}{{ 'cta-bg.jpg' | asset_url }}{% endif %}')
          lightgray 50% / cover no-repeat;">
   <div class="mdp-container">
     <div class="cta-title">{{ section.settings.cta_title }}</div>

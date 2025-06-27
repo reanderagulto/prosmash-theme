@@ -8,12 +8,15 @@
   <div class="mdp-full" style="background: linear-gradient(85deg, rgba(255, 255, 255, 0.80) 37.89%, rgba(255, 255, 255, 0.00) 56.25%, rgba(255, 255, 255, 0.00) 100%),
          url('{% if section.settings.bg_image %}{{ section.settings.bg_image | image_url }}{% else %}{{ 'video-bg.jpg' | asset_url }}{% endif %}')
          lightgray 50% / cover no-repeat;">
-    <div class="video-section" style="position: relative; text-align: center;">
-   
-      
+    <div class="prosmash-video-section" style="position: relative; text-align: center;">
       {% if section.settings.video_url != blank %}
         <a class="mdp-magnific-popup" href="{{ section.settings.video_url }}">
-          <i class="fas fa-play mdp-icon-play"></i>
+          {% comment %} <i class="fas fa-play mdp-icon-play"></i> {% endcomment %}
+           <div class="play-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="101" height="101" viewBox="0 0 101 101" fill="none">
+                <path d="M42.3441 39.6629C41.0109 38.9179 39.3684 39.8816 39.3684 41.4087V60.5913C39.3684 62.1184 41.0109 63.0821 42.3441 62.3371L59.5073 52.7459C60.8732 51.9826 60.8732 50.0174 59.5073 49.2541L42.3441 39.6629Z" fill="black"/>
+            </svg>
+           </div>
         </a>
       {% elsif section.settings.video_file != blank %}
         <a class="mdp-magnific-popup" href="{{ section.settings.video_file }}">
@@ -27,15 +30,18 @@
 
 
 <style>
+    #video-text-section {
+        padding-top: 60px;
+    }
     #video-text-section .heading-container h3 {
         text-align: center;
-        padding: 60px 0;
         margin: 0;
         font-family: var(--font-lexend);
         font-weight: 700;
         color: var(--black);
         line-height: 120%;
         padding-bottom: 20px;
+        text-transform: uppercase;
     }
     #video-text-section .heading-container p {
         margin: 0;
@@ -47,11 +53,48 @@
     }
     #video-text-section .mdp-full {
         display: flex;
-        height: 450px;
-        padding: 112px 64px;
+        padding: 165px 64px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        /* width: 100%; */
+        margin-top: 56px;
+    }
+    .play-btn {
+        display: flex;
+        padding: 12px 7px 11px 16px;
+        justify-content: flex-end;
+        align-items: center;
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        background: var(--Primary-White, #FFF);
+    }
+    .play-btn::after {
+        content: "";
+        border-color: white;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: absolute;
+        /* background-color: rgba(255, 255, 255, 0.2); */
+        background-color: rgba(66, 102, 43, 0.2);
+        top: 0;
+        left: 0;
+        opacity: 1;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        animation-duration: 1.2s;
+        animation-name: mdp_video_scale;
+        animation-iteration-count: infinite;
+        transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+    }
+    @media (max-width: 767px) {
+        #video-text-section {
+            padding-top: 25px;
+        }
+        #video-text-section .mdp-full {
+            padding: 60px 15px;
+            margin-top: 30px;
+        }
     }
 </style>
 
@@ -138,19 +181,7 @@
         "id": "bg_image",
         "label": "Background Image"
       },
-      {
-         "type": "text",
-         "id": "image_size",
-         "label": "Image size",
-         "default": "1000x1000_crop_center",
-         "info": "Set the image size: '600x600',\n '2048x',\n'original' or '370x370_crop_center'"
-      },
-      {
-        "type": "color",
-        "id": "text_color",
-        "label": "Text color",
-        "default": "#343434"
-      },
+      
 	 
 	  {
         "type": "text",
@@ -166,17 +197,8 @@
         "type": "url",
         "id": "view_more_link",
         "label": "View more link"
- 	  },
-      {
-        "type": "text",
-        "id": "margin_top",
-        "label": "Margin top (px)"
-      },
-      {
-        "type": "text",
-        "id": "margin_bottom",
-        "label": "Margin bottom (px)"
-      }
+ 	  }
+      
     ],	
     "presets": [{
       "name": "Prosmash Video with Text",
