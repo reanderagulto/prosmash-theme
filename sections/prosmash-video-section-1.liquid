@@ -5,13 +5,12 @@
       <p>{{ section.settings.description }}</p>
     </div>
   </div>
-  <div class="mdp-full" style="background: linear-gradient(85deg, rgba(255, 255, 255, 0.80) 37.89%, rgba(255, 255, 255, 0.00) 56.25%, rgba(255, 255, 255, 0.00) 100%),
+  <div class="mdp-full" style="background:
          url('{% if section.settings.bg_image %}{{ section.settings.bg_image | image_url }}{% else %}{{ 'video-bg.jpg' | asset_url }}{% endif %}')
          lightgray 50% / cover no-repeat;">
     <div class="prosmash-video-section" style="position: relative; text-align: center;">
       {% if section.settings.video_url != blank %}
         <a class="mdp-magnific-popup" href="{{ section.settings.video_url }}">
-          {% comment %} <i class="fas fa-play mdp-icon-play"></i> {% endcomment %}
            <div class="play-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="101" height="101" viewBox="0 0 101 101" fill="none">
                 <path d="M42.3441 39.6629C41.0109 38.9179 39.3684 39.8816 39.3684 41.4087V60.5913C39.3684 62.1184 41.0109 63.0821 42.3441 62.3371L59.5073 52.7459C60.8732 51.9826 60.8732 50.0174 59.5073 49.2541L42.3441 39.6629Z" fill="black"/>

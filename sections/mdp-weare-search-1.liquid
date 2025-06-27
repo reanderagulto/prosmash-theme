@@ -1,7 +1,7 @@
 {{ "mdp-weare-search-1.css" | asset_url | stylesheet_tag }}
 {{ "prosmash-global.css" | asset_url | stylesheet_tag }}
 
-<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-search-1">
+<div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-search-1 prosmash-search-results">
     <div class="mdp-container">
 
     {% paginate search.results by 12 %}

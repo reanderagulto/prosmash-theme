@@ -75,7 +75,8 @@
   {% section 'custom-breadcrumbs' %}
 
   {%- if search.filters.size > 0 -%}
-    <div class="mdp mdp-weare-collection-with-sidebar mdp-container">
+    {% comment %} <div class="mdp mdp-weare-collection-with-sidebar mdp-container"> {% endcomment %}
+    <div class="mdp mdp-container">
         {{ content_for_layout }}
     </div>
   {%- else -%}
