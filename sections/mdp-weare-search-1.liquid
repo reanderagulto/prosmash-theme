@@ -19,11 +19,11 @@
         </div>
 
 
-        <form class="mdp-search-bar" action="/search" method="get">
+        {% comment %} <form class="mdp-search-bar" action="/search" method="get">
             <input type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}"
                    value="{{ search.terms | escape }}">
             <button type="submit" class="">{{ 'general.search.submit' | t }}</button>
-        </form>
+        </form> {% endcomment %}
 
         {% if search.performed %}
 
