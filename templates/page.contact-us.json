@@ -152,7 +152,9 @@
     "prosmash_contact_us_banner_hjBU9a": {
       "type": "prosmash-contact-us-banner",
       "name": "Image with Get In Touch",
-      "settings": {}
+      "settings": {
+        "contact_image": "shopify://shop_images/coming-soon-image-a.jpg"
+      }
     },
     "prosmash_promo_banner_9UYVb4": {
       "type": "prosmash-promo-banner",
