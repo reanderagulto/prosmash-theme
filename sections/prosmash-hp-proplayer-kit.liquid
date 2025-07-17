@@ -1,0 +1,242 @@
+{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+{{ "prosmash-hp-banner.js" |  asset_url |  script_tag }}
+
+<section class="prosmash-player-kit">
+  <div class="mdp-container">
+    <div class="heading-container">
+      <h3>Pro Player Kits</h3>
+      <p>Shop and complete the look of your favorite padel players.</p>
+    </div>
+    <div class="player-kit-cards-container">
+      {% for block in section.blocks %}
+        {% if block.type == 'card' %}
+          <div class="player-kit-card">
+            <div class="card-featured-image">
+              <img src="{{ block.settings.player_image | image_url }}" alt="">
+            </div>
+
+            <div class="card-content">
+              <div class="player-title">{{ block.settings.first_name }} {{ block.settings.last_name }}</div>
+              <div class="text">Brands that {{ block.settings.first_name }} wears:</div>
+              <div class="brands">
+                {% if block.settings.brand_logo_1 %}
+                  <img src="{{ block.settings.brand_logo_1 | image_url: width: 100 }}" alt="Brand Logo 1">
+                {% endif %}
+                {% if block.settings.brand_logo_2 %}
+                  <img src="{{ block.settings.brand_logo_2 | image_url: width: 100 }}" alt="Brand Logo 2">
+                {% endif %}
+                {% if block.settings.brand_logo_3 %}
+                  <img src="{{ block.settings.brand_logo_3 | image_url: width: 100 }}" alt="Brand Logo 3">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "HP Pro Player Kit",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Player Kit Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "player_image",
+          "label": "Player Image"
+        },
+        {
+          "type": "text",
+          "id": "first_name",
+          "label": "First Name"
+        },
+        {
+          "type": "text",
+          "id": "last_name",
+          "label": "Last Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "brand_logo_1",
+          "label": "Brand Logo 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "brand_logo_2",
+          "label": "Brand Logo 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "brand_logo_3",
+          "label": "Brand Logo 3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pro Player Kit Carousel",
+      "category": "Prosmash"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .prosmash-player-kit {
+    padding: 60px 64px;
+  }
+  .prosmash-player-kit .heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.prosmash-player-kit .heading-container h3,
+.prosmash-player-kit .heading-container p {
+    margin: 0;
+    padding: 0;
+}
+.prosmash-player-kit .heading-container h3 {
+    color: #000;
+    text-align: center;
+    font-family: Lexend;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 38.4px */
+    text-transform: uppercase;
+}
+
+/* .prosmash-player-kit .mdp-container {
+    display: flex;
+    padding: 60px 64px;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+} */
+/* .prosmash-player-kit .player-kit-cards-container {
+    display: flex;
+    height: 418px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 78.933px;
+} */
+.prosmash-player-kit .player-kit-cards-container {
+    /* Let Slick handle the layout */
+    height: auto;
+    display: block;
+}
+.prosmash-player-kit .player-kit-card {
+    width: 269px;
+    height: 100%;
+    margin-right: 79px;
+    box-sizing: border-box;
+    padding-top: 100px
+}
+.prosmash-player-kit .slick-track {
+  display: flex !important;
+}
+.prosmash-player-kit .slick-slide {
+  float: none;
+  display: flex !important;
+  flex-direction: column;
+  height: auto;
+}
+
+.prosmash-player-kit .slick-slide:last-child {
+  margin-right: 0;
+}
+.prosmash-player-kit .card-content {
+    display: flex;
+    padding: 24px 24px 40px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 8px solid var(--Secondary-1-Forest-Shade, #819972);
+    background: var(--Secondary-1-Dark-Moss-Green, #42662B);
+    position: relative;
+    z-index: 1;
+}
+.prosmash-player-kit .card-content .player-title {
+    color: var(--Primary-White, #FFF);
+    font-family: Lexend;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.prosmash-player-kit .card-content .text {
+    color: var(--Primary-White, #FFF);
+    font-family: "Red Hat Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.prosmash-player-kit .card-content .brands {
+    margin-top: 16px;
+}
+.prosmash-player-kit .card-content .brands img {
+    width: 58.5px;
+    height: 12px;
+    aspect-ratio: 58.50/12.00;
+    filter: invert(1);
+}
+
+.prosmash-player-kit .player-kit-card .card-featured-image {
+    height: 273px;
+    width: 100%;
+    background: #42662B;
+}
+.prosmash-player-kit .player-kit-card .card-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.3);
+    object-position: center;
+}
+</style>
+
+<script>
+  $(document).ready(function () { 
+
+   $('.player-kit-cards-container').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      infinite: true,
+      arrows: true,
+      dots: false,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
+
+  
+</script>

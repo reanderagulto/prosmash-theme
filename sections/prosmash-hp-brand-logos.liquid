@@ -1,0 +1,42 @@
+
+<section class="prosmash-brand-logos">
+  <div class="mdp-container">
+    <div class="brand-logos-container">
+      {% for block in section.blocks %}
+        <div class="brand-logo">
+          <div class="img">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 100 }}" alt="{{ block.settings.title }}">
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Prosmash HP Brand Logos",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Brand Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Prosmash HP Brand Logos",
+      "category": "Prosmash"
+    }
+  ]
+}
+{% endschema %}
