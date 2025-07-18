@@ -214,19 +214,19 @@
         "logo_XPRK6M": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Nox_Logo.svg"
+            "image": "shopify://shop_images/Nox_Logo.png"
           }
         },
         "logo_yA3CP6": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Oxdog_Logo.svg"
+            "image": "shopify://shop_images/Oxdog_Logo.png"
           }
         },
         "logo_dkhpib": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Siux_Logo.svg"
+            "image": "shopify://shop_images/Siux_Logo.png"
           }
         },
         "logo_ExPY7C": {
@@ -350,17 +350,17 @@
             "player_image": "shopify://shop_images/arturo.png",
             "first_name": "Agustin",
             "last_name": "Tapia",
-            "brand_logo_1": "shopify://shop_images/Nox_Logo.svg"
+            "brand_logo_1": "shopify://shop_images/Nox_Logo_996f1388-648f-4da2-b2a4-d6e167cb8f12.png"
           }
         },
         "card_dmYGic": {
           "type": "card",
           "settings": {
-            "player_image": "shopify://shop_images/Arturo_Coello_1_ff07d1f2-b794-4bc2-9eda-78f30cf6a9a3.png",
+            "player_image": "shopify://shop_images/Arturo_Coello_1.png",
             "first_name": "Arturo",
             "last_name": "Coello",
-            "brand_logo_1": "shopify://shop_images/head_logo_1.png",
-            "brand_logo_2": "shopify://shop_images/Siux_Logo.svg"
+            "brand_logo_1": "shopify://shop_images/head_logo_3.png",
+            "brand_logo_2": "shopify://shop_images/Siux_Logo_868ec8c3-d89c-4990-a18b-236185ab2409.png"
           }
         },
         "card_iTMfwE": {
@@ -369,7 +369,7 @@
             "player_image": "shopify://shop_images/Ale-Galan.png",
             "first_name": "Ale",
             "last_name": "Galan",
-            "brand_logo_1": "shopify://shop_images/Adidas.svg"
+            "brand_logo_1": "shopify://shop_images/Adidas.png"
           }
         },
         "card_9eQAcU": {
@@ -387,7 +387,7 @@
             "player_image": "shopify://shop_images/Franco.png",
             "first_name": "Franco",
             "last_name": "Stupaczuk",
-            "brand_logo_1": "shopify://shop_images/Siux_Logo.svg"
+            "brand_logo_1": "shopify://shop_images/Siux_Logo_868ec8c3-d89c-4990-a18b-236185ab2409.png"
           }
         }
       },
@@ -407,7 +407,8 @@
       "settings": {
         "main_heading": "New In",
         "button_text": "Shop Now",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/all",
+        "collection": "new-arrivals"
       }
     },
     "prosmash_hp_featured_wHgQkF": {
@@ -416,7 +417,8 @@
       "settings": {
         "main_heading": "Featured Products",
         "button_text": "Shop Now",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/all",
+        "collection": "featured"
       }
     },
     "prosmash_hp_cta_section_4ApD4i": {
