@@ -527,6 +527,13 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "4935202709820522637": {
+        "type": "shopify://apps/trustshop-reviews/blocks/review-embed/18b0c4cc-5411-4b6e-922d-34fdc2f30ab9",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   }
 }
