@@ -148,7 +148,7 @@
     <div class="mdp-data">
       {% render 'mdp-weare-product-blocks', current_product: current_product, variant: variant, btn_color: btn_color %}
     </div>
-
+<!-- Start of Judge.me code --><div style='clear:both'></div><div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}' data-auto-install='false'>{{ product.metafields.judgeme.widget }}</div><!-- End of Judge.me code -->
     <script type="application/json" class="mdp-product-json">
       {{ current_product | json }}
     </script>
