@@ -29,6 +29,10 @@
                 </div>
               </div>
               <div class="prod-details">
+                {% assign brand = product.metafields.custom.brand.value %}
+                {% if brand %}
+                  <div class="brand">{{ brand.name }}</div>
+                {% endif %}
                 <div class="prod-title">{{ product.title |  truncate: 25 }}</div>
                 <div class="prod-price">{{ product.price | money }}</div>
               </div>

@@ -26,10 +26,10 @@
                   <img src="{{ block.settings.brand_logo_1 | image_url: width: 100 }}" alt="Brand Logo 1">
                 {% endif %}
                 {% if block.settings.brand_logo_2 %}
-                  <img src="{{ block.settings.brand_logo_2 | image_url: width: 100 }}" alt="Brand Logo 2">
+                  | <img src="{{ block.settings.brand_logo_2 | image_url: width: 100 }}" alt="Brand Logo 2">
                 {% endif %}
                 {% if block.settings.brand_logo_3 %}
-                  <img src="{{ block.settings.brand_logo_3 | image_url: width: 100 }}" alt="Brand Logo 3">
+                  | <img src="{{ block.settings.brand_logo_3 | image_url: width: 100 }}" alt="Brand Logo 3">
                 {% endif %}
               </div>
             </div>
@@ -113,33 +113,18 @@
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; /* 38.4px */
+    line-height: 120%; 
     text-transform: uppercase;
 }
 
-/* .prosmash-player-kit .mdp-container {
-    display: flex;
-    padding: 60px 64px;
-    flex-direction: column;
-    align-items: center;
-    gap: 100px;
-} */
 /* .prosmash-player-kit .player-kit-cards-container {
-    display: flex;
-    height: 418px;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 78.933px;
-} */
-.prosmash-player-kit .player-kit-cards-container {
-    /* Let Slick handle the layout */
     height: auto;
     display: block;
-}
+} */
 .prosmash-player-kit .player-kit-card {
     width: 269px;
     height: 100%;
-    margin-right: 79px;
+    /* margin-right: 79px; */
     box-sizing: border-box;
     padding-top: 100px
 }
@@ -151,6 +136,7 @@
   display: flex !important;
   flex-direction: column;
   height: auto;
+  padding: 0 40px; /* 40px left & right creates an 80px gap between slides */
 }
 
 .prosmash-player-kit .slick-slide:last-child {
@@ -165,6 +151,7 @@
     background: var(--Secondary-1-Dark-Moss-Green, #42662B);
     position: relative;
     z-index: 1;
+    flex: 1;
 }
 .prosmash-player-kit .card-content .player-title {
     color: var(--Primary-White, #FFF);
@@ -184,18 +171,28 @@
 }
 .prosmash-player-kit .card-content .brands {
     margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    color: white;
 }
 .prosmash-player-kit .card-content .brands img {
-    width: 58.5px;
+    width: 60px;
     height: 12px;
     aspect-ratio: 58.50/12.00;
-    filter: invert(1);
+    object-fit: contain;
+    /* filter: invert(1); */
+}
+.player-kit-cards-container .slick-arrow {
+    z-index: 2;
 }
 
 .prosmash-player-kit .player-kit-card .card-featured-image {
     height: 273px;
     width: 100%;
     background: #42662B;
+    margin-top: 100px;
 }
 .prosmash-player-kit .player-kit-card .card-featured-image img {
     width: 100%;
@@ -203,6 +200,22 @@
     object-fit: contain;
     transform: scale(1.3);
     object-position: center;
+}
+.prosmash-player-kit .slick-arrow img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+.prosmash-player-kit .slick-arrow.slick-prev {
+    width: 48px;
+    height: 48px;
+    left: 20px;
+}
+.prosmash-player-kit .slick-arrow.slick-next {
+    width: 48px;
+    height: 48px;
+    right: 20px;
 }
 </style>
 
@@ -213,8 +226,12 @@
       slidesToShow: 4,
       slidesToScroll: 1,
       infinite: true,
+      centerMode: true,
+      centerPadding: '0px',
       arrows: true,
       dots: false,
+      prevArrow: '<button type="button" class="slick-prev"><img src="{{ "btn-prev.svg" | asset_url }}" alt="Previous"></button>',
+      nextArrow: '<button type="button" class="slick-next"><img src="{{ "btn-next.svg" | asset_url }}" alt="Next"></button>',
       responsive: [
         {
           breakpoint: 1024,
