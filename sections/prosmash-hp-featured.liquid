@@ -25,6 +25,14 @@
                 </div>
               </div>
               <div class="card-content">
+                {% assign brand = product.metafields.custom.brands.value %}
+                  <div class="brand">
+                    {% if brand %}
+                      {{ brand.name }}
+                    {% else %}
+                      No brand
+                    {% endif %}
+                  </div>
                 <div class="card-title">{{ product.title }}</div>
                 <div class="card-price">{{ product.price | money }}</div>
               </div>
