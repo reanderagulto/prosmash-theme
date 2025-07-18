@@ -200,7 +200,9 @@
         },
         "delivery_notice_Yx6DPY": {
           "type": "delivery-notice",
-          "settings": {}
+          "settings": {
+            "notice_description": "<p><strong>Delivery</strong></p><p>Your order gets a free standard delivery.</p><ul>\n<li><p>Standard delivered 1-5 Business Days</p></li>\n<li><p>Express delivered 1-2 Business Days</p></li>\n</ul><p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>"
+          }
         },
         "options": {
           "type": "options",
@@ -351,6 +353,21 @@
         "show_border": true,
         "margin_top": "0"
       }
+    },
+    "1752811000a8b18ab3": {
+      "type": "apps",
+      "blocks": {
+        "trustshop_reviews_all_reviews_bqdWaR": {
+          "type": "shopify://apps/trustshop-reviews/blocks/all-reviews/18b0c4cc-5411-4b6e-922d-34fdc2f30ab9",
+          "settings": {
+            "wrapper_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "trustshop_reviews_all_reviews_bqdWaR"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -362,6 +379,7 @@
     "prosmash_hp_cta_section_zqhhzR",
     "prosmash_hp_blog_section_ikbfWP",
     "prosmash_video_section_1_e66PR6",
-    "footer-1"
+    "footer-1",
+    "1752811000a8b18ab3"
   ]
 }
