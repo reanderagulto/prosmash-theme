@@ -202,6 +202,50 @@
         "cta_link": "shopify://collections/all"
       }
     },
+    "prosmash_hp_brand_logos_xQWydY": {
+      "type": "prosmash-hp-brand-logos",
+      "blocks": {
+        "logo_cjYa9x": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/head_logo_1.png"
+          }
+        },
+        "logo_XPRK6M": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Nox_Logo.svg"
+          }
+        },
+        "logo_yA3CP6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Oxdog_Logo.svg"
+          }
+        },
+        "logo_dkhpib": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Siux_Logo.svg"
+          }
+        },
+        "logo_ExPY7C": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/logo-volt-padel-white_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_cjYa9x",
+        "logo_XPRK6M",
+        "logo_yA3CP6",
+        "logo_dkhpib",
+        "logo_ExPY7C"
+      ],
+      "name": "Prosmash HP Brand Logos",
+      "settings": {}
+    },
     "prosmash_hp_iconlist_zLBzmn": {
       "type": "prosmash-hp-iconlist",
       "blocks": {
@@ -296,6 +340,56 @@
       "settings": {
         "main_heading": "Categories"
       }
+    },
+    "prosmash_hp_proplayer_kit_zzf6DT": {
+      "type": "prosmash-hp-proplayer-kit",
+      "blocks": {
+        "card_NgrcLf": {
+          "type": "card",
+          "settings": {
+            "player_image": "shopify://shop_images/arturo.png",
+            "first_name": "Agustin",
+            "last_name": "Tapia",
+            "brand_logo_1": "shopify://shop_images/Nox_Logo.svg"
+          }
+        },
+        "card_dmYGic": {
+          "type": "card",
+          "settings": {
+            "player_image": "shopify://shop_images/Arturo_Coello_1_ff07d1f2-b794-4bc2-9eda-78f30cf6a9a3.png",
+            "first_name": "Arturo",
+            "last_name": "Coello",
+            "brand_logo_1": "shopify://shop_images/head_logo_1.png",
+            "brand_logo_2": "shopify://shop_images/Siux_Logo.svg"
+          }
+        },
+        "card_iTMfwE": {
+          "type": "card",
+          "settings": {
+            "player_image": "shopify://shop_images/Ale-Galan.png",
+            "first_name": "Ale",
+            "last_name": "Galan",
+            "brand_logo_1": "shopify://shop_images/Adidas.svg"
+          }
+        },
+        "card_9eQAcU": {
+          "type": "card",
+          "settings": {
+            "player_image": "shopify://shop_images/federico.png",
+            "first_name": "Federico",
+            "last_name": "Chingotto",
+            "brand_logo_1": "shopify://shop_images/Bullpadel_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "card_NgrcLf",
+        "card_dmYGic",
+        "card_iTMfwE",
+        "card_9eQAcU"
+      ],
+      "name": "Pro Player Kit Carousel",
+      "settings": {}
     },
     "prosmash_hp_newin_ieJxi7": {
       "type": "prosmash-hp-newin",
@@ -401,8 +495,10 @@
     "menu-2",
     "menu-1",
     "prosmash_hp_banner_fLfFbM",
+    "prosmash_hp_brand_logos_xQWydY",
     "prosmash_hp_iconlist_zLBzmn",
     "prosmash_hp_categories_qA7RAq",
+    "prosmash_hp_proplayer_kit_zzf6DT",
     "prosmash_hp_newin_ieJxi7",
     "prosmash_hp_featured_wHgQkF",
     "prosmash_hp_cta_section_4ApD4i",
