@@ -380,13 +380,23 @@
             "last_name": "Chingotto",
             "brand_logo_1": "shopify://shop_images/Bullpadel_1.png"
           }
+        },
+        "card_bK9g9T": {
+          "type": "card",
+          "settings": {
+            "player_image": "shopify://shop_images/Franco.png",
+            "first_name": "Franco",
+            "last_name": "Stupaczuk",
+            "brand_logo_1": "shopify://shop_images/Siux_Logo.svg"
+          }
         }
       },
       "block_order": [
         "card_NgrcLf",
         "card_dmYGic",
         "card_iTMfwE",
-        "card_9eQAcU"
+        "card_9eQAcU",
+        "card_bK9g9T"
       ],
       "name": "Pro Player Kit Carousel",
       "settings": {}
