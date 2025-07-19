@@ -39,9 +39,6 @@
   </div>
 </div>
 
-
-
-
 {% assign look_products = collection.metafields.custom.shop_the_look.value %}
 {% assign look_count = 0 %}
 <div class="player-shop-the-look">
@@ -63,6 +60,9 @@
   </div>
 </div>
 
+{% section 'prosmash-hp-cta-section' %}
+{% section 'prosmash-hp-blog-section' %}
+{% section 'prosmash-video-section-1' %}
 
 
 
@@ -124,7 +124,7 @@
     font-weight: 700;
     line-height: 100%; /* 16px */
     text-transform: uppercase;
-    background: var(--white);
+    background: transparent;
     padding: 16px 40px;
     margin: 0;
     cursor: pointer;
@@ -135,8 +135,9 @@
     background: #D9E0D5;
 }
   .load-more-wrapper {
-      margin: 0 0 80px;
-      text-align: center;;
+      margin: 56px 0 0;
+      width: 100%;
+      text-align: center;
   }
   @media (max-width: 1024px) {
     .collection-grid {
@@ -184,4 +185,9 @@
     initLoadMore('.preferred-set-grid');
     initLoadMore('.shop-look-grid');
   });
+
+
+
+
+  
 </script>

@@ -49,6 +49,9 @@
     overflow: hidden;
     position: relative;
 }
+.product-card-v2 .prod-img .img-container {
+    transition: 0.5s;
+}
 
 .product-card-v2 .prod-img .add-cart-btn {
     position: absolute;
@@ -62,6 +65,9 @@
 }
 .product-card-v2 .prod-img:hover .add-cart-btn {
     transform: translateY(0);
+}
+.product-card-v2 .prod-img:hover .img-container {
+    transform: scale(1.1);
 }
 .product-card-v2 .prod-price {
     font-family: var(--font-redhat);

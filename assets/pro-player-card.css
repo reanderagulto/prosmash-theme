@@ -1,0 +1,60 @@
+.player-card .card-content {
+    display: flex;
+    padding: 24px 24px 40px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 8px solid var(--Secondary-1-Forest-Shade, #819972);
+    background: var(--Secondary-1-Dark-Moss-Green, #42662B);
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+.player-card .card-content .player-title {
+    color: var(--Primary-White, #FFF);
+    font-family: Lexend;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.player-card .card-content .text {
+    color: var(--Primary-White, #FFF);
+    font-family: "Red Hat Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.player-card .card-content .brands {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    color: white;
+}
+.player-card .card-content .brands img {
+    width: 60px;
+    height: 12px;
+    aspect-ratio: 58.50/12.00;
+    object-fit: contain;
+    /* filter: invert(1); */
+}
+.player-card .player-kit-card .card-featured-image {
+    height: 273px;
+    width: 100%;
+    background: #42662B;
+    margin-top: 100px;
+}
+.player-card .player-kit-card .card-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.3);
+    object-position: center;
+}
+@media (max-width: 767px) {
+  .player-kit-card .card-featured-image {
+    margin-top: 60px;
+  }
+}
