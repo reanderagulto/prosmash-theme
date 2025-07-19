@@ -153,7 +153,8 @@
       "type": "prosmash-collection-banner",
       "name": "Prosmash Collection Banner",
       "settings": {
-        "background_img": "shopify://shop_images/7f0b0e89a7b956733ecef9743f10e28b33cc8d41.jpg"
+        "background_img": "shopify://shop_images/7f0b0e89a7b956733ecef9743f10e28b33cc8d41.jpg",
+        "title": "Shop Exclusive Pro<br> Player Kits"
       }
     },
     "prosmash_collection_grid_KtHQd9": {
