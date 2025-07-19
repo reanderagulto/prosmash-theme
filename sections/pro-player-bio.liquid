@@ -1,36 +1,71 @@
 <div class="player-bio-section">
-  <div class="player-header">
-    <div class="player-cards-nav">
-      {% assign player_collections = collections | where: "template_suffix", "player-kit" %}
-      {% for player in player_collections %}
-        <div class="player-card {% if player.handle == collection.handle %}active{% endif %}">
-          <a href="{{ player.url }}">
-            <img src="{{ player.metafields.custom.hero_image | image_url: width: 120 }}" alt="{{ player.title }}">
-            <div class="player-name">{{ player.title }}</div>
-            <div class="player-brand">
-              {% for brand in player.metafields.custom.brand_logos.value %}
-                <img src="{{ brand | image_url: width: 40 }}">
-              {% endfor %}
+    <div class="mdp-container">
+        <div class="col-left">
+            <div class="player-cards-nav">
+                {% assign player_collections = collections | where: "template_suffix", "pro-player-kit" %}
+                {% for player in player_collections %}
+                    {% render 'pro-player-card', player: player, active_handle: collection.handle %}
+                {% endfor %}
             </div>
-          </a>
         </div>
-      {% endfor %}
+        <div class="col-right">
+            <div class="player-bio">
+                <div class="texts">
+                    <div class="player-name">{{ collection.title }}</div>
+                    <div class="player-desc">
+                        {{ collection.description }}
+                    </div>
+                </div>
+                <div class="nav-arrows player-navigation">
+                    <button type="button" class="slick-prev"><img src="{{ "btn-prev.svg" | asset_url }}" alt="Previous"></button>
+                    <button type="button" class="slick-next"><img src="{{ "btn-next.svg" | asset_url }}" alt="Next"></button>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="player-bio">
-      <h1>{{ collection.title }}</h1>
-      <p>{{ collection.metafields.custom.bio }}</p>
-      <div class="nav-arrows player-navigation">
-        {% if collection.metafields.custom.prev_player %}
-          <a href="{{ collection.metafields.custom.prev_player.value.url }}" class="prev-player">←</a>
-        {% endif %}
-        {% if collection.metafields.custom.next_player %}
-          <a href="{{ collection.metafields.custom.next_player.value.url }}" class="next-player">→</a>
-        {% endif %}
-      </div>
-    </div>
-  </div>
 </div>
+
+<style>
+    .player-bio-section .mdp-container {
+        display: flex;
+        padding: 0px 64px 64px 0px;
+        align-items: flex-end;
+        gap: 80px;
+        align-self: stretch;
+    }
+    .col-right .player-bio {
+        display: flex;
+        /* width: 538px; */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+    .col-right .texts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+    }
+    .col-right .player-name {
+        color: var(--Primary-Black, #000);
+        font-family: Lexend;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    .col-right .player-desc {
+        color: #5B5B5B;
+        font-family: "Red Hat Display";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+</style>
 
 
 {% schema %}
