@@ -1,0 +1,49 @@
+<div class="player-bio-section">
+  <div class="player-header">
+    <div class="player-cards-nav">
+      {% assign player_collections = collections | where: "template_suffix", "player-kit" %}
+      {% for player in player_collections %}
+        <div class="player-card {% if player.handle == collection.handle %}active{% endif %}">
+          <a href="{{ player.url }}">
+            <img src="{{ player.metafields.custom.hero_image | image_url: width: 120 }}" alt="{{ player.title }}">
+            <div class="player-name">{{ player.title }}</div>
+            <div class="player-brand">
+              {% for brand in player.metafields.custom.brand_logos.value %}
+                <img src="{{ brand | image_url: width: 40 }}">
+              {% endfor %}
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="player-bio">
+      <h1>{{ collection.title }}</h1>
+      <p>{{ collection.metafields.custom.bio }}</p>
+      <div class="nav-arrows player-navigation">
+        {% if collection.metafields.custom.prev_player %}
+          <a href="{{ collection.metafields.custom.prev_player.value.url }}" class="prev-player">←</a>
+        {% endif %}
+        {% if collection.metafields.custom.next_player %}
+          <a href="{{ collection.metafields.custom.next_player.value.url }}" class="next-player">→</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Pro Player Bio",
+  "settings": [
+
+  ],
+  "presets": [
+    {
+      "name": "Pro Player Bio",
+      "category": "Pro Player Kit"
+    }
+  ]
+}
+{% endschema %}

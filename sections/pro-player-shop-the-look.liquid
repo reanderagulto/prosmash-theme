@@ -1,0 +1,23 @@
+<div class="player-shop-look">
+  <h2>Shop the Look of {{ collection.title }}</h2>
+  <div class="look-products product-grid">
+    {% for product in collection.metafields.custom.shop_the_look.value %}
+      {% render 'prosmash-product-card', product: product %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Pro Player Look",
+  "settings": [
+
+  ],
+  "presets": [
+    {
+      "name": "Pro Player Look",
+      "category": "Pro Player Kit"
+    }
+  ]
+}
+{% endschema %}
