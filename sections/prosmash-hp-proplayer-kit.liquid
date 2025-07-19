@@ -13,27 +13,7 @@
     <div class="player-kit-cards-container">
       {% for block in section.blocks %}
         {% if block.type == 'card' %}
-          <div class="player-kit-card">
-            <div class="card-featured-image">
-              <img src="{{ block.settings.player_image | image_url }}" alt="">
-            </div>
-
-            <div class="card-content">
-              <div class="player-title">{{ block.settings.first_name }} {{ block.settings.last_name }}</div>
-              <div class="text">Brands that {{ block.settings.first_name }} wears:</div>
-              <div class="brands">
-                {% if block.settings.brand_logo_1 %}
-                  <img src="{{ block.settings.brand_logo_1 | image_url: width: 100 }}" alt="Brand Logo 1">
-                {% endif %}
-                {% if block.settings.brand_logo_2 %}
-                  | <img src="{{ block.settings.brand_logo_2 | image_url: width: 100 }}" alt="Brand Logo 2">
-                {% endif %}
-                {% if block.settings.brand_logo_3 %}
-                  | <img src="{{ block.settings.brand_logo_3 | image_url: width: 100 }}" alt="Brand Logo 3">
-                {% endif %}
-              </div>
-            </div>
-          </div>
+          {% render 'prosmash-player-card', player: block.settings %}
         {% endif %}
       {% endfor %}
     </div>

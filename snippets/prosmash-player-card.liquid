@@ -1,0 +1,21 @@
+<div class="player-kit-card">
+  <div class="card-featured-image">
+    <img src="{{ player.player_image | image_url }}" alt="">
+  </div>
+
+  <div class="card-content">
+    <div class="player-title">{{ player.first_name }} {{ player.last_name }}</div>
+    <div class="text">Brands that {{ player.first_name }} wears:</div>
+    <div class="brands">
+      {% if player.brand_logo_1 %}
+        <img src="{{ player.brand_logo_1 | image_url: width: 100 }}" alt="Brand Logo 1">
+      {% endif %}
+      {% if player.brand_logo_2 %}
+        | <img src="{{ player.brand_logo_2 | image_url: width: 100 }}" alt="Brand Logo 2">
+      {% endif %}
+      {% if player.brand_logo_3 %}
+        | <img src="{{ player.brand_logo_3 | image_url: width: 100 }}" alt="Brand Logo 3">
+      {% endif %}
+    </div>
+  </div>
+</div>
