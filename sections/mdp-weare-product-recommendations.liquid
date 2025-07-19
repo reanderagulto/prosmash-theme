@@ -31,7 +31,8 @@
                     {% for product in recommendations.products limit: section.settings.number_of_products %}
                         <div class="swiper-slide mdp-swiper-slide">
                             {% comment %} {% render 'mdp-weare-product-card', product: product %} {% endcomment %}
-                            {% render 'prosmash-related-product-card', product: product %}
+                            {% comment %} {% render 'prosmash-related-product-card', product: product %} {% endcomment %}
+                            {% render 'prosmash-product-card-v2', product: product %}
                         </div>
                     {% endfor %}
                 </div>

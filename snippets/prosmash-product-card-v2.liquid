@@ -1,0 +1,35 @@
+<div class="product-card-v2">
+    <a href="{{ product.url }}">
+    <div class="prod-img">
+        <div class="img-container">
+        <div class="canvas" style="
+            background-image: url('{{ product.featured_image | image_url: width: 246 }}');
+            background-color: #F0F0F0;
+            background-size: cover;
+            background-position: center;
+            width: 304px;
+            height: 320px;">
+        </div>
+        </div>
+        <div class="mdp-add-to-cart mdp-available add-cart-btn"
+        data-product-id="{{ product.variants.first.id }}"
+        data-add-to-cart="Add to cart"
+        data-sold-out="Sold out">
+        Add to cart
+        </div>
+    </div>
+    <div class="prod-details">
+        {% assign brand = product.metafields.custom.brands.value %}
+        <div class="brand">
+        {% if brand %}
+            {{ brand.name }}
+        {% else %}
+            No brand
+        {% endif %}
+        </div>
+        <div class="prod-title">{{ product.title | truncate: 25 }}</div>
+        <div class="prod-price">{{ product.price | money }}</div>
+        
+    </div>
+    </a>
+</div>

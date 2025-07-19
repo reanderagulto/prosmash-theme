@@ -19,7 +19,8 @@
       {% paginate collection.products by 12 %}
         <div class="collection-grid">
           {% for product in collection.products %}
-            {% render 'prosmash-product-card', product: product %}
+            {% comment %} {% render 'prosmash-product-card', product: product %} {% endcomment %}
+            {% render 'prosmash-product-card-v2', product: product %}
           {% endfor %}
         </div>
 
