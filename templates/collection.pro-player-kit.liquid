@@ -1,7 +1,7 @@
 <div class="bio-section">
     <div class="mdp-container">
         <div class="col-left">
-
+            {%  render 'pro-player-card' %} 
         </div>
         <div class="col-right">
             <div class="player-details">
@@ -15,3 +15,145 @@
         </div>
     </div>
 </div>
+
+{% assign preferred_products = collection.metafields.custom.player_preferred_set.value %}
+{% assign product_count = 0 %}
+<div class="player-preferred-set">
+  <div class="mdp-container">
+    <div class="section-title">{{ collection.title }}'s Preferred Set</div>
+    <div class="collection-grid preferred-set-grid">
+      {% for product in preferred_products %}
+        <div class="product-item" style="display: none;">
+          {% render 'prosmash-product-card', product: product %}
+        </div>
+        {% assign product_count = product_count | plus: 1 %}
+      {% endfor %}
+    </div>
+    {% if product_count > 8 %}
+      <div class="load-more-wrapper">
+        <button class="load-more" data-target=".preferred-set-grid">Load More</button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+
+
+{% assign look_products = collection.metafields.custom.shop_the_look.value %}
+{% assign look_count = 0 %}
+<div class="player-shop-the-look">
+  <div class="mdp-container">
+    <div class="section-title">Shop the look of {{ collection.title }}</div>
+    <div class="collection-grid shop-look-grid">
+      {% for product in look_products %}
+        <div class="product-item" style="display: none;">
+          {% render 'prosmash-product-card', product: product %}
+        </div>
+        {% assign look_count = look_count | plus: 1 %}
+      {% endfor %}
+    </div>
+    {% if look_count > 8 %}
+      <div class="load-more-wrapper">
+        <button class="load-more" data-target=".shop-look-grid">Load More</button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+
+
+<style>
+    .player-preferred-set .mdp-container {
+        display: flex;
+        padding: 0px 64px 64px 64px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        align-self: stretch;
+    }
+    .player-preferred-set .section-title {
+        color: var(--Primary-Black, #000);
+        font-family: Lexend;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    #CollectionProductGrid {
+    max-width: 1342px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .collection-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 64px;
+  }
+
+  button.load-more {
+    color: var(--black);
+    font-family: var(--font-lexend);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 16px */
+    text-transform: uppercase;
+    background: var(--white);
+    padding: 16px 40px;
+    margin: 0;
+    cursor: pointer;
+    border: 0px;
+    transition: 0.3s;
+  }
+  button.load-more:hover {
+    background: #D9E0D5;
+}
+  .load-more-wrapper {
+      margin: 0 0 80px;
+      text-align: center;;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function initLoadMore(targetSelector, initialVisible = 8) {
+      const grid = document.querySelector(targetSelector);
+      if (!grid) return;
+
+      const items = grid.querySelectorAll('.product-item');
+      let visibleCount = 0;
+
+      // Show initial items
+      for (let i = 0; i < Math.min(initialVisible, items.length); i++) {
+        items[i].style.display = '';
+        visibleCount++;
+      }
+
+      const btn = document.querySelector(`.load-more[data-target="${targetSelector}"]`);
+      if (!btn) return;
+
+      btn.addEventListener('click', function () {
+        let shown = 0;
+        for (let i = visibleCount; i < items.length && shown < initialVisible; i++) {
+          items[i].style.display = '';
+          shown++;
+          visibleCount++;
+        }
+
+        if (visibleCount >= items.length) {
+          btn.parentElement.remove(); // Remove the button when done
+        }
+      });
+    }
+
+    initLoadMore('.preferred-set-grid');
+    initLoadMore('.shop-look-grid');
+  });
+</script>
