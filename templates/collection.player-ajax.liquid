@@ -1,0 +1,87 @@
+<div class="player-page-content">
+
+  <div class="bio-section">
+    <div class="mdp-container">
+      <div class="col-left">
+        {% render 'pro-player-card' %}
+      </div>
+      <div class="col-right">
+        <div class="player-details">
+          <div class="player-name">{{ collection.title }}</div>
+          <div class="player-desc">{{ collection.description }}</div>
+        </div>
+
+        {% assign player_handles = "agustin-tapia,arturo-coello,ale-galan" | split: "," %}
+        {% assign current_index = player_handles | index_of: collection.handle %}
+        {% assign prev_index = current_index | minus: 1 %}
+        {% assign next_index = current_index | plus: 1 %}
+        {% assign prev_handle = player_handles[prev_index] %}
+        {% assign next_handle = player_handles[next_index] %}
+
+        <div class="nav-buttons">
+          {% if prev_handle %}
+            <button
+              type="button"
+              class="slick-prev player-nav"
+              data-handle="{{ prev_handle }}"
+              data-url="/collections/{{ prev_handle }}">
+              <img src="{{ 'btn-prev.svg' | asset_url }}" alt="Previous">
+            </button>
+          {% endif %}
+          {% if next_handle %}
+            <button
+              type="button"
+              class="slick-next player-nav"
+              data-handle="{{ next_handle }}"
+              data-url="/collections/{{ next_handle }}">
+              <img src="{{ 'btn-next.svg' | asset_url }}" alt="Next">
+            </button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% assign preferred_products = collection.metafields.custom.player_preferred_set.value %}
+  {% assign product_count = 0 %}
+  <div class="player-preferred-set">
+    <div class="mdp-container">
+      <div class="section-title">{{ collection.title }}'s Preferred Set</div>
+      <div class="collection-grid preferred-set-grid">
+        {% for product in preferred_products %}
+          <div class="product-item" style="display: none;">
+            {% render 'prosmash-product-card-v2', product: product %}
+          </div>
+          {% assign product_count = product_count | plus: 1 %}
+        {% endfor %}
+      </div>
+      {% if product_count > 8 %}
+        <div class="load-more-wrapper">
+          <button class="load-more" data-target=".preferred-set-grid">Load More</button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% assign look_products = collection.metafields.custom.shop_the_look.value %}
+  {% assign look_count = 0 %}
+  <div class="player-shop-the-look">
+    <div class="mdp-container">
+      <div class="section-title">Shop the look of {{ collection.title }}</div>
+      <div class="collection-grid shop-look-grid">
+        {% for product in look_products %}
+          <div class="product-item" style="display: none;">
+            {% render 'prosmash-product-card-v2', product: product %}
+          </div>
+          {% assign look_count = look_count | plus: 1 %}
+        {% endfor %}
+      </div>
+      {% if look_count > 8 %}
+        <div class="load-more-wrapper">
+          <button class="load-more" data-target=".shop-look-grid">Load More</button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>

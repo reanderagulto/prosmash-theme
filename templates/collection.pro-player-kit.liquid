@@ -1,15 +1,37 @@
 {{ 'product-card-v2.css' | asset_url | stylesheet_tag }}
+{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+{{ "prosmash-hp-banner.js" |  asset_url |  script_tag }}
 
 <div class="bio-section">
     <div class="mdp-container">
         <div class="col-left">
-            {%  render 'pro-player-card' %} 
+          <div class="player-kit-cards-container">
+            {% assign player_handles = "agustin-tapia,arturo-coello,ale-galan" | split: "," %}
+            {% for handle in player_handles %}
+              {% assign player_collection = collections[handle] %}
+              {% render 'pro-player-card', collection: player_collection %}
+            {% endfor %}
+          </div>
+          
         </div>
         <div class="col-right">
             <div class="player-details">
                 <div class="player-name">{{ collection.title }}</div>
                 <div class="player-desc">{{ collection.description }}</div>
             </div>
+
+            {% assign player_handles = "agustin-tapia,arturo-coello,martita-ortega" | split: "," %}
+            {% assign current_index = player_handles | index_of: collection.handle %}
+
+            {% assign prev_index = current_index | minus: 1 %}
+            {% assign next_index = current_index | plus: 1 %}
+
+            {% assign prev_handle = player_handles[prev_index] %}
+            {% assign next_handle = player_handles[next_index] %}
+
             <div class="nav-buttons">
                 <button type="button" class="slick-prev"><img src="{{ "btn-prev.svg" | asset_url }}" alt="Previous"></button>
                 <button type="button" class="slick-next"><img src="{{ "btn-next.svg" | asset_url }}" alt="Next"></button>
@@ -67,6 +89,19 @@
 
 
 <style>
+    .bio-section .mdp-container {
+        display: flex;
+        padding: 0px 64px 64px 0px;
+        align-items: flex-end;
+        gap: 80px;
+        align-self: stretch;
+    }
+    .bio-section .mdp-container .col-right {
+        max-width: 538px;
+    }
+    .bio-section .mdp-container .col-left {
+        width: 100%;
+    }
     .player-preferred-set .mdp-container {
         display: flex;
         padding: 0px 64px 64px 64px;
@@ -188,6 +223,36 @@
 
 
 
+    $(document).ready(function () { 
 
-  
+   $('.player-kit-cards-container').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      infinite: true,
+      centerMode: true,
+      centerPadding: '0px',
+      arrows: true,
+      dots: false,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
 </script>
