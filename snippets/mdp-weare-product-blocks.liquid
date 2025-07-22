@@ -236,7 +236,128 @@
         <div class="accordion-item">
           {% if block.settings.product_details_title != blank %}
             <div class="accordion-title">{{ block.settings.product_details_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
-            <div class="accordion-content">{{ block.settings.product_details_content }}</div>
+            <div class="accordion-content">
+
+              <div class="prod-details-table">
+                {% assign color_options = current_product.options_with_values | where: "name", "Color" %}
+                {% if color_options.size > 0 %}
+                  <div class="product-colors">
+                    <div class="table-title">Color</div>
+                    <div class="table-value">
+                      {% for color in color_options[0].values %}
+                      {{ color }}
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.collections.size > 0 %}
+                  <div class="product-collections">
+                    <div class="table-title">Collection</div>
+                    <div class="table-value">
+                      {% for collection in current_product.collections %}
+                          <a href="{{ collection.url }}">{{ collection.title }}</a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.width %}
+                  <div class="product-width">
+                    <div class="table-title">Width</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.width.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.weight %}
+                  <div class="product-weight">
+                    <div class="table-title">Weight</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.weight.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.player_level %}
+                  <div class="product-player-level">
+                    <div class="table-title">Player Level</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.player_level.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.shape %}
+                  <div class="product-shape">
+                    <div class="table-title">Shape</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.shape.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.gender %}
+                  <div class="product-gender">
+                    <div class="table-title">Gender</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.gender.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.frame %}
+                  <div class="product-frame">
+                    <div class="table-title">Frame</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.frame.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.player %}
+                  <div class="product-player">
+                    <div class="table-title">Player</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.player.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.material_cara %}
+                  <div class="product-material-cara">
+                    <div class="table-title">Material cara</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.material_cara.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.rubber %}
+                  <div class="product-rubber">
+                    <div class="table-title">Rubber</div>
+                    <div class="table-value">
+                      {{ current_product.metafields.custom.rubber.value | default: 'N/A' }}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if current_product.metafields.custom.surface %}
+                  <div class="product-surface">
+                    <div class="table-title">Surface</div>
+                    <div class="table-value">
+                      {% if current_product.metafields.custom.surface != blank %}
+                        {{ current_product.metafields.custom.surface }}
+                      {% else %}
+                        <p>asdasdasd</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+              
+            </div>
           {% endif %}
         </div>
         <div class="accordion-item">
