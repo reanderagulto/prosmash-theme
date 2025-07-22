@@ -229,8 +229,17 @@
         </div>
         <div class="accordion-item">
           {% if block.settings.product_description_title != blank %}
-            <div class="accordion-title">{{ block.settings.product_description_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
-            <div class="accordion-content">{{ block.settings.product_description_content }}</div>
+            <div class="accordion-title">
+              {{ block.settings.product_description_title }}
+              <img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" />
+            </div>
+            <div class="accordion-content">
+              {% if current_product.description != blank %}
+                {{ current_product.description }}
+              {% else %}
+                <p>No description available.</p>
+              {% endif %}
+            </div>
           {% endif %}
         </div>
         <div class="accordion-item">
@@ -262,77 +271,76 @@
                   </div>
                 {% endif %}
 
-                {% if current_product.metafields.custom.width %}
+  
                   <div class="product-width">
                     <div class="table-title">Width</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.width.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
+              
 
-                {% if current_product.metafields.custom.weight %}
+
                   <div class="product-weight">
                     <div class="table-title">Weight</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.weight.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
+                
 
-                {% if current_product.metafields.custom.player_level %}
+     
                   <div class="product-player-level">
                     <div class="table-title">Player Level</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.player_level.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
+              
 
-                {% if current_product.metafields.custom.shape %}
+         
                   <div class="product-shape">
                     <div class="table-title">Shape</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.shape.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
+              
 
-                {% if current_product.metafields.custom.gender %}
+           
                   <div class="product-gender">
                     <div class="table-title">Gender</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.gender.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
+              
 
-                {% if current_product.metafields.custom.frame %}
+         
                   <div class="product-frame">
                     <div class="table-title">Frame</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.frame.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
+             
 
-                {% if current_product.metafields.custom.player %}
+              
                   <div class="product-player">
                     <div class="table-title">Player</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.player.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
-
-                {% if current_product.metafields.custom.material_cara %}
+            
+          
                   <div class="product-material-cara">
                     <div class="table-title">Material cara</div>
                     <div class="table-value">
                       {{ current_product.metafields.custom.material_cara.value | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
+            
 
 
                   <div class="product-rubber">
@@ -431,7 +439,7 @@
       </div>
 	{%- when 'description' -%}
       <div class="mdp-content {% if oneRow == true %}mdp-content-section{% endif %}">
-        {% if current_product.description != blank %}
+        {% comment %} {% if current_product.description != blank %}
           {% if block.settings.excerpt_words != 0 %}
             {{ current_product.description | strip_html | truncatewords: block.settings.excerpt_words, block.settings.excerpt_ellipsis }}
           {% else %}
@@ -442,7 +450,14 @@
           {% endif %}
         {% else %}
           <p class="mdp-no-description">No description available.</p>
+        {% endif %} {% endcomment %}
+        {% if current_product.metafields.custom.gender %}
+          <div class="product-short-description">
+              {{ current_product.metafields.custom.short_description.value | default: 'N/A' }}
+          </div>
         {% endif %}
+
+        
       </div>
 	{%- when 'visitors' -%}
 		<div class="mdp-visitors" data-min="{{ block.settings.min }}" data-max="{{ block.settings.max }}" data-duration="{{ block.settings.duration }}">
