@@ -334,27 +334,20 @@
                   </div>
                 {% endif %}
 
-                {% if current_product.metafields.custom.rubber %}
+
                   <div class="product-rubber">
                     <div class="table-title">Rubber</div>
                     <div class="table-value">
-                      {{ current_product.metafields.custom.rubber.value | default: 'N/A' }}
+                      {{ current_product.metafields.custom.rubber | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
-
-                {% if current_product.metafields.custom.surface %}
+              
                   <div class="product-surface">
                     <div class="table-title">Surface</div>
                     <div class="table-value">
-                      {% if current_product.metafields.custom.surface != blank %}
-                        {{ current_product.metafields.custom.surface }}
-                      {% else %}
-                        <p>asdasdasd</p>
-                      {% endif %}
+                      {{ current_product.metafields.custom.surface | default: 'N/A' }}
                     </div>
                   </div>
-                {% endif %}
               </div>
               
             </div>
