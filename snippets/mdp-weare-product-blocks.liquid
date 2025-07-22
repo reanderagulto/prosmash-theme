@@ -3,8 +3,9 @@
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'title' -%}
-      {% if current_product.metafields.custom.brand != blank %}
-        <span>{{ current_product.metafields.custom.brand }}</span>
+      {% if current_product.metafields.custom.brands != blank %}
+        {% assign brand = current_product.metafields.custom.brands.value %}
+        <div class="brand-name">{{ brand.name | default: 'N/A' }}</div>
       {% else %}
         <span>N/A</span>
       {% endif %}
@@ -370,6 +371,14 @@
           {% if block.settings.product_advantages_title != blank %}
             <div class="accordion-title">{{ block.settings.product_advantages_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
           {% endif %}
+            <div class="accordion-content">
+              {% if current_product.metafields.custom.product_advantages != blank %}
+                {% assign product_advantage = current_product.metafields.custom.product_advantage.value %}
+                <div class="brand-name">{{ product_advantage.title | default: 'N/A' }}</div>
+              {% else %}
+                <span>N/A</span>
+              {% endif %}
+            </div>
         </div>
       </div>
 
