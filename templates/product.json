@@ -201,7 +201,14 @@
         "delivery_notice_Yx6DPY": {
           "type": "delivery-notice",
           "settings": {
-            "notice_description": "<p><strong>Delivery</strong></p><p>Your order gets a free standard delivery.</p><ul>\n<li><p>Standard delivered 1-5 Business Days</p></li>\n<li><p>Express delivered 1-2 Business Days</p></li>\n</ul><p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>"
+            "notice_description": "<p><strong>Delivery</strong></p><p>Your order gets a free standard delivery.</p><ul>\n<li><p>Standard delivered 1-5 Business Days</p></li>\n<li><p>Express delivered 1-2 Business Days</p></li>\n</ul><p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>",
+            "delivery_notice_title": "Delivery",
+            "delivery_notice_description": "",
+            "product_description_title": "",
+            "product_description_content": "",
+            "product_details_title": "",
+            "product_details_content": "",
+            "product_advantages_title": ""
           }
         },
         "options": {
@@ -249,7 +256,7 @@
         "zoom": true,
         "redirect": false,
         "button_text_color": "#ffffff",
-        "sold_out_string": "Sold out",
+        "sold_out_string": "Pre-order",
         "sale_string": "Sale",
         "new_string": "New",
         "add_cart_string": "Add to cart",
@@ -356,17 +363,6 @@
     },
     "1752811000a8b18ab3": {
       "type": "apps",
-      "blocks": {
-        "trustshop_reviews_all_reviews_bqdWaR": {
-          "type": "shopify://apps/trustshop-reviews/blocks/all-reviews/18b0c4cc-5411-4b6e-922d-34fdc2f30ab9",
-          "settings": {
-            "wrapper_class": ""
-          }
-        }
-      },
-      "block_order": [
-        "trustshop_reviews_all_reviews_bqdWaR"
-      ],
       "settings": {}
     }
   },
