@@ -3,6 +3,11 @@
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'title' -%}
+      {% if current_product.metafields.custom.brand != blank %}
+        <span>{{ current_product.metafields.custom.brand }}</span>
+      {% else %}
+        <span>N/A</span>
+      {% endif %}
       <h1 class="mdp-title {% if oneRow == true %}mdp-title-section{% endif %}">
         <a href="{{ current_product.url }}">{{current_product.title}}</a>
       </h1>  
