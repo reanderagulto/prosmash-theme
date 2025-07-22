@@ -203,12 +203,12 @@
           "settings": {
             "notice_description": "<p><strong>Delivery</strong></p><p>Your order gets a free standard delivery.</p><ul>\n<li><p>Standard delivered 1-5 Business Days</p></li>\n<li><p>Express delivered 1-2 Business Days</p></li>\n</ul><p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>",
             "delivery_notice_title": "Delivery",
-            "delivery_notice_description": "",
-            "product_description_title": "",
-            "product_description_content": "",
-            "product_details_title": "",
-            "product_details_content": "",
-            "product_advantages_title": ""
+            "delivery_notice_description": "asdasdasd",
+            "product_description_title": "Product Description",
+            "product_description_content": "asdasdasdasd",
+            "product_details_title": "Product Details",
+            "product_details_content": "asdasdas dasd asdasd",
+            "product_advantages_title": "Product Advantage"
           }
         },
         "options": {
