@@ -122,7 +122,7 @@
     margin-top: 40px;
 }
 .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-add-to-cart {
-    background: var(--green);
+    background: var(--white);
     font-size: 20px;
     font-family: var(--font-lexend);
     line-height: 100%;
@@ -131,6 +131,8 @@
     border-radius: 0;
     width: auto;
     flex: 1;
+    color: var(--black);
+    border: 2px solid var(--black);
 }
 .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-add-to-cart i {
     margin-left: 16px;
@@ -177,6 +179,7 @@
 
 .prosmash-two-col-buttons .mdp-add-to-cart:hover {
     background-color: #607F4C !important;
+    color: var(--white) !important;
 }
 .prosmash-two-col-buttons .mdp-add-to-wishlist.mdp-added svg path {
     fill: #42662B !important;
@@ -216,6 +219,65 @@
 .prosmash-mdp-weare-social-sharing a {
     display: inline-block;
     padding: 10px;
+}
+
+
+/* SOLD OUT */
+.mdp-sold-out {
+    color: var(--Primary-White, #FFF);
+    text-align: center;
+    font-family: Lexend !important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: normal;
+    text-transform: uppercase;
+    display: inline-flex;
+    padding: 5px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 40px;
+    background: #819972 !important;
+    width: auto !important;
+    width: 96px;
+}
+
+/* ACCORDION DELIVERY NOTICE */
+.delivery-notice .accordion-item {
+    margin-top: 40px;
+}
+.delivery-notice .accordion-item .accordion-title {
+    color: var(--Primary-Black, #000);
+    font-family: Lexend;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 16px;
+    cursor: pointer;
+}
+.delivery-notice .accordion-item .accordion-content {
+    color: #5B5B5B;
+    font-family: "Red Hat Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.delivery-notice .accordion-title {
+    display: flex;
+    justify-content: space-between;
+}
+.accordion-caret {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.5s;
+}
+
+
+.accordion-caret.rotated {
+  transform: rotate(180deg);
 }
 
 @media (max-width: 767px) {

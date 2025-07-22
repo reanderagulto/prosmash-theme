@@ -32,10 +32,10 @@
             {% assign prev_handle = player_handles[prev_index] %}
             {% assign next_handle = player_handles[next_index] %}
 
-            <div class="nav-buttons">
+            {% comment %} <div class="nav-buttons">
                 <button type="button" class="slick-prev"><img src="{{ "btn-prev.svg" | asset_url }}" alt="Previous"></button>
                 <button type="button" class="slick-next"><img src="{{ "btn-next.svg" | asset_url }}" alt="Next"></button>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
 </div>
@@ -97,10 +97,10 @@
         align-self: stretch;
     }
     .bio-section .mdp-container .col-right {
-        max-width: 538px;
+        width: 50%;
     }
     .bio-section .mdp-container .col-left {
-        width: 100%;
+        width: 50%;
     }
     .player-preferred-set .mdp-container {
         display: flex;
@@ -110,6 +110,27 @@
         gap: 32px;
         align-self: stretch;
     }
+    .player-card .card-featured-image {
+        height: 273px;
+        width: 100%;
+        background: #42662B;
+        margin-top: 100px;
+    }
+    .player-card .card-featured-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: scale(1.3);
+        object-position: center;
+    }
+    .slick-initialized .slick-slide {
+        padding: 0 32px;
+    }
+
+
+
+
+
     .player-preferred-set .section-title {
         color: var(--Primary-Black, #000);
         font-family: Lexend;

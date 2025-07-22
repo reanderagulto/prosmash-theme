@@ -1,3 +1,5 @@
+{{"notice-accordion.js" | asset_url | script_tag }}
+
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'title' -%}
@@ -216,19 +218,33 @@
 
       {% comment %} DELIVERY NOTICE {% endcomment %}
 
-    {%- when 'delivery-notice' -%}
+      {%- when 'delivery-notice' -%}
 
-    <div class="delivery-notice">
-      <div class="content">
-        <p><strong>Delivery</strong></p>
-        <p>Your order gets a free standard delivery.</p>
-        <ul>
-          <li><p>Standard delivered 1-5 Business Days</p></li>
-          <li><p>Express delivered 1-2 Business Days</p></li>
-        </ul>
-        <p>Orders are processed and delivered Monday-Friday (excluding public holidays).</p>
+      <div class="delivery-notice">
+        <div class="accordion-item">
+          {% if block.settings.delivery_notice_title != blank %}
+            <div class="accordion-title">{{ block.settings.delivery_notice_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
+            <div class="accordion-content">{{ block.settings.delivery_notice_description }}</div>
+          {% endif %}
+        </div>
+        <div class="accordion-item">
+          {% if block.settings.product_description_title != blank %}
+            <div class="accordion-title">{{ block.settings.product_description_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
+            <div class="accordion-content">{{ block.settings.product_description_content }}</div>
+          {% endif %}
+        </div>
+        <div class="accordion-item">
+          {% if block.settings.product_details_title != blank %}
+            <div class="accordion-title">{{ block.settings.product_details_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
+            <div class="accordion-content">{{ block.settings.product_details_content }}</div>
+          {% endif %}
+        </div>
+        <div class="accordion-item">
+          {% if block.settings.product_advantages_title != blank %}
+            <div class="accordion-title">{{ block.settings.product_advantages_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
+          {% endif %}
+        </div>
       </div>
-    </div>
 
 
 
@@ -301,13 +317,17 @@
       </div>
 	{%- when 'description' -%}
       <div class="mdp-content {% if oneRow == true %}mdp-content-section{% endif %}">
-        {% if block.settings.excerpt_words != 0 %}
-        {{ current_product.description | strip_html | truncatewords: block.settings.excerpt_words, block.settings.excerpt_ellipsis }}
+        {% if current_product.description != blank %}
+          {% if block.settings.excerpt_words != 0 %}
+            {{ current_product.description | strip_html | truncatewords: block.settings.excerpt_words, block.settings.excerpt_ellipsis }}
+          {% else %}
+            {{ current_product.description }}
+            {% if block.settings.read_more == true %}
+              <a href="{{ current_product.url }}" class="mdp-link-description">Read More</a>
+            {% endif %}
+          {% endif %}
         {% else %}
-        {{ current_product.description }}
-        	{% if block.settings.read_more == true %}
-        		<a href="{{current_product.url}}" class="mdp-link-description">Read More</a>
-        	{% endif %}
+          <p class="mdp-no-description">No description available.</p>
         {% endif %}
       </div>
 	{%- when 'visitors' -%}
