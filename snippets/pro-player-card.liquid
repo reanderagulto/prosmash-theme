@@ -1,14 +1,35 @@
-<div class="player-card {% if player.handle == active_handle %}active{% endif %}">
+{% comment %} <div class="player-card {% if player.handle == active_handle %}active{% endif %}">
     <div class="card-featured-image">
       <img src="{{ collection.image | image_url }}" alt="{{ collection.title }}">
     </div>
     <div class="card-content">
-      <div class="player-title">{{ player.title }}</div>
-      <div class="text">Brands that {{ player.title }} wears:</div>
+      <div class="player-title">{{ collection.title }}</div>
+      {% assign first_name = collection.title | split: ' ' | first %}
+      <div class="text">Brands that {{ first_name }} wears:</div>
       <div class="brands">
         {% for brand in collection.metafields.custom.brands.value %}
           <img src="{{ brand | image_url: width: 60 }}" alt="Brand logo">
         {% endfor %}
       </div>
     </div>
+</div> {% endcomment %}
+<div class="player-card {% if player.handle == active_handle %}active{% endif %}"
+     data-player-name="{{ collection.title | escape }}"
+     data-player-desc="{{ collection.description | strip_newlines | escape }}"
+     data-player-handle="{{ collection.handle }}">
+  
+  <div class="card-featured-image">
+    <img src="{{ collection.image | image_url }}" alt="{{ collection.title }}">
+  </div>
+
+  <div class="card-content">
+    <div class="player-title">{{ collection.title }}</div>
+    {% assign first_name = collection.title | split: ' ' | first %}
+    <div class="text">Brands that {{ first_name }} wears:</div>
+    <div class="brands">
+      {% for brand in collection.metafields.custom.brands.value %}
+        <img src="{{ brand | image_url: width: 60 }}" alt="Brand logo">
+      {% endfor %}
+    </div>
+  </div>
 </div>
