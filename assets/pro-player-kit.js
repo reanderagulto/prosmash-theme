@@ -1,7 +1,7 @@
 ;
 (function ($, w, d, h, b) {
     var app = {
-        playerCardCarousel: function () {
+        playerCardCarousel: function (startIndex = 0) {
             $('.player-kit-cards-container').slick({
                 slidesToShow: 2,
                 slidesToScroll: 1,
@@ -9,6 +9,7 @@
                 centerMode: false,
                 arrows: true,
                 dots: false,
+                initialSlide: startIndex,
                 prevArrow: $('.nav-buttons .slick-prev'),
                 nextArrow: $('.nav-buttons .slick-next'),
                 responsive: [
