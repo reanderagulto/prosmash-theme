@@ -1,6 +1,11 @@
 ;
 (function ($, w, d, h, b) {
     var app = {
+        getHandleFromURL: function () {
+            const parts = window.location.pathname.split('/');
+            return parts.includes('collections') ? parts[parts.length - 1] : null;
+        },
+
         playerCardCarousel: function (startIndex = 0) {
             $('.player-kit-cards-container').slick({
                 slidesToShow: 2,
@@ -72,7 +77,7 @@
                 app.updateURL(playerHandle);
             });
 
-            // Manual trigger after Slick loads
+            // Initial content sync (in case Slick doesn't fire `init`)
             const $initial = $('.player-kit-cards-container .slick-current');
             const initName = $initial.data('player-name');
             const initDesc = $initial.data('player-desc');
@@ -82,7 +87,12 @@
             $playerDesc.html(initDesc);
             app.updatePreferredSet(initName);
             app.updateShopTheLook(initName);
-            app.updateURL(initHandle);
+            // Skip updating URL if it's already correct
+            const currentPath = window.location.pathname;
+            const newPath = `/collections/${initHandle}`;
+            if (currentPath !== newPath) {
+                app.updateURL(initHandle);
+            }
         },
 
         updatePreferredSet: function (playerName) {
@@ -98,12 +108,26 @@
         updateURL: function (playerHandle) {
             if (!playerHandle) return;
             const newUrl = `/collections/${playerHandle}`;
+            const currentPath = window.location.pathname;
+            if (currentPath === newUrl) return;
+
             const newTitle = `${playerHandle.replace(/-/g, ' ')} | Player Kit`;
             window.history.pushState({ path: newUrl }, newTitle, newUrl);
         },
 
         init: function () {
-            this.playerCardCarousel();
+            const currentHandle = this.getHandleFromURL();
+            let startIndex = 0;
+
+            $('.player-kit-cards-container .player-card').each(function (i) {
+                const handle = $(this).data('player-handle');
+                if (handle === currentHandle) {
+                    startIndex = i;
+                    return false; // Break loop
+                }
+            });
+
+            this.playerCardCarousel(startIndex);
             this.loadMoreBtn();
             this.updateAllContent();
         }
