@@ -19,7 +19,7 @@
 <div id="mdp-weare-{{ section.id }}"
      class="mdp mdp-container mdp-weare-single-product"
      style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
-  <div class="mdp-grid mdp-product" data-columns="2" data-gap="30">
+  <div class="mdp-grid mdp-product prosmash-prod-grid" data-columns="2" data-gap="35">
     <div class="mdp-sticky-sidebar">
     	<div class="mdp-media">
       {% if section.settings.slider %}
@@ -145,7 +145,7 @@
     
     </div>
 
-    <div class="mdp-data">
+    <div class="mdp-data prosmash-custom-data">
       {% render 'mdp-weare-product-blocks', current_product: current_product, variant: variant, btn_color: btn_color %}
     </div>
   </div>
