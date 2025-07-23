@@ -149,8 +149,14 @@
         "search": true
       }
     },
+    "prosmash_single_product_breadcrumb_dUBUaH": {
+      "type": "prosmash-single-product-breadcrumb",
+      "name": "Breadcrumb",
+      "settings": {}
+    },
     "breadcrumbs": {
       "type": "breadcrumbs",
+      "disabled": true,
       "settings": {}
     },
     "product": {
@@ -369,6 +375,7 @@
   "order": [
     "menu-2",
     "menu-1",
+    "prosmash_single_product_breadcrumb_dUBUaH",
     "breadcrumbs",
     "product",
     "recommendations",
