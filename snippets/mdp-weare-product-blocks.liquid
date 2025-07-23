@@ -371,7 +371,8 @@
           {% if block.settings.product_advantages_title != blank %}
             <div class="accordion-title">{{ block.settings.product_advantages_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
           {% endif %}
-            {% if current_product.metafields.custom.product_advantages != blank %}
+            <div class="accordion-content">
+              {% if current_product.metafields.custom.product_advantages != blank %}
               {% for advantage in current_product.metafields.custom.product_advantages.value %}
                 <div class="pa-item">
                   <div class="col-left">
@@ -383,9 +384,10 @@
                   </div>
                 </div>
               {% endfor %}
-            {% else %}
-              <span>N/A</span>
-            {% endif %}
+              {% else %}
+                <span>N/A</span>
+              {% endif %}
+            </div>
         </div>
       </div>
 
