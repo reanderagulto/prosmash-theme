@@ -371,14 +371,21 @@
           {% if block.settings.product_advantages_title != blank %}
             <div class="accordion-title">{{ block.settings.product_advantages_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
           {% endif %}
-            <div class="accordion-content">
-              {% if current_product.metafields.custom.product_advantages != blank %}
-                {% assign product_advantage = current_product.metafields.custom.product_advantage.value %}
-                <div class="brand-name">{{ product_advantage.title | default: 'N/A' }}</div>
-              {% else %}
-                <span>N/A</span>
-              {% endif %}
-            </div>
+            {% if current_product.metafields.custom.product_advantages != blank %}
+              {% for advantage in current_product.metafields.custom.product_advantages.value %}
+                <div class="pa-item">
+                  <div class="col-left">
+                    <img src="{{ advantage.image | img_url: '300x' }}" alt="{{ advantage.title }}" />
+                  </div>
+                  <div class="col-right">
+                    <div class="pa-title">{{ advantage.title }}</div>
+                    <div class="pa-desc">{{ advantage.description }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <span>N/A</span>
+            {% endif %}
         </div>
       </div>
 
