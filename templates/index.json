@@ -343,63 +343,18 @@
     },
     "prosmash_hp_proplayer_kit_zzf6DT": {
       "type": "prosmash-hp-proplayer-kit",
-      "blocks": {
-        "card_NgrcLf": {
-          "type": "card",
-          "settings": {
-            "player_image": "shopify://shop_images/arturo.png",
-            "first_name": "Agustin",
-            "last_name": "Tapia",
-            "brand_logo_1": "shopify://shop_images/Nox_Logo_996f1388-648f-4da2-b2a4-d6e167cb8f12.png"
-          }
-        },
-        "card_dmYGic": {
-          "type": "card",
-          "settings": {
-            "player_image": "shopify://shop_images/Arturo_Coello_1.png",
-            "first_name": "Arturo",
-            "last_name": "Coello",
-            "brand_logo_1": "shopify://shop_images/head_logo_3.png",
-            "brand_logo_2": "shopify://shop_images/Siux_Logo_868ec8c3-d89c-4990-a18b-236185ab2409.png"
-          }
-        },
-        "card_iTMfwE": {
-          "type": "card",
-          "settings": {
-            "player_image": "shopify://shop_images/Ale-Galan.png",
-            "first_name": "Ale",
-            "last_name": "Galan",
-            "brand_logo_1": "shopify://shop_images/Adidas.png"
-          }
-        },
-        "card_9eQAcU": {
-          "type": "card",
-          "settings": {
-            "player_image": "shopify://shop_images/federico.png",
-            "first_name": "Federico",
-            "last_name": "Chingotto",
-            "brand_logo_1": "shopify://shop_images/Bullpadel_1.png"
-          }
-        },
-        "card_bK9g9T": {
-          "type": "card",
-          "settings": {
-            "player_image": "shopify://shop_images/Franco.png",
-            "first_name": "Franco",
-            "last_name": "Stupaczuk",
-            "brand_logo_1": "shopify://shop_images/Siux_Logo_868ec8c3-d89c-4990-a18b-236185ab2409.png"
-          }
-        }
-      },
-      "block_order": [
-        "card_NgrcLf",
-        "card_dmYGic",
-        "card_iTMfwE",
-        "card_9eQAcU",
-        "card_bK9g9T"
-      ],
       "name": "Pro Player Kit Carousel",
-      "settings": {}
+      "settings": {
+        "player_collections": [
+          "agustin-tapia",
+          "arturo-coello",
+          "ale-galan",
+          "federico-chingotto",
+          "franco-stupaczuk",
+          "juan-lebron",
+          "mike-yanguas"
+        ]
+      }
     },
     "prosmash_hp_newin_ieJxi7": {
       "type": "prosmash-hp-newin",
