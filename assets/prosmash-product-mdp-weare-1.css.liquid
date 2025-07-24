@@ -4,6 +4,23 @@
 .prosmash-prod-grid {
     justify-content: space-between;
 }
+.mdp-swiper-slide {
+    transition: 0.3s;
+}
+.mdp-swiper-slide::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    border-bottom: 2px solid #42662B !important;
+    transition: 0.5s;
+    opacity: 0;
+}
+.swiper-slide-thumb-active::before {
+    opacity: 1;
+}
 
 .mdp-data .brand-name {
     color: var(--Primary-Black, #000);
@@ -50,12 +67,17 @@
 }
 .mdp-product-swatches {
     margin-top: 40px;
-    
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
 }
 .mdp-option-swatches {
     display: flex;
     gap: 10px;
-    margin-top: 16px;
+}
+.swatch-option-label {
+    margin-bottom: 16px;
 }
 
 
@@ -69,8 +91,20 @@
 }
 .mdp-product-swatches .mdp-option .mdp-option-swatches span {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 22px;
+    height: 22px;
+}
+.mdp-prod-reviews .stars img {
+    width: 22px;
+    height: 22px;
+}
+.mdp-prod-reviews .prod-rating div {
+    color: var(--Primary-Black, #000);
+    font-family: "Red Hat Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .mdp-product-swatches .mdp-option .mdp-option-swatches input[type="radio"] {
     display: none;

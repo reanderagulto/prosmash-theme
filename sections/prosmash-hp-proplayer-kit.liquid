@@ -11,55 +11,23 @@
       <p>Shop and complete the look of your favorite padel players.</p>
     </div>
     <div class="player-kit-cards-container">
-      {% for block in section.blocks %}
-        {% if block.type == 'card' %}
-          {% render 'prosmash-player-card', player: block.settings %}
-        {% endif %}
+      {% for collection in section.settings.player_collections %}
+        {% render 'pro-player-card', collection: collection %}
       {% endfor %}
     </div>
+
   </div>
 </section>
 
 {% schema %}
 {
   "name": "HP Pro Player Kit",
-  "settings": [],
-  "blocks": [
+  "settings": [
     {
-      "type": "card",
-      "name": "Player Kit Card",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "player_image",
-          "label": "Player Image"
-        },
-        {
-          "type": "text",
-          "id": "first_name",
-          "label": "First Name"
-        },
-        {
-          "type": "text",
-          "id": "last_name",
-          "label": "Last Name"
-        },
-        {
-          "type": "image_picker",
-          "id": "brand_logo_1",
-          "label": "Brand Logo 1"
-        },
-        {
-          "type": "image_picker",
-          "id": "brand_logo_2",
-          "label": "Brand Logo 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "brand_logo_3",
-          "label": "Brand Logo 3"
-        }
-      ]
+      "type": "collection_list",
+      "id": "player_collections",
+      "label": "Player Collections",
+      "limit": 10
     }
   ],
   "presets": [
@@ -169,13 +137,13 @@
     z-index: 2;
 }
 
-.prosmash-player-kit .player-kit-card .card-featured-image {
+.prosmash-player-kit .player-card .card-featured-image {
     height: 273px;
     width: 100%;
     background: #42662B;
     margin-top: 100px;
 }
-.prosmash-player-kit .player-kit-card .card-featured-image img {
+.prosmash-player-kit .player-card .card-featured-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;

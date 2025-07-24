@@ -6,6 +6,20 @@
             return parts.includes('collections') ? parts[parts.length - 1] : null;
         },
 
+        equalizePlayerCardHeights: function () {
+            var maxHeight = 0;
+            var $cards = $('.player-container');
+
+            $cards.css('height', 'auto'); 
+
+            $cards.each(function () {
+                var height = $(this).outerHeight();
+                if (height > maxHeight) maxHeight = height;
+            });
+
+            $cards.css('height', maxHeight + 'px');
+        },
+
         playerCardCarousel: function (startIndex = 0) {
             $('.player-kit-cards-container').slick({
                 slidesToShow: 2,
@@ -22,6 +36,12 @@
                     { breakpoint: 768, settings: { slidesToShow: 1 } },
                     { breakpoint: 480, settings: { slidesToShow: 1 } }
                 ]
+            }).on('setPosition', function () {
+                app.equalizePlayerCardHeights();
+            });
+
+            $(window).on('resize', function () {
+                app.equalizePlayerCardHeights();
             });
         },
 

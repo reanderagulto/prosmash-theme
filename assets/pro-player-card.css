@@ -1,3 +1,4 @@
+
 .player-card .card-content {
     display: flex;
     padding: 24px 24px 40px 24px;
@@ -8,11 +9,15 @@
     position: relative;
     z-index: 1;
     flex: 1;
+    height: 100%;
+}
+a {
+    text-decoration: none;
 }
 .player-card .card-content .player-title {
     color: var(--Primary-White, #FFF);
     font-family: Lexend;
-    font-size: 22px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -44,7 +49,6 @@
     height: 273px;
     width: 100%;
     background: #42662B;
-    margin-top: 100px;
 }
 .player-card .player-kit-card .card-featured-image img {
     width: 100%;

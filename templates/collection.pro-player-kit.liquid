@@ -6,6 +6,8 @@
 <script src="{{ 'pro-player-kit.js' | asset_url }}" defer ></script>
 {{ 'pro-player-kit.css' |  asset_url | stylesheet_tag }}
 
+{% section 'prosmash-collection-banner' %}
+
 <div class="bio-section">
     <div class="mdp-container">
         <div class="col-left">
@@ -13,7 +15,7 @@
             {% assign player_handles = "agustin-tapia,arturo-coello,ale-galan,federico-chingotto,franco-stupaczuk" | split: "," %}
             {% for handle in player_handles %}
               {% assign player_collection = collections[handle] %}
-              {% render 'pro-player-card', collection: player_collection %}
+                {% render 'pro-player-card', collection: player_collection %}
             {% endfor %}
           </div>
           
