@@ -12,7 +12,7 @@
     <div class="mdp-container">
         <div class="col-left">
           <div class="player-kit-cards-container">
-            {% assign player_handles = "agustin-tapia,arturo-coello,ale-galan,federico-chingotto,franco-stupaczuk,juan-lebron" | split: "," %}
+            {% assign player_handles = "agustin-tapia,arturo-coello,ale-galan,federico-chingotto,franco-stupaczuk,juan-lebron,mike-yanguas,martin-di-nenno,paquito-navarro,coki-nieto,momo-gonzales,jon-sanz,teo-zapata,arnau-ayats" | split: "," %}
             {% for handle in player_handles %}
               {% assign player_collection = collections[handle] %}
                 {% render 'pro-player-card', collection: player_collection %}
