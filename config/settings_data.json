@@ -525,15 +525,38 @@
           "youtobe_link": "",
           "pinterest_link": ""
         }
+      },
+      "prosmash-collection-banner": {
+        "type": "prosmash-collection-banner",
+        "settings": {
+          "background_img": "shopify://shop_images/Hero_Banner.png",
+          "title": "Shop Exclusive PRo<br> Player Kits"
+        }
+      },
+      "prosmash-hp-cta-section": {
+        "type": "prosmash-hp-cta-section",
+        "settings": {
+          "cta_title": "MAXIMIZE <br> STABILITY",
+          "cta_description": "Take <span>20% Off</span> / Sale Must-Haves"
+        }
+      },
+      "prosmash-hp-blog-section": {
+        "type": "prosmash-hp-blog-section",
+        "settings": {}
+      },
+      "prosmash-video-section-1": {
+        "type": "prosmash-video-section-1",
+        "settings": {
+          "main_heading": "Padel is love",
+          "description": "Where passion meets play — unite, compete, and fall in love with the game.",
+          "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "video_file": "",
+          "video_header": "",
+          "video_view_more": "",
+          "view_more_link": ""
+        }
       }
     },
-    "content_for_index": [],
-    "blocks": {
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
-      }
-    }
+    "content_for_index": []
   }
 }
