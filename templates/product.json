@@ -192,6 +192,12 @@
           "disabled": true,
           "settings": {}
         },
+        "options_XbF6Uj": {
+          "type": "options",
+          "settings": {
+            "variants_group": "separately"
+          }
+        },
         "swatches_3jrHy6": {
           "type": "swatches",
           "settings": {}
@@ -246,6 +252,7 @@
         "description",
         "visitors",
         "payment_terms",
+        "options_XbF6Uj",
         "swatches_3jrHy6",
         "three_col_yEmGPq",
         "two_col_YM38Jr",
