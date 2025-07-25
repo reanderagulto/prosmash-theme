@@ -7,7 +7,51 @@
             {% for block in section.blocks %}
                 {% assign product = block.settings.product %}
                 {% if product %}
-                    {% render 'prosmash-product-card', product: product %}
+                    <div class="product-card-v2">
+                    <a href="{{ product.url }}">
+                    <div class="prod-img">
+                        <div class="img-container">
+                        <div class="canvas" style="
+                            background-image: url('{{ product.featured_image | image_url: width: 246 }}');
+                            background-color: #F0F0F0;
+                            background-size: cover;
+                            background-position: center;
+                            width: 304px;
+                            height: 320px;">
+                        </div>
+                        </div>
+                        <div class="mdp-add-to-cart mdp-available add-cart-btn"
+                        data-product-id="{{ product.variants.first.id }}"
+                        data-add-to-cart="Add to cart"
+                        data-sold-out="Sold out">
+                        Add to cart
+                        </div>
+                    </div>
+                    <div class="prod-details">
+                        {% assign brand = product.metafields.custom.brands.value %}
+                        <div class="brand">
+                        {% if brand %}
+                            {{ brand.name }}
+                        {% else %}
+                            No brand
+                        {% endif %}
+                        </div>
+                        <div class="prod-title">{{ product.title | truncate: 25 }}</div>
+                        <div class="prod-price">{{ product.price | money }}</div>
+                        <div class="prod-rating">
+                            <div class="stars">
+                                <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+                                <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+                                <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+                                <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+                                <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+                            </div>
+                            <div>10 reviews <img src="{{ 'ArrowUpRight.svg' | asset_url }}" alt="Star"></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
                 {% endif %}
             {% endfor %}
         </div>
@@ -40,6 +84,9 @@
         align-items: start;
         gap: 40px;
         align-self: stretch;
+    }
+    .hot-products .custom-container {
+        max-width: 1312px;
     }
 </style>
 

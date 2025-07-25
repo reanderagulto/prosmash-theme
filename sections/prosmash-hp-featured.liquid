@@ -6,7 +6,7 @@
     <div class="featured-products">
       {% if section.settings.collection %}
         {% for product in section.settings.collection.products %}
-          <div class="featured-card">
+          {% comment %} <div class="featured-card">
             <a href="{{ product.url }}">
               <div class="card-img">
                 <div class="canvas" style="
@@ -47,15 +47,15 @@
                 </div>
               </div>
             </a>
-          </div>
+          </div> {% endcomment %}
+          {% render 'prosmash-product-card-v2', product: product %}
         {% endfor %}
       {% else %}
         <p>No collection selected.</p>
       {% endif %}
-
-      <div class="cta-btn">
-        <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
-      </div>
+    </div>
+    <div class="cta-btn">
+      <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
     </div>
   </div>
 </section>

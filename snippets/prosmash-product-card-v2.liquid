@@ -3,12 +3,11 @@
     <div class="prod-img">
         <div class="img-container">
         <div class="canvas" style="
-            background-image: url('{{ product.featured_image | image_url: width: 246 }}');
+            background-image: url('{{ product.featured_image | image_url }}');
             background-color: #F0F0F0;
             background-size: cover;
             background-position: center;
-            width: 304px;
-            height: 320px;">
+            ">
         </div>
         </div>
         <div class="mdp-add-to-cart mdp-available add-cart-btn"

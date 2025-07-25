@@ -215,10 +215,11 @@ ul.slick-dots li.slick-active {
 /* NEW IN */
 .new-products {
     background: var(--grey);
+    padding: 60px 64px;
 }
 .new-products .mdp-container {
     display: flex;
-    padding: 60px 64px;
+    padding: 0 !important;
     align-items: center;
     /* gap: 76px; */
     gap: 40px;
@@ -232,7 +233,26 @@ ul.slick-dots li.slick-active {
     align-items: flex-start;
     gap: 12px;
 }
-.new-products .mdp-container .col-left {
+.new-products .mdp-container .col-left h2 {
+    padding: 0;
+    margin: 0;
+    color: var(--black);
+    font-family: var(--font-lexend);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; 
+    text-transform: uppercase;
+}
+.new-products .col-left .cta-btn a {
+    font-family: var(--font-redhat);
+    color: var(--black);
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 800;
+    line-height: 120%;
+}
+/* .new-products .mdp-container .col-left {
     width: 16%;
 }
 
@@ -284,7 +304,7 @@ ul.slick-dots li.slick-active {
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 100%; /* 16px */
+    line-height: 100%; 
     text-transform: uppercase;
     background: var(--Secondary-1-Dark-Moss-Green, #42662B);
 }
@@ -311,28 +331,9 @@ ul.slick-dots li.slick-active {
     line-height: 150%;
     font-weight: 600;
     color: var(--text);
-    padding-top: 8px;
 }
 
-.new-products .mdp-container .col-left h2 {
-    padding: 0;
-    margin: 0;
-    color: var(--black);
-    font-family: var(--font-lexend);
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 57.6px */
-    text-transform: uppercase;
-}
-.new-products .col-left .cta-btn a {
-    font-family: var(--font-redhat);
-    color: var(--black);
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: 800;
-    line-height: 120%;
-}
+
 .new-products .prod-img .img-container {
     overflow: hidden;
 }
@@ -341,9 +342,27 @@ ul.slick-dots li.slick-active {
 }
 .new-products .prod-img .img-container:hover .canvas {
     transform: scale(1.1);
+} */
+.new-products .col-right .product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
+
+.new-products .mdp-container .col-left {
+    flex: 0 0 auto;
+}
+.new-products .mdp-container .col-right {
+     flex: 1; /* take up remaining space */
+}
+
+
+
 /* FEATURED */
+.featured {
+    padding: 60px 64px;
+}
 .featured .heading-container h3 {
     margin: 0;
     padding: 0;
@@ -357,105 +376,20 @@ ul.slick-dots li.slick-active {
 }
 .featured .mdp-container {
     display: flex;
-    padding: 60px 64px;
     flex-direction: column;
     align-items: center;
     gap: 40px;
     align-self: stretch;
-}
-.featured .featured-products {
-    display: flex;
-    align-items: flex-start;
-    gap: 32px;
-    align-self: stretch;
     max-width: 1312px;
     width: 100%;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 0 !important;
+
 }
-.featured .card-img {
-    max-width: 304px;
-    max-height: 320px;
-    overflow: hidden;
-    position: relative;
-}
-.featured .canvas {
-    transition: 0.5s;
-}
-.featured .card-img:hover .canvas {
-    transform: scale(1.1);
-}
-.featured .card-img:hover .add-cart-btn {
-    transform: translateY(0);
-}
-.featured .add-cart-btn {
-    display: flex;
-    width: auto;
-    padding: 16px 40px;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    color: var(--Primary-White, #FFF);
-    font-family: Lexend;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%; /* 16px */
-    text-transform: uppercase;
-    background: var(--Secondary-1-Dark-Moss-Green, #42662B);
-}
-.featured .add-cart-btn {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.featured .featured-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
     width: 100%;
-    text-align: center;
-    padding: 16px 0;
-    transition: 0.5s;
-    transform: translateY(100%);
-}
-
-
-.featured .featured-card a {
-    text-decoration: none;
-    display: inline-block;
-}
-.featured .featured-card h2,
-.featured .featured-card p {
-    padding: 0;
-    margin: 0;
-}
-.featured .featured-card a {
-    display: flex;
-    width: 304px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-}
-
-.featured .card-content .card-title {
-    font-family: var(--font-lexend);
-    color: var(--black);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 120%;
-}
-.featured .card-content .brand {
-    color: #5B5B5B;
-    font-family: "Red Hat Display";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.featured .card-content .card-price {
-    font-family: var(--font-redhat);
-    color: var(--text);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 150%;
-    padding-top: 8px;
+    gap: 32px;
 }
 .featured .cta-btn {
     text-align: center;
@@ -517,6 +451,9 @@ section.blogs {
     align-items: flex-start;
     gap: 80px;
     align-self: stretch;
+}
+section.blogs .mdp-container {
+    padding: 0 !important;
 }
 .blog-item a {
     display: flex;
@@ -611,11 +548,11 @@ section.blogs {
         justify-content: center;
     }
     .featured .featured-products {
-        justify-content: center;
-    }
-    .blogs .blogs-container {
-        flex-wrap: wrap;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center; /* ✅ This centers the grid items horizontally */
+  }
 
 }
 @media (max-width: 767px) {
@@ -672,26 +609,12 @@ section.blogs {
         gap: 25px;
         padding: 60px 15px;
     }
-    .featured .featured-card a {
-        align-items: center;
-    }
-    .featured .featured-card .card-content {
-        text-align: center;
-    }
-    .new-products .col-right .product-grid .product-card a {
-        align-items: center;
+    .featured {
+        padding: 60px 25px;
     }
     .featured .featured-products {
-        gap: 16px;
+        gap: 25px;
     }
-    .featured .featured-card img {
-        max-height: auto;
-        height: 100%;
-    }
-    .featured .card-content .card-title {
-        font-size: 16px;
-    }
-
     .cta-section .cta-title {
         font-size: 52px;
         text-align: center;
@@ -730,5 +653,15 @@ section.blogs {
 
 }
 @media (max-width: 480px) {
-
+  .featured .featured-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .featured .featured-products {
+    flex-direction: column;
+}
+.featured .product-card-v2 {
+    width: 100%;
+}
 }

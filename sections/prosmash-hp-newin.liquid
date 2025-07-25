@@ -13,50 +13,7 @@
       <div class="product-grid">
         {% if section.settings.collection %}
           {% for product in section.settings.collection.products %}
-            <div class="product-card">
-              <a href="{{ product.url }}">
-                <div class="prod-img">
-                  <div class="img-container">
-                    <div class="canvas" style="
-                        background-image: url('{{ product.featured_image | image_url: width: 246 }}');
-                        background-color: #F0F0F0;
-                        background-size: cover;
-                        background-position: center;
-                        width: 246px;
-                        height: 304px;">
-                    </div>
-                  </div>
-                  <div class="mdp-add-to-cart mdp-available add-cart-btn"
-                    data-product-id="{{ product.variants.first.id }}"
-                    data-add-to-cart="Add to cart"
-                    data-sold-out="Sold out">
-                    Add to cart
-                  </div>
-                </div>
-                <div class="prod-details">
-                  {% assign brand = product.metafields.custom.brands.value %}
-                  <div class="brand">
-                    {% if brand %}
-                      {{ brand.name }}
-                    {% else %}
-                      No brand
-                    {% endif %}
-                  </div>
-                  <div class="prod-title">{{ product.title | truncate: 25 }}</div>
-                  <div class="prod-price">{{ product.price | money }}</div>
-                  <div class="prod-rating">
-                      <div class="stars">
-                          <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-                          <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-                          <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-                          <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-                          <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-                      </div>
-                      <div>10 reviews <img src="{{ 'ArrowUpRight.svg' | asset_url }}" alt="Star"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
+            {% render 'prosmash-product-card-v2', product: product %}
           {% endfor %}
         {% else %}
           <p>No collection selected.</p>
