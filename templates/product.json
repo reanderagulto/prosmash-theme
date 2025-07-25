@@ -195,11 +195,12 @@
         "options_XbF6Uj": {
           "type": "options",
           "settings": {
-            "variants_group": "together"
+            "variants_group": "separately"
           }
         },
         "swatches_3jrHy6": {
           "type": "swatches",
+          "disabled": true,
           "settings": {}
         },
         "three_col_yEmGPq": {
