@@ -10,12 +10,21 @@
             ">
         </div>
         </div>
-        <div class="mdp-add-to-cart mdp-available add-cart-btn"
-        data-product-id="{{ product.variants.first.id }}"
-        data-add-to-cart="Add to cart"
-        data-sold-out="Sold out">
-        Add to cart
-        </div>
+        {% assign variant = product.selected_or_first_available_variant %}
+<div class="mdp-add-to-cart add-cart-btn
+    {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %} pre-order{% endif %}"
+     data-product-id="{{ variant.id }}"
+     data-add-to-cart="Add to cart"
+     data-sold-out="Sold out">
+  {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+    Pre-order
+  {% elsif variant.available %}
+    Add to cart
+  {% else %}
+    Sold out
+  {% endif %}
+</div>
+
     </div>
     <div class="prod-details">
         {% assign brand = product.metafields.custom.brands.value %}
