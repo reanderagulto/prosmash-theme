@@ -243,6 +243,7 @@
 .prosmash-two-col-buttons .mdp-add-to-cart:hover {
     background-color: #607F4C !important;
     color: var(--white) !important;
+    border-color: #607f4c !important;
 }
 .prosmash-two-col-buttons .mdp-add-to-wishlist.mdp-added svg path {
     fill: #42662B !important;
@@ -285,8 +286,9 @@
 }
 
 
-/* SOLD OUT */
-.mdp-sold-out {
+/* SOLD OUT AND PRE-ORDER*/
+.mdp-sold-out,
+.mdp-preorder {
     color: var(--Primary-White, #FFF);
     text-align: center;
     font-family: Lexend !important;
@@ -304,6 +306,10 @@
     background: #819972 !important;
     width: auto !important;
     width: 96px;
+    position: absolute;
+    top: 24px;
+    z-index: 1;
+    right: 19px;
 }
 
 /* ACCORDION DELIVERY NOTICE */

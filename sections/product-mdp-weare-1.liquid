@@ -122,25 +122,31 @@
              src="{{current_product.featured_image | img_url : section.settings.image_size}}"
              alt="{{current_product.featured_image.alt}}" >
       </div>
-      {% endif %}      
-      {% if current_product.available %}
+      {% endif %}
+
+      {% assign selected_variant = current_product.selected_or_first_available_variant %}
+
+      {% if selected_variant.inventory_quantity <= 0 and selected_variant.inventory_policy == 'continue' %}
+        <div class="mdp-preorder">
+          {{ section.settings.pre_order_string | default: 'Pre-order' }}
+        </div>
+      {% elsif current_product.available %}
         {% if current_product.compare_at_price > current_product.price %}
-	        <div class="mdp-sale">
-              {{ section.settings.sale_string }}      
-              {{ current_product.compare_at_price | minus: current_product.price | times: 100 | divided_by: current_product.compare_at_price }}%
-            </div>
-        {% else %}
-          {% if current_product.tags contains 'new' %}
-              <div class="mdp-new">
-                {{ section.settings.new_string }}      
-              </div>
-          {% endif %}
-      	{% endif %}
+          <div class="mdp-sale">
+            {{ section.settings.sale_string }}      
+            {{ current_product.compare_at_price | minus: current_product.price | times: 100 | divided_by: current_product.compare_at_price }}%
+          </div>
+        {% elsif current_product.tags contains 'new' %}
+          <div class="mdp-new">
+            {{ section.settings.new_string }}      
+          </div>
+        {% endif %}
       {% else %}
         <div class="mdp-sold-out">
           {{ section.settings.sold_out_string }}
         </div>
       {% endif %}
+
     </div>
     
     </div>

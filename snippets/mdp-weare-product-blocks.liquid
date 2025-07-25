@@ -214,11 +214,15 @@
                     data-quantity="1"
                     data-add-to-cart="{{ section.settings.add_cart_string }}"
                     data-sold-out="{{ section.settings.sold_out_string }}">
-              {% if current_product.available %}
-                {{ section.settings.add_cart_string }}
-              {% else %}
-                {{ section.settings.sold_out_string }}
-              {% endif %}
+              {% assign selected_variant = current_product.selected_or_first_available_variant %}
+{% if selected_variant.inventory_quantity <= 0 and selected_variant.inventory_policy == 'continue' %}
+  Pre-order
+{% elsif selected_variant.available %}
+  {{ section.settings.add_cart_string }}
+{% else %}
+  {{ section.settings.sold_out_string }}
+{% endif %}
+
               <i class="fa-regular fa-cart-shopping"></i>
             </button>
             <!-- Add to Wishlist Button -->
