@@ -219,9 +219,7 @@
         },
         "logo_yA3CP6": {
           "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Oxdog_Logo.png"
-          }
+          "settings": {}
         },
         "logo_dkhpib": {
           "type": "logo",
@@ -387,7 +385,7 @@
       "type": "prosmash-hp-cta-section",
       "name": "Prosmash HP CTA Section",
       "settings": {
-        "cta_title": "MAXIMIZE<br>  STABILITY",
+        "cta_title": "MAXIMIZES STABILITY",
         "cta_description": "Take<span> 20% Off</span>/ Sale Must-Haves",
         "cta_bg": "shopify://shop_images/54bf5a2f1cabca59e01634417facb8a1cf8ee46a.jpg"
       }
