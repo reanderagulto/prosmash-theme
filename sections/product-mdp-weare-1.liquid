@@ -11,190 +11,131 @@
 {% assign btn_color = section.settings.button_text_color %}
 
 <script>
-    if (!('mdp' in window)) {
-        window.mdp = {};
-    }
-    window.mdp.money_format = '{{shop.money_format}}';
+  if (!('mdp' in window)) {
+    window.mdp = {};
+  }
+  window.mdp.money_format = '{{ shop.money_format }}';
 </script>
+
 <div id="mdp-weare-{{ section.id }}"
      class="mdp mdp-container mdp-weare-single-product"
      style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;">
-  <div class="mdp-grid mdp-product prosmash-prod-grid" data-columns="2" data-gap="35">
+  <div class="mdp-grid mdp-product" data-columns="2" data-gap="30">
     <div class="mdp-sticky-sidebar">
-    	<div class="mdp-media">
-      {% if section.settings.slider %}
-      <div class="swiper-container mdp-swiper-container mdp-swiper-thumbs mdp-swiper-min-img">
-        <div class="swiper-wrapper mdp-swiper-wrapper">
-          {% for media in current_product.media %}
-            {% case media.media_type %}
-              {% when 'image' %}
+      <div class="mdp-media">
+        {% if section.settings.slider %}
+          <div class="swiper-container mdp-swiper-container mdp-swiper-thumbs mdp-swiper-min-img">
+            <div class="swiper-wrapper mdp-swiper-wrapper">
+              {% for media in current_product.media %}
                 <div class="swiper-slide mdp-swiper-slide">
                   <div class="mdp-placeholder"
-                       style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
+                       style="padding-top: calc({{ section.settings.image_size | split: '_' | first | split: 'x' | last }} / {{ section.settings.image_size | split: 'x' | first }} * 100%);">
                     <img class="mdp-image lazyload"
-                         src="{{media.preview_image | img_url : section.settings.image_size}}"
-                         alt="{{media.preview_image.alt}}" >
+                         src="{{ media.preview_image | img_url: section.settings.image_size }}"
+                         alt="{{ media.preview_image.alt }}">
                   </div>
                 </div>
-              {% when 'external_video' %}
-                <div class="swiper-slide mdp-swiper-slide" data-media-id="{{ media.id }}">
-                  <div class="mdp-placeholder"
-                       style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
-                    <img class="mdp-image lazyload"
-                         src="{{media.preview_image | img_url : section.settings.image_size}}"
-                         alt="{{media.preview_image.alt}}" >
-                  </div>
-                </div>
-              {% when 'video' %}
-                <div class="swiper-slide mdp-swiper-slide" data-media-id="{{ media.id }}">
-                  <div class="mdp-placeholder"
-                       style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
-                    <img class="mdp-image lazyload"
-                         src="{{media.preview_image | img_url : section.settings.image_size}}"
-                         alt="{{media.preview_image.alt}}" >
-                  </div>
-                </div>
-              {% when 'model' %}
-                <div class="swiper-slide mdp-swiper-slide" data-media-id="{{ media.id }}">
-                  <div class="mdp-placeholder"
-                       style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
-                    <img class="mdp-image lazyload"
-                         src="{{media.preview_image | img_url : section.settings.image_size}}"
-                         alt="{{media.preview_image.alt}}" >
-                  </div>
-                </div>
-              {% else %}
-                <div class="swiper-slide mdp-swiper-slide" data-media-id="{{ media.id }}">
-                  <div class="mdp-placeholder"
-                       style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
-                    <img class="mdp-imag lazyloade"
-                         src="{{media.preview_image | img_url : section.settings.image_size}}"
-                         alt="{{media.preview_image.alt}}" >
-                  </div>
-                </div>
-            {% endcase %}          
-          {% endfor %}          
-        </div>
-      </div>
-
-      <div class="swiper-container mdp-product-swiper mdp-swiper-container mdp-slideshow-product-1">
-        <div class="swiper-wrapper mdp-swiper-wrapper">
-          {% for media in current_product.media %}
-            {% case media.media_type %}
-              {% when 'image' %}
-                <div class="swiper-slide mdp-swiper-slide {% if section.settings.zoom %}mdp-hover-zoom{% endif %}" data-zoom="{{media | img_url : '2000x'}}" data-media-id="{{ media.id }}">
-                  <div class="mdp-placeholder" style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
-                    <img class="mdp-image lazyload" data-src="{{media | img_url : section.settings.image_size}}" alt="{{media.alt}}" >
-                  </div>
-                </div>
-              {% when 'external_video' %}
-                <div class="swiper-slide mdp-swiper-slide"
-                     style="padding-top: {{ 1 | divided_by: media.aspect_ratio | times: 100}}%;"
-                     data-media-id="{{ media.id }}">
-                  {{ media | external_video_tag }}
-                </div>
-              {% when 'video' %}
-                <div class="swiper-slide mdp-swiper-slide"
-                     data-media-id="{{ media.id }}">
-                  {{ media | video_tag: controls: true }}
-                </div>
-              {% when 'model' %}
-                <div class="swiper-slide mdp-swiper-slide"
-                     data-media-id="{{ media.id }}">
-                  {{ media | model_viewer_tag }}
-                </div>
-              {% else %}
-                <div class="swiper-slide mdp-swiper-slide"
-                     data-media-id="{{ media.id }}">
-                  {{ media | media_tag }}
-                </div>
-            {% endcase %}          
-          {% endfor %}                    
-        </div>
-        <div class="mdp-swiper-button-prev swiper-button-prev-slideshow-product-1"></div>
-        <div class="mdp-swiper-button-next swiper-button-next-slideshow-product-1"></div>
-        {% comment %} asdasd {% endcomment %}
-         {% render 'prosmash-mdp-weare-social-sharing', share_title: current_product.title, share_permalink: current_product.url, share_image: current_product.featured_media %}
-      </div>      
-      {% else %}      
-      <div class="mdp-placeholder" style="padding-top: calc({{ section.settings.image_size | split: "_" | first | split: "x" | last }} / {{ section.settings.image_size | split: "x" | first }} * 100%);">
-        <img class="mdp-image lazyload"
-             src="{{current_product.featured_image | img_url : section.settings.image_size}}"
-             alt="{{current_product.featured_image.alt}}" >
-      </div>
-      {% endif %}
-
-      {% assign selected_variant = current_product.selected_or_first_available_variant %}
-
-      {% if selected_variant.inventory_quantity <= 0 and selected_variant.inventory_policy == 'continue' %}
-        <div class="mdp-preorder">
-          {{ section.settings.pre_order_string | default: 'Pre-order' }}
-        </div>
-      {% elsif current_product.available %}
-        {% if current_product.compare_at_price > current_product.price %}
-          <div class="mdp-sale">
-            {{ section.settings.sale_string }}      
-            {{ current_product.compare_at_price | minus: current_product.price | times: 100 | divided_by: current_product.compare_at_price }}%
+              {% endfor %}
+            </div>
           </div>
-        {% elsif current_product.tags contains 'new' %}
-          <div class="mdp-new">
-            {{ section.settings.new_string }}      
+
+          <div class="swiper-container mdp-product-swiper mdp-swiper-container mdp-slideshow-product-1">
+            <div class="swiper-wrapper mdp-swiper-wrapper">
+              {% for media in current_product.media %}
+                <div class="swiper-slide mdp-swiper-slide {% if section.settings.zoom %}mdp-hover-zoom{% endif %}"
+                     data-zoom="{{ media | img_url: '2000x' }}"
+                     data-media-id="{{ media.id }}">
+                  <div class="mdp-placeholder"
+                       style="padding-top: calc({{ section.settings.image_size | split: '_' | first | split: 'x' | last }} / {{ section.settings.image_size | split: 'x' | first }} * 100%);">
+                    <img class="mdp-image lazyload" data-src="{{ media | img_url: section.settings.image_size }}" alt="{{ media.alt }}">
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="mdp-swiper-button-prev swiper-button-prev-slideshow-product-1"></div>
+            <div class="mdp-swiper-button-next swiper-button-next-slideshow-product-1"></div>
+          </div>
+        {% else %}
+          <div class="mdp-placeholder"
+               style="padding-top: calc({{ section.settings.image_size | split: '_' | first | split: 'x' | last }} / {{ section.settings.image_size | split: 'x' | first }} * 100%);">
+            <img class="mdp-image lazyload"
+                 src="{{ current_product.featured_image | img_url: section.settings.image_size }}"
+                 alt="{{ current_product.featured_image.alt }}">
           </div>
         {% endif %}
-      {% else %}
-        <div class="mdp-sold-out">
-          {{ section.settings.sold_out_string }}
-        </div>
-      {% endif %}
 
-    </div>
-    
+        {% assign selected_variant = current_product.selected_or_first_available_variant %}
+
+        {% if selected_variant.inventory_quantity <= 0 and selected_variant.inventory_policy == 'continue' %}
+          <div class="mdp-preorder">
+            {{ section.settings.pre_order_string | default: 'Pre-order' }}
+          </div>
+        {% elsif current_product.available %}
+          {% if current_product.compare_at_price > current_product.price %}
+            <div class="mdp-sale">
+              {{ section.settings.sale_string }}
+              {{ current_product.compare_at_price | minus: current_product.price | times: 100 | divided_by: current_product.compare_at_price }}%
+            </div>
+          {% elsif current_product.tags contains 'new' %}
+            <div class="mdp-new">
+              {{ section.settings.new_string }}
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="mdp-sold-out">
+            {{ section.settings.sold_out_string }}
+          </div>
+        {% endif %}
+      </div>
     </div>
 
-    <div class="mdp-data prosmash-custom-data">
+    <div class="mdp-data">
       {% render 'mdp-weare-product-blocks', current_product: current_product, variant: variant, btn_color: btn_color %}
     </div>
-  </div>
-  </div>
 
+    <script type="application/json" class="mdp-product-json">
+      {{ current_product | json }}
+    </script>
+  </div>
+</div>
 
 <style>
-    .mdp-weare-single-product>.mdp-product>.mdp-data .shopify-payment-button>div>div>div .shopify-payment-button__button{
-        color: {{ btn_color }};
-    }
+  .mdp-weare-single-product > .mdp-product > .mdp-data .shopify-payment-button > div > div > div .shopify-payment-button__button {
+    color: {{ btn_color }};
+  }
 </style>
 
 <script>
-    const swiperSlideshowThumbs = new Swiper('.mdp-swiper-min-img', {
-        direction: 'vertical',
-        spaceBetween: 5,
-        slidesPerView: 'auto',
-        loop: false,
-        mousewheel: true,
-        pagination: false,
-        navigation: true,
-    });
+  const swiperSlideshowThumbs = new Swiper('.mdp-swiper-min-img', {
+    direction: 'vertical',
+    spaceBetween: 5,
+    slidesPerView: 'auto',
+    loop: false,
+    mousewheel: true,
+    pagination: false,
+    navigation: true
+  });
 
-    swiperSlideshowThumbs.init();
+  swiperSlideshowThumbs.init();
 
-    const swiperSlideshowProduct1 = new Swiper('.mdp-slideshow-product-1', {
-        direction: 'horizontal',
-        spaceBetween: 5,
-        slidesPerView: 'auto',
-        loop: true,
-        pagination: false,
-        thumbs: {
-            swiper: swiperSlideshowThumbs,
-        },
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next-slideshow-product-1',
-            prevEl: '.swiper-button-prev-slideshow-product-1',
-        }
-    });
+  const swiperSlideshowProduct1 = new Swiper('.mdp-slideshow-product-1', {
+    direction: 'horizontal',
+    spaceBetween: 5,
+    slidesPerView: 'auto',
+    loop: true,
+    pagination: false,
+    thumbs: {
+      swiper: swiperSlideshowThumbs
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-slideshow-product-1',
+      prevEl: '.swiper-button-prev-slideshow-product-1'
+    }
+  });
 
-    swiperSlideshowProduct1.init();
+  swiperSlideshowProduct1.init();
 </script>
+
 
 {% schema %}
   {
