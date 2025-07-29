@@ -1,4 +1,7 @@
 
+.player-card {
+    width: 269px;
+}
 .player-card .card-content {
     display: flex;
     padding: 24px 24px 40px 24px;

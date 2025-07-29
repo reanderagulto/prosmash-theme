@@ -116,9 +116,12 @@
   }
 
   /* ========== PLAYER PREFERRED SET ========== */
+  .player-preferred-set {
+    padding: 0 64px 64px 64px;
+  }
   .player-preferred-set .mdp-container {
     display: flex;
-    padding: 0 64px 64px 64px;
+    
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
@@ -149,11 +152,12 @@
   /* ========== SHOP THE LOOK ========== */
   .player-shop-the-look {
     background: #F0F0F0;
+    padding: 64px;
   }
 
   .player-shop-the-look .mdp-container {
     display: flex;
-    padding: 64px;
+
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
