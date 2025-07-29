@@ -154,7 +154,12 @@
     background: #F0F0F0;
     padding: 64px;
   }
-
+  .shop-look-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
+    width: 100%;
+    gap: 32px;
+  }
   .player-shop-the-look .mdp-container {
     display: flex;
 
