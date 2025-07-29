@@ -219,7 +219,9 @@
         },
         "logo_yA3CP6": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Oxdog_Logo.png"
+          }
         },
         "logo_dkhpib": {
           "type": "logo",
