@@ -9,7 +9,7 @@
         {% assign brand = current_product.metafields.custom.brands.value %}
         <div class="brand-name">{{ brand.name | default: 'N/A' }}</div>
       {% else %}
-        <span>N/A</span>
+        <div class="brand-name">N/A</div>
       {% endif %}
       <h1 class="mdp-title {% if oneRow == true %}mdp-title-section{% endif %}">
         <a href="{{ current_product.url }}">{{current_product.title}}</a>
