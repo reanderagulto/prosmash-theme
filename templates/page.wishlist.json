@@ -150,12 +150,23 @@
     },
     "wishlist": {
       "type": "mdp-weare-wishlist-hub-47627",
+      "disabled": true,
       "settings": {
         "title": "My wishlist",
         "number_of_products": 10,
         "col_per_row": 4,
         "margin_top": "50",
         "margin_bottom": "50"
+      }
+    },
+    "mdp_weare_wishlist_1_QPf3ey": {
+      "type": "mdp-weare-wishlist-1",
+      "name": "Wishlist",
+      "settings": {
+        "title": "My Wishlists",
+        "col_per_row": 4,
+        "margin_top": "",
+        "margin_bottom": ""
       }
     },
     "footer-1": {
@@ -217,6 +228,7 @@
     "menu-2",
     "menu-1",
     "wishlist",
+    "mdp_weare_wishlist_1_QPf3ey",
     "footer-1"
   ]
 }
