@@ -378,7 +378,8 @@
                      
                     <a class="mdp-cart" href="/cart">
                     
-                        <i class="fa-solid fa-cart-shopping mdp-menu-icon"></i> <span>{{ cart.item_count }} in count</span>
+                        {% comment %} <i class="fa-solid fa-cart-shopping mdp-menu-icon"></i> <span>{{ cart.item_count }} in count</span> {% endcomment %}
+                        <img src="{{ 'shopping-cart.svg' |  asset_url }}" alt=""> <span>{{ cart.item_count }} in count</span>
                         {% comment %} <span class="mdp-cart-count">{{ cart.item_count }}</span> {% endcomment %}
                     </a>
 

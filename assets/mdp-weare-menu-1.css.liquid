@@ -1,4 +1,7 @@
-
+.mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-right {
+    max-width: 142px;
+    width: 100%;
+}
 
 .mdp-weare-menu-1 .mdp-menu-element {
     position: relative;
@@ -349,6 +352,9 @@
     .mdp-weare-menu-1 [data-sticky-class=mdp-sticky-menu] {
         padding: 5px 15px;
     }
+    .mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-right {
+        width: 100% !important;
+    }
 }
 .mdp-weare-menu-1 .mdp-container .mdp-row-full {
     max-height: 73px;
@@ -454,7 +460,8 @@
 .mdp-weare-menu-1 .mdp-container .mdp-account {
     color: {{ settings.menu_color }};
     transition: 0.3s all ease-in-out;
-    margin: 0 17px;
+    /* margin: 0 17px; */
+    margin: 0;
 }
 .mdp-weare-menu-1 .mdp-container .mdp-account:hover {
     color: {{ settings.menu_activ_color }};
@@ -468,6 +475,7 @@
     transition: 0.3s all ease-in-out;
     margin: 5px;
     position: relative;
+    align-items: center;
 }
 .mdp-weare-menu-1 .mdp-container .mdp-cart:hover {
     color: {{ settings.menu_activ_color }};
@@ -765,10 +773,15 @@
     }
     .mdp-weare-menu-1 [data-sticky-class=mdp-sticky-menu] {
         padding: 15px 0 15px !important;
-        border-bottom: 2px solid #343434;
+        /* border-bottom: 2px solid #343434; */
     }
     .mdp-weare-menu-1 .mdp-container label[for=mdp-menu] svg {
         height: 28px;
         width: 25px;
+    }
+}
+@media (max-width: 320px) {
+    .bottom-header .mdp-col.mdp-row-full {
+        flex-direction: column;
     }
 }
