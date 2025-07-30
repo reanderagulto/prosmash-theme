@@ -44,13 +44,15 @@
         "discounts-1": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Up to 50% off Our Best Bits"
+            "discounts_text": "Up to 50% off Our Best Bits",
+            "discounts_link": ""
           }
         },
         "discounts-2": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Limited Time Only"
+            "discounts_text": "Limited Time Only",
+            "discounts_link": ""
           }
         },
         "discounts-3": {
@@ -89,9 +91,9 @@
         "country_selector": false,
         "language_selector": false,
         "bg_color": "#000000",
-        "icon_color": "#F9F9F9",
-        "discount_color": "#F9F9F9",
-        "work_time_color": "#F9F9F9"
+        "icon_color": "#f9f9f9",
+        "discount_color": "#f9f9f9",
+        "work_time_color": "#f9f9f9"
       }
     },
     "menu-1": {
@@ -140,6 +142,7 @@
         "work_time"
       ],
       "settings": {
+        "use_logo_img": false,
         "logo_size": "150x70",
         "menu": "main-menu",
         "search": true
@@ -147,7 +150,13 @@
     },
     "wishlist": {
       "type": "mdp-weare-wishlist-hub-47627",
-      "settings": {}
+      "settings": {
+        "title": "My wishlist",
+        "number_of_products": 10,
+        "col_per_row": 4,
+        "margin_top": "50",
+        "margin_bottom": "50"
+      }
     },
     "footer-1": {
       "type": "mdp-weare-footer-1",
@@ -155,7 +164,10 @@
         "about-us": {
           "type": "text",
           "settings": {
+            "height_logo": 50,
             "title": "About Us",
+            "email": "",
+            "phone": "",
             "text": "<p>Share store details, promotions, or brand content with your customers.</p>"
           }
         },
@@ -169,17 +181,21 @@
         "follow-us": {
           "type": "social_medias",
           "settings": {
+            "title": "Follow us",
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "pinterest_link": "#"
+            "youtobe_link": "",
+            "pinterest_link": "#",
+            "linkedin_link": ""
           }
         },
         "subscribe": {
           "type": "newsletter",
           "settings": {
             "title": "Subscribe to our newsletter",
-            "subtitle": "A short sentence describing what someone will receive by subscribing"
+            "subtitle": "A short sentence describing what someone will receive by subscribing",
+            "button_text_color": "#ffffff"
           }
         }
       },
