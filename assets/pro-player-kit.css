@@ -26,7 +26,7 @@
 
   .bio-section .player-name {
     color: var(--Primary-Black, #000);
-    font-family: Lexend;
+    font-family: "Red Hat Display";
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
@@ -130,7 +130,7 @@
 
   .player-preferred-set .section-title {
     color: var(--Primary-Black, #000);
-    font-family: Lexend;
+    font-family: "Red Hat Display";
     font-size: 16px;
     font-weight: 500;
   }
@@ -171,7 +171,7 @@
 
   .player-shop-the-look .section-title {
     color: var(--Primary-Black, #000);
-    font-family: Lexend;
+    font-family: "Red Hat Display";
     font-size: 16px;
     font-weight: 500;
   }
@@ -184,7 +184,7 @@
   }
 
   button.load-more {
-    font-family: var(--font-lexend);
+    font-family: var(--font-redhat);
     font-size: 16px;
     font-weight: 700;
     line-height: 100%;

@@ -6,7 +6,7 @@
     overflow: hidden;
     color: #000;
     text-overflow: ellipsis;
-    font-family: Lexend;
+    font-family: var(--font-redhat);
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
