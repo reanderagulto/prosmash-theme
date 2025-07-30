@@ -19,7 +19,7 @@ a {
 }
 .player-card .card-content .player-title {
     color: var(--Primary-White, #FFF);
-    font-family: Lexend;
+    font-family: "Red Hat Display";
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
