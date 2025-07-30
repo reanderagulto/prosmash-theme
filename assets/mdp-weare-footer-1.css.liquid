@@ -35,7 +35,8 @@
 }
 
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-text{
-    width: calc(30% - 30px);
+    /* width: calc(30% - 30px); */
+    width: calc(28% - 30px);
     margin-right: 30px;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-menu{
@@ -47,15 +48,16 @@
     margin-right: 30px;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter{
-    width: 35%;
+    /* width: 35%; */
+    width: 37%;
 }
 
 .mdp-weare-footer-1 .mdp-footer .mdp-item .mdp-title {
     margin-bottom: 15px;
-    /* font-family: "{{ settings.weare_font_header }}"; */
-    font-family: 'Lexend';
+    font-family: "{{ settings.weare_font_header }}";
     font-style: normal;
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-weight: 800;
     /* font-size: 16px; */
     font-size: 18px;
     /* line-height: {{ settings.mdp_header_line_height }}em; */
@@ -96,7 +98,8 @@
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-social_medias .mdp-social-icons a:hover span,
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-social_medias .mdp-social-icons a:hover {
-    color: #E9384F;
+    /* color: #E9384F; */
+    color: #607F4C;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-text .mdp-menu a svg,
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-menu .mdp-menu a svg,
@@ -126,7 +129,8 @@
 
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-menu .mdp-menu a:hover .fas,
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-menu .mdp-menu a:hover span{
-    color: #E9384F;
+    /* color: #E9384F; */
+    color: #607F4C;
 }
 
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter .mdp-signup-form .contact-form .mdp-row input {
@@ -144,12 +148,11 @@
     color: #7B7B7B;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter .mdp-signup-form .contact-form .mdp-row .mdp-submit {
-    width: 130px;
+    /* width: 130px; */
     /* background-color: {{ settings.btn_background }}; */
     background-color: #42662B;
     /* border-radius: 2px; */
-    /* font-family: {{ settings.weare_font_text }}; */
-    font-family: 'Lexend';
+    font-family: {{ settings.weare_font_text }};
     font-style: normal;
     font-weight: bold;
     font-size: 16px !important;
@@ -159,7 +162,10 @@
     letter-spacing: 0.4px;
     text-transform: uppercase;
     color: {{ settings.btn_color }};
-    padding: 15px 20px !important;
+    /* padding: 15px 20px !important; */
+    padding: 0;
+    max-width: 173px;
+    width: 100%;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter .mdp-signup-form .contact-form .mdp-row .mdp-submit:hover {
     background-color: {{ settings.btn_hover_background }};
@@ -185,6 +191,7 @@
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter .mdp-signup-form .mdp-row {
     display: flex;
     align-items: center;
+    gap: 16px;
 }
 .mdp-weare-footer-1 .mdp-footer .mdp-footer-newsletter .mdp-signup-form .mdp-row input {
     padding: 9px 15px;
