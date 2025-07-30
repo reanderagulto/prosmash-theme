@@ -216,8 +216,7 @@
                     data-quantity="1"
                     data-add-to-cart="{{ section.settings.add_cart_string }}"
                     data-sold-out="{{ section.settings.sold_out_string }}">
-              {% assign selected_variant = current_product.selected_or_first_available_variant %}
-              {% if selected_variant.inventory_quantity <= 0 and selected_variant.inventory_policy == 'continue' %}
+              {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
                 Pre-order
               {% elsif selected_variant.available %}
                 {{ section.settings.add_cart_string }}
@@ -229,13 +228,8 @@
             </button>
             <!-- Add to Wishlist Button -->
             <div class="mdp-add-to-wishlist" data-product-handle="{{ current_product.handle }}">
-        
-
-                <span class="mdp-text-wishlist">Add to Wishlist</span>
-                {% comment %} <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M17.644 4.22891C16.7368 3.32435 15.5085 2.81556 14.2274 2.81366C12.9463 2.81175 11.7164 3.3169 10.8065 4.21875L10.0003 4.96719L9.19404 4.21875C8.28443 3.31142 7.05164 2.80259 5.76687 2.8042C4.4821 2.80581 3.25059 3.31773 2.34326 4.22734C1.43593 5.13695 0.927103 6.36974 0.928715 7.65451C0.930326 8.93928 1.44225 10.1708 2.35186 11.0781L9.33232 18.1602C9.41956 18.2487 9.52354 18.3191 9.63821 18.3671C9.75289 18.4151 9.87597 18.4398 10.0003 18.4398C10.1246 18.4398 10.2477 18.4151 10.3624 18.3671C10.477 18.3191 10.581 18.2487 10.6683 18.1602L17.644 11.0828C18.094 10.633 18.451 10.0989 18.6946 9.51113C18.9381 8.92333 19.0635 8.2933 19.0635 7.65703C19.0635 7.02077 18.9381 6.39073 18.6946 5.80293C18.451 5.21512 18.094 4.68106 17.644 4.23125V4.22891ZM16.3159 9.75937L10.0003 16.1641L3.68232 9.75391C3.12748 9.19676 2.81633 8.44226 2.81714 7.65596C2.81796 6.86967 3.13067 6.11581 3.68667 5.55981C4.24266 5.00382 4.99652 4.6911 5.78282 4.69029C6.56911 4.68947 7.32362 5.00063 7.88076 5.55547C7.88857 5.56328 7.89639 5.57109 7.90498 5.57812L9.36123 6.93437C9.53476 7.09605 9.76312 7.18594 10.0003 7.18594C10.2375 7.18594 10.4658 7.09605 10.6394 6.93437L12.0956 5.57812C12.1042 5.57109 12.112 5.56328 12.1198 5.55547C12.3959 5.2801 12.7234 5.0618 13.0838 4.91303C13.4442 4.76426 13.8304 4.68793 14.2203 4.6884C14.6102 4.68887 14.9962 4.76614 15.3562 4.91578C15.7162 5.06542 16.0433 5.28451 16.3187 5.56055C16.594 5.83658 16.8123 6.16415 16.9611 6.52454C17.1099 6.88494 17.1862 7.27111 17.1857 7.66101C17.1852 8.05091 17.108 8.4369 16.9583 8.79693C16.8087 9.15697 16.5896 9.48401 16.3136 9.75937H16.3159Z" fill="black"/>
-                </svg> {% endcomment %}
-                <i class="fa-regular fa-heart"></i>
+              <span class="mdp-text-wishlist">Add to Wishlist</span>
+              <i class="fa-regular fa-heart"></i>
             </div>
           </div>
         {% endform %}
@@ -421,7 +415,7 @@
       {% comment %} END OF DELIVERY NOTICE  {% endcomment %}
 
 
-    {%- when 'buttons' -%}
+ {%- when 'buttons' -%}
       {% form "product", current_product %} 	
         <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">         
 		<div class="mdp-product-options">
@@ -475,7 +469,7 @@
           		{% endif %}
 		</button>
 		
-      {% endform %}
+      {% endform %} 
 	{%- when 'dynamic_checkout' -%}
 	  {%- assign product_form_id = 'payment-button-' | append: current_product.id -%}
       {% form "product", current_product, id: product_form_id %} 	
