@@ -28,7 +28,7 @@
     color: var(--Primary-Black, #000);
     font-family: "Red Hat Display";
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
   }
 
@@ -173,7 +173,7 @@
     color: var(--Primary-Black, #000);
     font-family: "Red Hat Display";
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   /* ========== LOAD MORE BUTTON ========== */

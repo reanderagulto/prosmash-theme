@@ -811,21 +811,40 @@ function sectionhub_init() {
                 }
               return false;
             });
+            // $wrapper.find('.mdp-wishlist').each(function () {
+            //     var $this = $(this);
+            //     var wishlist = localStorage.getItem('mdp-wishlist');
+            //     wishlist = JSON.parse(wishlist);
+            //     if (!wishlist) {
+            //         wishlist = {};
+            //     }
+            //     $this.empty();
+            //     for(var handle in wishlist) {
+            //         $.get('/products/' + handle + '/?view=' + $this.attr('data-view'), function (data) {
+            //             var $product = $(data).appendTo($this);
+            //             window.mdp.init($product);
+            //         });
+            //     }
+            // });
             $wrapper.find('.mdp-wishlist').each(function () {
-                var $this = $(this);
-                var wishlist = localStorage.getItem('mdp-wishlist');
-                wishlist = JSON.parse(wishlist);
-                if (!wishlist) {
-                    wishlist = {};
+            var $this = $(this);
+            var wishlist = JSON.parse(localStorage.getItem('mdp-wishlist') || '{}');
+
+            $this.empty(); // clear any existing content
+
+            Object.keys(wishlist).forEach(function (handle) {
+                $.get('/products/' + handle + '/?view=' + $this.attr('data-view'), function (data) {
+                // Append the product HTML to the wishlist container
+                var $product = $(data);
+                $product.appendTo($this);
+                // Initialize your theme's scripts if needed
+                if (window.mdp && typeof window.mdp.init === 'function') {
+                    window.mdp.init($product);
                 }
-                $this.empty();
-                for(var handle in wishlist) {
-                    $.get('/products/' + handle + '/?view=' + $this.attr('data-view'), function (data) {
-                        var $product = $(data).appendTo($this);
-                        window.mdp.init($product);
-                    });
-                }
+                });
             });
+            });
+
             $wrapper.find('.mdp-add-to-wishlist').each(function () {
                 var $this = $(this);
                 var wishlist = localStorage.getItem('mdp-wishlist');
