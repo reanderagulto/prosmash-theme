@@ -220,7 +220,7 @@
         "logo_yA3CP6": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Oxdog_Logo.svg"
+            "image": "shopify://shop_images/Oxdog_Logo.png"
           }
         },
         "logo_dkhpib": {
@@ -460,7 +460,7 @@
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": false,
-        "show_border": false,
+        "show_border": true,
         "margin_top": "0"
       }
     }
