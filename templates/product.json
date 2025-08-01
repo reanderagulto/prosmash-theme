@@ -200,15 +200,19 @@
         },
         "swatches_3jrHy6": {
           "type": "swatches",
-          "disabled": true,
           "settings": {}
         },
         "three_col_yEmGPq": {
           "type": "three-col",
           "settings": {}
         },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        },
         "two_col_YM38Jr": {
           "type": "two-col",
+          "disabled": true,
           "settings": {}
         },
         "delivery_notice_Yx6DPY": {
@@ -231,11 +235,6 @@
             "variants_group": "separately"
           }
         },
-        "buttons": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {}
-        },
         "availability": {
           "type": "availability",
           "disabled": true,
@@ -256,10 +255,10 @@
         "options_XbF6Uj",
         "swatches_3jrHy6",
         "three_col_yEmGPq",
+        "buttons",
         "two_col_YM38Jr",
         "delivery_notice_Yx6DPY",
         "options",
-        "buttons",
         "availability",
         "share"
       ],
