@@ -473,8 +473,19 @@
         flex-wrap: wrap;
         gap: 25px;    
     }
-    .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-add-to-cart,
+    .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-buttons {
+        flex-wrap: wrap;
+    }
+    /* .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-add-to-cart,
     .prosmash-two-col-buttons .mdp-add-to-wishlist {
         max-width: 100%;
-    }
+    } */
+}
+@media (max-width: 480px) {
+    .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-buttons .mdp-add-to-cart.mdp-preorder-button,
+    .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-buttons .mdp-add-to-wishlist {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+     }
 }
