@@ -414,10 +414,10 @@
       </button>
     {% elsif variant.available %}
       <button type="submit" 
-        class="mdp-add-to-cart"
+        class="mdp-add-to-cart mdp-available"
         style="color: {{ btn_color }}"
         data-product-id="{{ variant.id }}"
-        data-quantity="1">
+        data-quantity="1" >
         {{ section.settings.add_cart_string }}
         <i class="fa-regular fa-cart-shopping"></i>
       </button>
