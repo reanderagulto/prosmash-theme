@@ -202,41 +202,6 @@
       {% comment %} END OF THREE COLUMN {% endcomment %}
 
 
-      {% comment %} PROSMASH ADD TO CART AND ADD TO WISHLIST BUTTONS {% endcomment %}
-        {%- when 'two-col' -%}
-        {% form 'product', current_product %}
-          <input name="id" type="hidden" value="{{ variant.id }}" data-productid="{{ current_product.id }}">
-
-          <div class="prosmash-two-col-buttons">
-            <!-- Add to Cart Button -->
-            <button type="submit"
-                    class="mdp-add-to-cart {% if section.settings.redirect %}mdp-redirect-to-cart{% endif %} {% if current_product.available %}mdp-available{% endif %}"
-                    style="color: {{ btn_color }}"
-                    data-product-id="{{ variant.id }}"
-                    data-quantity="1"
-                    data-add-to-cart="{{ section.settings.add_cart_string }}"
-                    data-sold-out="{{ section.settings.sold_out_string }}">
-              {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
-                Pre-order
-              {% elsif selected_variant.available %}
-                {{ section.settings.add_cart_string }}
-              {% else %}
-                {{ section.settings.sold_out_string }}
-              {% endif %}
-
-              <i class="fa-regular fa-cart-shopping"></i>
-            </button>
-            <!-- Add to Wishlist Button -->
-            <div class="mdp-add-to-wishlist" data-product-handle="{{ current_product.handle }}">
-              <span class="mdp-text-wishlist">Add to Wishlist</span>
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-        {% endform %}
-
-
-
-      {% comment %} END OF ADD TO CART AND ADD TO WISHLIST BUTTONS {% endcomment %}
          
 
       {% comment %} DELIVERY NOTICE {% endcomment %}
@@ -415,14 +380,13 @@
       {% comment %} END OF DELIVERY NOTICE  {% endcomment %}
 
 
+
+
  {%- when 'buttons' -%}
       {% form "product", current_product %} 	
         <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">         
-		<div class="mdp-product-options">
-			<h3>Quantity</h3>
-		</div>
 		<div class="mdp-buttons">
-          <div class="mdp-quantity-wrapper">
+          {% comment %} <div class="mdp-quantity-wrapper">
             <a class="mdp-quantity-minus">
               <span>
                 <span class="mdp-quantity-icon-minus">
@@ -438,7 +402,33 @@
                 </span>
               </span>
             </a>
-          </div>
+          </div> {% endcomment %}
+          		{% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+      <button type="submit" 
+        class="mdp-preorder-button mdp-add-to-cart"
+        style="color: {{ btn_color }}"
+        data-product-id="{{ variant.id }}"
+        data-quantity="1">
+        Pre-order
+        <i class="fa-regular fa-cart-shopping"></i>
+      </button>
+    {% elsif variant.available %}
+      <button type="submit" 
+        class="mdp-add-to-cart"
+        style="color: {{ btn_color }}"
+        data-product-id="{{ variant.id }}"
+        data-quantity="1">
+        {{ section.settings.add_cart_string }}
+        <i class="fa-regular fa-cart-shopping"></i>
+      </button>
+    {% else %}
+      <button disabled
+        class="mdp-add-to-cart sold-out"
+        style="color: {{ btn_color }}">
+        {{ section.settings.sold_out_string }}
+        <i class="fa-regular fa-cart-shopping"></i>
+      </button>
+    {% endif %}
         
           <div class="mdp-add-to-wishlist" data-product-handle="{{ current_product.handle }}">            
             <span class="mdp-add">
@@ -455,19 +445,7 @@
                             
         </div>
 
-		<button type="submit" 
-                class="mdp-add-to-cart {% if section.settings.redirect %}mdp-redirect-to-cart{% endif %} {% if current_product.available %}mdp-available{% endif %}"
-                style="color: {{ btn_color }}"
-                data-product-id="{{ variant.id }}"
-                data-quantity="1" 
-                data-add-to-cart="{{ section.settings.add_cart_string }}" 
-                data-sold-out="{{ section.settings.sold_out_string }}">
-          		{% if current_product.available %}
-          			{{ section.settings.add_cart_string }}
-          		{% else %}
-          			{{ section.settings.sold_out_string }} 
-          		{% endif %}
-		</button>
+
 		
       {% endform %} 
 	{%- when 'dynamic_checkout' -%}
@@ -475,7 +453,9 @@
       {% form "product", current_product, id: product_form_id %} 	
         <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">  
 		{{ form | payment_button }}
-      {% endform %} 
+      {% endform %}
+
+
     {%- when 'availability' -%}
       <div class="mdp-product-availability" data-store-availability-container data-product-title="" data-has-only-default-variant="" data-base-url="">
       </div>
