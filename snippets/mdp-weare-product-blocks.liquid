@@ -484,7 +484,7 @@
         {% else %}
           <p class="mdp-no-description">No description available.</p>
         {% endif %} {% endcomment %}
-        {% if current_product.metafields.custom.gender %}
+        {% if current_product.metafields.custom.short_description %}
           <div class="product-short-description">
               {{ current_product.metafields.custom.short_description.value | default: 'N/A' }}
           </div>
