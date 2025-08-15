@@ -16,10 +16,19 @@
         {% assign first_name = collection.title | split: ' ' | first %}
         <div class="text">Brands that {{ first_name }} wears:</div>
         <div class="brands">
-          {% for brand in collection.metafields.custom.brands.value %}
-            <img src="{{ brand | image_url: width: 60 }}" alt="Brand logo">
-          {% endfor %}
+          {% if collection.metafields.custom.brands != blank %}
+            {% for brand in collection.metafields.custom.brands.value %}
+              {% if brand.logo != blank %}
+                <img src="{{ brand.logo | image_url: width: 200 }}" alt="{{ brand.name | escape }}">
+              {% else %}
+                <img src="{{ 'default-brand-logo.png' | asset_url }}" alt="{{ brand.name | escape }}">
+              {% endif %}
+              {% unless forloop.last %} | {% endunless %}
+            {% endfor %}
+          {% endif %}
         </div>
+
+
       </div>
     </div>
 {% if template == 'collection.pro-player-kit' %}
