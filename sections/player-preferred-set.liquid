@@ -1,0 +1,32 @@
+{% comment %}
+Renders the "Preferred Set" from the current collection's metafield:
+custom.player_preferred_set (List of products)
+This is called via: /collections/{handle}?section_id=player-preferred-set
+{% endcomment %}
+
+<div class="mdp-container player-preferred-set--wrap">
+  <div class="section-title">{{ collection.title }}'s Preferred Set</div>
+
+  <div class="collection-grid preferred-set-grid">
+    {% if collection and collection.metafields.custom.player_preferred_set != blank %}
+      {% assign products = collection.metafields.custom.player_preferred_set.value %}
+      {% for product in products %}
+        <div class="product-item{% if forloop.index > 8 %} hidden{% endif %}">
+          {% render 'prosmash-product-card-v2', product: product %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No items configured for this player’s Preferred Set.</p>
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Player Preferred Set",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

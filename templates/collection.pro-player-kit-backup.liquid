@@ -1,0 +1,110 @@
+{{ 'product-card-v2.css' | asset_url | stylesheet_tag }}
+{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+<script src="{{ 'pro-player-kit.js' | asset_url }}" defer ></script>
+{{ 'pro-player-kit.css' |  asset_url | stylesheet_tag }}
+
+{% section 'prosmash-collection-banner' %}
+
+<div class="bio-section">
+    <div class="mdp-container">
+        <div class="col-left">
+          <div class="player-kit-cards-container">
+            {%- assign menu = linklists.pro-players -%}
+            {%- if menu and menu.links.size > 0 -%}
+              {%- for link in menu.links -%}
+                {%- if link.type == 'collection_link' and link.object != blank -%}
+                  {%- assign player_collection = link.object -%}
+                  {%- render 'pro-player-card',
+                      collection: player_collection,
+                      wrapper_attrs: 'data-player-handle="' | append: player_collection.handle
+                        | append: '" data-player-name="' | append: player_collection.title | escape
+                        | append: '" data-player-desc="' | append: player_collection.description | strip_html | escape
+                        | append: '"' -%}
+                  {%- endif -%}
+              {%- endfor -%}
+            {%- else -%}
+              <p>No players configured. Add collection links to the “pro-players” menu.</p>
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="col-right">
+            <div class="player-details">
+                <div class="player-name">{{ collection.title }}</div>
+                <div class="player-desc">{{ collection.description }}</div>
+            </div>
+           <div class="nav-buttons">
+                <button type="button" class="slick-prev"><img src="{{ "btn-prev.svg" | asset_url }}" alt="Previous"></button>
+                <button type="button" class="slick-next"><img src="{{ "btn-next.svg" | asset_url }}" alt="Next"></button>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<!-- ADD THESE (single mounts, no per-player HTML) -->
+<div id="preferred-set-mount" aria-live="polite"></div>
+<div id="shop-look-mount" aria-live="polite"></div>
+
+{% comment %} {% assign player_handles = "agustin-tapia,arturo-coello,ale-galan,federico-chingotto,franco-stupaczuk,juan-lebron,mike-yanguas,martin-di-nenno,paquito-navarro,coki-nieto,momo-gonzalez,jon-sanz,teo-zapata,arnau-ayats" | split: "," %}
+
+{% for handle in player_handles %}
+  {% assign player_collection = collections[handle] %}
+  {% assign preferred_products = player_collection.metafields.custom.player_preferred_set.value %}
+  {% assign product_count = 0 %}
+
+  <div class="player-preferred-set" data-player="{{ player_collection.title | escape }}" style="display: none;">
+    <div class="mdp-container">
+      <div class="section-title">{{ player_collection.title }}'s Preferred Set</div>
+      <div class="collection-grid preferred-set-grid">
+        {% for product in preferred_products %}
+          <div class="product-item">
+            {% render 'prosmash-product-card-v2', product: product %}
+          </div>
+          {% assign product_count = product_count | plus: 1 %}
+        {% endfor %}
+      </div>
+      {% if product_count > 8 %}
+        <div class="load-more-wrapper">
+          <button class="load-more" data-target=".preferred-set-grid">Load More</button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+
+{% assign player_handles = "agustin-tapia,arturo-coello,ale-galan,federico-chingotto,franco-stupaczuk,juan-lebron,mike-yanguas,martin-di-nenno,paquito-navarro,coki-nieto,momo-gonzalez,jon-sanz,teo-zapata,arnau-ayats" | split: "," %}
+
+{% for handle in player_handles %}
+  {% assign player_collection = collections[handle] %}
+  {% assign look_products = player_collection.metafields.custom.shop_the_look.value %}
+  {% assign look_count = 0 %}
+
+  <div class="player-shop-the-look" data-player="{{ player_collection.title | escape }}" style="display: none;">
+    <div class="mdp-container">
+      <div class="section-title">Shop the look of {{ player_collection.title }}</div>
+      <div class="collection-grid shop-look-grid">
+        {% for product in look_products %}
+          <div class="product-item">
+            {% render 'prosmash-product-card-v2', product: product %}
+          </div>
+          {% assign look_count = look_count | plus: 1 %}
+        {% endfor %}
+      </div>
+      {% if look_count > 8 %}
+        <div class="load-more-wrapper">
+          <button class="load-more" data-target=".shop-look-grid">Load More</button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %} {% endcomment %}
+
+
+{% section 'prosmash-hp-cta-section' %}
+{% section 'prosmash-hp-blog-section' %}
+{% section 'prosmash-video-section-1' %}
+
+

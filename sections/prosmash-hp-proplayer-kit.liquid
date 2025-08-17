@@ -89,51 +89,12 @@
 .prosmash-player-kit .slick-slide:last-child {
   margin-right: 0;
 }
-/* .prosmash-player-kit .card-content {
-    display: flex;
-    padding: 24px 24px 40px 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    border-top: 8px solid var(--Secondary-1-Forest-Shade, #819972);
-    background: var(--Secondary-1-Dark-Moss-Green, #42662B);
-    position: relative;
-    z-index: 1;
-    flex: 1;
-}
-.prosmash-player-kit .card-content .player-title {
-    color: var(--Primary-White, #FFF);
-    font-family: var(--font-redhat);
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-}
-.prosmash-player-kit .card-content .text {
-    color: var(--Primary-White, #FFF);
-    font-family: "Red Hat Display";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-} */
+
 
 .player-kit-cards-container .slick-arrow {
     z-index: 2;
 }
 
-/* .prosmash-player-kit .player-card .card-featured-image {
-    height: 273px;
-    width: 100%;
-    background: #42662B;
-    margin-top: 100px;
-}
-.prosmash-player-kit .player-card .card-featured-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transform: scale(1.3);
-    object-position: center;
-} */
 
 
 .prosmash-player-kit .slick-arrow img {
@@ -187,6 +148,12 @@
       prevArrow: '<button type="button" class="slick-prev"><img src="{{ "btn-prev.svg" | asset_url }}" alt="Previous"></button>',
       nextArrow: '<button type="button" class="slick-next"><img src="{{ "btn-next.svg" | asset_url }}" alt="Next"></button>',
       responsive: [
+        {
+          breakpoint: 1201,
+          settings: {
+            slidesToShow: 3
+          }
+        },
         {
           breakpoint: 1025,
           settings: {

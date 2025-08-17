@@ -1,0 +1,57 @@
+{% comment %}
+Renders "Shop the Look" from collection metafield: custom.shop_the_look (List of products)
+Called via: /collections/{handle}?section_id=player-shop-the-look
+{% endcomment %}
+
+<div class="mdp-container player-shop-look--wrap">
+  <div class="section-title">Shop the look of {{ collection.title }}</div>
+
+  {%- assign initial = section.settings.initial_visible | default: 8 | plus: 0 -%}
+
+  {% if collection and collection.metafields.custom.shop_the_look != blank %}
+    {% assign products = collection.metafields.custom.shop_the_look.value %}
+
+    {%- assign products_count = 0 -%}
+    <div class="collection-grid shop-look-grid">
+      {% for product in products %}
+        {%- if forloop.first -%}{% assign products_count = forloop.length | plus: 0 %}{%- endif -%}
+
+        {% if forloop.index > initial %}
+          <div class="product-item hidden" style="display:none">
+        {% else %}
+          <div class="product-item">
+        {% endif %}
+            {% render 'prosmash-product-card-v2', product: product %}
+          </div>
+      {% endfor %}
+    </div>
+
+    <!-- DEBUG: initial={{ initial }}, products_count={{ products_count }} -->
+
+    {% if products_count > initial %}
+      <div class="load-more-wrap">
+        <button type="button"
+                class="load-more"
+                data-target=".shop-look-grid"
+                data-chunk="{{ initial }}">
+          Load more
+        </button>
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="collection-grid shop-look-grid"></div>
+    <p>No items configured for this player’s look.</p>
+  {% endif %}
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Player Shop The Look",
+  "tag": "section",
+  "settings": [
+    { "type": "number", "id": "initial_visible", "label": "Initially visible items", "default": 8 }
+  ]
+}
+{% endschema %}
