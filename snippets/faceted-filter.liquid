@@ -39,19 +39,39 @@
       </div>
     </div>
 
-    <div class="sort-toggle">
-      <label for="SortBy" class="sort-label">
-        <img src="{{ 'sort.svg' | asset_url }}" alt="Sort">
-        Sort by:
-      </label>
-      <select name="sort_by" id="SortBy" class="sort-select">
-        {% for option in collection.sort_options %}
-          <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
-            {{ option.name }}
-          </option>
-        {% endfor %}
-      </select>
+    <div class="sort-toggle-button">
+  <button class="sort-label" type="button" aria-expanded="false" aria-controls="sort-panel">
+    <img src="{{ 'sort.svg' | asset_url }}" alt="Sort">
+    <span>Sort by:</span>
+    <div class="sort-current-container">
+        <span class="sort-current">
+          {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
+          {%- for option in collection.sort_options -%}
+            {%- if option.value == current_sort -%}{{ option.name }}{%- endif -%}
+          {%- endfor -%}
+        </span>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M13.5306 10.5306C13.4609 10.6005 13.3781 10.656 13.287 10.6939C13.1958 10.7317 13.0981 10.7512 12.9993 10.7512C12.9006 10.7512 12.8029 10.7317 12.7117 10.6939C12.6206 10.656 12.5378 10.6005 12.4681 10.5306L7.99997 6.06249L3.5306 10.5306C3.3897 10.6715 3.19861 10.7507 2.99935 10.7507C2.80009 10.7507 2.60899 10.6715 2.4681 10.5306C2.3272 10.3897 2.24805 10.1986 2.24805 9.99937C2.24805 9.80011 2.3272 9.60902 2.4681 9.46812L7.4681 4.46812C7.53778 4.3982 7.62057 4.34272 7.71173 4.30487C7.8029 4.26701 7.90064 4.24753 7.99935 4.24753C8.09806 4.24753 8.1958 4.26701 8.28696 4.30487C8.37813 4.34272 8.46092 4.3982 8.5306 4.46812L13.5306 9.46812C13.6005 9.5378 13.656 9.62059 13.6938 9.71176C13.7317 9.80292 13.7512 9.90066 13.7512 9.99937C13.7512 10.0981 13.7317 10.1958 13.6938 10.287C13.656 10.3781 13.6005 10.4609 13.5306 10.5306Z" fill="currentColor"/>
+        </svg>
     </div>
+    
+  </button>
+
+  <div class="sort-form-container" id="sort-panel" hidden>
+    <div class="sort-group" role="group" aria-label="Sort by">
+      {%- for option in collection.sort_options -%}
+        <label class="sort-option">
+          <input type="radio"
+                 name="sort_by"
+                 value="{{ option.value }}"
+                 {% if option.value == collection.sort_by %}checked{% endif %}>
+          <span class="sort-option-label">{{ option.name }}</span>
+        </label>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
   </form>
 </div>
 
@@ -63,6 +83,7 @@
 <script>
 ;(function ($, w, d) {
   const app = {
+    // ---------- AJAX apply ----------
     applyFilters: function () {
       const form = d.querySelector('#CollectionFiltersForm');
       const productGrid = d.querySelector('#CollectionProductGrid');
@@ -79,123 +100,171 @@
             productGrid.innerHTML = newGrid.innerHTML;
             w.history.replaceState({}, '', `${w.location.pathname}?${searchParams}`);
           }
-        });
+        })
+        .catch(err => console.warn('[Filters] fetch failed:', err));
     },
 
+    // ---------- Filter dropdown (Gender) ----------
     bindFilterToggle: function () {
-      const $root  = $('.filter-toggle-button');
-      const $label = $root.find('.filter-label');
-      const $panel = $root.find('.filter-form-container');
+      const $wrap  = $('.filter-toggle-button');
+      const $btn   = $wrap.find('.filter-label');
+      const $panel = $wrap.find('.filter-form-container');
+      if (!$wrap.length || !$panel.length) return;
 
-      if (!$root.length || !$panel.length) return;
-
-      $label.off('click.appToggle').on('click.appToggle', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+      // open/close
+      $btn.off('click.appToggle').on('click.appToggle', function (e) {
+        e.preventDefault(); e.stopPropagation();
         const isOpen = !$panel.prop('hidden');
         if (isOpen) {
           $panel.prop('hidden', true);
-          $label.attr('aria-expanded', 'false');
+          $btn.attr('aria-expanded', 'false');
+          $wrap.removeClass('is-open');
         } else {
           $panel.prop('hidden', false);
-          $label.attr('aria-expanded', 'true');
+          $btn.attr('aria-expanded', 'true');
+          $wrap.addClass('is-open');
           const $first = $panel.find('input,button,[tabindex]:not([tabindex="-1"])').first();
           if ($first.length) $first.trigger('focus');
         }
       });
 
-      $panel.off('click.appInside').on('click.appInside', function (e) {
-        e.stopPropagation();
-      });
+      // keep clicks inside from closing
+      $panel.off('click.appInside').on('click.appInside', function (e) { e.stopPropagation(); });
 
+      // outside click closes
       $(d).off('click.appOutside').on('click.appOutside', function () {
         if (!$panel.prop('hidden')) {
           $panel.prop('hidden', true);
-          $label.attr('aria-expanded', 'false');
+          $btn.attr('aria-expanded', 'false');
+          $wrap.removeClass('is-open');
         }
       });
 
+      // Esc closes
       $(d).off('keydown.appEsc').on('keydown.appEsc', function (e) {
         if (e.key === 'Escape' && !$panel.prop('hidden')) {
           $panel.prop('hidden', true);
-          $label.attr('aria-expanded', 'false').trigger('focus');
+          $btn.attr('aria-expanded', 'false');
+          $wrap.removeClass('is-open');
+          $btn.trigger('focus');
+        }
+      });
+    },
+
+    // ---------- Sort dropdown (radio options) ----------
+    bindSortDropdown: function () {
+      const $wrap  = $('.sort-toggle-button');
+      const $btn   = $wrap.find('.sort-label');
+      const $panel = $wrap.find('.sort-form-container');
+      if (!$wrap.length || !$panel.length) return;
+
+      // open/close
+      $btn.off('click.sortToggle').on('click.sortToggle', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        const isOpen = !$panel.prop('hidden');
+        if (isOpen) {
+          $panel.prop('hidden', true);
+          $btn.attr('aria-expanded', 'false');
+          $wrap.removeClass('is-open');
+        } else {
+          $panel.prop('hidden', false);
+          $btn.attr('aria-expanded', 'true');
+          $wrap.addClass('is-open');
+          const $first = $panel.find('input,button,[tabindex]:not([tabindex="-1"])').first();
+          if ($first.length) $first.trigger('focus');
         }
       });
 
-      if ($.fn && $.fn.select2) {
-        $('#SortBy').select2({
-          minimumResultsForSearch: Infinity,
-          width: 'style',
-          dropdownCssClass: 'sort-dropdown',
-          containerCssClass: 'sort-container',
-          dropdownAutoWidth: true,
-          dropdownParent: $('.sort-toggle')
-        });
-      } else {
-        console.warn('[Filters] Select2 not loaded; using native select.');
-      }
+      // pick a sort → update label + apply
+      $panel
+        .off('change.sortPick', 'input[name="sort_by"]')
+        .on('change.sortPick', 'input[name="sort_by"]', function () {
+          const pickedText = $(this).closest('.sort-option').find('.sort-option-label').text();
+          $wrap.find('.sort-current').text(pickedText);
 
-      $('#SortBy').off('change.applySort').on('change.applySort', () => {
-        app.applyFilters();
-      });
-    },
+          // close
+          $panel.prop('hidden', true);
+          $btn.attr('aria-expanded', 'false');
+          $wrap.removeClass('is-open');
 
-    updateFilterCount: function () {
-      const form = d.querySelector('#CollectionFiltersForm');
-      if (!form) return;
-
-      const countEl = d.querySelector('.filter-count');
-      const update = () => {
-        const checked = form.querySelectorAll('[data-filter="gender"] input[type="checkbox"]:checked').length;
-        if (countEl) countEl.textContent = `(${checked})`;
-      };
-
-      form.querySelectorAll('[data-filter="gender"] input[type="checkbox"]').forEach(cb => {
-        cb.addEventListener('change', () => {
-          update();
+          // refresh grid
           app.applyFilters();
         });
+
+      // keep clicks inside
+      $panel.off('click.sortInside').on('click.sortInside', function (e) { e.stopPropagation(); });
+
+      // outside click closes
+      $(d).off('click.sortOutside').on('click.sortOutside', function () {
+        if (!$panel.prop('hidden')) {
+          $panel.prop('hidden', true);
+          $btn.attr('aria-expanded', 'false');
+          $wrap.removeClass('is-open');
+        }
       });
 
-      update();
+      // Esc closes
+      $(d).off('keydown.sortEsc').on('keydown.sortEsc', function (e) {
+        if (e.key === 'Escape' && !$panel.prop('hidden')) {
+          $panel.prop('hidden', true);
+          $btn.attr('aria-expanded', 'false');
+          $wrap.removeClass('is-open');
+          $btn.trigger('focus');
+        }
+      });
     },
 
+    // ---------- Checkbox change handling ----------
+    bindFilterChanges: function () {
+      $('.filter-form-container')
+        .off('change.appFilter', '[data-filter="gender"] input[type="checkbox"]')
+        .on('change.appFilter', '[data-filter="gender"] input[type="checkbox"]', function () {
+          app.updateFilterCount();
+          app.applyFilters();
+        });
+    },
+
+    // ---------- Count badge ----------
+    updateFilterCount: function () {
+      const form = d.querySelector('#CollectionFiltersForm');
+      const countEl = d.querySelector('.filter-count');
+      if (!form || !countEl) return;
+      const count = form.querySelectorAll('[data-filter="gender"] input[type="checkbox"]:checked').length;
+      countEl.textContent = `(${count})`;
+    },
+
+    // ---------- Reset (Gender only) ----------
     resetFilter: function () {
-  // Delegate from the panel so stopPropagation doesn't block us
-  $('.filter-form-container')
-    .off('click.appReset', '.filter-reset-btn')
-    .on('click.appReset', '.filter-reset-btn', function (e) {
-      e.preventDefault();
+      $('.filter-form-container')
+        .off('click.appReset', '.filter-reset-btn')
+        .on('click.appReset', '.filter-reset-btn', function (e) {
+          e.preventDefault();
 
-      const $panel = $(this).closest('.filter-form-container');
-      const $form  = $(this).closest('form');
+          const $panel = $(this).closest('.filter-form-container');
+          const $form  = $(this).closest('form');
 
-      // Uncheck only Gender group
-      const $gender = $panel.find('[data-filter="gender"]');
-      $gender.find('input[type="checkbox"]:checked').prop('checked', false);
+          // uncheck Gender
+          const $gender = $panel.find('[data-filter="gender"]');
+          $gender.find('input[type="checkbox"]:checked').prop('checked', false);
 
-      // Clear hidden filter.* inputs (if any)
-      if ($form.length) $form.find('input[type="hidden"][name^="filter."]').remove();
+          // purge hidden filter.* (if any)
+          if ($form.length) $form.find('input[type="hidden"][name^="filter."]').remove();
 
-      // Update count
-      const countEl = document.querySelector('.filter-count');
-      if (countEl) countEl.textContent = '(0)';
+          // update UI + close
+          app.updateFilterCount();
+          $panel.prop('hidden', true);
+          $('.filter-label').attr('aria-expanded', 'false').closest('.filter-toggle-button').removeClass('is-open');
 
-      // Close panel
-      $panel.prop('hidden', true);
-      $('.filter-label').attr('aria-expanded', 'false');
+          // refresh grid
+          app.applyFilters();
+        });
+    },
 
-      // Refresh grid (no extra .trigger('change') needed)
-      if (typeof app.applyFilters === 'function') app.applyFilters();
-      else if ($form.length) $form.get(0).submit();
-    });
-},
-
-
-
-    // 👇 Only change needed
+    // ---------- Init ----------
     init: function () {
       app.bindFilterToggle();
+      app.bindSortDropdown();     // Sort behaves like the filter panel
+      app.bindFilterChanges();
       app.updateFilterCount();
       app.resetFilter();
     }
@@ -206,345 +275,218 @@
 </script>
 
 
+
+
 <style>
-  .filter-section .custom-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 0;
-  }
-  .filter-section .collection-title {
-      font-family: var(--font-redhat);
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 130%;
-      color: var(--black);
-  }
+/* ========== FILTERS & SORT (optimized) ========== */
 
-  .filter-section .custom-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 0;
+/* Layout */
+.filter-toggle-container .collection-filters {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
-
-.filter-section .filter-container {
-    font-family: var(--font-redhat);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 150%;
-    color: var(--black);
-    padding: 16px;
-}
-.filter-section .filter-container select {
-    font-family: var(--font-redhat);
-    font-size: 16px;
-    border: none;
-    outline: none;
-    background: var(--white);
-    padding: 8px;
-    background: white;
-    font-weight: 600;
-}
-.filter-section .filter-container select:hover {
-    background-color: #D9E0D5;
-}
-.filter-section .filter-container .sort {
-    display: flex;
-    gap: 16px;
-}
-.filter-section .filter-container .sort .label-group {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-.filter-section .custom-container {
-    align-items: center;
-}
-.filter-toggle-container form.collection-filters {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-.filter-section .filter-container .sort {
-    align-items: center;
-}
+/* Filter toggle */
 .filter-toggle-button {
-    position: relative;
-    min-width: 150px;
-    cursor: pointer;
+  position: relative;
+  min-width: 150px;
 }
-.filter-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 10;
-    position: relative;
-    background: none;
-    border: none;
-    color: var(--Primary-Black, #000);
-    font-family: "Red Hat Display";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%; /* 24px */
+
+.filter-label,
+button.sort-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: 0;
+  color: var(--Primary-Black, #000);
+  font-family: var(--font-redhat);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  cursor: pointer;
+  padding: 0;
 }
-button.filter-reset-btn {
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    border: none;
-    background: none;
-    color: var(--Primary-Black, #000);
-    font-family: "Red Hat Display";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 100%; /* 16px */
-    cursor: pointer;
+
+/* Filter count chip */
+.filter-count-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 8px;
+  background: #fff;
+  transition: 0.3s;
+  cursor: pointer;
 }
-.sort label {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.filter-toggle-button:hover .filter-count-container { background: #D9E0D5; }
+
+.filter-count-container svg {
+  width: 16px;
+  height: 16px;
+  aspect-ratio: 1/1;
+  transform: rotate(180deg);
+  transition: 0.3s;
 }
-.filter-toggle-button:hover .filter-count-container {
-    background: #D9E0D5;
+
+/* Open state */
+.filter-toggle-button.is-open .filter-count-container {
+  background: var(--green);
+  color: #fff;
 }
+.filter-toggle-button.is-open .filter-count-container svg {
+  transform: rotate(0);
+}
+.sort-toggle-button.is-open .sort-current-container {
+    background: #42662B !important;
+    color: white;
+}
+.sort-toggle-button.is-open .sort-current-container svg {
+    transform: rotate(0deg);
+}
+
+/* Filter panel */
 .filter-form-container {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    min-width: 148px;
-    width: 100%;
-    z-index: 5;
-    background: var(--Primary-White, #FFF);
-    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.20);
+  position: absolute;
+  top: 40px;
+  right: 0;
+  min-width: 148px;
+  width: 100%;
+  z-index: 5;
+  background: var(--Primary-White, #FFF);
+  box-shadow: 0 5px 15px rgba(0,0,0,.2);
+  margin-top: 8px;
 }
 .filter-form-container .filter-group {
-    display: flex;
-    flex-direction: column;
-}
-.filter-form-container .filter-group .filter-option {
-    background: var(--white);
-    padding: 16px;
-    cursor: pointer;
-}
-
-.filter-count-container {
-    display: flex;
-    padding: 8px;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 0 0;
-    /* background: var(--green); */
-    background: white;
-    transition: 0.3s;
-    gap: 8px;
-}
-#FilterCount {
-    /* color: var(--Primary-White, #FFF); */
-    color: var(--black);
-    font-family: var(--font-redhat);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%; /* 16px */
-    transition: 0.3s;
-}
-.filter-count-container svg {
-    width: 16px;
-    height: 16px;
-    aspect-ratio: 1/1;
-    transform: rotate(180deg);
-    /* filter: invert(1); */
-    transition: 0.3s;
-}
-.filter-toggle-button.is-open .filter-label .filter-count-container svg {
-    transform: rotate(0);
-    filter: invert(0);
-}
-.filter-toggle-button.is-open .filter-label .filter-count-container {
-    background: var(--green);
-}
-.filter-toggle-button.is-open .filter-label .filter-count-container #FilterCount {
-    color: var(--white);
-}
-
-/* Hide the native checkbox */
-.filter-option input[type="checkbox"] {
-  display: none;
+  display: flex;
+  flex-direction: column;
 }
 .filter-form-container .filter-group .filter-option {
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: 0.3s;
+  padding: 16px;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  color: var(--Primary-Black, #000);
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 16px */
 }
 .filter-form-container .filter-group .filter-option:hover {
-   background: #D9E0D5 !important;
+  background: #D9E0D5 !important;
 }
 
-/* Style the custom checkbox */
+/* Custom checkbox */
+.filter-option input[type="checkbox"] { display: none; }
+
 .checkbox__checkmark {
   width: 16px;
   height: 16px;
   border: 2px solid var(--black);
   border-radius: 2px;
   display: inline-block;
-  vertical-align: middle;
-  background-color: transparent;
-  transition: background-color 0.2s, border-color 0.2s;
   position: relative;
+  background: transparent;
+  transition: background-color .2s, border-color .2s;
 }
-/* Show checkmark when checkbox is checked */
+.filter-option input[type="checkbox"]:checked + .checkbox__checkmark {
+  background: var(--black);
+}
 .filter-option input[type="checkbox"]:checked + .checkbox__checkmark::after {
   content: '';
   position: absolute;
   left: 4px;
-  top: 0px;
+  top: 0;
   width: 5px;
   height: 9px;
-  border: solid white;
+  border: solid #fff;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
 
-/* When checkbox is checked, style the box */
-.filter-option input[type="checkbox"]:checked + .checkbox__checkmark {
-  background-color: var(--black);
-}
-
-/* SORT STYLE */
-/* Style container like filter toggle */
-.sort-toggle .select2-container.sort-container {
-  font-family: var(--font-redhat);
-  font-size: 16px;
-  border: 1px solid var(--black);
-  border-radius: 4px;
-  padding: 8px;
-  min-width: 150px;
+/* Reset button */
+.filter-reset-btn {
   width: 100%;
-}
-
-/* Style dropdown options */
-.sort-toggle .select2-dropdown.sort-dropdown {
-  font-family: var(--font-redhat);
-  border: 0;
-  border-radius: 0;
-}
-.sort-toggle .select2-dropdown.sort-dropdown .select2-results__options {
-  max-height: none !important;
-  overflow: visible !important;
-  width: 100%;
-  background: var(--Primary-White, #FFF);
-  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.20);
-}
-.sort-toggle .select2-dropdown.sort-dropdown .select2-results__options .select2-results__option {
-  display: flex;
   padding: 16px;
-  align-items: center;
-  align-self: stretch;
+  border: 0;
+  background: none;
   color: var(--Primary-Black, #000);
   font-family: var(--font-redhat);
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%; /* 16px */
-}
-.sort-toggle .select2-dropdown.sort-dropdown .select2-results__options .select2-results__option:hover {
-  background: #D9E0D5;
-  color: black;
+  font-weight: 600;
+  line-height: 100%;
+  cursor: pointer;
 }
 
-.sort-toggle .select2-container--default .select2-selection--single {
-  border: none;
-  background: transparent;
-  padding: 0px;
-}
-.sort-toggle .select2.select2-container {
-  padding: 8px;
-  transition: 0.3s;
-}
-.sort-toggle .select2-selection__rendered {
-  color: black !important;
-}
+/* Sort */
+.sort-toggle-button { position: relative; }
 
-/* Remove default arrow and style icon yourself if needed */
-.sort-toggle .select2-selection__arrow {
-  display: none;
-}
-.sort-toggle .select2-container--default .select2-selection--single::after {
-  content: '';
+#sort-panel {
   position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  width: 16px;
-  height: 16px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'><path d='M13.5306 6.53061L8.5306 11.5306C8.46092 11.6005 8.37813 11.656 8.28696 11.6939C8.1958 11.7317 8.09806 11.7512 7.99935 11.7512C7.90064 11.7512 7.8029 11.7317 7.71173 11.6939C7.62057 11.656 7.53778 11.6005 7.4681 11.5306L2.4681 6.53061C2.3272 6.38972 2.24805 6.19862 2.24805 5.99936C2.24805 5.80011 2.3272 5.60901 2.4681 5.46811C2.60899 5.32722 2.80009 5.24806 2.99935 5.24806C3.19861 5.24806 3.3897 5.32722 3.5306 5.46811L7.99997 9.93749L12.4693 5.46749C12.6102 5.32659 12.8013 5.24744 13.0006 5.24744C13.1999 5.24744 13.391 5.32659 13.5318 5.46749C13.6727 5.60838 13.7519 5.79948 13.7519 5.99874C13.7519 6.198 13.6727 6.38909 13.5318 6.52999L13.5306 6.53061Z' fill='black'/></svg>");
-  background-repeat: no-repeat;
-  background-size: contain;
-  pointer-events: none;
-  transition: 0.3s;
+  top: 40px;
+  right: 0;
+  width: 100%;
+  z-index: 5;
+  background: var(--Primary-White, #FFF);
+  box-shadow: 0 5px 15px rgba(0,0,0,.2);
+  margin-top: 8px;
+}
+#sort-panel .sort-group {
+  display: flex;
+  flex-direction: column;
+}
+#sort-panel .sort-group .sort-option {
+  display: block;
+  padding: 16px;
+  background: #fff;
+  cursor: pointer;
+  color: var(--Primary-Black, #000);
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 16px */
+  transition: 0.5s;
+}
+#sort-panel .sort-group .sort-option:hover {
+  background: #D9E0D5;
+}
+#sort-panel .sort-group .sort-option input {
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
 }
 
-
-label.sort-label {
+.sort-current-container {
+  min-width: 170px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  text-align: left;
+  padding: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.sort-toggle-button:hover .sort-current-container { background: #D9E0D5; }
+.sort-current-container svg {
+  transform: rotate(180deg);
+  transition: 0.3s;
 }
 
-.sort-toggle {
-  display: flex;
-padding: 12px 16px;
-align-items: center;
-gap: 16px;
-  /* position: relative; */
-}
-.sort-toggle .select2-container .select2-selection--single {
-  height: auto;
-}
-.sort-toggle .select2-results__option--selected {
-  background: var(--green) !important;
-  color: var(--white) !important;
-}
-.sort-toggle .sort-toggle:hover .select2-container {
-    background: #D9E0D5;
-}
-.sort-toggle .select2-container--open {
-    background: var(--green) !important;
-}
-.sort-toggle .select2-container--open .select2-selection__rendered {
-    color: white !important;
-}
-.sort-toggle .select2-container--open .select2-selection--single::after {
-    filter: invert(1);
-    transform: translateY(-50%) rotate(-180deg);
-}
-
- .sort-toggle {
-    position: relative;
-}
-.sort-toggle span.select2-container.select2-container--default.select2-container--open {
-    left: 0 !important;
-    top: 60px !important;
-    width: 100%;
-}
-
-
-
-.sort-toggle span.select2.select2-container.select2-container--default {
-    top: 0 !important;
-    width: auto;
-}
-
-
+/* Responsive */
 @media (max-width: 767px) {
-  .filter-toggle-container form.collection-filters {
-      flex-wrap: wrap;
-      gap: 5px;
-      justify-content: center;
+  .filter-toggle-container .collection-filters {
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
   }
 }
+
 </style>

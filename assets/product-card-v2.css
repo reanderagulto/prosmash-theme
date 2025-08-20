@@ -35,6 +35,7 @@
   background-position: center;
   background-repeat: no-repeat;
   display: inline-block;
+  transition: 0.5s;
 }
 
 .product-card-v2 .prod-img .add-cart-btn {
@@ -63,7 +64,7 @@
   transform: translateY(0);
 }
 
-.product-card-v2 .prod-img:hover .img-container {
+.product-card-v2 .prod-img:hover .img-container .canvas {
   transform: scale(1.1);
 }
 
