@@ -101,3 +101,8 @@ a {
     left: 0 !important;
     transform: translateX(0);
 }
+.player-card.pro-player--MikeYanguas .card-featured-image img {
+    left: 40px !important;
+    top: 30px !important;
+    transform: scale(1.35);
+}
