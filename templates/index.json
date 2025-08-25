@@ -214,19 +214,19 @@
         "logo_XPRK6M": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Nox_Logo.png"
+            "image": "shopify://shop_images/Nox_Logo.svg"
           }
         },
         "logo_yA3CP6": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Oxdog_Logo.png"
+            "image": "shopify://shop_images/Oxdog_Logo.svg"
           }
         },
         "logo_dkhpib": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Siux_Logo.png"
+            "image": "shopify://shop_images/Siux_Logo.svg"
           }
         },
         "logo_ExPY7C": {
