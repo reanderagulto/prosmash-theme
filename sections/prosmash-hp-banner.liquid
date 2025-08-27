@@ -1,9 +1,8 @@
-{{ "prosmash-global.css" | asset_url | stylesheet_tag }}
+{% comment %} {{ "prosmash-global.css" | asset_url | stylesheet_tag }}
 {{ 'slick.css' | asset_url | stylesheet_tag }}
 {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
-{{ "prosmash-hp-banner.js" |  asset_url |  script_tag }}
-
+ {% endcomment %}
 
 
 <section class="hp-banner">

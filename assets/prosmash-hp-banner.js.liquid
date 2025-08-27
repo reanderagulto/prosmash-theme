@@ -6,7 +6,7 @@
         speed: 500,
         fade: true,
         cssEase: 'linear',
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 3000
         
     });
@@ -14,29 +14,26 @@
 
 
 $(document).ready(function () {
-  function updateHeadingColor() {
-    const currentSlide = $('.bg-slider .slick-slide.slick-current');
+  $(function () {
+  var $slider  = $('.bg-slider');
+  var $banner  = $('.hp-banner');
 
-    if (currentSlide.hasClass('white')) {
-      $('.heading-content h1').css('color', 'white');
-       $('.hp-banner .cta-btn a').css({
-        'color': 'black',
-        'background': 'white'
-      });
-    } else {
-      $('.heading-content h1').css('color', 'black'); // or default color
-      $('.hp-banner .cta-btn a').css({
-        'color': 'white',
-        'background': '#42662B'
-      });
-    }
+  function updateBannerTheme(_, slick, current) {
+    var i = (typeof current === 'number') ? current : (slick ? slick.currentSlide : 0);
+    var $currentSlide = slick ? $(slick.$slides[i]) : $slider.find('.slick-current');
+
+    // Toggle the theme class on the banner
+    $banner.toggleClass('theme-white', $currentSlide.hasClass('white'));
   }
 
-  // Initial check
-  updateHeadingColor();
+  // Run on init + afterChange
+  $slider.on('init reInit afterChange', updateBannerTheme);
 
-  // On slide change
-  $('.bg-slider').on('afterChange', function () {
-    updateHeadingColor();
-  });
+  // If already initialized (in case this code runs late)
+  if ($slider.hasClass('slick-initialized')) {
+    var slick = $slider.slick('getSlick');
+    updateBannerTheme(null, slick, slick.currentSlide);
+  }
+});
+
 });
