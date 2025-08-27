@@ -23,35 +23,35 @@
     z-index: 2; /* ensure it's above background */
 }
 .hp-banner.theme-white h1 {
+    color: var(--white);
+}
+.hp-banner h1 {
+    color: var(--black);
     font-family: var(--font-redhat);
     font-weight: 900;
     line-height: 120%;
     padding: 0;
     margin: 0;
-    color: white;
     transition: 0.3s;
-}
-.hp-banner h1 {
-    color: var(--black);
 }
 .hp-banner .cta-btn {
     margin-top: 40px;
 }
 .hp-banner.theme-white .cta-btn a {
-    display: inline-block;
     background: var(--white);
-    padding: 17px 40px;
     color: var(--black);
+}
+.hp-banner .cta-btn a {
+    background: #42662B;
+    color: var(--white);
+    display: inline-block;
+    padding: 17px 40px;
     text-decoration: none;
     font-size: 16px;
     font-family: var(--font-redhat);
     line-height: 100%;
     font-weight: 700;
     transition: 0.3s;
-}
-.hp-banner .cta-btn a {
-    background: #42662B;
-    color: var(--white);
 }
 .hp-banner.theme-white .cta-btn a:hover {
     background: #D9E0D5;
