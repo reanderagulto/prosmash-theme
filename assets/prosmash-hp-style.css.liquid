@@ -22,7 +22,7 @@
     position: relative;
     z-index: 2; /* ensure it's above background */
 }
-.hp-banner h1 {
+.hp-banner.theme-white h1 {
     font-family: var(--font-redhat);
     font-weight: 900;
     line-height: 120%;
@@ -31,10 +31,13 @@
     color: white;
     transition: 0.3s;
 }
+.hp-banner h1 {
+    color: var(--black);
+}
 .hp-banner .cta-btn {
     margin-top: 40px;
 }
-.hp-banner .cta-btn a {
+.hp-banner.theme-white .cta-btn a {
     display: inline-block;
     background: var(--white);
     padding: 17px 40px;
@@ -45,6 +48,16 @@
     line-height: 100%;
     font-weight: 700;
     transition: 0.3s;
+}
+.hp-banner .cta-btn a {
+    background: #42662B;
+    color: var(--white);
+}
+.hp-banner.theme-white .cta-btn a:hover {
+    background: #D9E0D5;
+}
+.hp-banner .cta-btn a:hover {
+    background: #607F4C;
 }
 .hp-banner .bg-slider {
     position: absolute;
