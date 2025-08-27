@@ -163,7 +163,7 @@
           "type": "slide",
           "settings": {
             "slide_image": "shopify://shop_images/Size_Medium_Banner_2.jpg",
-            "slide_class": ""
+            "slide_class": "white"
           }
         },
         "slide_knNwrr": {
@@ -219,9 +219,7 @@
         },
         "logo_yA3CP6": {
           "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Oxdog-horizontal-black-RGB.png"
-          }
+          "settings": {}
         },
         "logo_dkhpib": {
           "type": "logo",
