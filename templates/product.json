@@ -202,6 +202,10 @@
           "type": "swatches",
           "settings": {}
         },
+        "static_product_review_gY4nb3": {
+          "type": "static-product-review",
+          "settings": {}
+        },
         "three_col_yEmGPq": {
           "type": "three-col",
           "settings": {}
@@ -254,6 +258,7 @@
         "payment_terms",
         "options_XbF6Uj",
         "swatches_3jrHy6",
+        "static_product_review_gY4nb3",
         "three_col_yEmGPq",
         "buttons",
         "two_col_YM38Jr",
