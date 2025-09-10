@@ -13,18 +13,18 @@
     "menu-2": {
       "type": "mdp-weare-menu-2",
       "blocks": {
-        "facebook": {
-          "type": "icons",
-          "settings": {
-            "icon_class": "fab fa-facebook-f",
-            "social_link": "https://www.facebook.com/merkuloveteam"
-          }
-        },
         "instagram": {
           "type": "icons",
           "settings": {
             "icon_class": "fab fa-instagram",
             "social_link": "https://www.instagram.com/merkulove.team/"
+          }
+        },
+        "facebook": {
+          "type": "icons",
+          "settings": {
+            "icon_class": "fab fa-facebook-f",
+            "social_link": "https://www.facebook.com/merkuloveteam"
           }
         },
         "tiktok": {
@@ -70,8 +70,8 @@
         }
       },
       "block_order": [
-        "facebook",
         "instagram",
+        "facebook",
         "tiktok",
         "whatsapp",
         "discounts-1",
