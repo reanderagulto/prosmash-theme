@@ -23,7 +23,14 @@
     border-bottom: 1px solid black;
 }
 .mdp-topbar-discounts {
-    font-weight: 400 !important;
+    color: var(--Primary-White, #FFF);
+    text-align: center;
+    font-family: "Red Hat Display";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 19.5px */
+    text-transform: uppercase;
 }
 .top-header .mdp-menu-item.mdp-has-children {
     display: none;
@@ -68,6 +75,7 @@
     border: 1px solid rgba(102,102,102,0.5);
     max-height: 48px;
     font-weight: 600;
+    z-index: 10;
 }
 
 .bottom-header span.select2-dropdown.collection-dropdown-fullwidth.select2-dropdown--below {
@@ -201,3 +209,92 @@
         padding: 0;
     }
 }
+
+
+.mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-center {
+    position: relative;
+}
+.mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-center #all-categories-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    margin: 0 12px 0 0;
+}
+.mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-center #all-categories-btn.active .caret-down {
+    transform: rotate(180deg);
+}
+.mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-center #all-categories-btn::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(102, 102, 102, 0.50);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.mdp-weare-menu-1 .mdp-container .mdp-row-full .mdp-row-center #all-categories-btn:hover::before{
+    opacity: 1;
+}
+
+
+.menu-drawer {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    background: var(--Primary-White, #FFF);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.20);
+    opacity: 0;
+}
+.menu-drawer.opened {
+    opacity: 1;
+}
+.menu-drawer ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+}
+.menu-drawer ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.menu-drawer ul li a {
+    color: var(--Primary-Black, #000);
+    font-family: "Red Hat Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 30px */
+    transition: 0.3s;
+}
+
+.menu-drawer ul li a:hover {
+    color: #607f4c;
+}
+.menu-drawer .menu-drawer-img-container {
+    max-width: 420px;
+    width: 100%;
+    height: 258px;
+    padding: 24px;
+}
+.menu-drawer .menu-drawer-img-container canvas {
+    width: 100% !important;
+    height: 100%;
+    border-radius: 0;
+    background-size: cover;
+    background-position: center;
+}
+

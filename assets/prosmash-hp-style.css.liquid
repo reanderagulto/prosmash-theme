@@ -2,7 +2,6 @@
 
 /* BANNER */
 .hp-banner {
-    /* padding: 130px 0px; */
     position: relative;
     user-select: none;
     height: 500px;
@@ -20,7 +19,9 @@
 }
 .hp-banner .heading-content {
     position: relative;
-    z-index: 2; /* ensure it's above background */
+    max-width: 688px;
+    width: 100%;
+    z-index: 2;
 }
 .hp-banner.theme-white h1 {
     color: var(--white);
@@ -80,22 +81,25 @@
     background-repeat: no-repeat;
 }
 
-.hp-banner ul.slick-dots {
+.hp-banner .custom-dots {
+    position: absolute;
     bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 5;
+    text-align: center;
 }
-.hp-banner ul.slick-dots li {
-    background: #B6B4B5;
-    border-radius: 100%;
+.hp-banner .custom-dots .swiper-pagination-bullet {
     width: 16px;
     height: 16px;
-    border: 1px solid white;
+    aspect-ratio: 1/1;
+    border-radius: 1000px;
+    border: 1px solid #FFF;
+    background: #B6B4B5;
+    opacity: 1;
 }
-ul.slick-dots li.slick-active {
+.hp-banner .custom-dots .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background: #42662B;
-}
-.hp-banner ul.slick-dots li button::before {
-    opacity: 0;
 }
 
 /* BRAND LOGOS */

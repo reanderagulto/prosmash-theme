@@ -67,18 +67,18 @@
 }
 /* SWATCHES */
 .swatch-option-label {
-    font-family: var(--font-redhat);
-    font-weight: 500;
+    color: var(--Primary-Black, #000);
+    font-family: "Red Hat Display";
     font-size: 16px;
-    line-height: 100%;
-    color: var(--black);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 .mdp-product-swatches {
-    margin-top: 40px;
-    display: flex;
-    align-items: flex-start;
+    margin: 40px 24px 0 0;
     gap: 24px;
-    align-self: stretch;
+    display: inline-block;
+
 }
 .mdp-option-swatches {
     display: flex;
@@ -117,20 +117,45 @@
 .mdp-product-swatches .mdp-option .mdp-option-swatches input[type="radio"] {
     display: none;
 }
-/* TRUSTINDEX */
-.prod-rating {
-    flex-wrap: wrap;
-}
-.prod-rating .prod-rating-title {
+/* RATINGS */
+.static-product-review {
     display: inline-block;
-    width: 100%;
+    margin: 40px 0px 0;
+}
+.static-product-review-title {
     color: var(--Primary-Black, #000);
     font-family: "Red Hat Display";
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    padding-bottom: 16px;
+} 
+.static-product-review .stars-container {
+    display: flex;
+    gap: 16px;
 }
+.static-product-review .stars-container .stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.static-product-review .stars-container .stars img {
+    width: 22px;
+    height: 22px;
+}
+.static-product-review .stars-container a {
+    display: flex;
+    gap: 4px;
+    color: var(--Primary-Black, #000);
+    font-family: "Red Hat Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
 /* PRODUCT ADVANTAGE */
 .accordion-item .pa-item {
     display: flex;
@@ -297,6 +322,9 @@
 }
 
 /* SOCIAL SHARE */
+.prosmash-mdp-weare-social-sharing {
+    margin: 24px 0 0 60px;
+}
 .prosmash-mdp-weare-social-sharing span {
     color: var(--Primary-Black, #000);
     font-family: "Red Hat Display";
@@ -312,7 +340,8 @@
 }
 /* TRUSTPILOT */
 .trustpilot-box {
-    margin-top: 39px;
+    /* margin-top: 39px; */
+    margin: 39px 0 0 60px;
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;

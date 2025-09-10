@@ -57,57 +57,64 @@
         </div>
       </div>
     
+      <div class="second-block">
+        
+      </div>
+
     {%- when 'swatches' -%}
-  {% unless current_product.options.size == 1 and current_product.variants[0].title == 'Default Title' %}
-    <div class="mdp-product-swatches">
-      {% for option in current_product.options_with_values %}
-        {% if option.name == 'Color' %}
-          <div class="mdp-option">
-            <div class="swatch-option-label">Colors</div>
-            <div class="mdp-option-swatches" data-index="option{{ option.position }}">
-              {% assign option_index = option.position | minus: 1 %}
-              {% for value in option.values %}
-                {% assign matching_variant = nil %}
-                {% for variant in current_product.variants %}
-                  {% if variant.options[option_index] == value %}
-                    {% assign matching_variant = variant %}
-                    {% break %}
+    {% unless current_product.options.size == 1 and current_product.variants[0].title == 'Default Title' %}
+      <div class="mdp-product-swatches">
+        {% for option in current_product.options_with_values %}
+          {% if option.name == 'Color' %}
+            <div class="mdp-option">
+              <div class="swatch-option-label">Colors</div>
+              <div class="mdp-option-swatches" data-index="option{{ option.position }}">
+                {% assign option_index = option.position | minus: 1 %}
+                {% for value in option.values %}
+                  {% assign matching_variant = nil %}
+                  {% for variant in current_product.variants %}
+                    {% if variant.options[option_index] == value %}
+                      {% assign matching_variant = variant %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if matching_variant %}
+                    <label class="swatch-label">
+                      <input 
+                        type="radio" 
+                        name="option{{ option.position }}" 
+                        value="{{ value | escape }}" 
+                        data-variant-id="{{ matching_variant.id }}"
+                        data-variant-json="{{ matching_variant | json | escape }}"
+                        {% if matching_variant.featured_media %}data-media-id="{{ matching_variant.featured_media.id }}"{% endif %}
+                        {% if forloop.first %}checked{% endif %}>
+                      <span class="swatch" style="background-color: {{ value | downcase }}"></span>
+                    </label>
                   {% endif %}
                 {% endfor %}
-
-                {% if matching_variant %}
-                  <label class="swatch-label">
-                    <input 
-                      type="radio" 
-                      name="option{{ option.position }}" 
-                      value="{{ value | escape }}" 
-                      data-variant-id="{{ matching_variant.id }}"
-                      data-variant-json="{{ matching_variant | json | escape }}"
-                      {% if matching_variant.featured_media %}data-media-id="{{ matching_variant.featured_media.id }}"{% endif %}
-                      {% if forloop.first %}checked{% endif %}>
-                    <span class="swatch" style="background-color: {{ value | downcase }}"></span>
-                  </label>
-                {% endif %}
-              {% endfor %}
+              </div>
             </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-      <div class="prod-rating">
-          <div class="prod-rating-title">Reviews</div>
-          <div class="stars">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-          </div>
-          <div>10 reviews <img src="{{ 'ArrowUpRight.svg' | asset_url }}" alt="Star"></div>
+          {% endif %}
+        {% endfor %}
+      
       </div>
+    {% endunless %}
+
+    {%- when 'static-product-review' -%}
+    <div class="static-product-review">
+        <div class="static-product-review-title">Reviews</div>
+        <div class="stars-container">
+            <div class="stars">
+              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+          </div>
+          <a href="#">10 reviews <img src="{{ 'ArrowUpRight.svg' | asset_url }}" alt="Star"></a>
+        </div>
     </div>
-  {% endunless %}
-
-
 
 
 
@@ -416,7 +423,7 @@
           </div> {% endcomment %}
           		{% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
       <button type="submit" 
-        class="mdp-preorder-button mdp-add-to-cart"
+        class="mdp-preorder-button mdp-add-to-cart mdp-available"
         style="color: {{ btn_color }}"
         data-product-id="{{ variant.id }}"
         data-quantity="1">

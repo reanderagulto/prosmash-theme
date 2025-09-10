@@ -336,23 +336,7 @@
                 </div>
                 <div class="mdp-row-center testing-center">
                     <div class="collection-select-wrapper">
-                        {% assign all_categories_menu = linklists['all-categories'] %}
-                        {% if all_categories_menu.links.size > 0 %}
-                            <select id="collection-dropdown" name="all-categories">
-                            <option value="">Select a Category</option>
-                            {% for link in all_categories_menu.links %}
-                                {% assign handle = link.url | split: '/' | last %}
-                                {% assign collection = collections[handle] %}
-                                <option 
-                                value="{{ link.url }}"
-                                data-image="{{ collection.featured_image | image_url: width: 400 }}">
-                                {{ link.title }}
-                                </option>
-                            {% endfor %}
-                            </select>
-                          
-
-                        {% endif %}
+                        <div id="all-categories-btn">All Categories<img src="{{ 'CaretDown.svg' | asset_url }}" class="caret-down" alt=""></div>
                     </div>
                     <div class="mdp-search-display mdp-search-display-block test">
                         <form class="mdp-search-bar" action="/search" method="get">
@@ -366,6 +350,37 @@
                         <img src="{{ 'Filter.svg' | asset_url }}" alt="">
                         </a>
                     </div>
+
+                    <div class="menu-drawer">
+                        {% assign menu = linklists['all-categories'] %}
+                        {% if menu and menu.links.size > 0 %}
+                            <ul class="toggle-menu">
+                            {% for link in menu.links %}
+                                {% assign obj = link.object %}
+                                {% assign img_url = '' %}
+
+                                {% if link.type == 'collection_link' and obj %}
+                                {% if obj.image %}
+                                    {% assign img_url = obj.image | image_url: width: 800 %}
+                                {% elsif obj.featured_image %}
+                                    {% assign img_url = obj.featured_image | image_url: width: 800 %}
+                                {% endif %}
+                                {% endif %}
+
+                                <li>
+                                <a href="{{ link.url }}" class="toggle-link" data-image="{{ img_url }}">
+                                    {{ link.title }}
+                                </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+
+                            <div class="menu-drawer-img-container">
+                                <canvas id="category-canvas"></canvas>
+                            </div>
+                        {% endif %}
+                    </div>
+
                 </div>
                 <div class="mdp-row-right">
                     {% comment %}  

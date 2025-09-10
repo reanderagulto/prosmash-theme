@@ -64,7 +64,8 @@
           </div>
         {% endif %}
 
-        {% assign selected_variant = current_product.selected_or_first_available_variant %}
+        {% comment %} {% assign selected_variant = current_product.selected_or_first_available_variant %} {% endcomment %}
+        {% assign selected_variant = current_product.variants.first %}
 
         {% if selected_variant.inventory_quantity <= 0 and selected_variant.inventory_policy == 'continue' %}
           <div class="mdp-preorder">
@@ -267,6 +268,10 @@
       {
         "type": "two-col",
         "name": "Two Column Buttons"
+      },
+      {
+        "type": "static-product-review",
+        "name": "Static Product Review"
       },
       {
         "type": "delivery-notice",
@@ -481,6 +486,9 @@
         },
         { 
           "type": "two-col" 
+        },
+        { 
+          "type": "static-product-review" 
         },
         { 
           "type": "delivery-notice" 

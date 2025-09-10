@@ -1,39 +1,64 @@
- $(document).ready(function () {
-    $('.bg-slider').slick({
-        arrows: false,
-        dots: true,
-        infinite: true,
+;
+(function ($, w, d, h, b) {
+
+  var app = {
+    slideshow: function () {
+      // guard: need Swiper and the container present
+      if (typeof Swiper === 'undefined') return;
+
+      var $banner = $('.hp-banner');
+      var $slider = $('.bg-slider');       // has .swiper
+      var $dots   = $('.custom-dots');     // your pagination container
+
+      if (!$slider.length) return;
+
+      var swiper = new Swiper($slider[0], {
+        effect: 'fade',
         speed: 500,
-        fade: true,
-        cssEase: 'linear',
-        autoplay: false,
-        autoplaySpeed: 3000
-        
-    });
-})
+        loop: true,
+        autoplay: false, // or { delay: 3000, disableOnInteraction: false }
+        pagination: $dots.length ? {
+          el: $dots[0],
+          clickable: true
+        } : undefined,
+        on: {
+          init: function () { updateBannerTheme(this); },
+          slideChange: function () { updateBannerTheme(this); }
+        }
+      });
 
+      // theme toggle based on `.white` on the active slide
+      function updateBannerTheme(instance) {
+        var current = instance.slides[instance.activeIndex];
+        if (current && current.classList.contains('white')) {
+          $banner.addClass('theme-white');
+        } else {
+          $banner.removeClass('theme-white');
+        }
+      }
 
-$(document).ready(function () {
-  $(function () {
-  var $slider  = $('.bg-slider');
-  var $banner  = $('.hp-banner');
+      // optional: debounced resize to update layout
+      var t;
+      $(w).on('resize', function () {
+        clearTimeout(t);
+        t = setTimeout(function () {
+          if (swiper && swiper.update) swiper.update();
+        }, 150);
+      });
+    },
 
-  function updateBannerTheme(_, slick, current) {
-    var i = (typeof current === 'number') ? current : (slick ? slick.currentSlide : 0);
-    var $currentSlide = slick ? $(slick.$slides[i]) : $slider.find('.slick-current');
+    others: function () {
+      /** Put your uncategorized functions/scripts here */
+    },
 
-    // Toggle the theme class on the banner
-    $banner.toggleClass('theme-white', $currentSlide.hasClass('white'));
-  }
+    init: function () {
+      this.slideshow();
+      this.others();
+    }
+  };
 
-  // Run on init + afterChange
-  $slider.on('init reInit afterChange', updateBannerTheme);
+  $(d).ready(function () {
+    app.init();
+  });
 
-  // If already initialized (in case this code runs late)
-  if ($slider.hasClass('slick-initialized')) {
-    var slick = $slider.slick('getSlick');
-    updateBannerTheme(null, slick, slick.currentSlide);
-  }
-});
-
-});
+})(jQuery, window, document, 'html', 'body');

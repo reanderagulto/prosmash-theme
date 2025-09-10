@@ -1,54 +1,44 @@
-jQuery(document).ready(function ($) {
-    $('#collection-dropdown').select2({
-        dropdownParent: $('#collection-dropdown').closest('.mdp-row-center'),
-        minimumResultsForSearch: Infinity,
-        placeholder: 'All Categories',
-        dropdownCssClass: 'collection-dropdown-fullwidth'
-    });
+;
+(function ($, w, d, h, b) {
 
-
-    $('#collection-dropdown').on('select2:select', function (e) {
-        const url = $(this).val();
-        if (url) {
-        window.location.href = url;
+  var app = {
+    categoryDrawer: function () {
+        var $canvas = $("#category-canvas");
+        var $firstLink = $(".toggle-link").first();
+        
+        var firstImg = $firstLink.data("image");
+        if (firstImg) {
+          $canvas.css("background-image", "url(" + firstImg + ")");
         }
-    });
 
-    // Prevent "All Categories" from appearing in dropdown list
-    $("#collection-dropdown option:first").attr("disabled", "disabled");
+        $(".toggle-link").hover(function() {
+          var imgUrl = $(this).data("image");
+          if (imgUrl) {
+            $canvas.css("background-image", "url(" + imgUrl + ")");
+          }
+        });
 
+        $('.menu-drawer').removeClass('opened');
+        $('#all-categories-btn').removeClass('active');
 
-    function injectPreviewImageContainer() {
-  const resultsContainer = $('.select2-results');
+        $('#all-categories-btn').on('click', function() {
+          $(this).toggleClass('active');
+          $('.menu-drawer').toggleClass('opened');
+        })
+    },
 
-  // Only inject once
-  if ($('#dropdown-image-preview').length === 0) {
-    resultsContainer.append(`
-      <div class="collection-preview-container">
-        <img id="dropdown-image-preview" src="{{ 'placeholder.jpg' | asset_url }}" alt="Preview" />
-      </div>
-    `);
-  }
-}
+    others: function () {
+      /** Put your uncategorized functions/scripts here */
+    },
 
-$('#collection-dropdown').on('select2:open', function () {
-  // Inject image container once the dropdown is opened
-  setTimeout(injectPreviewImageContainer, 0);
-});
+    init: function () {
+      this.categoryDrawer();
+    }
+  };
 
-$(document).on('mouseenter', '.select2-results__option', function () {
-  const hoveredText = $(this).text().trim();
-
-  const matchingOption = $('#collection-dropdown option').filter(function () {
-    return $(this).text().trim() === hoveredText;
+  $(d).ready(function () {
+    app.init();
   });
 
-  if (matchingOption.length > 0) {
-    const imageUrl = matchingOption.data('image');
-    $('#dropdown-image-preview').attr('src', imageUrl);
-  }
-});
+})(jQuery, window, document, 'html', 'body');
 
-
-    // Ensure dropdown closes on outside click (Select2 handles this by default)
-});

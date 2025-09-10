@@ -1,29 +1,32 @@
 <section class="hp-banner">
-    <div class="mdp-container">
-        <div class="mdp-col mdp-row-full">
-            
-                <div class="heading-content">
-                    <h1>{{ section.settings.section_main_header }}</h1>
-                    <div class="cta-btn">
-                        <a href="{{ section.settings.cta_link }}">{{ section.settings.cta_title }}</a>
-                    </div>
-                </div>
-            <div class="custom-dots"></div>
-         
+  <div class="mdp-container">
+    <div class="mdp-col mdp-row-full">
+      <div class="heading-content">
+        <h1>{{ section.settings.section_main_header }}</h1>
+        <div class="cta-btn">
+          <a href="{{ section.settings.cta_link }}">{{ section.settings.cta_title }}</a>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="bg-slider">
-        {% for block in section.blocks %}
+  {%- comment -%} Swiper container {%- endcomment -%}
+  <div class="bg-slider swiper">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
         {% assign image = block.settings.slide_image %}
-            {% if image != blank %}
-                <div class="slide {{ block.settings.slide_class }}">
-                <div class="img-holder" style="background-image: url('{{ image | image_url: width: 1600 }}')"></div>
-                </div>
-            {% endif %}
-        {% endfor %}
+        {% if image != blank %}
+          <div class="swiper-slide {{ block.settings.slide_class }}">
+            <div class="img-holder"
+                 style="background-image:url('{{ image | image_url: width: 1600 }}')">
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
-    
+  </div>
+  {%- comment -%} Swiper will render dots here {%- endcomment -%}
+  <div class="custom-dots"></div>
 </section>
 
 
