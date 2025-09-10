@@ -25,6 +25,14 @@
           $(this).toggleClass('active');
           $('.menu-drawer').toggleClass('opened');
         })
+
+        // Close drawer when clicking outside
+        $(document).on('click', function (e) {
+          if (!$(e.target).closest('.menu-drawer, #all-categories-btn').length) {
+            $('.menu-drawer').removeClass('opened');
+            $('#all-categories-btn').removeClass('active');
+          }
+        });
     },
 
     others: function () {
