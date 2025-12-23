@@ -3252,6 +3252,7 @@ a.mdp-menu-link:focus {
   padding-top: 58px;
   padding-left: 47px;
   padding-right: 54px;
+  padding-bottom: 24px;
   box-sizing: border-box;
 }
 .mdp-cart-popup form {
@@ -3416,10 +3417,10 @@ a.mdp-menu-link:focus {
   margin-bottom: 10px;
 }
 .mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 20px;  
   display: flex;
   align-items: center;
+  flex-direction: column;
   position: relative;
 }
 .mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-btn-view-cart {
@@ -3525,6 +3526,37 @@ a.mdp-menu-link:focus {
 .mdp-cart-popup form .mdp-cart-footer .mdp-additional-checkout-buttons {
   margin-top: 20px;
 }
+
+.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-contact-us {
+    width: 100%;
+    font-family: {{ settings.weare_font_text }};
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: white;
+    background-color: {{ settings.btn_background }};
+    border-radius: 2px;
+    padding: 15px 0;  
+}
+
+.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-contact-us:hover {
+  background-color: {{ settings.btn_hover_background }};
+  transition: background-color 500ms;
+}
+
+.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-cart-continue-label {
+    width: 100%;
+}
+
+.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-cart-continue-label p {
+    margin: 0 0 8px;
+    font-size: 13px;
+}
+
 .mdp-cart-popup form .mdp-cart-footer .mdp-cart-result .mdp-cart-subtotal {
   font-family: {{ settings.weare_font_text }};
   font-style: normal;

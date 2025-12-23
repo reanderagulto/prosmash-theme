@@ -209,7 +209,7 @@
 
       <div class="mdp-cart-footer {% if section.settings.cart_notes or section.settings.discount_code or section.settings.estimate_shipping %}mdp-cart-addons-enabled{% endif %}">
 
-        {% if section.settings.cart_notes or section.settings.discount_code or section.settings.estimate_shipping %}
+        {% comment %} {% if section.settings.cart_notes or section.settings.discount_code or section.settings.estimate_shipping %}
         <div class="mdp-tabs mdp-cart-addons">
           <div class="mdp-titles" style="justify-content: space-between;">
             {% if section.settings.cart_notes %}
@@ -309,8 +309,8 @@
             {% endif %}
           </div>
         </div>
-        {% endif %}
-        <div class="mdp-cart-result">
+        {% endif %} {% endcomment %}
+        {% comment %} <div class="mdp-cart-result">
           {% if cart.cart_level_discount_applications != blank %}
           <div class="mdp-order-discount-card-wrapper">
             {% for discount_application in cart.cart_level_discount_applications %}
@@ -351,7 +351,7 @@
           {% if additional_checkout_buttons %}
           <div class="mdp-additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
           {% endif %}
-        </div>
+        </div> {% endcomment %}
       </div>
     </form>
     {% else %}

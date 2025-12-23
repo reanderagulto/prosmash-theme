@@ -391,12 +391,12 @@
                     {% endcomment %}
 
                      
-                    <a class="mdp-cart" href="/cart">
+                    {% comment %} <a class="mdp-cart" href="/cart">
                     
-                        {% comment %} <i class="fa-solid fa-cart-shopping mdp-menu-icon"></i> <span>{{ cart.item_count }} in count</span> {% endcomment %}
+                        <i class="fa-solid fa-cart-shopping mdp-menu-icon"></i> <span>{{ cart.item_count }} in count</span>
                         <img src="{{ 'shopping-cart.svg' |  asset_url }}" alt=""> <span>{{ cart.item_count }} in count</span>
-                        {% comment %} <span class="mdp-cart-count">{{ cart.item_count }}</span> {% endcomment %}
-                    </a>
+                        <span class="mdp-cart-count">{{ cart.item_count }}</span>
+                    </a> {% endcomment %}
 
                     {% if shop.customer_accounts_enabled %}
                         <a class="mdp-account" href="/account">

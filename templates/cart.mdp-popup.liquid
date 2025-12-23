@@ -116,16 +116,25 @@
         {% endif %}
         {% endcapture %}
         <div class="mdp-cart-shipping">{{ taxes_shipping_checkout }}</div>
-        <div class="mdp-cart-submit-controls">
+        {% comment %} <div class="mdp-cart-submit-controls">
           <a href="/cart" class="mdp-btn-view-cart">{{ 'products.product.view_cart' | t }}</a>
           <input type="submit" name="checkout"
                  class="mdp-btn-check-out"
                  value="{{ 'cart.general.checkout' | t }}">
+        </div> {% endcomment %}
+
+        <div class="mdp-cart-submit-controls">
+            <div class="mdp-cart-continue-label">
+                <p>Interested in purchasing this item? Click below to contact us and continue.</p>
+            </div>
+            <a href="/pages/contact" class="mdp-contact-us">
+                Contact Us
+            </a>
         </div>
 
-        {% if additional_checkout_buttons %}
+        {% comment %} {% if additional_checkout_buttons %}
         <div class="mdp-additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
-        {% endif %}
+        {% endif %} {% endcomment %}
       </div>
     </div>
   </form>

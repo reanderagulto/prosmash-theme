@@ -27,14 +27,15 @@
             data-product-id="{{ variant.id }}"
             data-quantity="1"
             data-add-to-cart="Add to cart"
-            data-sold-out="Sold out">
-        {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
-            Pre-order
-        {% elsif variant.available %}
-            Add to cart
-        {% else %}
-            Sold out
-        {% endif %}
+            data-sold-out="Sold out"
+        >
+            {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+                Pre-order
+            {% elsif variant.available %}
+                Add to cart
+            {% else %}
+                Sold out
+            {% endif %}
         </div>
 
 
