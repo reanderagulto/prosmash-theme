@@ -123,14 +123,7 @@
                  value="{{ 'cart.general.checkout' | t }}">
         </div> {% endcomment %}
 
-        <div class="mdp-cart-submit-controls">
-            <div class="mdp-cart-continue-label">
-                <p>Interested in purchasing this item? Click below to contact us and continue.</p>
-            </div>
-            <a href="/pages/contact" class="mdp-contact-us">
-                Contact Us
-            </a>
-        </div>
+        {% render 'cart-contact-us' %}
 
         {% comment %} {% if additional_checkout_buttons %}
         <div class="mdp-additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>

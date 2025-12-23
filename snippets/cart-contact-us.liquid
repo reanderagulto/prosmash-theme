@@ -1,0 +1,49 @@
+<style>
+    .mdp-cart-submit-controls {
+        width: 100%;
+    }
+
+    a.mdp-contact-us {
+        width: 100%;
+        font-family: {{ settings.weare_font_text }};
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        color: white;
+        background-color: {{ settings.btn_background }};
+        border-radius: 2px;
+        padding: 15px 0;      
+    }
+
+    a.mdp-contact-us:hover {
+        background-color: {{ settings.btn_hover_background }};
+        transition: background-color 500ms;
+    }
+
+    .mdp-cart-continue-label {
+        width: 100%;
+    }
+
+    .mdp-cart-continue-label p {
+        margin: 0 0 8px;
+        font-size: 13px;
+    }
+
+    @media screen and (min-width: 992px) {
+        a.mdp-contact-us {
+            width: 45%;
+        }
+    }
+</style>
+<div class="mdp-cart-submit-controls">
+    <div class="mdp-cart-continue-label">
+        <p>Interested in purchasing this item? Click below to contact us and continue.</p>
+    </div>
+    <a href="/pages/contact" class="mdp-contact-us">
+        Contact Us
+    </a>
+</div>
