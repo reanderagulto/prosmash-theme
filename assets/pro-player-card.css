@@ -1,54 +1,52 @@
-
-
 .player-card .card-content {
-    display: flex;
-    padding: 24px 24px 40px 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    border-top: 8px solid var(--Secondary-1-Forest-Shade, #819972);
-    background: var(--Secondary-1-Dark-Moss-Green, #42662B);
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    height: 100%;
-    background: #42662B;
+  display: flex;
+  padding: 24px 24px 40px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 8px solid #b68b73;
+  background: var(--Secondary-1-Dark-Moss-Green, #42662b);
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  height: 100%;
+  background: #42662b;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .player-card {
-    height: 100%;
+  height: 100%;
 }
 .player-card .card-content .player-title {
-    color: var(--Primary-White, #FFF);
-    font-family: "Red Hat Display";
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+  color: var(--Primary-White, #fff);
+  font-family: var(--font-body-family);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
 .player-card .card-content .text {
-    color: var(--Primary-White, #FFF);
-    font-family: "Red Hat Display";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: var(--Primary-White, #fff);
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 .player-card .card-content .brands {
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    align-self: stretch;
-    color: white;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  color: white;
 }
 .player-card .card-content .brands img {
-    width: 60px;
-    height: 12px;
-    aspect-ratio: 58.50/12.00;
-    object-fit: contain;
-    filter: invert(1);
+  width: 60px;
+  height: 12px;
+  aspect-ratio: 58.5/12;
+  object-fit: contain;
+  filter: invert(1);
 }
 .player-card {
   container-type: inline-size;
@@ -58,29 +56,28 @@ a {
 }
 
 .player-card .card-featured-image {
-  aspect-ratio: 3 / 4;  
+  aspect-ratio: 3 / 4;
   position: relative;
   position: relative;
 }
 .player-card .card-featured-image::before {
-    content: '';
-    width: 100%;
-    height: 90%;
-    background: #42662B;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+  content: "";
+  width: 100%;
+  height: 278px;
+  background: #42662b;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .player-card .card-featured-image img {
   height: 100%;
   position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
 
 @media (max-width: 767px) {
   .card-featured-image {
@@ -88,21 +85,19 @@ a {
   }
 }
 
-
-
 /* PER PLAYER CARD CUSTOM CSS */
 .pro-player--FedericoChingotto .card-featured-image img {
-    transform: translateX(0);
-    left: 100% !important;
-    transform: translateX(-100%) !important;
-    position: relative;
+  transform: translateX(0);
+  left: 100% !important;
+  transform: translateX(-100%) !important;
+  position: relative;
 }
 .player-card.pro-player--JuanLebron .card-featured-image img {
-    left: 0 !important;
-    transform: translateX(0);
+  left: 0 !important;
+  transform: translateX(0);
 }
 .player-card.pro-player--MikeYanguas .card-featured-image img {
-    left: 40px !important;
-    top: 30px !important;
-    transform: scale(1.35);
+  left: 40px !important;
+  top: 30px !important;
+  transform: scale(1.35);
 }
