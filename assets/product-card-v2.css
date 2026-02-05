@@ -92,7 +92,7 @@
 
 .product-card-v2 .prod-details .brand {
   color: #5b5b5b;
-  font-family: "Red Hat Display";
+  font-family: var(--font-body-family);
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
@@ -123,7 +123,7 @@
   align-items: center;
   gap: 2px;
   color: var(--Primary-Black, #000);
-  font-family: "Red Hat Display";
+  font-family: var(--font-body-family);
   font-size: 12px;
   font-weight: 400;
   line-height: normal;

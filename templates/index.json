@@ -155,50 +155,58 @@
         "slide_wwyWaf": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Size_Medium_Banner_1.jpg",
+            "slide_image": "shopify://shop_images/Padel_Green-Court.jpg",
             "slide_class": "white"
           }
         },
-        "slide_46CWJe": {
+        "slide_c6edyg": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Size_Medium_Banner_2.jpg",
+            "slide_image": "shopify://shop_images/Cap-2.jpg",
             "slide_class": ""
           }
         },
-        "slide_knNwrr": {
+        "slide_8HTBt7": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Size_Medium_Banner_3.jpg",
+            "slide_image": "shopify://shop_images/Fabric-2.jpg",
+            "slide_class": "white"
+          }
+        },
+        "slide_xewzCA": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/Fabric-1.jpg",
             "slide_class": ""
           }
         },
-        "slide_C6diDj": {
+        "slide_DMmrjk": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Size_Medium_Banner_4.jpg",
+            "slide_image": "shopify://shop_images/Black_Padel.jpg",
             "slide_class": ""
           }
         },
-        "slide_UWHice": {
+        "slide_mUJGcm": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Size_Medium_Banner_5.jpg",
+            "slide_image": "shopify://shop_images/Cap-1.jpg",
             "slide_class": ""
           }
         }
       },
       "block_order": [
         "slide_wwyWaf",
-        "slide_46CWJe",
-        "slide_knNwrr",
-        "slide_C6diDj",
-        "slide_UWHice"
+        "slide_c6edyg",
+        "slide_8HTBt7",
+        "slide_xewzCA",
+        "slide_DMmrjk",
+        "slide_mUJGcm"
       ],
       "name": "Prosmash HP Banner",
       "settings": {
         "section_main_header": "LEVEL UP YOUR <br> PADEL GAME",
-        "section_main_desc": "<p><i>Discover elite rackets and performance gear from <br>the best brands.</i></p>",
+        "section_main_desc": "<p><em>Discover elite rackets and performance gear from <br/>the best brands.</em></p>",
         "cta_title": "SHOP NOW",
         "cta_link": "shopify://collections/all"
       }
@@ -268,7 +276,11 @@
           }
         }
       },
-      "block_order": ["icon_Dip3QC", "icon_8Krj76", "icon_EBXTtf"],
+      "block_order": [
+        "icon_Dip3QC",
+        "icon_8Krj76",
+        "icon_EBXTtf"
+      ],
       "name": "Prosmash HP Icon List",
       "settings": {}
     },
@@ -433,7 +445,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": false,

@@ -8,72 +8,42 @@
             <div class="collection-banner-title">
                 {{ section.settings.title }}
             </div>
+            {% if section.settings.description != null %}
+            <div class="collection-banner-desc">
+                {{ section.settings.description   }}
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>
-
-
-<style>
-.collection-banner {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-}
-.collection-banner .custom-container {
-    max-width: 1312px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 47px 15px;
-}
-.collection-banner .collection-banner-title {
-    font-family: 'Red Hat Display';
-    font-family: var(--font-body-family);
-    font-size: 48px;
-    line-height: 120%;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: var(--white);
-}
-
-
-@media (max-width: 1024px) {
-    .collection-banner .collection-banner-title {
-        font-size: 38px;
-    }
-}
-@media (max-width: 767px) {
-    .collection-banner .collection-banner-title {
-        font-size: 30px;
-        text-align: left !important;
-    }
-}
-
-</style>
-
 
 {% schema %}
   {
     "name": "Collection Banner",
     "settings": [
-        {
-            "type": "image_picker",
-            "id": "background_img",
-            "label": "Background Image"
-        },
-        {
-            "type": "textarea",
-            "id": "title",
-            "label": "Title",
-            "default": "Shop Exclusive<br> sportswear brands"
-        }
-
-     
-
+      {
+        "type": "image_picker",
+        "id": "background_img",
+        "label": "Background Image"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title",
+        "default": "Premium Padel, Delivered <br>Worldwide."
+      }, 
+      {
+        "type": "richtext", 
+        "id": "description", 
+        "label": "Description",
+        "default": "<p><em>Authentic gear from top brands—straight to your door.</em></p>"
+      }
     ],	
-    "presets": [{
-      "name": "Prosmash Collection Banner",
-      "category": "Prosmash: Collection"
-    }]
+    "presets": [
+      {
+        "name": "Prosmash Collection Banner",
+        "category": "Prosmash: Collection"
+      }
+    ]
   }
 {% endschema %}

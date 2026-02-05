@@ -10,7 +10,7 @@
     border-bottom: 1px solid #DCDCDC;
 }
 .mdp-weare-collection-tabs > .mdp-tabs > .mdp-titles > span {
-    font-family: {{ settings.weare_font_text }};
+    font-family: var(--font-body-family);
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -50,7 +50,7 @@
     height: 1.5em;
 }
 .mdp-weare-collection-tabs > .mdp-tabs > .mdp-titles .mdp-active {
-    font-family: {{ settings.weare_font_text }};
+    font-family: var(--font-body-family);
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -71,7 +71,7 @@
 }
 .mdp-weare-collection-tabs > .mdp-header .mdp-subtitle{
     margin-bottom: 5px;
-    font-family: {{ settings.weare_font_text }};
+    font-family: var(--font-body-family);
     font-style: normal;
     font-weight: bold;
     font-size: 16px;

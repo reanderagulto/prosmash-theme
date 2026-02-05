@@ -16,11 +16,11 @@
     "weare_logo_font_weight": "700",
     "weare_logo_color": "#2a2a2a",
     "menu_activ_color": "#e9384f",
-    "weare_font_header": "Red Hat Display",
+    "weare_font_header": "HelveticaCustom",
     "mdp_header_color": "#343434",
     "mdp_header_font_size": 38,
     "mdp_header_line_height": 1.2,
-    "weare_font_text": "Red Hat Display",
+    "weare_font_text": "HelveticaCustom",
     "mdp_paragraph_color": "#343434",
     "mdp_paragraph_font_size": 16,
     "mdp_paragraph_line_height": 1.6,
@@ -291,12 +291,7 @@
             }
           }
         },
-        "block_order": [
-          "list-1",
-          "list-2",
-          "list-3",
-          "list-4"
-        ],
+        "block_order": ["list-1", "list-2", "list-3", "list-4"],
         "settings": {
           "title": "Need help? <br> ..",
           "subtitle": "",
@@ -478,12 +473,7 @@
             }
           }
         },
-        "block_order": [
-          "about-us",
-          "quick-links",
-          "follow-us",
-          "subscribe"
-        ],
+        "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
         "settings": {
           "show_payment_icons": true,
           "show_powered_by": true,

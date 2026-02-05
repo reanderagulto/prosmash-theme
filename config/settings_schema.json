@@ -19,7 +19,7 @@
     ]
   },
   {
-    "name":"Logo",
+    "name": "Logo",
     "settings": [
       {
         "type": "range",
@@ -29,7 +29,7 @@
         "step": 1,
         "unit": "px",
         "label": "Font size",
-        "default":24
+        "default": 24
       },
       {
         "type": "range",
@@ -112,8 +112,8 @@
       {
         "type": "color",
         "id": "weare_logo_color",
-        "label":"Color",
-        "default":"#343434"
+        "label": "Color",
+        "default": "#343434"
       }
     ]
   },
@@ -158,9 +158,9 @@
             "value": "Work Sans",
             "label": "Work Sans"
           },
-           {
-            "value": "Red Hat Display",
-            "label": "Red Hat Display"
+          {
+            "value": "HelveticaCustom",
+            "label": "HelveticaCustom"
           },
           {
             "value": "Lexend",
@@ -222,8 +222,8 @@
             "label": "Poppins"
           },
           {
-            "value": "Red Hat Display",
-            "label": "Red Hat Display"
+            "value": "HelveticaCustom",
+            "label": "HelveticaCustom"
           },
           {
             "value": "Lexend",
@@ -305,7 +305,6 @@
         "default": "#E9384F"
       }
     ]
-
   },
   {
     "name": "Coming Soon Layout",
