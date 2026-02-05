@@ -63,7 +63,7 @@ a {
 .player-card .card-featured-image::before {
   content: "";
   width: 100%;
-  height: 278px;
+  height: calc(100% - 90px);
   background: #42662b;
   position: absolute;
   bottom: 0;
@@ -79,25 +79,37 @@ a {
   transform: translateX(-50%);
 }
 
+/* PER PLAYER CARD CUSTOM CSS */
+.pro-player--AgustínTapia .card-featured-image img {
+  left: 60%;
+}
+
+.pro-player--FedericoChingotto .card-featured-image img {
+  transform: translateX(0);
+  left: 100%;
+  transform: translateX(-100%);
+  position: relative;
+}
+.player-card.pro-player--JuanLebron .card-featured-image img {
+  left: 0;
+  transform: translateX(0);
+}
+.player-card.pro-player--MikeYanguas .card-featured-image img {
+  top: 8px;
+  height: 100%;
+}
+
 @media (max-width: 767px) {
   .card-featured-image {
     margin-top: 60px;
   }
-}
 
-/* PER PLAYER CARD CUSTOM CSS */
-.pro-player--FedericoChingotto .card-featured-image img {
-  transform: translateX(0);
-  left: 100% !important;
-  transform: translateX(-100%) !important;
-  position: relative;
-}
-.player-card.pro-player--JuanLebron .card-featured-image img {
-  left: 0 !important;
-  transform: translateX(0);
-}
-.player-card.pro-player--MikeYanguas .card-featured-image img {
-  left: 40px !important;
-  top: 30px !important;
-  transform: scale(1.35);
+  .pro-player--FedericoChingotto .card-featured-image img {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
 }

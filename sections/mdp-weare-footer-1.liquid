@@ -1,157 +1,187 @@
-{{"mdp-weare-footer-1.css" | asset_url | stylesheet_tag }}
-{{"prosmash-footer.css" | asset_url | stylesheet_tag }}
+{{ "mdp-weare-footer-1.css" | asset_url | stylesheet_tag }}
+{{ "prosmash-footer.css" | asset_url | stylesheet_tag }}
 
-<div id="mdp-weare-{{ section.id }}" 
-     class="mdp mdp-weare-footer-1 prosmash-footer"  
-     style="margin-top: {{ section.settings.margin_top }}px;{% if section.settings.show_border == true %}border-top: 3px solid #343434;{% endif %}">
+<div
+  id="mdp-weare-{{ section.id }}"
+  class="mdp mdp-weare-footer-1 prosmash-footer"
+  style="margin-top: {{ section.settings.margin_top }}px;{% if section.settings.show_border == true %}border-top: 3px solid #343434;{% endif %}"
+>
   <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
-  {% if section.blocks.size > 0 %}
-    <div class="mdp-col mdp-footer">
-      {% for block in section.blocks %}
-      <div class="mdp-item mdp-footer-{{ block.type }}">
-        {% unless block.settings.title == blank or block.settings.image %}
-        	<div class="mdp-title">{{ block.settings.title | escape }}</div>
-        {% endunless %}
+    {% if section.blocks.size > 0 %}
+      <div class="mdp-col mdp-footer">
+        {% for block in section.blocks %}
+          <div class="mdp-item mdp-footer-{{ block.type }}">
+            {% unless block.settings.title == blank or block.settings.image %}
+              <div class="mdp-title">{{ block.settings.title | escape }}</div>
+            {% endunless %}
 
-        {% case block.type %}
-        {% when 'newsletter' %}
-          {% unless block.settings.subtitle == blank %}
-              <div class="mdp-subtitle">{{ block.settings.subtitle | escape }}</div>
-          {% endunless %}
-          <div class="mdp-signup-form">
-            {% form "customer" %}
-              {{ form.errors | default_errors }}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <div class="mdp-row">
-                <input  type="email" placeholder="Subscribe by email" name="contact[email]"/>
-                <button type="submit"
-                        style="color: {{ block.settings.button_text_color }};"
-                        class="mdp-submit">Submit</button>
-              </div>
-            {% endform %}    
-          </div>
-        {% when 'text' %}
-          {% if block.settings.image != blank %}
-            {% assign image_size = block.settings.height_logo | prepend: 'x' %}
-            <a href="{{ routes.root_url }}" class="mdp-logo">
-              <img src="{{ block.settings.image | img_url: image_size }}"
-                   srcset="{{ block.settings.image | img_url: image_size }} 1x, {{ block.settings.image | img_url: image_size, scale: 2 }} 2x"
-                   alt="{{ block.settings.image.alt | default: shop.name }}">
-            </a>
-          {% endif %}
-          {% if block.settings.text != blank %}
-            <div class="mdp-text">
-              {{ block.settings.text }}
-            </div>
-          {% endif %}
-          {% if block.settings.email != blank or block.settings.phone != blank %}
-            <div class="mdp-link-list">
-              {% if block.settings.email != blank %}
-                <a href="mailto:{{ block.settings.email | escape }}">
-                  {% render 'mdp-weare-icon' with '153' %}
-                  <span>{{ block.settings.email }}</span>
-                </a>
-              {% endif %}
-              {% if block.settings.phone != blank %}
-                <a href="tel:{{ block.settings.phone | remove: '-' | replace: ' ', '' }}">
-                  {% render 'mdp-weare-icon' with '197' %}
-                  <span>{{ block.settings.phone }}</span>
-                </a>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% when 'menu' %}
-          <div class="mdp-menu">
-            {% for link in linklists[block.settings.footer_link_list].links %}
-            	<a href="{{ link.url }}" class="mdp-link-menu">
-                  <i class="fas fa-angle-left"></i>
-                  <span>{{ link.title }}</span>
-            	</a>
-            {% endfor %}
-          </div>
-        {% when 'social_medias' %}
-          {% if 
-          	block.settings.twitter_link != blank 
-        	or block.settings.facebook_link != blank 
-        	or block.settings.pinterest_link != blank 
-        	or block.settings.instagram_link != blank 
-        	or block.settings.youtube_link != blank %}
-            <div class="mdp-social-icons">
-              {% if block.settings.facebook_link != blank %}
-              <a class="" target="_blank" href="{{ block.settings.facebook_link | escape }}" >
-                <img src="{{ 'Facebook.svg' | asset_url }}" alt="Facebook Icon">
-                <span>Facebook</span>
-              </a>
-              {% endif %}
-              {% if block.settings.twitter_link != blank %}
-              <a class="" target="_blank" href="{{ block.settings.twitter_link | escape }}" >
-                <img src="{{ 'twitter.svg' | asset_url }}" alt="Twitter Icon">
-                <span>X</span>
-              </a>
-              {% endif %}
-              {% if block.settings.pinterest_link != blank %}
-              <a class="" target="_blank" href="{{ block.settings.pinterest_link | escape }}" >
-                <i class="fab fa-pinterest"></i>
-                <span>Pinterest</span>
-              </a>
-              {% endif %}
-              {% if block.settings.instagram_link != blank %}
-              <a class="" target="_blank" href="{{ block.settings.instagram_link | escape }}" >
-                <img src="{{ 'Instagram.svg' | asset_url }}" alt="Instagram Icon">
-                <span>Instagram</span>
-              </a>
-              {% endif %}
-              {% if block.settings.youtube_link != blank %}
-              <a class="" target="_blank" href="{{ block.settings.youtube_link | escape }}" >
-                {% render 'mdp-weare-icon' with '211' %}
-                <span>YouTube</span>
-              </a>
-              {% endif %}
-              {% if block.settings.linkedin_link != blank %}
-              <a class="" target="_blank" href="{{ block.settings.linkedin_link | escape }}" >
-                <img src="{{ 'LinkedIn.svg' | asset_url }}" alt="LinkedIn">
-                <span>LinkedIn</span>
-              </a>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% when 'country_selector' %}
+            {% case block.type %}
+              {% when 'newsletter' %}
+                {% unless block.settings.subtitle == blank %}
+                  <div class="mdp-subtitle">{{ block.settings.subtitle | escape }}</div>
+                {% endunless %}
 
-          {% form 'localization' %}
-          <select name="country_code">
-            {% for country in localization.available_countries %}
-            <option value="{{ country.iso_code }}" {% if country == localization.country %} selected="selected"{% endif %}>
-              {{ country.name }} ({{ country.iso_code }}) - {{ country.currency.symbol }}
-            </option>
-            {% endfor %}
-          </select>
-          {% endform %}
-        
-        {% when 'language_selector' %}
-        
-          {% form 'localization' %}
-          <select name="language_code">
-            {% for language in localization.available_languages %}
-            <option value="{{ language.iso_code }}" {% if language == localization.language %} selected="selected"{% endif %}>
-              {{ language.endonym_name }}
-            </option>
-            {% endfor %}
-          </select>
-          {% endform %}        
-        
-        {% endcase %}
+                <div class="mdp-signup-form">
+                  {% form "customer" %}
+                    {{ form.errors | default_errors }}
+                    <input type="hidden" name="contact[tags]" value="newsletter" />
+
+                    <div class="mdp-row">
+                      <input type="email" placeholder="Subscribe by email" name="contact[email]" />
+                      <button
+                        type="submit"
+                        class="mdp-submit"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  {% endform %}
+                </div>
+
+              {% when 'text' %}
+                {% if block.settings.image != blank %}
+                  {% assign image_size = block.settings.height_logo | prepend: 'x' %}
+                  <a href="{{ routes.root_url }}" class="mdp-logo">
+                    <img
+                      src="{{ block.settings.image | image_url: image_size }}"
+                      srcset="{{ block.settings.image | image_url: image_size }} 1x, {{ block.settings.image | image_url: image_size, scale: 2 }} 2x"
+                      alt="{{ block.settings.image.alt | default: shop.name }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                    />
+                  </a>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <div class="mdp-text">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.email != blank or block.settings.phone != blank %}
+                  <div class="mdp-link-list">
+                    {% if block.settings.email != blank %}
+                      <a href="mailto:{{ block.settings.email | escape }}">
+                        {% render 'mdp-weare-icon' with '153' %}
+                        <span>{{ block.settings.email }}</span>
+                      </a>
+                    {% endif %}
+
+                    {% if block.settings.phone != blank %}
+                      <a href="tel:{{ block.settings.phone | remove: '-' | replace: ' ', '' }}">
+                        {% render 'mdp-weare-icon' with '197' %}
+                        <span>{{ block.settings.phone }}</span>
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+              {% when 'menu' %}
+                <div class="mdp-menu">
+                  {% for link in linklists[block.settings.footer_link_list].links %}
+                    <a href="{{ link.url }}" class="mdp-link-menu">
+                      <i class="fas fa-angle-left"></i>
+                      <span>{{ link.title }}</span>
+                    </a>
+                  {% endfor %}
+                </div>
+
+              {% when 'social_medias' %}
+                {% if
+                  block.settings.twitter_link != blank
+                  or block.settings.facebook_link != blank
+                  or block.settings.pinterest_link != blank
+                  or block.settings.instagram_link != blank
+                  or block.settings.youtube_link != blank
+                %}
+                  <div class="mdp-social-icons">
+                    {% if block.settings.facebook_link != blank %}
+                      <a target="_blank" href="{{ block.settings.facebook_link | escape }}">
+                        <img src="{{ 'Facebook.svg' | asset_url }}" alt="Facebook Icon" />
+                        <span>Facebook</span>
+                      </a>
+                    {% endif %}
+
+                    {% if block.settings.twitter_link != blank %}
+                      <a target="_blank" href="{{ block.settings.twitter_link | escape }}">
+                        <img src="{{ 'twitter.svg' | asset_url }}" alt="Twitter Icon" />
+                        <span>X</span>
+                      </a>
+                    {% endif %}
+
+                    {% if block.settings.pinterest_link != blank %}
+                      <a target="_blank" href="{{ block.settings.pinterest_link | escape }}">
+                        <i class="fab fa-pinterest"></i>
+                        <span>Pinterest</span>
+                      </a>
+                    {% endif %}
+
+                    {% if block.settings.instagram_link != blank %}
+                      <a target="_blank" href="{{ block.settings.instagram_link | escape }}">
+                        <img src="{{ 'Instagram.svg' | asset_url }}" alt="Instagram Icon" />
+                        <span>Instagram</span>
+                      </a>
+                    {% endif %}
+
+                    {% if block.settings.youtube_link != blank %}
+                      <a target="_blank" href="{{ block.settings.youtube_link | escape }}">
+                        {% render 'mdp-weare-icon' with '211' %}
+                        <span>YouTube</span>
+                      </a>
+                    {% endif %}
+
+                    {% if block.settings.linkedin_link != blank %}
+                      <a target="_blank" href="{{ block.settings.linkedin_link | escape }}">
+                        <img src="{{ 'LinkedIn.svg' | asset_url }}" alt="LinkedIn" />
+                        <span>LinkedIn</span>
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+              {% when 'country_selector' %}
+                {% form 'localization' %}
+                  <select name="country_code">
+                    {% for country in localization.available_countries %}
+                      <option
+                        value="{{ country.iso_code }}"
+                        {% if country == localization.country %}selected="selected"{% endif %}
+                      >
+                        {{ country.name }} ({{ country.iso_code }}) - {{ country.currency.symbol }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                {% endform %}
+
+              {% when 'language_selector' %}
+                {% form 'localization' %}
+                  <select name="language_code">
+                    {% for language in localization.available_languages %}
+                      <option
+                        value="{{ language.iso_code }}"
+                        {% if language == localization.language %}selected="selected"{% endif %}
+                      >
+                        {{ language.endonym_name }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                {% endform %}
+            {% endcase %}
+          </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
-  {% endif %}
-  
+    {% endif %}
+
     <div class="mdp-col mdp-bottom">
       <div class="mdp-credentials">
-          <span>Copyright &copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: '/'  }}</span>
-          {% if section.settings.show_powered_by %}
+        <span>
+          Copyright &copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: '/' }}
+        </span>
+        {% if section.settings.show_powered_by %}
           | <span>Powered by <a href="https://www.shopify.com/?ref=azexo" target="_blank" rel="nofollow">Shopify</a></span>
-          {% endif %}
+        {% endif %}
       </div>
+
       {% if section.settings.show_payment_icons %}
         <div class="mdp-payment-icons">
           {% unless shop.enabled_payment_types == empty %}
@@ -162,200 +192,198 @@
         </div>
       {% endif %}
     </div>
-
   </div>
 </div>
 
-
 {% schema %}
-  {
-    "name": "Footer 1",
-	"class": "footer-section",
- 	"max_blocks": 5,
-    "settings": [
-      {
-        "type": "header",
-        "content": "Payment methods"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_powered_by",
-        "label": "Show 'Powered by'",
-        "default": true
-      },
-	  {
-        "type": "checkbox",
-        "id": "show_border",
-        "label": "Show border",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "margin_top",
-        "label": "Margin top (px)"
-      }
-    ],
-	"blocks" : [
-      {
-        "type": "menu",
-        "name": "Menu",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Quick Links"
-          },
-          {
-            "type": "link_list",
-            "id": "footer_link_list",
-            "label": "Menu",
-            "default": "footer"
-          }
-        ]
-      },
-	  {
-        "type": "text",
-        "name": "Text/Image",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Logo"
-          },
-		  {
-            "type": "range",
-            "id": "height_logo",
-            "label": "Logo height",
-            "min": 20,
-            "max": 200,
-            "step": 2,
-            "unit": "px",
-            "default": 50
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label":"Heading",
-            "default": "About Us"
-          },
-          {
-            "type": "text",
-            "id": "email",
-            "label":"Email address"
-          },
-          {
-            "type": "text",
-            "id": "phone",
-            "label":"Phone number",
-			"info": "123-456-7890"
-          },
-          {
-            "type": "richtext",
-            "id": "text",
-            "label": "Text",
-            "default":"<p>Share store details, promotions, or brand content with your customers.</p>"
-          }
-        ]
-      },
-      {
-        "type": "country_selector",
-        "name": "Country selector",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Country"
-          }
-        ]
-      },
-      {
-        "type": "language_selector",
-        "name": "Language selector",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Language"
-          }
-        ]
-      },
-      {
-        "type": "social_medias",
-        "name": "Social medias",
-		"limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label":"Heading",
-            "default": "Follow us"
-          },
-          {
-            "type": "url",
-            "id": "facebook_link",
-            "label": "Facebook link"
-          },
-          {
-            "type": "url",
-            "id": "twitter_link",
-            "label": "Twitter link"
-          },
-          {
-            "type": "url",
-            "id": "instagram_link",
-            "label": "Instagram link"
-          },
-          {
-            "type": "url",
-            "id": "youtobe_link",
-            "label": "Youtobe link"
-          },
-          {
-            "type": "url",
-            "id": "pinterest_link",
-            "label": "Pinterest link"
-          },
-          {
-            "type": "url",
-            "id": "linkedin_link",
-            "label": "LinkedIn link"
-          }
-        ]
-      },
-	  {
-        "type": "newsletter",
-        "name": "Newsletter",
-		"limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Subscribe to our newsletter"
-          },
-          {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Subheading",
-            "default": "A short sentence describing what someone will receive by subscribing"
-          },
-          {
-            "type": "color",
-            "id": "button_text_color",
-            "label": "Button text color",
-            "default": "#FFFFFF"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Footer 1",
+  "class": "footer-section",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Payment methods"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_powered_by",
+      "label": "Show 'Powered by'",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show border",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "margin_top",
+      "label": "Margin top (px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Quick Links"
+        },
+        {
+          "type": "link_list",
+          "id": "footer_link_list",
+          "label": "Menu",
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text/Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "range",
+          "id": "height_logo",
+          "label": "Logo height",
+          "min": 20,
+          "max": 200,
+          "step": 2,
+          "unit": "px",
+          "default": 50
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "About Us"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email address"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone number",
+          "info": "123-456-7890"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Share store details, promotions, or brand content with your customers.</p>"
+        }
+      ]
+    },
+    {
+      "type": "country_selector",
+      "name": "Country selector",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Country"
+        }
+      ]
+    },
+    {
+      "type": "language_selector",
+      "name": "Language selector",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Language"
+        }
+      ]
+    },
+    {
+      "type": "social_medias",
+      "name": "Social medias",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Follow us"
+        },
+        {
+          "type": "url",
+          "id": "facebook_link",
+          "label": "Facebook link"
+        },
+        {
+          "type": "url",
+          "id": "twitter_link",
+          "label": "Twitter link"
+        },
+        {
+          "type": "url",
+          "id": "instagram_link",
+          "label": "Instagram link"
+        },
+        {
+          "type": "url",
+          "id": "youtobe_link",
+          "label": "Youtobe link"
+        },
+        {
+          "type": "url",
+          "id": "pinterest_link",
+          "label": "Pinterest link"
+        },
+        {
+          "type": "url",
+          "id": "linkedin_link",
+          "label": "LinkedIn link"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Subscribe to our newsletter"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subheading",
+          "default": "A short sentence describing what someone will receive by subscribing"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
