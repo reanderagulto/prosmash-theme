@@ -383,20 +383,16 @@
 
                 </div>
                 <div class="mdp-row-right">
-                    {% comment %}  
-                        {% if section.settings.search %}
-                            <a href="javascript:void(0);" class="mdp-search-link"><i
-                                        class="fas fa-search mdp-menu-icon"></i></a>
-                        {% endif %}
-                    {% endcomment %}
+                    {% comment %} {% if section.settings.search %}
+                        <a href="javascript:void(0);" class="mdp-search-link">
+                          <i class="fas fa-search mdp-menu-icon"></i></a>
+                    {% endif %} {% endcomment %}
 
                      
-                    {% comment %} <a class="mdp-cart" href="/cart">
-                    
-                        <i class="fa-solid fa-cart-shopping mdp-menu-icon"></i> <span>{{ cart.item_count }} in count</span>
-                        <img src="{{ 'shopping-cart.svg' |  asset_url }}" alt=""> <span>{{ cart.item_count }} in count</span>
-                        <span class="mdp-cart-count">{{ cart.item_count }}</span>
-                    </a> {% endcomment %}
+                    <a class="mdp-cart" href="/cart">
+                        <img src="{{ 'shopping-cart.svg' |  asset_url }}" alt="" /> 
+                        <span>{{ cart.item_count }} in count</span>
+                    </a>
 
                     {% if shop.customer_accounts_enabled %}
                         <a class="mdp-account" href="/account">
@@ -411,7 +407,7 @@
 </div>
 
 <style>
-    /* .bottom-header span.select2-dropdown.collection-dropdown-fullwidth.select2-dropdown--below::after {
+    .bottom-header span.select2-dropdown.collection-dropdown-fullwidth.select2-dropdown--below::after {
         content: "";
         display: block;
         width: calc(60% - 24px);
@@ -425,7 +421,7 @@
         right: 24px;
         z-index: 1;
         pointer-events: none;
-    } */
+    }
         span.select2-results {
         display: flex;
         justify-content: space-between;
