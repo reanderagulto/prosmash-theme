@@ -197,7 +197,8 @@
       ],
       "name": "Prosmash HP Banner",
       "settings": {
-        "section_main_header": "THE BIGGEST <br> SPORTSWEAR BRAND",
+        "section_main_header": "LEVEL UP YOUR <br> PADEL GAME",
+        "section_main_desc": "<p><i>Discover elite rackets and performance gear from <br>the best brands.</i></p>",
         "cta_title": "SHOP NOW",
         "cta_link": "shopify://collections/all"
       }
@@ -208,7 +209,7 @@
         "logo_cjYa9x": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/head_logo_1.png"
+            "image": "shopify://shop_images/Prosmash_Horizontal_Logo.png"
           }
         },
         "logo_XPRK6M": {
@@ -220,7 +221,7 @@
         "logo_yA3CP6": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/Oxdog-horizontal-black-RGB.png"
+            "image": "shopify://shop_images/oxdog-logo.png"
           }
         },
         "logo_dkhpib": {
@@ -228,20 +229,13 @@
           "settings": {
             "image": "shopify://shop_images/Siux_Logo.png"
           }
-        },
-        "logo_ExPY7C": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/logo-volt-padel-white_1.png"
-          }
         }
       },
       "block_order": [
         "logo_cjYa9x",
         "logo_XPRK6M",
         "logo_yA3CP6",
-        "logo_dkhpib",
-        "logo_ExPY7C"
+        "logo_dkhpib"
       ],
       "name": "Prosmash HP Brand Logos",
       "settings": {}
@@ -274,11 +268,7 @@
           }
         }
       },
-      "block_order": [
-        "icon_Dip3QC",
-        "icon_8Krj76",
-        "icon_EBXTtf"
-      ],
+      "block_order": ["icon_Dip3QC", "icon_8Krj76", "icon_EBXTtf"],
       "name": "Prosmash HP Icon List",
       "settings": {}
     },
@@ -451,12 +441,7 @@
           }
         }
       },
-      "block_order": [
-        "about-us",
-        "quick-links",
-        "follow-us",
-        "subscribe"
-      ],
+      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": false,

@@ -1,15 +1,21 @@
 .mdp-media {
-    max-width: 304px;
+  max-width: 304px;
 }
 
-.mdp-weare-search-1 .mdp-search-results div .mdp-item .mdp-data .mdp-header .mdp-title {
-    overflow: hidden;
-    color: #000;
-    text-overflow: ellipsis;
-    font-family: var(--font-redhat);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
+.mdp-weare-search-1
+  .mdp-search-results
+  div
+  .mdp-item
+  .mdp-data
+  .mdp-header
+  .mdp-title {
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  font-family: var(--font-body-family);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
 }

@@ -1,274 +1,290 @@
- /* ========== BIO SECTION ========== */
- .bio-section {
-    padding: 56px 64px 64px;
- }
-  .bio-section .mdp-container {
-    display: flex;
-    position: relative;
-    overflow: visible;
-    align-items: flex-end;
-    gap: 80px;
-    align-self: stretch;
-  }
+/* ========== BIO SECTION ========== */
+.bio-section {
+  padding: 56px 64px 64px;
+}
+.bio-section .mdp-container {
+  display: flex;
+  position: relative;
+  overflow: visible;
+  align-items: flex-end;
+  gap: 80px;
+  align-self: stretch;
+}
 
-  .bio-section .mdp-container .col-left {
-    width: 50%;
-    overflow: visible;
-    position: relative;
-    z-index: 2;
-  }
+.bio-section .mdp-container .col-left {
+  width: 50%;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
 
+.bio-section .mdp-container .col-right {
+  width: 50%;
+  padding-left: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.bio-section .player-name {
+  color: var(--Primary-Black, #000);
+  font-family: "Red Hat Display";
+  font-size: 40px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.bio-section .player-desc p {
+  color: #5b5b5b;
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.player-card.slick-slide {
+  transition: 0.5s;
+  opacity: 0.2;
+}
+
+.player-card.slick-slide.slick-current {
+  opacity: 1;
+}
+
+/* ========== SLICK SLIDER ========== */
+.slick-initialized .slick-slide {
+  padding: 0 32px;
+}
+
+.slick-list {
+  padding-left: 0 !important;
+  padding-right: 80px !important;
+  margin-left: -40px;
+  margin-right: -40px;
+}
+
+.player-kit-cards-container {
+  overflow: visible !important;
+}
+
+/* ========== NAVIGATION BUTTONS ========== */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.nav-buttons .slick-prev,
+.nav-buttons .slick-next {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  background: none;
+  border: none;
+  position: relative;
+  transform: translate(0);
+}
+.nav-buttons .slick-prev {
+  left: 0;
+}
+.nav-buttons .slick-next {
+  right: 0;
+}
+
+.nav-buttons img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ========== PLAYER PREFERRED SET ========== */
+/* ensure "hidden" items start hidden for your Load More JS */
+.preferred-set-grid .product-item.hidden {
+  display: none;
+}
+#preferred-set-mount {
+  padding: 0 64px 64px 64px;
+}
+#preferred-set-mount .player-preferred-set--wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+}
+#preferred-set-mount .section-title {
+  color: var(--Primary-Black, #000);
+  font-family: Lexend;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+#preferred-set-mount .preferred-set-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  gap: 32px;
+}
+
+/* ========== SHOP THE LOOK ========== */
+.shop-look-grid .product-item.hidden {
+  display: none;
+}
+#shop-look-mount {
+  padding: 64px 64px 80px;
+  background: #f0f0f0;
+}
+#shop-look-mount .player-shop-look--wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+#shop-look-mount .section-title {
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-size: 16px;
+}
+#shop-look-mount .load-more-wrap {
+  margin-top: 56px;
+  text-align: center;
+}
+.collection-grid.shop-look-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 56px;
+}
+/* ========== LOAD MORE BUTTON ========== */
+.load-more-wrapper {
+  margin: 56px 0 0;
+  width: 100%;
+  text-align: center;
+}
+
+button.load-more {
+  font-family: var(--font-body-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+  background: transparent;
+  padding: 16px 40px;
+  border: 0;
+  cursor: pointer;
+  transition: 0.3s;
+  color: var(--black);
+}
+
+button.load-more:hover {
+  background: #d9e0d5;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1200px) {
   .bio-section .mdp-container .col-right {
-    width: 50%;
-    padding-left: 50px;
-    position: relative;
-    z-index: 1;
+    padding-left: 0;
+  }
+  #preferred-set-mount .preferred-set-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .collection-grid.shop-look-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .bio-section {
+    padding: 0px 25px 56px;
+  }
+  #preferred-set-mount {
+    padding: 0 25px 64px;
+  }
+  #preferred-set-mount .preferred-set-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #shop-look-mount {
+    padding: 60px 25px;
+  }
+  .collection-grid.shop-look-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  #preferred-set-mount .preferred-set-grid {
+    grid-template-columns: 1fr;
+  }
+  #preferred-set-mount .preferred-set-grid .product-item {
+    display: flex;
+    justify-content: center;
+  }
+  .collection-grid.shop-look-grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+  .collection-grid.shop-look-grid .product-item {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 1024px) {
+  .collection-grid {
+    justify-content: center;
   }
 
-  .bio-section .player-name {
-    color: var(--Primary-Black, #000);
-    font-family: "Red Hat Display";
-    font-size: 40px;
-    font-weight: 900;
-    text-transform: uppercase;
+  .player-preferred-set .mdp-container,
+  .player-shop-the-look .mdp-container {
+    align-items: center;
   }
 
-  .bio-section .player-desc p {
-    color: #5B5B5B;
-    font-family: "Red Hat Display";
-    font-size: 16px;
-    font-weight: 500;
+  .bio-section .mdp-container {
+    flex-direction: column;
   }
-
-
-  .player-card.slick-slide {
-    transition: 0.5s;
-    opacity: 0.2;
+  .bio-section .mdp-container .col-left {
+    margin: 0;
+    width: 100%;
   }
-
-  .player-card.slick-slide.slick-current {
-    opacity: 1;
+  .bio-section .mdp-container .col-right {
+    width: 100%;
   }
+  .player-kit-cards-container {
+    margin: 0;
+  }
+  .bio-section .mdp-container {
+    gap: 25px;
+  }
+}
 
-  /* ========== SLICK SLIDER ========== */
+@media (max-width: 768px) {
   .slick-initialized .slick-slide {
-    padding: 0 32px;
+    padding: 0 !important;
   }
 
   .slick-list {
-    padding-left: 0 !important;
-    padding-right: 80px !important;
-    margin-left: -40px;
-    margin-right: -40px;
+    padding: 0 !important;
+  }
+
+  .player-kit-cards-container .slick-slide {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .player-kit-cards-container {
-    overflow: visible !important;
+    margin-left: 0 !important;
   }
-
-  /* ========== NAVIGATION BUTTONS ========== */
-  .nav-buttons {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-top: 40px;
-    position: relative;
+  .bio-section .mdp-container {
+    padding: 0 16px 32px 16px;
   }
-
-  .nav-buttons .slick-prev,
-  .nav-buttons .slick-next {
-    width: 48px;
-    height: 48px;
-    display: inline-block;
-    background: none;
-    border: none;
-    position: relative;
-    transform: translate(0);
-  }
-  .nav-buttons .slick-prev {
-    left: 0;
-  }
-  .nav-buttons .slick-next {
-    right: 0;
-  }
-
-  .nav-buttons img {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  /* ========== PLAYER PREFERRED SET ========== */
-    /* ensure "hidden" items start hidden for your Load More JS */
-  .preferred-set-grid .product-item.hidden { display: none; }
-    #preferred-set-mount {
-      padding: 0 64px 64px 64px;
-  }
-  #preferred-set-mount .player-preferred-set--wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
-      align-self: stretch;
-  }
-  #preferred-set-mount .section-title {
-      color: var(--Primary-Black, #000);
-      font-family: Lexend;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-  }
-  #preferred-set-mount .preferred-set-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      width: 100%;
-      gap: 32px;
-  }
-
-  /* ========== SHOP THE LOOK ========== */
-  .shop-look-grid .product-item.hidden { display: none; }
-  #shop-look-mount { padding: 64px 64px 80px; background: #F0F0F0; }
-  #shop-look-mount .player-shop-look--wrap { display: flex; flex-direction: column; gap: 32px; }
-  #shop-look-mount .section-title { font-family: "Red Hat Display"; font-weight: 700; font-size: 16px; }
-  #shop-look-mount .load-more-wrap { margin-top: 56px; text-align: center;}
-  .collection-grid.shop-look-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      column-gap: 32px;
-      row-gap: 56px;
-  }
-  /* ========== LOAD MORE BUTTON ========== */
-  .load-more-wrapper {
-    margin: 56px 0 0;
+  .player-container {
+    max-width: 320px !important;
     width: 100%;
+    margin: 0 auto;
+  }
+  .player-details {
     text-align: center;
   }
-
-  button.load-more {
-    font-family: var(--font-redhat);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 100%;
-    text-transform: uppercase;
-    background: transparent;
-    padding: 16px 40px;
-    border: 0;
-    cursor: pointer;
-    transition: 0.3s;
-    color: var(--black);
+  .nav-buttons {
+    justify-content: center;
   }
-
-  button.load-more:hover {
-    background: #D9E0D5;
-  }
-
-
-  /* ========== RESPONSIVE ========== */
-
-  @media (max-width: 1200px) {
-    .bio-section .mdp-container .col-right {
-      padding-left: 0;
-    }
-    #preferred-set-mount .preferred-set-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .collection-grid.shop-look-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-  @media (max-width: 767px) {
-    .bio-section {
-      padding: 0px 25px 56px;
-    }
-    #preferred-set-mount {
-        padding: 0 25px 64px;
-    }
-    #preferred-set-mount .preferred-set-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    #shop-look-mount {
-        padding: 60px 25px;
-    }
-    .collection-grid.shop-look-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media (max-width: 480px) {
-    #preferred-set-mount .preferred-set-grid {
-        grid-template-columns: 1fr;
-    }
-     #preferred-set-mount .preferred-set-grid .product-item {
-         display: flex;
-         justify-content: center;
-     }
-      .collection-grid.shop-look-grid {
-          grid-template-columns: 1fr;
-          justify-content: center;
-          align-items: center;
-      }
-      .collection-grid.shop-look-grid .product-item {
-          display: flex;
-          justify-content: center;
-      }
-  }
-  @media (max-width: 1024px) {
-    .collection-grid {
-      justify-content: center;
-    }
-
-    .player-preferred-set .mdp-container,
-    .player-shop-the-look .mdp-container {
-      align-items: center;
-    }
-
-    .bio-section .mdp-container {
-        flex-direction: column;
-    }
-    .bio-section .mdp-container .col-left {
-        margin: 0;
-        width: 100%;
-    }
-    .bio-section .mdp-container .col-right {
-        width: 100%;
-    }
-    .player-kit-cards-container {
-        margin: 0;
-    }
-     .bio-section .mdp-container {
-      gap: 25px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .slick-initialized .slick-slide {
-      padding: 0 !important;
-    }
-
-    .slick-list {
-      padding: 0 !important;
-    }
-
-    .player-kit-cards-container .slick-slide {
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-
-    .player-kit-cards-container {
-      margin-left: 0 !important;
-    }
-    .bio-section .mdp-container {
-      padding: 0 16px 32px 16px;
-    }
-    .player-container {
-        max-width: 320px !important;
-        width: 100%;
-        margin: 0 auto;
-    }
-    .player-details {
-        text-align: center;
-    }
-    .nav-buttons {
-      justify-content: center;
-    }
-  }
+}

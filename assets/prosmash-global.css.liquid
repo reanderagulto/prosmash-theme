@@ -1,12 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
+/* Regular */
+@font-face {
+  font-family: 'HelveticaCustom';
+  src: url('{{ "Helvetica.ttf" | asset_url }}') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'HelveticaCustom';
+  src: url('{{ "Helvetica-Bold.ttf" | asset_url }}') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold Oblique */
+@font-face {
+  font-family: 'HelveticaCustom';
+  src: url('{{ "Helvetica-BoldOblique.ttf" | asset_url }}') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
 :root {
     --black: #000000;
     --white: #FFFFFF;
     --text: #5B5B5B;
     --green: #42662B;
     --grey: #F0F0F0;
-    --font-redhat: "Red Hat Display", sans-serif;
+    --font-body-family: 'HelveticaCustom', Arial, sans-serif;
     --font-lexend: "Lexend", sans-serif;
     --font-gabarito: "Gabarito", sans-serif;
 
@@ -20,7 +48,7 @@
 h1 {
     font-size: 62px;
     color: var(--black);
-    font-family: var(--font-redhat);
+    font-family: var(--font-body-family);
 }
 h2 {
     font-size: 48px;
@@ -31,7 +59,7 @@ h3 {
 p {
     font-size: 16px;
     color: var(--text);
-    font-family: var(--font-redhat);
+    font-family: var(--font-body-family);
 }
 .canvas_img {
   position: relative;
