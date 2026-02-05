@@ -48,13 +48,13 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
-  color: var(--Primary-White, #FFF);
-  font-family: var(--font-redhat);
+  color: var(--Primary-White, #fff);
+  font-family: var(--font-body-family);
   font-size: 16px;
   font-weight: 700;
   line-height: 100%;
   text-transform: uppercase;
-  background: var(--Secondary-1-Dark-Moss-Green, #42662B);
+  background: var(--Secondary-1-Dark-Moss-Green, #42662b);
   transition: 0.5s;
   transform: translateY(100%);
   text-align: center;
@@ -76,7 +76,7 @@
 
 .product-card-v2 .prod-title {
   color: var(--black);
-  font-family: var(--font-redhat);
+  font-family: var(--font-body-family);
   font-size: 20px;
   line-height: 120%;
   font-weight: 800;
@@ -91,7 +91,7 @@
 }
 
 .product-card-v2 .prod-details .brand {
-  color: #5B5B5B;
+  color: #5b5b5b;
   font-family: "Red Hat Display";
   font-size: 12px;
   font-weight: 600;
@@ -99,7 +99,7 @@
 }
 
 .product-card-v2 .prod-price {
-  font-family: var(--font-redhat);
+  font-family: var(--font-body-family);
   font-size: 16px;
   line-height: 150%;
   font-weight: 600;

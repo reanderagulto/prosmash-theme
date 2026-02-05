@@ -6,7 +6,7 @@
         <div class="brand-logo">
           <div class="img">
             {% if block.settings.image %}
-              <img src="{{ block.settings.image | image_url: width: 100 }}" alt="{{ block.settings.title }}">
+              <img src="{{ block.settings.image | img_url: '500x' }}" alt="{{ block.settings.title }}">
             {% endif %}
           </div>
         </div>
