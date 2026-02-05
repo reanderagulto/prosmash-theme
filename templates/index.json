@@ -268,7 +268,11 @@
           }
         }
       },
-      "block_order": ["icon_Dip3QC", "icon_8Krj76", "icon_EBXTtf"],
+      "block_order": [
+        "icon_Dip3QC",
+        "icon_8Krj76",
+        "icon_EBXTtf"
+      ],
       "name": "Prosmash HP Icon List",
       "settings": {}
     },
@@ -279,21 +283,21 @@
           "type": "collection",
           "settings": {
             "collection": "padel",
-            "collection_img": "shopify://shop_images/padel-category.png"
+            "collection_img": "shopify://shop_images/rackets_3519a0ce-1200-4b4c-8e60-b4edb5eaf3e4.png"
           }
         },
-        "collection_8MYEdT": {
+        "collection_UTqt7G": {
           "type": "collection",
           "settings": {
-            "collection": "footwear",
-            "collection_img": "shopify://shop_images/footwear-cat.png"
+            "collection": "balls",
+            "collection_img": "shopify://shop_images/balls.png"
           }
         },
         "collection_nnkdgf": {
           "type": "collection",
           "settings": {
             "collection": "top-shirts",
-            "collection_img": "shopify://shop_images/shirts.png"
+            "collection_img": "shopify://shop_images/clothing_5671a43c-60b3-47b7-ad7f-b4e051a83cde.png"
           }
         },
         "collection_h8DVHy": {
@@ -303,27 +307,19 @@
             "collection_img": "shopify://shop_images/equipment-cat.png"
           }
         },
-        "collection_UTqt7G": {
-          "type": "collection",
-          "settings": {
-            "collection": "accessories",
-            "collection_img": "shopify://shop_images/accessories-cat.png"
-          }
-        },
         "collection_fEAV8m": {
           "type": "collection",
           "settings": {
             "collection": "equipment",
-            "collection_img": "shopify://shop_images/Net-compressed.jpg"
+            "collection_img": "shopify://shop_images/equipments.png"
           }
         }
       },
       "block_order": [
         "collection_htQegr",
-        "collection_8MYEdT",
+        "collection_UTqt7G",
         "collection_nnkdgf",
         "collection_h8DVHy",
-        "collection_UTqt7G",
         "collection_fEAV8m"
       ],
       "name": "Prosmash HP Categories",
@@ -441,7 +437,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": false,
