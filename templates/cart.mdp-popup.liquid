@@ -2,144 +2,154 @@
 
 <div class="mdp mdp-cart-popup">
   {% if cart.item_count > 0 %}
-  <form action="/cart" method="post" novalidate>
-    <div class="mdp-close">
-      <i class="fas fa-times"></i>
-    </div>
-    <div class="mdp-header">
-      <h3 class="mdp-title">{{ cart.item_count }} Items in Bag</h3>
-    </div>  
-    <div class="mdp-cart-list">
-      {% for item in cart.items %}
-      <div class="mdp-cart-row">
-        <div class="mdp-cart-image-wrapper">
-          <img class="mdp-cart-image" src="{{ item | img_url: '70x70', scale: 2 }}" alt="{{ item.title | escape }}" data-item-url="{{ item.url }}">
-        </div>
-        <div class="mdp-cart-data">
-          <div class="mdp-cart-meta">
-            <div class="mdp-list-view-item-title">
-              <a href="{{ item.url }}" class="mdp-cart-product-title">
-                {{ item.product.title }}
-                {% if item.quantity > 1 %}
-                <span>(x{{ item.quantity }})</span>
+    <form action="/cart" method="post" novalidate>
+      <div class="mdp-close">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="mdp-header">
+        <h3 class="mdp-title">{{ cart.item_count }} Items in Bag</h3>
+      </div>  
+      <div class="mdp-cart-list">
+        {% for item in cart.items %}
+          <div class="mdp-cart-row">
+            <div class="mdp-cart-image-wrapper">
+              <img 
+                class="mdp-cart-image" src="{{ item | img_url: '70x70', scale: 2 }}" 
+                alt="{{ item.title | escape }}" data-item-url="{{ item.url }}"
+                width="{{ item | img_url: '70x70', scale: 2 | img_width }}"
+                height="{{ item | img_url: '70x70', scale: 2 | img_height }}"
+              >
+            </div>
+            <div class="mdp-cart-data">
+              <div class="mdp-cart-meta">
+                <div class="mdp-list-view-item-title">
+                  <a href="{{ item.url }}" class="mdp-cart-product-title">
+                    {{ item.product.title }}
+                    {% if item.quantity > 1 %}
+                      <span>(x{{ item.quantity }})</span>
+                    {% endif %}
+                  </a>
+                </div>
+
+                {% unless item.variant.title contains 'Default' %}
+                  <div class="mdp-cart-meta-text">
+                    {% for option in item.product.options %}
+                      <span>{{ item.variant.options[forloop.index0] }}</span>
+                    {% endfor %}
+                  </div>
+                {% endunless %}
+
+                {% assign property_size = item.properties | size %}
+                {% if property_size > 0 %}
+                  <div class="mdp-cart-meta-text">
+                    {% for p in item.properties %}
+                      {% unless p.last == blank %}
+                        {{ p.first }}:
+                        {% if p.last contains '/uploads/' %}
+                          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                          {{ p.last }}
+                        {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                  </div>
                 {% endif %}
-              </a>
+                {% if item.selling_plan_allocation %}
+                  <div class="mdp-cart-meta-text">
+                    {{ item.selling_plan_allocation.selling_plan.name }}
+                  </div>
+                {% endif %}                          
+              </div>
+              <div class="mdp-cart-price-wrapper">
+                {% if item.original_line_price != item.final_line_price %}
+                  <div class="mdp-dl">
+                    <div class="mdp-dd">
+                      <span class="mdp-original-line-price">{{ item.original_line_price | money }}</span>
+                    </div>
+                    <div class="mdp-dd">
+                      <span class="mdp-final-line-price">{{ item.final_line_price | money }}</span>
+                      {%- if item.variant.available and item.variant.unit_price_measurement -%}
+                        <span class="mdp-unit-price">
+                          {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                        </span>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {% else %}
+                  {{ item.original_line_price | money }}
+                  {%- if item.variant.available and item.variant.unit_price_measurement -%}
+                    <span class="mdp-unit-price">
+                      {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+                    </span>
+                  {%- endif -%}
+                {% endif %}
+              </div>
+              <div class="mdp-cart-remove">
+                <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="" aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">{{ 'cart.general.remove' | t }}</a>
+              </div>        
             </div>
-
-            {% unless item.variant.title contains 'Default' %}
-            <div class="mdp-cart-meta-text">
-              {% for option in item.product.options %}
-              <span>{{ item.variant.options[forloop.index0] }}</span>
-              {% endfor %}
-            </div>
-            {% endunless %}
-
-            {% assign property_size = item.properties | size %}
-            {% if property_size > 0 %}
-            <div class="mdp-cart-meta-text">
-              {% for p in item.properties %}
-              {% unless p.last == blank %}
-              {{ p.first }}:
-              {% if p.last contains '/uploads/' %}
-              <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-              {% else %}
-              {{ p.last }}
-              {% endif %}
-              {% endunless %}
-              {% endfor %}
-            </div>
-            {% endif %}
-            {% if item.selling_plan_allocation %}
-            <div class="mdp-cart-meta-text">
-              {{ item.selling_plan_allocation.selling_plan.name }}
-            </div>
-            {% endif %}                          
           </div>
-          <div class="mdp-cart-price-wrapper">
-            {% if item.original_line_price != item.final_line_price %}
-            <div class="mdp-dl">
-              <div class="mdp-dd">
-                <span class="mdp-original-line-price">{{ item.original_line_price | money }}</span>
-              </div>
-              <div class="mdp-dd">
-                <span class="mdp-final-line-price">{{ item.final_line_price | money }}</span>
-                {%- if item.variant.available and item.variant.unit_price_measurement -%}
-                <span class="mdp-unit-price">
-                  {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
+        {% endfor %}
+      </div>
+      <div class="mdp-cart-footer">
+        <div class="mdp-cart-result">
+          {% if cart.cart_level_discount_applications != blank %}
+            <div class="mdp-order-discount-card-wrapper">
+              {% for discount_application in cart.cart_level_discount_applications %}
+                <span class="mdp-order-discount-title">
+                  <span class="mdp-icon">{% render 'mdp-weare-icon' with '137' %}</span><span class="">{{ 'customer.order.discount' | t }}: </span>{{- discount_application.title -}}
                 </span>
-                {%- endif -%}
-              </div>
+                <span class="mdp-order-discount-cart-total">-{{ discount_application.total_allocated_amount | money }}</span>
+              {% endfor %}
             </div>
+          {% endif %}
+
+          <div class="mdp-cart-subtotal">
+            <span class="mdp-cart-subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
+            <span class="mdp-cart-subtotal-price">{{ cart.total_price | money }}</span>
+          </div>
+
+          {% capture taxes_shipping_checkout %}
+            {% if shop.taxes_included and shop.shipping_policy.body != blank %}
+              {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+            {% elsif shop.taxes_included %}
+              {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+            {% elsif shop.shipping_policy.body != blank %}
+              {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
             {% else %}
-            	{{ item.original_line_price | money }}
-                {%- if item.variant.available and item.variant.unit_price_measurement -%}
-                <span class="mdp-unit-price">
-                  {{ item.variant.unit_price | money }}/{%- if item.variant.unit_price_measurement.reference_value != 1 -%} {{- item.variant.unit_price_measurement.reference_value -}} {%- endif -%} {{ item.variant.unit_price_measurement.reference_unit }}
-                </span>
-                {%- endif -%}
+              {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
             {% endif %}
+          {% endcapture %}
+          <div class="mdp-cart-shipping">{{ taxes_shipping_checkout }}</div>
+          <div class="mdp-cart-submit-controls">
+            <a 
+              href="/cart" 
+              class="mdp-btn-view-cart btn bordered-black"
+            >
+              {{ 'products.product.view_cart' | t }}
+            </a>
+            <input 
+              type="submit" name="checkout"
+              class="mdp-btn-check-out btn black"
+              value="{{ 'cart.general.checkout' | t }}"
+            >
           </div>
-          <div class="mdp-cart-remove">
-            <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="" aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">{{ 'cart.general.remove' | t }}</a>
-          </div>        
+
+          {% if additional_checkout_buttons %}
+            <div class="mdp-additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+          {% endif %}
         </div>
       </div>
-      {% endfor %}
-    </div>
-    <div class="mdp-cart-footer">
-      <div class="mdp-cart-result">
-        {% if cart.cart_level_discount_applications != blank %}
-        <div class="mdp-order-discount-card-wrapper">
-          {% for discount_application in cart.cart_level_discount_applications %}
-          <span class="mdp-order-discount-title">
-            <span class="mdp-icon">{% render 'mdp-weare-icon' with '137' %}</span><span class="">{{ 'customer.order.discount' | t }}: </span>{{- discount_application.title -}}
-          </span>
-          <span class="mdp-order-discount-cart-total">-{{ discount_application.total_allocated_amount | money }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
-
-        <div class="mdp-cart-subtotal">
-          <span class="mdp-cart-subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-          <span class="mdp-cart-subtotal-price">{{ cart.total_price | money }}</span>
-        </div>
-
-        {% capture taxes_shipping_checkout %}
-        {% if shop.taxes_included and shop.shipping_policy.body != blank %}
-        {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-        {% elsif shop.taxes_included %}
-        {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
-        {% elsif shop.shipping_policy.body != blank %}
-        {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-        {% else %}
-        {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
-        {% endif %}
-        {% endcapture %}
-        <div class="mdp-cart-shipping">{{ taxes_shipping_checkout }}</div>
-        {% comment %} <div class="mdp-cart-submit-controls">
-          <a href="/cart" class="mdp-btn-view-cart">{{ 'products.product.view_cart' | t }}</a>
-          <input type="submit" name="checkout"
-                 class="mdp-btn-check-out"
-                 value="{{ 'cart.general.checkout' | t }}">
-        </div> {% endcomment %}
-
-        {% render 'cart-contact-us' %}
-
-        {% comment %} {% if additional_checkout_buttons %}
-        <div class="mdp-additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
-        {% endif %} {% endcomment %}
-      </div>
-    </div>
-  </form>
+    </form>
   {% else %}
-  <div class="">   
-    <div class="mdp-header">
-      <h1>{{ 'cart.general.title' | t }}</h1>
-    </div>  
-    <div class="mdp-cart-empty-message">{{ 'cart.general.empty' | t }}</div>
-    <div class="mdp-cookie-message" style="display: none">
-      <div>{{ 'cart.general.cookies_required' | t }}</div>
+    <div class="">   
+      <div class="mdp-header">
+        <h1>{{ 'cart.general.title' | t }}</h1>
+      </div>  
+      <div class="mdp-cart-empty-message">{{ 'cart.general.empty' | t }}</div>
+      <div class="mdp-cookie-message" style="display: none">
+        <div>{{ 'cart.general.cookies_required' | t }}</div>
+      </div>
     </div>
-  </div>
   {% endif %}
 </div>

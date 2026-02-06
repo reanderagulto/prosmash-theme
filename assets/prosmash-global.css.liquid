@@ -81,24 +81,96 @@ p {
   object-fit: cover;
 }
 
-.cta-btn a {
-  background-color: var(--green);
+.cta-btn a,
+.btn {
+  all: unset;
+  box-sizing: border-box;
   text-align: center;
   transition: all 0.3s ease;
-  padding: 16px 24px;
-  display: inline-block;
-  color: var(--white);
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   font-size: 16px;
   font-weight: 700;
   line-height: 100%;
   text-transform: uppercase;
   font-family: var(--font-body-family);
   text-decoration: none;
+  cursor: pointer;
+  width: max-content;
 }
 
-.cta-btn a:hover{
+.btn i {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.cta-btn a,
+.btn.primary {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.btn.primary i,
+.btn.black i {
+  color: var(--white);
+}
+
+.btn.secondary {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.btn.bordered-black {
+  border: 1px solid var(--black);
+  background: transparent;
+}
+
+.btn.black {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn.black:hover {
+  background-color: var(--toasted-caramel);
+}
+
+.btn.bordered-black:hover {
+  background-color: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+.btn.bordered-black i, 
+.btn.secondary i {
+  color: var(--black);
+}
+
+.btn.primary:hover,
+.cta-btn a:hover {
   background-color: var(--toasted-caramel); 
 }
+
+.btn.primary:hover i,
+.btn.secondary:hover i,
+.cta-btn a:hover i,
+.btn.bordered-black:hover i {
+  color: var(--white);
+}
+
+.btn.secondary:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.hidden {
+  display: none !important;
+}
+
 
 @media (max-width: 767px) {
   h1 {
@@ -109,5 +181,12 @@ p {
   }
   h3 {
     font-size: 30px;
+  }
+
+  .cta-btn a,
+  .btn {
+    height: 45px;
+    font-size: 14px;
+    padding: 0 16px;
   }
 }

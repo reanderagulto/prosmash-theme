@@ -1,6 +1,7 @@
 {{ "prosmash-global.css" | asset_url | stylesheet_tag }}
 
-<section class="collection-banner" style="background-image: url('{{ section.settings.background_img | image_url: width: 1600 }}')">
+<section class="collection-banner">
+    <div class="collection-banner-background" style="background-image: url('{{ section.settings.background_img | img_url: '500x' }}')"></div>
     <div class="mdp-container">
         <div class="mdp-col mdp-row-full">
             {% render 'prosmash-breadcrumb' %}

@@ -3418,106 +3418,17 @@ a.mdp-menu-link:focus {
   margin-top: 20px;  
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   position: relative;
+  gap: 24px;
 }
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-btn-view-cart {
-  width: 45%;
-  font-family: var(--font-body-family);
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: {{ settings.btn_color }};
-  padding: 15px 0;
-  border: 1px solid {{ settings.btn_background }};
-  border-radius: 2px;
-}
-
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-btn-view-cart:hover {
-  border: 1px solid {{ settings.btn_hover_background }};
-  background-color: {{ settings.btn_hover_background }};
-  color: {{ settings.btn_hover_color }};
-  transition: background-color 500ms, color 500ms, border 500ms;
-}
-
+.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-btn-view-cart,
 .mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-btn-check-out {
-  width: 45%;
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  font-family: var(--font-body-family);
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: white;
-  background-color: {{ settings.btn_background }};
-  border-radius: 2px;
-  padding: 15px 0;
+  width: calc(50% - 24px);
+  flex-grow: 1;
 }
 
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls .mdp-btn-check-out:hover {
-  background-color: {{ settings.btn_hover_background }};
-  transition: background-color 500ms;
-}
-
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn {
-  border-radius: 0;
-  background-image: none !important;
-  cursor: pointer;
-  width: auto;
-  font-family: var(--font-body-family);
-  font-style: normal;
-  font-weight: bold;
-  padding: 15px 45px;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  border-color: #4c90c7;
-  transition: 0.3s all ease-in-out;
-  display: inline-block;
-  white-space: nowrap;
-  background-color: white;
-  color: #2a2a2a;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn::placeholder {
-  color: #aaa;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn::placeholder {
-  color: #aaa;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn::-webkit-input-placeholder {
-  color: #aaa;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn::-moz-placeholder {
-  color: #aaa;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn:-moz-placeholder {
-  color: #aaa;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn:-ms-input-placeholder {
-  color: #aaa;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn:hover {
-  background-color: white;
-  color: #2a2a2a;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn::before {
-  content: none;
-}
-.mdp-cart-popup form .mdp-cart-footer .mdp-cart-submit-controls a.mdp-btn:hover {
-  background-color: #4c90c7;
-  color: white;
-}
 .mdp-cart-popup form .mdp-cart-footer .mdp-cart-shipping a {
   display: inline;
 }

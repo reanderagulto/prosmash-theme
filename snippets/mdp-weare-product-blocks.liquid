@@ -1,7 +1,6 @@
 {{"notice-accordion.js" | asset_url | script_tag }}
 {{"prosmash-single-product.js" | asset_url | script_tag }}
 
-
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'title' -%}
@@ -14,28 +13,30 @@
       <h1 class="mdp-title {% if oneRow == true %}mdp-title-section{% endif %}">
         <a href="{{ current_product.url }}">{{current_product.title}}</a>
       </h1>  
+
     {%- when 'rating' -%}
-            {%- if current_product.metafields.reviews.rating.value != blank -%}
-              {% liquid
-               assign rating_decimal = 0
-               assign decimal = current_product.metafields.reviews.rating.value.rating | modulo: 1
-               if decimal >= 0.3 and decimal <= 0.7
-                assign rating_decimal = 0.5
-              elsif decimal > 0.7
-                assign rating_decimal = 1
-               endif
-              %}
-              <div class="mdp-rating">
-                <span class="mdp-rating-star" style="--rating: {{ current_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ current_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};">{% render 'mdp-weare-icon' with '221' %}</span>
-                <span class="mdp-rating-text">{{ current_product.metafields.reviews.rating.value }}/{{ current_product.metafields.reviews.rating.value.scale_max }}</span>
-                <span class="mdp-rating-count"> ({{ current_product.metafields.reviews.rating_count }})</span>
-              </div>
-            {%- endif -%}
+      {%- if current_product.metafields.reviews.rating.value != blank -%}
+        {% liquid
+         assign rating_decimal = 0
+         assign decimal = current_product.metafields.reviews.rating.value.rating | modulo: 1
+         if decimal >= 0.3 and decimal <= 0.7
+          assign rating_decimal = 0.5
+        elsif decimal > 0.7
+          assign rating_decimal = 1
+         endif
+        %}
+        <div class="mdp-rating">
+          <span class="mdp-rating-star" style="--rating: {{ current_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ current_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};">{% render 'mdp-weare-icon' with '221' %}</span>
+          <span class="mdp-rating-text">{{ current_product.metafields.reviews.rating.value }}/{{ current_product.metafields.reviews.rating.value.scale_max }}</span>
+          <span class="mdp-rating-count"> ({{ current_product.metafields.reviews.rating_count }})</span>
+        </div>
+      {%- endif -%}
+
     {%- when 'price' -%}
       <div class="mdp-price-wrapper">
         <span class="mdp-price">
           {% if variant.compare_at_price > variant.price %}
-          <span class="mdp-price-compare">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+            <span class="mdp-price-compare">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
           {% endif %}            
           <span class="mdp-price-varies">
             {{ variant.price | money_without_trailing_zeros }}
@@ -47,6 +48,7 @@
         </span>
         {%- endif -%}
       </div>
+
     {%- when 'sku' -%}
       <div class="mdp-dl">
         <div class="mdp-dt">
@@ -56,67 +58,62 @@
           {{variant.sku}}
         </div>
       </div>
-    
       <div class="second-block">
-        
       </div>
 
     {%- when 'swatches' -%}
-    {% unless current_product.options.size == 1 and current_product.variants[0].title == 'Default Title' %}
-      <div class="mdp-product-swatches">
-        {% for option in current_product.options_with_values %}
-          {% if option.name == 'Color' %}
-            <div class="mdp-option">
-              <div class="swatch-option-label">Colors</div>
-              <div class="mdp-option-swatches" data-index="option{{ option.position }}">
-                {% assign option_index = option.position | minus: 1 %}
-                {% for value in option.values %}
-                  {% assign matching_variant = nil %}
-                  {% for variant in current_product.variants %}
-                    {% if variant.options[option_index] == value %}
-                      {% assign matching_variant = variant %}
-                      {% break %}
+      {% unless current_product.options.size == 1 and current_product.variants[0].title == 'Default Title' %}
+        <div class="mdp-product-swatches">
+          {% for option in current_product.options_with_values %}
+            {% if option.name == 'Color' %}
+              <div class="mdp-option">
+                <div class="swatch-option-label">Colors</div>
+                <div class="mdp-option-swatches" data-index="option{{ option.position }}">
+                  {% assign option_index = option.position | minus: 1 %}
+                  {% for value in option.values %}
+                    {% assign matching_variant = nil %}
+                    {% for variant in current_product.variants %}
+                      {% if variant.options[option_index] == value %}
+                        {% assign matching_variant = variant %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if matching_variant %}
+                      <label class="swatch-label">
+                        <input 
+                          type="radio" 
+                          name="option{{ option.position }}" 
+                          value="{{ value | escape }}" 
+                          data-variant-id="{{ matching_variant.id }}"
+                          data-variant-json="{{ matching_variant | json | escape }}"
+                          {% if matching_variant.featured_media %}data-media-id="{{ matching_variant.featured_media.id }}"{% endif %}
+                          {% if forloop.first %}checked{% endif %}>
+                        <span class="swatch" style="background-color: {{ value | downcase }}"></span>
+                      </label>
                     {% endif %}
                   {% endfor %}
-
-                  {% if matching_variant %}
-                    <label class="swatch-label">
-                      <input 
-                        type="radio" 
-                        name="option{{ option.position }}" 
-                        value="{{ value | escape }}" 
-                        data-variant-id="{{ matching_variant.id }}"
-                        data-variant-json="{{ matching_variant | json | escape }}"
-                        {% if matching_variant.featured_media %}data-media-id="{{ matching_variant.featured_media.id }}"{% endif %}
-                        {% if forloop.first %}checked{% endif %}>
-                      <span class="swatch" style="background-color: {{ value | downcase }}"></span>
-                    </label>
-                  {% endif %}
-                {% endfor %}
+                </div>
               </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      
-      </div>
-    {% endunless %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endunless %}
 
     {%- when 'static-product-review' -%}
-    <div class="static-product-review">
+      <div class="static-product-review">
         <div class="static-product-review-title">Reviews</div>
         <div class="stars-container">
-            <div class="stars">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
-              <img src="{{ 'Star.svg' | asset_url }}" alt="Star">
+          <div class="stars">
+            <img src="{{ 'Star.svg' | asset_url }}" alt="Star" width="22" height="22">
+            <img src="{{ 'Star.svg' | asset_url }}" alt="Star" width="22" height="22">
+            <img src="{{ 'Star.svg' | asset_url }}" alt="Star" width="22" height="22">
+            <img src="{{ 'Star.svg' | asset_url }}" alt="Star" width="22" height="22">
+            <img src="{{ 'Star.svg' | asset_url }}" alt="Star" width="22" height="22">
           </div>
-          <a href="#">10 reviews <img src="{{ 'ArrowUpRight.svg' | asset_url }}" alt="Star"></a>
+          <a href="#">10 reviews <img src="{{ 'ArrowUpRight.svg' | asset_url }}" alt="Star" width="16" height="16"></a>
         </div>
-    </div>
-
-
+      </div>
 
     {%- when 'metafield' -%}
       <div class="mdp-dl">
@@ -127,358 +124,347 @@
           {{ current_product.metafields[block.settings.namespace][block.settings.key] }}
         </div>
       </div>
+
     {%- when 'payment_terms' -%}
-	  {%- assign product_form_id = 'payment-terms-' | append: current_product.id -%}
+      {%- assign product_form_id = 'payment-terms-' | append: current_product.id -%}
       {% form "product", current_product, id: product_form_id %} 	
-        
-		{{ form | payment_terms }}
-      {% endform %}        	  
-	 {%- when 'options' -%}
+        {{ form | payment_terms }}
+      {% endform %}  
+
+    {%- when 'options' -%}
       {% unless current_product.options.size == 1 and current_product.variants[0].title == 'Default Title' %}
-      <div class="mdp-product-options">
-        {% if block.settings.variants_group == 'together' %}
-        <div class="mdp-together">
-          <select class="" data-type="{{block.settings.variants_group}}" data-index="id">
-            {% for vrnt in current_product.variants %}                                
-            <option 
+        <div class="mdp-product-options">
+          {% if block.settings.variants_group == 'together' %}
+            <div class="mdp-together">
+              <select class="" data-type="{{block.settings.variants_group}}" data-index="id">
+                {% for vrnt in current_product.variants %}                                
+                  <option 
                     {% if vrnt.id == variant.id %}
                     selected
                     {% endif %}
                     value="{{vrnt.id}}" data-featured-media="{{vrnt.featured_media.id}}">
-              {{ vrnt.title }} - 
-              {% if vrnt.available %}
-              {{ vrnt.price | money_with_currency }}
-              {% else %}
-              {{section.settings.sold_out_string}}
-              {% endif %}
-            </option>                                
-            {% endfor %}
-          </select>
+                    {{ vrnt.title }} - 
+                    {% if vrnt.available %}
+                    {{ vrnt.price | money_with_currency }}
+                    {% else %}
+                    {{section.settings.sold_out_string}}
+                    {% endif %}
+                  </option>                                
+                {% endfor %}
+              </select>
+            </div>
+          {% else %}
+            <div class="mdp-separated">
+              {% for option in current_product.options_with_values %}
+                <div class="mdp-option">
+                  <label>{{option.name}}</label>
+                  <select class="" data-index="option{{ forloop.index }}">
+                    {% for value in option.values %}
+                      <option value="{{ value | escape }}">{{value}}</option>
+                    {% endfor %}
+                  </select>                          
+                </div>
+              {% endfor %} 
+            </div>
+          {% endif %}
         </div>
-        {% else %}
-        <div class="mdp-separated">
-          {% for option in current_product.options_with_values %}
-          <div class="mdp-option">
-            <label>{{option.name}}</label>
-            <select class="" data-index="option{{ forloop.index }}">
-              {% for value in option.values %}
-              <option value="{{ value | escape }}">{{value}}</option>
-              {% endfor %}
-            </select>                          
-          </div>
-          {% endfor %} 
-        </div>
-        {% endif %}
-      </div>
       {% endunless %}
-
-      
 
       {% comment %} THREE COLUMN COMBINATION {% endcomment %}
       {%- when 'three-col' -%}
-      <div class="prosmash-three-col-option mdp-product-columns mdp-three-column">
+        <div class="prosmash-three-col-option mdp-product-columns mdp-three-column">
   
-        <!-- Quantity -->
-        <div class="mdp-col mdp-col-qty">
-          <label for="qty-field">Quantity</label>
-          <div class="mdp-quantity-wrapper">
-            <a class="mdp-quantity-minus">
-              <span><span class="mdp-quantity-icon-minus"><i class="fa-solid fa-minus"></i></span></span>
-            </a>
-            <input id="qty-field" type="text" name="quantity" value="1" min="1" class="mdp-qty"/>
-            <a class="mdp-quantity-plus">
-              <span><span class="mdp-quantity-icon-plus"><i class="fa-solid fa-plus"></i></span></span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Stock -->
-        <div class="mdp-col mdp-col-stock">
-          <label>In Stock</label>
-          {% if variant.inventory_management and variant.inventory_quantity != nil %}
-            <div class="mdp-stock-number">
-              {{ variant.inventory_quantity }}
+          <!-- Quantity -->
+          <div class="mdp-col mdp-col-qty">
+            <label for="qty-field">Quantity</label>
+            <div class="mdp-quantity-wrapper">
+              <a class="mdp-quantity-minus">
+                <span>
+                  <span class="mdp-quantity-icon-minus"><i class="fa-solid fa-minus"></i></span>
+                </span>
+              </a>
+              <input id="qty-field" type="text" name="quantity" value="1" min="1" class="mdp-qty"/>
+              <a class="mdp-quantity-plus">
+                <span><span class="mdp-quantity-icon-plus"><i class="fa-solid fa-plus"></i></span></span>
+              </a>
             </div>
-          {% else %}
-            <div class="mdp-stock-number">
-              —
-            </div>
-          {% endif %}
-        </div>
-
-        <!-- SKU -->
-        <div class="mdp-col mdp-col-sku">
-          <label>Product Code</label>
-          <div class="mdp-sku-number">
-            {{ variant.sku }}
           </div>
+
+          <!-- Stock -->
+          <div class="mdp-col mdp-col-stock">
+            <label>In Stock</label>
+            {% if variant.inventory_management and variant.inventory_quantity != nil %}
+              <div class="mdp-stock-number">
+                {{ variant.inventory_quantity }}
+              </div>
+            {% else %}
+              <div class="mdp-stock-number">
+                —
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- SKU -->
+          <div class="mdp-col mdp-col-sku">
+            <label>Product Code</label>
+            <div class="mdp-sku-number">
+              {{ variant.sku }}
+            </div>
+          </div>
+
         </div>
-
-      </div>
-
-
       {% comment %} END OF THREE COLUMN {% endcomment %}
 
-
-         
-
       {% comment %} DELIVERY NOTICE {% endcomment %}
-
       {%- when 'delivery-notice' -%}
-
-      <div class="delivery-notice">
-        <div class="accordion-item">
-          {% if block.settings.delivery_notice_title != blank %}
-            <div class="accordion-title">{{ block.settings.delivery_notice_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
-            <div class="accordion-content">{{ block.settings.delivery_notice_description }}</div>
-          {% endif %}
-        </div>
-        <div class="accordion-item">
-          {% if block.settings.product_description_title != blank %}
-            <div class="accordion-title">
-              Description
-              <img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" />
-            </div>
-            <div class="accordion-content">
-              {% if current_product.description != blank %}
-                {{ current_product.description }}
-              {% else %}
-                <p>No description available.</p>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
-        <div class="accordion-item">
-          {% if block.settings.product_details_title != blank %}
-            <div class="accordion-title">{{ block.settings.product_details_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
-            <div class="accordion-content">
-
-              <div class="prod-details-table">
-                {% assign color_options = current_product.options_with_values | where: "name", "Color" %}
-                {% if color_options.size > 0 %}
-                  <div class="product-colors">
-                    <div class="table-title">Color</div>
-                    <div class="table-value">
-                      {% for color in color_options[0].values %}
-                      {{ color }}
-                      {% endfor %}
-                    </div>
-                  </div>
-                {% endif %}
-
-                {% if current_product.collections.size > 0 %}
-                  <div class="product-collections">
-                    <div class="table-title">Collection</div>
-                    <div class="table-value">
-                      {% for collection in current_product.collections %}
-                          <a href="{{ collection.url }}">{{ collection.title }}</a>
-                      {% endfor %}
-                    </div>
-                  </div>
-                {% endif %}
-
-  
-                  <div class="product-width">
-                    <div class="table-title">Width</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.width.value | default: 'N/A' }}
-                    </div>
-                  </div>
-              
-
-
-                  <div class="product-weight">
-                    <div class="table-title">Weight</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.weight.value | default: 'N/A' }}
-                    </div>
-                  </div>
-                
-
-     
-                  <div class="product-player-level">
-                    <div class="table-title">Player Level</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.player_level.value | default: 'N/A' }}
-                    </div>
-                  </div>
-              
-
-         
-                  <div class="product-shape">
-                    <div class="table-title">Shape</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.shape.value | default: 'N/A' }}
-                    </div>
-                  </div>
-              
-
-           
-                  <div class="product-gender">
-                    <div class="table-title">Gender</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.gender.value | default: 'N/A' }}
-                    </div>
-                  </div>
-              
-
-         
-                  <div class="product-frame">
-                    <div class="table-title">Frame</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.frame.value | default: 'N/A' }}
-                    </div>
-                  </div>
-             
-
-              
-                  <div class="product-player">
-                    <div class="table-title">Player</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.player.value | default: 'N/A' }}
-                    </div>
-                  </div>
-            
-          
-                  <div class="product-material-cara">
-                    <div class="table-title">Material cara</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.material_cara.value | default: 'N/A' }}
-                    </div>
-                  </div>
-            
-
-
-                  <div class="product-rubber">
-                    <div class="table-title">Rubber</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.rubber | default: 'N/A' }}
-                    </div>
-                  </div>
-              
-                  <div class="product-surface">
-                    <div class="table-title">Surface</div>
-                    <div class="table-value">
-                      {{ current_product.metafields.custom.surface | default: 'N/A' }}
-                    </div>
-                  </div>
+        <div class="delivery-notice">
+          <div class="accordion-item">
+            {% if block.settings.delivery_notice_title != blank %}
+              <div class="accordion-title">
+                {{ block.settings.delivery_notice_title }}
+                <img 
+                  src="{{ 'CaretUp.svg' | asset_url }}" 
+                  alt="Toggle" 
+                  class="accordion-caret" 
+                  width="24" 
+                  height="25" 
+                />
               </div>
-              
-            </div>
-          {% endif %}
-        </div>
-        <div class="accordion-item">
-          {% if block.settings.product_advantages_title != blank %}
-            <div class="accordion-title">Product Advantages <img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
-          {% endif %}
+              <div class="accordion-content">
+                {{ block.settings.delivery_notice_description }}
+              </div>
+            {% endif %}
+          </div>
+          <div class="accordion-item">
+            {% if block.settings.product_description_title != blank %}
+              <div class="accordion-title">
+                Description
+                <img 
+                  src="{{ 'CaretUp.svg' | asset_url }}" 
+                  alt="Toggle" 
+                  class="accordion-caret" 
+                  width="24" 
+                  height="25" 
+                />
+              </div>
+              <div class="accordion-content">
+                {% if current_product.description != blank %}
+                  {{ current_product.description }}
+                {% else %}
+                  <p>No description available.</p>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="accordion-item">
+            {% if block.settings.product_details_title != blank %}
+              <div class="accordion-title">{{ block.settings.product_details_title }}<img src="{{ 'CaretUp.svg' | asset_url }}" alt="Toggle" class="accordion-caret" /></div>
+              <div class="accordion-content">
+                <div class="prod-details-table">
+                  {% assign color_options = current_product.options_with_values | where: "name", "Color" %}
+                  {% if color_options.size > 0 %}
+                    <div class="product-colors">
+                      <div class="table-title">Color</div>
+                      <div class="table-value">
+                        {% for color in color_options[0].values %}
+                          {{ color }}
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if current_product.collections.size > 0 %}
+                    <div class="product-collections">
+                      <div class="table-title">Collection</div>
+                      <div class="table-value">
+                        {% for collection in current_product.collections %}
+                            <a href="{{ collection.url }}">{{ collection.title }}</a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+                    {%# Product Width #%}
+                    <div class="product-width">
+                      <div class="table-title">Width</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.width.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Weight #%}
+                    <div class="product-weight">
+                      <div class="table-title">Weight</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.weight.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Player Level #%}
+                    <div class="product-player-level">
+                      <div class="table-title">Player Level</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.player_level.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Shape #%}
+                    <div class="product-shape">
+                      <div class="table-title">Shape</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.shape.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Gender #%}
+                    <div class="product-gender">
+                      <div class="table-title">Gender</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.gender.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Frame #%}
+                    <div class="product-frame">
+                      <div class="table-title">Frame</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.frame.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Player #%}
+                    <div class="product-player">
+                      <div class="table-title">Player</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.player.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Material care #%}
+                    <div class="product-material-cara">
+                      <div class="table-title">Material cara</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.material_cara.value | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Rubber #%}
+                    <div class="product-rubber">
+                      <div class="table-title">Rubber</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.rubber | default: 'N/A' }}
+                      </div>
+                    </div>
+
+                    {%# Product Surface #%}
+                    <div class="product-surface">
+                      <div class="table-title">Surface</div>
+                      <div class="table-value">
+                        {{ current_product.metafields.custom.surface | default: 'N/A' }}
+                      </div>
+                    </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+          <div class="accordion-item">
+            {% if block.settings.product_advantages_title != blank %}
+              <div class="accordion-title">
+                Product Advantages 
+                <img 
+                  src="{{ 'CaretUp.svg' | asset_url }}" 
+                  alt="Toggle" 
+                  class="accordion-caret" 
+                  width="24" 
+                  height="25" 
+                />
+              </div>
+            {% endif %}
             <div class="accordion-content">
               <div class="product-advantages">
                 {% if current_product.metafields.custom.product_advantages != blank %}
-                {% for advantage in current_product.metafields.custom.product_advantages.value %}
-                  <div class="pa-item">
-                    <div class="col-left">
-                      <img src="{{ advantage.image | img_url: '300x' }}" alt="{{ advantage.title }}" />
+                  {% for advantage in current_product.metafields.custom.product_advantages.value %}
+                    <div class="pa-item">
+                      <div class="col-left">
+                        <img 
+                          src="{{ advantage.image | img_url: '300x' }}" 
+                          alt="{{ advantage.title }}" 
+                          width="{{ advantage.image | img_url: '300x' | img_width }}"
+                          height="{{ advantage.image | img_url: '300x' | img_height }}"
+                        />
+                      </div>
+                      <div class="col-right">
+                        <div class="pa-title">{{ advantage.title }}</div>
+                        <div class="pa-desc">{{ advantage.description }}</div>
+                      </div>
                     </div>
-                    <div class="col-right">
-                      <div class="pa-title">{{ advantage.title }}</div>
-                      <div class="pa-desc">{{ advantage.description }}</div>
-                    </div>
-                  </div>
-                {% endfor %}
+                  {% endfor %}
                 {% else %}
                   <span>N/A</span>
                 {% endif %}
               </div>
             </div>
+          </div>
         </div>
-      </div>
-
-
-
       {% comment %} END OF DELIVERY NOTICE  {% endcomment %}
 
-
-
-
- {%- when 'buttons' -%}
-    <div class="mdp-buttons">
-        {% render 'cart-contact-us' %}
-    </div>
-    {% comment %} {% form "product", current_product %} 	
-        <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">         
+    {%- when 'buttons' -%}
+      {% form "product", current_product %} 	
+        <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">        
         <div class="mdp-buttons">
-            <div class="mdp-quantity-wrapper">
-            <a class="mdp-quantity-minus">
-                <span>
-                <span class="mdp-quantity-icon-minus">
-                    -
-                </span>
-                </span>
-            </a>
+          <div class="mdp-quantity-wrapper hidden">
             <input type="text" name="quantity" value="1" min="1" class="mdp-qty"/>
-            <a class="mdp-quantity-plus">
-                <span>
-                <span class="mdp-quantity-icon-plus">
-                    +
-                </span>
-                </span>
-            </a>
-            </div>
-                {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
-                    <button type="submit" 
-                        class="mdp-preorder-button mdp-add-to-cart mdp-available"
-                        style="color: {{ btn_color }}"
-                        data-product-id="{{ variant.id }}"
-                        data-quantity="1"
-                    >
-                        Pre-order
-                        <i class="fa-regular fa-cart-shopping"></i>
-                    </button>
-                {% elsif variant.available %}
-                    <button type="submit" 
-                        class="mdp-add-to-cart mdp-available"
-                        style="color: {{ btn_color }}"
-                        data-product-id="{{ variant.id }}"
-                        data-quantity="1" 
-                    >
-                        {{ section.settings.add_cart_string }}
-                        <i class="fa-regular fa-cart-shopping"></i>
-                    </button>
-                {% else %}
-                <button disabled
-                    class="mdp-add-to-cart sold-out"
-                    style="color: {{ btn_color }}">
-                    {{ section.settings.sold_out_string }}
-                    <i class="fa-regular fa-cart-shopping"></i>
-                </button>
-                {% endif %}
-        
-            <div class="mdp-add-to-wishlist" data-product-handle="{{ current_product.handle }}">            
-                <span class="mdp-add">
-                    <span class="mdp-text-wishlist">Add to Wishlist</span>
-                    <i class="far fa-heart"></i>
-                </span>
-                <span class="mdp-adding">
-                </span>
-                <span class="mdp-added">
-                    <span class="mdp-text-wishlist">Add to Wishlist</span>
-                    <i class="fas fa-heart"></i>
-                </span>
-            </div>       
+          </div>
+          {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+            <button type="submit" 
+              class="mdp-preorder-button mdp-add-to-cart mdp-available btn bordered-black"
+              data-product-id="{{ variant.id }}"
+              data-quantity="1"
+            >
+              Pre-order
+              <i class="fa-regular fa-cart-shopping"></i>
+            </button>
+          {% elsif variant.available %}
+            <button type="submit" 
+              class="mdp-add-to-cart mdp-available btn primary"
+              data-product-id="{{ variant.id }}"
+              data-quantity="1" 
+            >
+              {{ section.settings.add_cart_string }}
+              <i class="fa-regular fa-cart-shopping"></i>
+            </button>
+          {% else %}
+            <button 
+              disabled
+              class="mdp-add-to-cart sold-out btn primary"
+              style="color: {{ btn_color }}"
+            >
+              {{ section.settings.sold_out_string }}
+              <i class="fa-regular fa-cart-shopping"></i>
+            </button>
+          {% endif %}
+          <div class="mdp-add-to-wishlist btn secondary" data-product-handle="{{ current_product.handle }}">            
+            <span class="mdp-add">
+              <span class="mdp-text-wishlist">Add to Wishlist</span>
+              <i class="far fa-heart"></i>
+            </span>
+            <span class="mdp-adding"></span>
+            <span class="mdp-added">
+              <span class="mdp-text-wishlist">Add to Wishlist</span>
+              <i class="fas fa-heart"></i>
+            </span>
+          </div>       
         </div>
-    {% endform %}  {% endcomment %}
-	{%- when 'dynamic_checkout' -%}
-	  {%- assign product_form_id = 'payment-button-' | append: current_product.id -%}
+      {% endform %}
+    {%- when 'dynamic_checkout' -%}
+      {%- assign product_form_id = 'payment-button-' | append: current_product.id -%}
       {% form "product", current_product, id: product_form_id %} 	
         <input name="id" type="hidden" value="{{variant.id}}" data-productid="{{current_product.id}}">  
-		{{ form | payment_button }}
+        {{ form | payment_button }}
       {% endform %}
 
-
     {%- when 'availability' -%}
-      <div class="mdp-product-availability" data-store-availability-container data-product-title="" data-has-only-default-variant="" data-base-url="">
-      </div>
-	{%- when 'description' -%}
+      <div class="mdp-product-availability" data-store-availability-container data-product-title="" data-has-only-default-variant="" data-base-url="" /> 
+
+    {%- when 'description' -%}
       <div class="mdp-content {% if oneRow == true %}mdp-content-section{% endif %}">
         {% comment %} {% if current_product.description != blank %}
           {% if block.settings.excerpt_words != 0 %}
@@ -494,23 +480,31 @@
         {% endif %} {% endcomment %}
         {% if current_product.metafields.custom.short_description %}
           <div class="product-short-description">
-              {{ current_product.metafields.custom.short_description.value | default: 'N/A' }}
+            {{ current_product.metafields.custom.short_description.value | default: 'N/A' }}
           </div>
         {% endif %}
-
-        
       </div>
-	{%- when 'visitors' -%}
-		<div class="mdp-visitors" data-min="{{ block.settings.min }}" data-max="{{ block.settings.max }}" data-duration="{{ block.settings.duration }}">
-			<span class="mdp-icon">{% render 'mdp-weare-icon' with '154' %}</span>
-          	<span class="mdp-value"></span>
-          	<span class="mdp-text">{{ block.settings.text }}</span>
-		</div>
-	{%- when 'share' -%}
-	  {% render 'mdp-weare-social-sharing', share_title: current_product.title, share_permalink: current_product.url, share_image: current_product.featured_media %}
+
+    {%- when 'visitors' -%}
+      <div class="mdp-visitors" data-min="{{ block.settings.min }}" data-max="{{ block.settings.max }}" data-duration="{{ block.settings.duration }}">
+        <span class="mdp-icon">{% render 'mdp-weare-icon' with '154' %}</span>
+        <span class="mdp-value"></span>
+        <span class="mdp-text">{{ block.settings.text }}</span>
+      </div>
+
+    {%- when 'share' -%}
+      {% render 
+        'mdp-weare-social-sharing',
+        share_title: current_product.title, 
+        share_permalink: current_product.url, 
+        share_image: current_product.featured_media 
+      %}
+
     {%- when '@app' -%}
       {% render block %}
+
     {%- when 'custom_liquid' -%}
       {{ block.settings.custom_liquid }}
+
   {%- endcase -%}
 {%- endfor -%}
