@@ -349,15 +349,15 @@
           </div>
 
           {% capture taxes_shipping_checkout %}
-          {% if shop.taxes_included and shop.shipping_policy.body != blank %}
-          {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-          {% elsif shop.taxes_included %}
-          {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
-          {% elsif shop.shipping_policy.body != blank %}
-          {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-          {% else %}
-          {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
-          {% endif %}
+            {% if shop.taxes_included and shop.shipping_policy.body != blank %}
+              {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+            {% elsif shop.taxes_included %}
+              {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+            {% elsif shop.shipping_policy.body != blank %}
+              {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+            {% else %}
+              {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
+            {% endif %}
           {% endcapture %}
           <div class="mdp-cart-shipping">{{ taxes_shipping_checkout }}</div>
           <div class="mdp-cart-submit-controls">
@@ -376,7 +376,9 @@
           </div>
 
           {% if additional_checkout_buttons %}
-          <div class="mdp-additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+            <div class="mdp-additional-checkout-buttons">
+              {{ content_for_additional_checkout_buttons }}
+            </div>
           {% endif %}
         </div>
       </div>
@@ -401,27 +403,27 @@
 </div>
 
 {% schema %}
-  {
-    "name": "Cart 1",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "cart_notes",
-        "label": "Enable cart notes",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "estimate_shipping",
-        "label": "Enable estimate shipping",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "discount_code",
-        "label": "Enable discount code",
-        "default": false
-      }
-    ]
-  }
+{
+  "name": "Cart 1",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "cart_notes",
+      "label": "Enable cart notes",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "estimate_shipping",
+      "label": "Enable estimate shipping",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "discount_code",
+      "label": "Enable discount code",
+      "default": false
+    }
+  ]
+}
 {% endschema %}

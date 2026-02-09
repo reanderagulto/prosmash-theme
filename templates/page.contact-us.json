@@ -204,8 +204,8 @@
       "type": "prosmash-hp-cta-section",
       "name": "Prosmash HP CTA Section",
       "settings": {
-        "cta_title": "MAXIMIZE <br> STABILITY",
-        "cta_description": "Take <span>20% Off</span> / Sale Must-Haves",
+        "cta_title": "PLAY HARD. <br>LOOK SHARP.",
+        "cta_description": "High-performance padel equipment and court-ready <br>style—worldwide shipping.",
         "cta_bg": "shopify://shop_images/54bf5a2f1cabca59e01634417facb8a1cf8ee46a.jpg"
       }
     },
@@ -266,12 +266,7 @@
           }
         }
       },
-      "block_order": [
-        "item-1",
-        "item-2",
-        "item-3",
-        "item-4"
-      ],
+      "block_order": ["item-1", "item-2", "item-3", "item-4"],
       "disabled": true,
       "settings": {
         "title": "Contacts Us <br>..",
@@ -506,10 +501,7 @@
           }
         }
       },
-      "block_order": [
-        "item-1",
-        "item-2"
-      ],
+      "block_order": ["item-1", "item-2"],
       "disabled": true,
       "settings": {
         "title": "",
@@ -575,11 +567,7 @@
           }
         }
       },
-      "block_order": [
-        "item-1",
-        "item-2",
-        "item-3"
-      ],
+      "block_order": ["item-1", "item-2", "item-3"],
       "disabled": true,
       "settings": {
         "col_per_row": 3,
@@ -634,12 +622,7 @@
           }
         }
       },
-      "block_order": [
-        "about-us",
-        "quick-links",
-        "follow-us",
-        "subscribe"
-      ],
+      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,
