@@ -159,8 +159,8 @@
             "label": "Work Sans"
           },
           {
-            "value": "HelveticaCustom",
-            "label": "HelveticaCustom"
+            "value": "Poppins",
+            "label": "Poppins"
           },
           {
             "value": "Lexend",
@@ -220,10 +220,6 @@
           {
             "value": "Poppins",
             "label": "Poppins"
-          },
-          {
-            "value": "HelveticaCustom",
-            "label": "HelveticaCustom"
           },
           {
             "value": "Lexend",
