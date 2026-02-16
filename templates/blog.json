@@ -199,11 +199,7 @@
           }
         }
       },
-      "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3"
-      ],
+      "block_order": ["slide-1", "slide-2", "slide-3"],
       "settings": {
         "boxed": true,
         "height": "",
@@ -287,10 +283,7 @@
           }
         }
       },
-      "block_order": [
-        "title",
-        "description"
-      ],
+      "block_order": ["title", "description"],
       "settings": {
         "selected_product": "small-black-bag",
         "image_size": "400x480_crop_center",
@@ -431,12 +424,7 @@
           }
         }
       },
-      "block_order": [
-        "about-us",
-        "quick-links",
-        "follow-us",
-        "subscribe"
-      ],
+      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,
