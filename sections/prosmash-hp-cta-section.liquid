@@ -2,12 +2,24 @@
 
 {% assign cta_bg = section.settings.cta_bg | default: 'assets/default-cta-img.jpg' %}
 
-<section class="cta-section" style="background: linear-gradient(85deg, rgba(255, 255, 255, 0.80) 37.89%, rgba(255, 255, 255, 0.00) 56.25%, rgba(255, 255, 255, 0.00) 100%),
-         url('{% if section.settings.cta_bg %}{{ section.settings.cta_bg | image_url }}{% else %}{{ 'cta-bg.jpg' | asset_url }}{% endif %}')
-         lightgray 50% / cover no-repeat;">
-  <div class="mdp-container">
-    <div class="cta-title">{{ section.settings.cta_title }}</div>
-    <div class="cta-desc">{{ section.settings.cta_description }}</div>
+<section class="cta-section">
+  <div class="cta-section__inner-wrapper">
+    <div class="cta-section__image-container">
+      <img 
+        src="{% if section.settings.cta_bg %}{{ section.settings.cta_bg | image_url }}{% else %}{{ 'cta-bg.jpg' | asset_url }}{% endif %}" 
+        alt="CTA Background"
+        width="728"
+        height="440"
+      >
+    </div>
+    <div class="cta-section__text-content">
+      <div class="mdp-container">
+        <div class="cta-section__text-wrapper">
+          <div class="cta-title">{{ section.settings.cta_title }}</div>
+          <div class="cta-desc">{{ section.settings.cta_description }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
