@@ -1518,7 +1518,6 @@ a.mdp-weare-product-mini-card:hover .mdp-add-to-cart-section {
 .mdp-left-side-popup-wrapper .mdp-menu-wrapper .mdp-new-menu-item .mdp-menu-link,
 .mdp-left-side-popup-wrapper .mdp-menu-wrapper .mdp-menu-item .mdp-menu-link {
   transition: 0.3s all ease-in-out;
-  font-family: Futura;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 0;
@@ -1544,7 +1543,14 @@ a.mdp-weare-product-mini-card:hover .mdp-add-to-cart-section {
 .mdp-left-side-popup-wrapper .mdp-menu-wrapper .mdp-menu-root {
   overflow-y: scroll;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+.mdp-left-side-popup-wrapper .mdp-menu-wrapper .mdp-menu-root > .mdp-new-menu-item {
+  font-family: var(--font-body-family);
+}
+
 .mdp-left-side-popup-wrapper .mdp-menu-wrapper .mdp-menu-root > .mdp-menu-item > .mdp-menu-link {
   display: flex;
   justify-content: space-between;
@@ -1586,16 +1592,6 @@ a.mdp-weare-product-mini-card:hover .mdp-add-to-cart-section {
 }
 .mdp-left-side-popup-wrapper .mdp-menu-wrapper .mdp-menu-root > .mdp-menu-item > .mdp-sub-menu .mdp-sub-menu {
   margin-left: 15px;
-}
-
-a.mdp-menu-link {
-  font-style: normal !important;
-  font-weight: 400 !important;
-  font-size: 14px !important;
-}
-
-a.mdp-menu-link:focus {
-  outline: none;
 }
 
 .mdp-right-side-popup-overlay {

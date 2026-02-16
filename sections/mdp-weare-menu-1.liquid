@@ -37,8 +37,21 @@
                                     </div>
 
                                     {% for link in linklists[section.settings.menu].links %}
+                                        {% assign link_classes = '' %}
+                                        {% if link.active %}
+                                            {% assign link_classes = link_classes | append: ' mdp-active' %}
+                                        {% endif %}
+                                        {% if link.child_active %}
+                                            {% assign link_classes = link_classes | append: ' mdp-active-ancestor' %}
+                                        {% endif %}
+                                        {% if link.current %}
+                                            {% assign link_classes = link_classes | append: ' mdp-current' %}
+                                        {% endif %}
+                                        {% if link.child_current %}
+                                            {% assign link_classes = link_classes | append: ' mdp-current-ancestor' %}
+                                        {% endif %}
                                         {% if link.links != blank %}
-                                            <div class="mdp-menu-item mdp-has-children {% if link.active %}mdp-active{% endif %} {% if link.child_active %}mdp-active-ancestor{% endif %} {% if link.current %}mdp-current{% endif %} {% if link.child_current %}mdp-current-ancestor{% endif %}">
+                                            <div class="mdp-menu-item mdp-has-children{{ link_classes }}">
                                                 <a href="{{ link.url }}" class="mdp-menu-link">
                                                     {{ link.title | escape }}
                                                     <span class="mdp-down-icon"><i class="fas fa-angle-down"></i></span>
@@ -51,8 +64,21 @@
                                                             class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
                                                 <div class="mdp-sub-menu">
                                                     {% for childlink in link.links %}
+                                                        {% assign childlink_classes = '' %}
+                                                        {% if childlink.active %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-active' %}
+                                                        {% endif %}
+                                                        {% if childlink.child_active %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-active-ancestor' %}
+                                                        {% endif %}
+                                                        {% if childlink.current %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-current' %}
+                                                        {% endif %}
+                                                        {% if childlink.child_current %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-current-ancestor' %}
+                                                        {% endif %}
                                                         {% if childlink.links != blank %}
-                                                            <div class="mdp-menu-item mdp-has-children {% if childlink.active %}mdp-active{% endif %} {% if childlink.child_active %}mdp-active-ancestor{% endif %} {% if childlink.current %}mdp-current{% endif %} {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                            <div class="mdp-menu-item mdp-has-children{{ childlink_classes }}">
                                                                 <a href="{{ childlink.url }}" class="mdp-menu-link">
                                                                     {{ childlink.title | escape }}
                                                                     <span class="mdp-right-icon">{% render 'mdp-weare-icon' with '007' %}</span>
@@ -65,7 +91,20 @@
                                                                             class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
                                                                 <div class="mdp-sub-menu">
                                                                     {% for grandchildlink in childlink.links %}
-                                                                        <div class="mdp-menu-item {% if grandchildlink.active %}mdp-active{% endif %} {% if grandchildlink.child_active %}mdp-active-ancestor{% endif %} {% if grandchildlink.current %}mdp-current{% endif %} {% if grandchildlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                                        {% assign grandchildlink_classes = '' %}
+                                                                        {% if grandchildlink.active %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-active' %}
+                                                                        {% endif %}
+                                                                        {% if grandchildlink.child_active %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-active-ancestor' %}
+                                                                        {% endif %}
+                                                                        {% if grandchildlink.current %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-current' %}
+                                                                        {% endif %}
+                                                                        {% if grandchildlink.child_current %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-current-ancestor' %}
+                                                                        {% endif %}
+                                                                        <div class="mdp-menu-item{{ grandchildlink_classes }}">
                                                                             <a href="{{ grandchildlink.url }}"
                                                                                class="mdp-menu-link">{{ grandchildlink.title | escape }}</a>
                                                                         </div>
@@ -73,7 +112,7 @@
                                                                 </div>
                                                             </div>
                                                         {% else %}
-                                                            <div class="mdp-menu-item {% if childlink.active %}mdp-active{% endif %} {% if childlink.child_active %}mdp-active-ancestor{% endif %} {% if childlink.current %}mdp-current{% endif %} {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                            <div class="mdp-menu-item{{ childlink_classes }}">
                                                                 <a href="{{ childlink.url }}"
                                                                    class="mdp-menu-link">{{ childlink.title | escape }}</a>
                                                             </div>
@@ -82,7 +121,7 @@
                                                 </div>
                                             </div>
                                         {% else %}
-                                            <div class="mdp-menu-item {% if link.active %}mdp-active{% endif %} {% if link.child_active %}mdp-active-ancestor{% endif %} {% if link.current %}mdp-current{% endif %} {% if link.child_current %}mdp-current-ancestor{% endif %}">
+                                            <div class="mdp-menu-item{{ link_classes }}">
                                                 <a href="{{ link.url }}"
                                                    class="mdp-menu-link">{{ link.title | escape }}</a>
                                             </div>
@@ -132,8 +171,8 @@
 
                                         <div class="mdp-my-account">
                                             <h3>My Account:</h3>
-                                            <a href="/account/register" class="mdp-sign-up-devices">Sign Up</a>
-                                            <a href="/account" class="mdp-login-devices">Login</a>
+                                            <a href="/account/register" class="btn primary">Sign Up</a>
+                                            <a href="/account" class="btn bordered-black">Login</a>
                                         </div>
 
                                         <div class="mdp-work-time-box">
@@ -190,12 +229,21 @@
                                     </div>
 
                                     {% for link in linklists[section.settings.menu].links %}
+                                        {% assign link_classes = '' %}
+                                        {% if link.active %}
+                                            {% assign link_classes = link_classes | append: ' mdp-active' %}
+                                        {% endif %}
+                                        {% if link.child_active %}
+                                            {% assign link_classes = link_classes | append: ' mdp-active-ancestor' %}
+                                        {% endif %}
+                                        {% if link.current %}
+                                            {% assign link_classes = link_classes | append: ' mdp-current' %}
+                                        {% endif %}
+                                        {% if link.child_current %}
+                                            {% assign link_classes = link_classes | append: ' mdp-current-ancestor' %}
+                                        {% endif %}
                                         {% if link.links != blank %}
-                                            <div class="mdp-menu-item mdp-has-children
-                                                        {% if link.active %}mdp-active{% endif %}
-                                                        {% if link.child_active %}mdp-active-ancestor{% endif %}
-                                                        {% if link.current %}mdp-current{% endif %}
-                                                        {% if link.child_current %}mdp-current-ancestor{% endif %}">
+                                            <div class="mdp-menu-item mdp-has-children{{ link_classes }}">
                                                 <a href="{{ link.url }}" class="mdp-menu-link">
                                                     {{ link.title | escape }}
                                                     <span class="mdp-down-icon"><i class="fas fa-angle-down"></i></span>
@@ -208,8 +256,21 @@
                                                             class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
                                                 <div class="mdp-sub-menu">
                                                     {% for childlink in link.links %}
+                                                        {% assign childlink_classes = '' %}
+                                                        {% if childlink.active %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-active' %}
+                                                        {% endif %}
+                                                        {% if childlink.child_active %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-active-ancestor' %}
+                                                        {% endif %}
+                                                        {% if childlink.current %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-current' %}
+                                                        {% endif %}
+                                                        {% if childlink.child_current %}
+                                                            {% assign childlink_classes = childlink_classes | append: ' mdp-current-ancestor' %}
+                                                        {% endif %}
                                                         {% if childlink.links != blank %}
-                                                            <div class="mdp-menu-item mdp-has-children {% if childlink.active %}mdp-active{% endif %} {% if childlink.child_active %}mdp-active-ancestor{% endif %} {% if childlink.current %}mdp-current{% endif %} {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                            <div class="mdp-menu-item mdp-has-children{{ childlink_classes }}">
                                                                 <a href="{{ childlink.url }}" class="mdp-menu-link">
                                                                     {{ childlink.title | escape }}
                                                                     <span class="mdp-right-icon">{% render 'mdp-weare-icon' with '007' %}</span>
@@ -222,11 +283,20 @@
                                                                             class="mdp-up-icon">{% render 'mdp-weare-icon' with '008' %}</span></label>
                                                                 <div class="mdp-sub-menu">
                                                                     {% for grandchildlink in childlink.links %}
-                                                                        <div class="mdp-menu-item
-                                                                                    {% if grandchildlink.active %}mdp-active{% endif %}
-                                                                                    {% if grandchildlink.child_active %}mdp-active-ancestor{% endif %}
-                                                                                    {% if grandchildlink.current %}mdp-current{% endif %}
-                                                                                    {% if grandchildlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                                        {% assign grandchildlink_classes = '' %}
+                                                                        {% if grandchildlink.active %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-active' %}
+                                                                        {% endif %}
+                                                                        {% if grandchildlink.child_active %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-active-ancestor' %}
+                                                                        {% endif %}
+                                                                        {% if grandchildlink.current %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-current' %}
+                                                                        {% endif %}
+                                                                        {% if grandchildlink.child_current %}
+                                                                            {% assign grandchildlink_classes = grandchildlink_classes | append: ' mdp-current-ancestor' %}
+                                                                        {% endif %}
+                                                                        <div class="mdp-menu-item{{ grandchildlink_classes }}">
                                                                             <a href="{{ grandchildlink.url }}"
                                                                                class="mdp-menu-link">{{ grandchildlink.title | escape }}</a>
                                                                         </div>
@@ -234,11 +304,7 @@
                                                                 </div>
                                                             </div>
                                                         {% else %}
-                                                            <div class="mdp-menu-item
-                                                                        {% if childlink.active %}mdp-active{% endif %}
-                                                                        {% if childlink.child_active %}mdp-active-ancestor{% endif %}
-                                                                        {% if childlink.current %}mdp-current{% endif %}
-                                                                        {% if childlink.child_current %}mdp-current-ancestor{% endif %}">
+                                                            <div class="mdp-menu-item{{ childlink_classes }}">
                                                                 <a href="{{ childlink.url }}"
                                                                    class="mdp-menu-link">{{ childlink.title | escape }}</a>
                                                             </div>
@@ -247,11 +313,7 @@
                                                 </div>
                                             </div>
                                         {% else %}
-                                            <div class="mdp-new-menu-item
-                                                        {% if link.active %}mdp-active{% endif %}
-                                                        {% if link.child_active %}mdp-active-ancestor{% endif %}
-                                                        {% if link.current %}mdp-current{% endif %}
-                                                        {% if link.child_current %}mdp-current-ancestor{% endif %}">
+                                            <div class="mdp-new-menu-item{{ link_classes }}">
                                                 <a href="{{ link.url }}"
                                                    class="mdp-menu-link">{{ link.title | escape }}</a>
                                             </div>
@@ -301,8 +363,8 @@
 
                                         <div class="mdp-my-account">
                                             <h3>My Account:</h3>
-                                            <a href="/account/register" class="mdp-sign-up-devices">Sign Up</a>
-                                            <a href="/account" class="mdp-login-devices">Login</a>
+                                            <a href="/account/register" class="btn primary">Sign Up</a>
+                                            <a href="/account" class="btn bordered-black">Login</a>
                                         </div>
 
                                         <div class="mdp-work-time-box">

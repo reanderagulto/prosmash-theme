@@ -592,7 +592,7 @@
     .mdp-mobile-devices-footer .mdp-language-region h3{
         width: 100%;
         margin-bottom: 10px;
-        font-family: 'Open Sans';
+        font-family: var(--font-body-family);
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -617,7 +617,7 @@
 
     .mdp-mobile-devices-footer .mdp-language-region form {
         width: calc(50% - 5px);
-        font-family: 'Open Sans';
+        font-family: var(--font-body-family);
         font-style: normal;
         font-weight: 700;
         font-size: 12px;
@@ -638,7 +638,7 @@
     }
 
     .mdp-mobile-devices-footer .mdp-follow-us h3{
-        font-family: 'Open Sans';
+        font-family: var(--font-body-family);
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -660,12 +660,17 @@
         margin-right: 15px;
     }
 
+    .mdp-mobile-devices-footer .mdp-follow-us .mdp-info-list .mdp-info a {
+      color: var(--green);
+      transition: all 0.3s ease;
+    }
+
     .mdp-mobile-devices-footer .mdp-my-account{
         margin-top: 20px;
     }
 
     .mdp-mobile-devices-footer .mdp-my-account h3{
-        font-family: 'Open Sans';
+        font-family: var(--font-body-family);
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -681,6 +686,11 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        gap: 8px;
+    }
+
+    .mdp-mobile-devices-footer .mdp-my-account .btn {
+      flex-grow: 1;
     }
 
     .mdp-mobile-devices-footer .mdp-my-account .mdp-sign-up-devices{
@@ -691,7 +701,7 @@
         border: 1px solid {{ settings.btn_background }};
         border-bottom: 2px solid {{ settings.btn_background }};
         border-radius: 2px;
-        font-family: 'Open Sans';
+        font-family: var(--font-body-family);
         font-style: normal;
         font-weight: 700;
         font-size: 12px;
@@ -709,7 +719,7 @@
         border: 1px solid {{ settings.btn_background }};
         border-bottom: 2px solid {{ settings.btn_background }};
         border-radius: 2px;
-        font-family: 'Open Sans';
+        font-family: var(--font-body-family);
         font-style: normal;
         font-weight: 700;
         font-size: 12px;
