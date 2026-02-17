@@ -1,107 +1,134 @@
 {{ "mdp-weare-slideshow-blog.css" | asset_url | stylesheet_tag }}
 
+{%- assign container_styles = '' -%}
+{%- if section.settings.margin_top != blank -%}
+  {%- assign container_styles = container_styles | append: 'margin-top: ' | append: section.settings.margin_top | append: 'px; ' -%}
+{%- endif -%}
+{%- if section.settings.margin_bottom != blank -%}
+  {%- assign container_styles = container_styles | append: 'margin-bottom: ' | append: section.settings.margin_bottom | append: 'px; ' -%}
+{%- endif -%}
+{%- assign container_styles = container_styles | strip -%}
+
 <div id="mdp-weare-{{ section.id }}"
      class="mdp {% if section.settings.boxed %}mdp-container{% endif %} mdp-weare-slideshow-blog"
      data-variant="style_1"
-     style="{% if section.settings.margin_top != blank %}
-             margin-top: {{ section.settings.margin_top }}px;
-     {% endif %}
-     {% if section.settings.margin_bottom != blank %}
-             margin-bottom: {{ section.settings.margin_bottom }}px;
-     {% endif %}">
+     {% if container_styles != blank %}
+     style="{{ container_styles }}"
+     {% endif %}>
 
-    <div class="mdp-grid" data-columns="1" data-gap="30">
-        <div class="mdp-swiper-container swiper-slideshow-blog swiper-slideshow-blog-{{ section.id }}"
-             data-slidesPerView="1"
-             data-navigation="true">
-            <div class="swiper-wrapper mdp-swiper-wrapper">
-                {% for block in section.blocks %}
-                    <div class="swiper-slide mdp-swiper-slide">
-                        {% case block.type %}
-                            {% when 'slide' %}
-                                <div class="mdp-slide {% if block.settings.inverted %}mdp-inverted{% endif %}">
-                                    <div class="mdp-media lazyload"
-                                         style="{% if block.settings.height == blank %}
-                                                 height: {{ block.settings.height }}px;
-                                         {% endif %};
-                                                 background: {% if block.settings.image != blank %}linear-gradient(to right, rgba(52, 52, 52, 0.8), rgba(52, 52, 52, 0.8)), url({{block.settings.image | img_url : '2000x' }}){% else%}#343434{% endif %};
-                                                 background-repeat: no-repeat;
-                                                 background-size: cover;">
-                                    </div>
-                                    <div class="mdp-data">
-                                        <div class="mdp-image">
-                                            <img src="{{ block.settings.item_image | img_url: '2000x' }}"
-                                                 class="mdp-image-item" alt="">
-                                        </div>
-                                        <div class="mdp-header">
-                                            {% if block.settings.cat != blank %}
-                                                <p class="mdp-type-content"
-                                                {% if block.settings.use_local_styles %}
-                                                    style="color: {{ block.settings.title_color }}"{% endif %}>{{ block.settings.cat }}</p>
-                                            {% endif %}
-                                            <h1 class="mdp-title"
-                                            {% if block.settings.use_local_styles %}
-                                                style="color: {{ block.settings.title_color }}"{% endif %}>
-                                                {{ block.settings.title }}
-                                            </h1>
-                                            {% unless block.settings.content == blank %}
-                                                <div class="mdp-content">
-                                                    {{ block.settings.content }}
-                                                </div>
-                                            {% endunless %}
-
-                                            {% unless block.settings.link == blank %}
-                                                <a class="mdp-button"
-                                                   href="{{ block.settings.link }}">{{ block.settings.button_string }}</a>
-                                            {% endunless %}
-                                        </div>
-                                    </div>
-                                </div>
-                        {% endcase %}
+  <div class="mdp-grid" data-columns="1" data-gap="30">
+    <div class="mdp-swiper-container swiper-slideshow-blog swiper-slideshow-blog-{{ section.id }}"
+         data-slidesPerView="1"
+         data-navigation="true">
+      <div class="swiper-wrapper mdp-swiper-wrapper">
+        {% for block in section.blocks %}
+          {%- assign slide_height = block.settings.height -%}
+          {%- if block.settings.image != blank -%}
+            {%- assign slide_background = 'linear-gradient(to right, rgba(52, 52, 52, 0.8), rgba(52, 52, 52, 0.8)), url(' | append: block.settings.image | img_url: '2000x' | append: ')' -%}
+          {%- else -%}
+            {%- assign slide_background = '#343434' -%}
+          {%- endif -%}
+          
+          {%- assign media_styles = '' -%}
+          {%- if slide_height != blank -%}
+            {%- assign media_styles = media_styles | append: 'height: ' | append: slide_height | append: 'px; ' -%}
+          {%- endif -%}
+          {%- assign media_styles = media_styles | append: 'background: ' | append: slide_background | append: '; ' -%}
+          {%- assign media_styles = media_styles | append: 'background-repeat: no-repeat; ' -%}
+          {%- assign media_styles = media_styles | append: 'background-size: cover; ' -%}
+          {%- assign media_styles = media_styles | strip -%}
+          
+          <div class="swiper-slide mdp-swiper-slide">
+            {% case block.type %}
+              {% when 'slide' %}
+                <div class="mdp-slide {% if block.settings.inverted %}mdp-inverted{% endif %}">
+                  <div class="mdp-media lazyload"
+                       {% if media_styles != blank %}
+                       style="{{ media_styles }}"
+                       {% endif %}>
+                  </div>
+                  <div class="mdp-data">
+                    <div class="mdp-image">
+                      <img 
+                        src="{{ block.settings.item_image | img_url: '2000x' }}"
+                        class="mdp-image-item" alt=""
+                        width="{{ block.settings.item_image | img_width }}"
+                        height="{{ block.settings.item_image | img_height}}"
+                      >
                     </div>
-                {% endfor %}
-            </div>
+                    <div class="mdp-header">
+                      {% if block.settings.cat != blank %}
+                        <p class="mdp-type-content"
+                        {% if block.settings.use_local_styles %}
+                          style="color: {{ block.settings.title_color }}"{% endif %}>{{ block.settings.cat }}</p>
+                      {% endif %}
+                      <h1 class="mdp-title"
+                      {% if block.settings.use_local_styles %}
+                        style="color: {{ block.settings.title_color }}"{% endif %}>
+                        {{ block.settings.title }}
+                      </h1>
+                      {% unless block.settings.content == blank %}
+                        <div class="mdp-content">
+                          {{ block.settings.content }}
+                        </div>
+                      {% endunless %}
 
-            <div class="swiper-button-prev swiper-button-prev-slideshow-blog swiper-button-prev-slideshow-blog-{{ section.id }}"></div>
-            <div class="swiper-button-next swiper-button-next-slideshow-blog swiper-button-next-slideshow-blog-{{ section.id }}"></div>
+                      {% unless block.settings.link == blank %}
+                        <a 
+                          class="mdp-button"
+                          href="{{ block.settings.link }}"
+                        >
+                          {{ block.settings.button_string }}
+                        </a>
+                      {% endunless %}
+                    </div>
+                  </div>
+                </div>
+            {% endcase %}
+          </div>
+        {% endfor %}
+      </div>
 
-            <div class="swiper-pagination swiper-pagination-slideshow-blog swiper-pagination-slideshow-blog-{{ section.id }}"></div>
+      <div class="swiper-button-prev swiper-button-prev-slideshow-blog swiper-button-prev-slideshow-blog-{{ section.id }}"></div>
+      <div class="swiper-button-next swiper-button-next-slideshow-blog swiper-button-next-slideshow-blog-{{ section.id }}"></div>
 
-        </div>
+      <div class="swiper-pagination swiper-pagination-slideshow-blog swiper-pagination-slideshow-blog-{{ section.id }}"></div>
+
     </div>
+  </div>
 </div>
 
 <script>
-    const swiperSlideshowBlog_{{ section.id | replace: "-", "_" }} = new Swiper('.swiper-slideshow-blog-{{ section.id }}', {
-        // Optional parameters
-        lidesPerView: 'auto',
-        direction: 'horizontal',
-        slidesPerView: 1,
-        centeredSlides: false,
-        speed: 500,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 5000
-        },
-        effect: 'slide',
-        allowTouchMove: true,
-        freeMode: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        hashNavigation: false,
-        pagination: {
-            el: '.swiper-pagination-slideshow-blog-{{ section.id }}'
-        },
+  const swiperSlideshowBlog_{{ section.id | replace: "-", "_" }} = new Swiper('.swiper-slideshow-blog-{{ section.id }}', {
+    // Optional parameters
+    slidesPerView: 'auto',
+    direction: 'horizontal',
+    slidesPerView: 1,
+    centeredSlides: false,
+    speed: 500,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    effect: 'slide',
+    allowTouchMove: true,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    hashNavigation: false,
+    pagination: {
+      el: '.swiper-pagination-slideshow-blog-{{ section.id }}'
+    },
 
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next-slideshow-blog-{{ section.id }}',
-            prevEl: '.swiper-button-prev-slideshow-blog-{{ section.id }}',
-        }
-    });
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next-slideshow-blog-{{ section.id }}',
+      prevEl: '.swiper-button-prev-slideshow-blog-{{ section.id }}',
+    }
+  });
 
-    swiperSlideshowBlog_{{ section.id | replace: "-", "_" }}.init();
+  swiperSlideshowBlog_{{ section.id | replace: "-", "_" }}.init();
 </script>
 
 {% schema %}

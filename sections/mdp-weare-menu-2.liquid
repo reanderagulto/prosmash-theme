@@ -1,22 +1,25 @@
 {{"mdp-weare-menu-2.css" | asset_url | stylesheet_tag }}
 
 {% if section.settings.enabled_topbar == true %}
+  {%- assign menu_background_color = section.settings.bg_color -%}
+  {%- assign menu_styles = 'background-color: ' | append: menu_background_color | append: ';' -%}
+  
   <div id="mdp-weare-{{ section.id }}" 
        class="mdp mdp-weare-menu-2 {% if section.settings.enabled_shadow %}mdp-weare-shadow{% endif %}" 
-       style="background-color: {{section.settings.bg_color }};">
+       style="{{ menu_styles }}">
     <div class="mdp-container mdp-grid" data-columns="1" data-gap="30">
 
-    <div class="mdp-col mdp-row-full">
+      <div class="mdp-col mdp-row-full">
 
         <div class="mdp-row-left">
 
           {% if section.settings.info_text == true %}
             <span class="mdp-info-list">
               {% for block in section.blocks %}          
-              <span class="mdp-info">
-                <span class="mdp-icon">{% render 'mdp-weare-icon' with block.settings.icon %}</span>
-                <span class="mdp-text">{{ block.settings.text }}</span>
-              </span>
+                <span class="mdp-info">
+                  <span class="mdp-icon">{% render 'mdp-weare-icon' with block.settings.icon %}</span>
+                  <span class="mdp-text">{{ block.settings.text }}</span>
+                </span>
               {% endfor %}
             </span>
           {% endif %}
@@ -24,11 +27,11 @@
           {% if section.settings.social_icons == true %}
             <span class="mdp-info-list mdp-topbar-social">
               {% for block in section.blocks %}    
-              	{% if block.type == "icons" %}
+                {% if block.type == "icons" %}
                   <span class="mdp-info">
                     <a href="{{ block.settings.social_link }}" class="mdp-social-link"><i class="{{ block.settings.icon_class }}"></i></a>
                   </span>
-              	{% endif %}
+                {% endif %}
               {% endfor %}
             </span>
           {% endif %}
@@ -39,7 +42,7 @@
           <div class="mdp-row-center">
             <span class="mdp-info-list mdp-topbar-discounts">
               {% for block in section.blocks %}
-              	{% if block.type == "discounts" %}
+                {% if block.type == "discounts" %}
                   <span class="mdp-info">
                     {% if block.settings.discounts_link %}
                       <a href="{{ block.settings.discounts_link }}" class="mdp-topbar-discounts-link">{{ block.settings.discounts_text }}</a>
@@ -47,7 +50,7 @@
                       <span class="mdp-text">{{ block.settings.discounts_text }}</span>
                     {% endif %}
                   </span>
-              	{% endif %}
+                {% endif %}
               {% endfor %}
             </span>
           </div>
@@ -74,30 +77,30 @@
                   <a href="{{ link.url }}" class="mdp-menu-link">{{ link.title | escape }}</a>
                 </span>
               {% endfor %}
-          	</span>
+            </span>
           {% endif %}
           
           {% if section.settings.country_selector %}
             {% form 'localization' %}
-            <select name="country_code">
-              {% for country in localization.available_countries %}
-              <option value="{{ country.iso_code }}" {% if country == localization.country %} selected="selected"{% endif %}>
-                {{ country.name }} ({{ country.iso_code }}) - {{ country.currency.symbol }}
-              </option>
-              {% endfor %}
-            </select>
+              <select name="country_code">
+                {% for country in localization.available_countries %}
+                  <option value="{{ country.iso_code }}" {% if country == localization.country %} selected="selected"{% endif %}>
+                    {{ country.name }} ({{ country.iso_code }}) - {{ country.currency.symbol }}
+                  </option>
+                {% endfor %}
+              </select>
             {% endform %}
           {% endif %}
 
           {% if section.settings.language_selector %}
             {% form 'localization' %}
-            <select name="language_code">
-              {% for language in localization.available_languages %}
-              <option value="{{ language.iso_code }}" {% if language == localization.language %} selected="selected"{% endif %}>
-                {{ language.endonym_name }}
-              </option>
-              {% endfor %}
-            </select>
+              <select name="language_code">
+                {% for language in localization.available_languages %}
+                  <option value="{{ language.iso_code }}" {% if language == localization.language %} selected="selected"{% endif %}>
+                    {{ language.endonym_name }}
+                  </option>
+                {% endfor %}
+              </select>
             {% endform %}        
           {% endif %}
 
@@ -109,70 +112,70 @@
 {% endif %}
 
 {% style %}
-    .mdp-topbar-social .mdp-info .mdp-social-link {
-        color: {{ section.settings.icon_color }};
-    }
-    .mdp-topbar-discounts,
-    .mdp-topbar-discounts .mdp-info:not(:last-child):after{
-        color: {{ section.settings.discount_color }};
-    }
-    .mdp-work-time {
-        color: {{ section.settings.work_time_color }};
-    }
+  .mdp-topbar-social .mdp-info .mdp-social-link {
+    color: {{ section.settings.icon_color }};
+  }
+  .mdp-topbar-discounts,
+  .mdp-topbar-discounts .mdp-info:not(:last-child):after{
+    color: {{ section.settings.discount_color }};
+  }
+  .mdp-work-time {
+    color: {{ section.settings.work_time_color }};
+  }
 {% endstyle%}
 
 {% schema %}
 {
-"name": "TopBar",
+  "name": "TopBar",
   "settings": [
     {
       "type":      "link_list",
       "id":        "menu",
       "label":     "Menu"
     },
-	{
+    {
       "type": "checkbox",
       "id": "enabled_topbar",
       "label": "Enabled topbar",
       "default": true
     },
-	{
+    {
       "type": "checkbox",
       "id": "enabled_menu",
       "label": "Enabled menu",
       "default": false
     },
-	{
+    {
       "type": "checkbox",
       "id": "enabled_shadow",
       "label": "Enabled shadow",
       "default": true
     },
-	{
+    {
       "type": "checkbox",
       "id": "info_text",
       "label": "Info text",
       "default": false
     },
-	{
+    {
       "type": "checkbox",
       "id": "social_icons",
       "label": "Social Icon",
       "default": true
     },
-	{
+    {
       "type": "checkbox",
       "id": "discounts",
       "label": "Discounts",
       "default": true
     },
-	{
+    {
       "type": "checkbox",
       "id": "work_time",
       "label": "Work time",
       "default": true
     },
-	{
+    {
       "type": "checkbox",
       "id": "country_selector",
       "label": "Country selector",
@@ -188,7 +191,7 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
-	  "default": "#000000"
+      "default": "#000000"
     },
     {
       "type": "color",
@@ -210,49 +213,49 @@
     }
   ],
   "blocks": [
-      {
+    {
       "type": "icons",
       "name": "Social Icon",
       "settings": [
-          {
-              "type": "text",
-              "id": "icon_class",
-              "label": "Icon Class"
-          },
-          {
-            "type": "url",
-            "id": "social_link",
-            "label": "Social link"
-          }
+        {
+          "type": "text",
+          "id": "icon_class",
+          "label": "Icon Class"
+        },
+        {
+          "type": "url",
+          "id": "social_link",
+          "label": "Social link"
+        }
       ]
-      },
-	  {
+    },
+    {
       "type": "discounts",
       "name": "Discount",
       "settings": [
-          {
-              "type": "text",
-              "id": "discounts_text",
-              "label": "Discount"
-          },
-          {
-            "type": "url",
-            "id": "discounts_link",
-            "label": "Discount link"
-          }
+        {
+          "type": "text",
+          "id": "discounts_text",
+          "label": "Discount"
+        },
+        {
+          "type": "url",
+          "id": "discounts_link",
+          "label": "Discount link"
+        }
       ]
-      },
-	  {
+    },
+    {
       "type": "work_time",
       "name": "Work time",
       "settings": [
-          {
-              "type": "text",
-              "id": "work_time_text",
-              "label": "Work time"
-          }
+        {
+          "type": "text",
+          "id": "work_time_text",
+          "label": "Work time"
+        }
       ]
-      }
-	]
+    }
+  ]
 }
 {% endschema %}

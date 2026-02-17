@@ -1,28 +1,21 @@
 <div class="product-card-v2">
-    <a href="{{ product.url }}">
     <div class="prod-img">
-        <div class="img-container">
-            <div class="canvas" style="
-                background-image: url('{{ product.featured_image | image_url }}');
-                background-color: #F0F0F0;
-                background-size: cover;
-                background-position: center;
-                ">
+        <a href="{{ product.url }}">
+            <div class="img-container">
+                <div class="canvas" style="
+                    background-image: url('{{ product.featured_image | image_url }}');
+                    background-color: #F0F0F0;
+                    background-size: cover;
+                    background-position: center;
+                    ">
+                </div>
+                {% if product.metafields.custom.limited_edition == true %}
+                    <div class="limited-edition">Limited Edition</div>
+                {% endif %}
             </div>
-            {% if product.metafields.custom.limited_edition == true %}
-                <div class="limited-edition">Limited Edition</div>
-            {% endif %}
-        </div>
-        {% comment %} <div class="mdp-add-to-cart mdp-available add-cart-btn"
-        data-product-id="{{ product.variants.first.id }}"
-        data-add-to-cart="Add to cart"
-        data-sold-out="Sold out">
-        Add to cart
-        </div> {% endcomment %}
-
-
+        </a>
+        
         {% assign variant = product.selected_or_first_available_variant %}
-
         <div class="mdp-add-to-cart mdp-available add-cart-btn {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}pre-order{% endif %}"
             data-product-id="{{ variant.id }}"
             data-quantity="1"
@@ -37,9 +30,8 @@
                 Sold out
             {% endif %}
         </div>
-
-
     </div>
+    
     <div class="prod-details">
         {% assign brand = product.metafields.custom.brands.value %}
         <div class="brand">
@@ -49,7 +41,9 @@
             No brand
         {% endif %}
         </div>
-        <div class="prod-title">{{ product.title | truncate: 25 }}</div>
+        <a href="{{ product.url }}" class="prod-title-link">
+            <div class="prod-title">{{ product.title | truncate: 25 }}</div>
+        </a>
         <div class="prod-price">{{ product.price | money }}</div>
         <div class="prod-rating">
             <div class="stars">
@@ -62,5 +56,4 @@
             <div>10 reviews <img src="{{ 'ArrowUpRight.svg' | asset_url }}" alt="Star"></div>
         </div>
     </div>
-    </a>
 </div>
