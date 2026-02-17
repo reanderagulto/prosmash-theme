@@ -1,4 +1,4 @@
-{{"mdp-weare-404-1.css" | asset_url | stylesheet_tag }}
+{{ "mdp-weare-404-1.css" | asset_url | stylesheet_tag }}
 
 <div id="mdp-weare-{{ section.id }}" class="mdp mdp-weare-404-1" data-variant="{{section.settings.variant}}">
   <div class="mdp-container">
@@ -27,7 +27,7 @@
     {% endunless %}
       <div class="mdp-footer">
         {% unless section.settings.link == blank %}
-        	<a class="mdp-button" href="{{section.settings.link}}">{{section.settings.button_string}}</a>
+        	<a class="btn primary" href="{{section.settings.link}}">{{section.settings.button_string}}</a>
         {% endunless %}
       </div>    
   </div>
@@ -48,7 +48,7 @@
         "type": "text",
         "id": "subtitle",
         "label": "Subheading",
-		"default": "Your style does not exist!"	
+		    "default": "Out of the Court"	
       },
       {
         "type": "image_picker",
@@ -59,7 +59,7 @@
         "type": "richtext",
         "id": "content",
         "label": "Content",
-		"default": "<p>Any question? Please contact us, we’re usually pretty quick.</p>"
+		    "default": "<p>The page you’re looking for isn’t available. Let’s get you back to premium padel gear.</p>"
       },
       {
          "type": "text",
