@@ -90,7 +90,7 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#42662b",
+        "bg_color": "#000000",
         "icon_color": "#ffffff",
         "discount_color": "#f9f9f9",
         "work_time_color": "#ffffff"
@@ -153,7 +153,9 @@
       "type": "prosmash-collection-banner",
       "name": "Prosmash Collection Banner",
       "settings": {
-        "background_img": "shopify://shop_images/7f0b0e89a7b956733ecef9743f10e28b33cc8d41.jpg"
+        "background_img": "shopify://shop_images/7f0b0e89a7b956733ecef9743f10e28b33cc8d41.jpg",
+        "title": "Premium Padel, Delivered <br>Worldwide.",
+        "description": "<p><em>Authentic gear from top brands—straight to your door.</em></p>"
       }
     },
     "prosmash_collection_grid_8Lnfxc": {
@@ -252,7 +254,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,
