@@ -90,7 +90,7 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#42662b",
+        "bg_color": "#000000",
         "icon_color": "#ffffff",
         "discount_color": "#ffffff",
         "work_time_color": "#ffffff"
@@ -366,7 +366,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,
