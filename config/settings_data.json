@@ -291,12 +291,7 @@
             }
           }
         },
-        "block_order": [
-          "list-1",
-          "list-2",
-          "list-3",
-          "list-4"
-        ],
+        "block_order": ["list-1", "list-2", "list-3", "list-4"],
         "settings": {
           "title": "Need help? <br> ..",
           "subtitle": "",
@@ -478,12 +473,7 @@
             }
           }
         },
-        "block_order": [
-          "about-us",
-          "quick-links",
-          "follow-us",
-          "subscribe"
-        ],
+        "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
         "settings": {
           "show_payment_icons": true,
           "show_powered_by": true,
@@ -538,8 +528,8 @@
       "prosmash-hp-cta-section": {
         "type": "prosmash-hp-cta-section",
         "settings": {
-          "cta_title": "PLAY HARD. <br>LOOK SHARP.",
-          "cta_description": "High-performance padel equipment and court-ready <br>style—worldwide shipping."
+          "cta_title": "Play Hard. Look Sharp.",
+          "cta_description": "High-performance padel equipment and court-ready style—worldwide shipping."
         }
       },
       "prosmash-hp-blog-section": {
