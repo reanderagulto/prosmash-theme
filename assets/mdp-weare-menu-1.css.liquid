@@ -118,7 +118,6 @@
         opacity: 1;
         transition: all 0.4s ease;
     }
-    .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper .mdp-menu-root > .mdp-menu-item:hover > .mdp-menu-link,
     .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper .mdp-menu-root > .mdp-menu-item.mdp-current > .mdp-menu-link,
     .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper .mdp-sub-menu > .mdp-menu-item:hover > .mdp-menu-link,
     .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper .mdp-sub-menu > .mdp-menu-item.mdp-current > .mdp-menu-link {
@@ -134,14 +133,9 @@
     .mdp-weare-menu-1 .mdp-menu-element .mdp-menu-wrapper .mdp-sub-menu > .mdp-menu-item > .mdp-menu-link {
         position: relative;
         transition: all 0.4s ease;
-        color: {{ settings.menu_color }};
         display: block;
         text-decoration: none;
-        line-height: 80px;
         padding: 0 15px;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: 0;
         vertical-align: middle;
         white-space: nowrap;
     }
@@ -457,33 +451,36 @@
 .mdp-weare-menu-1 .mdp-container .mdp-search-bar button {
     display: none;
 }
-.mdp-weare-menu-1 .mdp-container .mdp-account {
-    color: {{ settings.menu_color }};
-    transition: 0.3s all ease-in-out;
-    /* margin: 0 17px; */
+.mdp-weare-menu-1 .mdp-container .mdp-account,
+.mdp-weare-menu-1 .mdp-container .mdp-cart {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 8px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
     margin: 0;
 }
-.mdp-weare-menu-1 .mdp-container .mdp-account:hover {
-    color: {{ settings.menu_activ_color }};
-    transition: color 500ms;
+
+.mdp-weare-menu-1 .mdp-container .mdp-account svg path,
+.mdp-weare-menu-1 .mdp-container .mdp-cart svg path {
+  fill: var(--black);
 }
+
+.mdp-weare-menu-1 .mdp-container .mdp-account:hover, 
+.mdp-weare-menu-1 .mdp-container .mdp-cart:hover {
+    background-color: var(--black)
+}
+
+.mdp-weare-menu-1 .mdp-container .mdp-account:hover svg path, 
+.mdp-weare-menu-1 .mdp-container .mdp-cart:hover svg path {
+  fill: var(--white);
+}
+
 .mdp-weare-menu-1 .mdp-container .mdp-account svg {
     height: 20px;
 }
-.mdp-weare-menu-1 .mdp-container .mdp-cart {
-    color: {{ settings.menu_color }};
-    transition: 0.3s all ease-in-out;
-    margin: 5px;
-    position: relative;
-    align-items: center;
-}
-.mdp-weare-menu-1 .mdp-container .mdp-cart:hover {
-    color: {{ settings.menu_activ_color }};
-    transition: color 500ms;
-}
-.mdp-weare-menu-1 .mdp-container .mdp-cart svg {
-    height: 20px;
-}
+
 .mdp-weare-menu-1 .mdp-container .mdp-cart .mdp-cart-count {
     position: absolute;
     width: 14px;
