@@ -268,7 +268,11 @@
           }
         }
       },
-      "block_order": ["icon_Dip3QC", "icon_8Krj76", "icon_EBXTtf"],
+      "block_order": [
+        "icon_Dip3QC",
+        "icon_8Krj76",
+        "icon_EBXTtf"
+      ],
       "name": "Prosmash HP Icon List",
       "settings": {}
     },
@@ -318,6 +322,7 @@
         "collection_h8DVHy",
         "collection_fEAV8m"
       ],
+      "disabled": true,
       "name": "Prosmash HP Categories",
       "settings": {
         "main_heading": "Categories"
@@ -433,7 +438,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": false,
