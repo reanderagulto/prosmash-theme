@@ -155,7 +155,8 @@
 
 /* ICON LIST */
 .prosmash-icon-list {
-  padding: 80px 40px;
+  padding: 64px 64px 40px;
+  position: relative;
 }
 
 .prosmash-icon-list .icon-list-container {
@@ -250,15 +251,14 @@
 
 /* NEW IN */
 .new-products {
-  background: var(--grey);
-  padding: 60px 64px;
+  padding: 0 64px 40px;
+  position: relative;
 }
 .new-products .mdp-container {
   display: flex;
   padding: 0 !important;
   align-items: center;
-  /* gap: 76px; */
-  gap: 40px;
+  gap: 64px;
   align-self: stretch;
   max-width: 1312px;
   width: 100%;
@@ -277,23 +277,25 @@
   font-size: 48px;
   font-style: normal;
   font-weight: 600;
-  line-height: 120%; 
-  text-transform: uppercase;
+  line-height: 1.2; 
 }
 .new-products .col-left .cta-btn a {  
   color: var(--black);
+  display: block;
   font-size: 20px;
-  text-decoration: none;
   font-weight: 600;
-  line-height: 120%;
+  line-height: 1.2;
   text-transform: uppercase;
   padding: 0;
   background: none;
+  height: unset;
 }
 .new-products .col-right .product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 .new-products .mdp-container .col-left {
   flex: 0 0 auto;
@@ -312,10 +314,8 @@
   color: var(--black);
   font-family: var(--font-body-family);
   font-size: 32px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 120%; /* 38.4px */
-  text-transform: uppercase;
+  line-height: 1.2;
 }
 .featured .mdp-container {
   display: flex;
@@ -329,11 +329,12 @@
   
 }
 .featured .featured-products {
-  display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(304px, 1fr)); */
-  grid-template-columns: repeat(4,1fr);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
   width: 100%;
-  gap: 32px;
+  gap: 24px;
 }
 .featured .cta-btn {
   text-align: center;

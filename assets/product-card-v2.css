@@ -1,7 +1,7 @@
 .product-card-v2 {
   flex: 1;
   box-sizing: border-box;
-  max-width: 304px;
+  width: calc(calc(100% / 3) - 24px);
 }
 
 .product-card-v2 a {
@@ -18,46 +18,32 @@
 
 .product-card-v2 .prod-img {
   width: 100%;
+  height: 383px;
   overflow: hidden;
   position: relative;
 }
 
 .product-card-v2 .prod-img .img-container {
-  max-width: 304px;
   width: 100%;
   transition: 0.5s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .product-card-v2 .prod-img .img-container .canvas {
   width: 100%;
   height: 320px;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: inline-block;
   transition: 0.5s;
 }
 
-.product-card-v2 .prod-img .add-cart-btn {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.product-card-v2 .btn.bordered-black {
+  height: 56px;
   width: 100%;
-  padding: 16px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  color: var(--Primary-White, #fff);
-  font-family: var(--font-body-family);
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 100%;
-  text-transform: uppercase;
-  background: var(--green);
-  transition: 0.5s;
-  transform: translateY(100%);
-  text-align: center;
 }
 
 .product-card-v2 .prod-img:hover .add-cart-btn {
@@ -88,14 +74,16 @@
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
+  padding: 16px 0;
 }
 
 .product-card-v2 .prod-details .brand {
-  color: #5b5b5b;
+  color: var(--text);
   font-family: var(--font-body-family);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: normal;
+  text-overflow: ellipsis;
 }
 
 .product-card-v2 .prod-price {
@@ -104,6 +92,8 @@
   line-height: 150%;
   font-weight: 600;
   color: var(--text);
+  margin-bottom: 4px;
+  display: block;
 }
 
 .prod-rating {
@@ -121,8 +111,8 @@
 .prod-rating > div {
   display: flex;
   align-items: center;
-  gap: 2px;
-  color: var(--Primary-Black, #000);
+  gap: 4px;
+  color: var(--black);
   font-family: var(--font-body-family);
   font-size: 12px;
   font-weight: 400;

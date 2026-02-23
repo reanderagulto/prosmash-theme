@@ -38,6 +38,7 @@
   --dark-grey: #B6B4B5;
   --hover-grey: #454545;
   --hover-black: #100E0E;
+  --hover-white: #ECECEC;
   --toasted-caramel: #A87457;
   --font-body-family: "Poppins", sans-serif;
   --font-lexend: "Lexend", sans-serif;
@@ -116,7 +117,7 @@ p {
 
 .cta-btn a,
 .btn.primary {
-  background-color: var(--green);
+  background-color: var(--black);
   color: var(--white);
 }
 
@@ -141,13 +142,13 @@ p {
 }
 
 .btn.black:hover {
-  background-color: var(--green);
+  background-color: var(--hover-black);
 }
 
 .btn.bordered-black:hover {
-  background-color: var(--green);
+  background-color: var(--hover-black);
   color: var(--white);
-  border-color: var(--green);
+  border-color: var(--hover-black);
 }
 
 .btn.bordered-black i, 
@@ -157,7 +158,7 @@ p {
 
 .btn.primary:hover,
 .cta-btn a:hover {
-  background-color: var(--dark-green); 
+  background-color: var(--hover-black); 
 }
 
 .btn.primary:hover i,
@@ -168,14 +169,25 @@ p {
 }
 
 .btn.secondary:hover {
-  background-color: var(--green);
-  color: var(--white);
+  background-color: var(--hover-white);
+  color: var(--black);
 }
 
 .hidden {
   display: none !important;
 }
 
+.divider {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.13) 0%, rgba(0, 0, 0, 0.50) 49.9%, rgba(255, 255, 255, 0.13) 100%);
+  width: 100%;
+  height: 1px;
+}
 
 @media (max-width: 767px) {
   h1 {
