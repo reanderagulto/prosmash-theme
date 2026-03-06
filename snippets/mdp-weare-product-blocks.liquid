@@ -277,7 +277,7 @@
                       <div class="table-title">Collection</div>
                       <div class="table-value">
                         {% for collection in current_product.collections %}
-                            <a href="{{ collection.url }}">{{ collection.title }}</a>
+                          <a href="{{ collection.url }}">{{ collection.title }}</a>{% unless forloop.last %}, {% endunless %}
                         {% endfor %}
                       </div>
                     </div>

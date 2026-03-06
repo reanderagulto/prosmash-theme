@@ -147,10 +147,12 @@
   text-align: center;
 }
 .collection-grid.shop-look-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 32px;
-  row-gap: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
 }
 /* ========== LOAD MORE BUTTON ========== */
 .load-more-wrapper {

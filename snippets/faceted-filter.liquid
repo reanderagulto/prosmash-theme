@@ -322,7 +322,6 @@ button.sort-label {
   transition: 0.3s;
   cursor: pointer;
 }
-.filter-toggle-button:hover .filter-count-container { background: #D9E0D5; }
 
 .filter-count-container svg {
   width: 16px;
@@ -333,16 +332,8 @@ button.sort-label {
 }
 
 /* Open state */
-.filter-toggle-button.is-open .filter-count-container {
-  background: var(--green);
-  color: #fff;
-}
 .filter-toggle-button.is-open .filter-count-container svg {
   transform: rotate(0);
-}
-.sort-toggle-button.is-open .sort-current-container {
-    background: #42662B !important;
-    color: white;
 }
 .sort-toggle-button.is-open .sort-current-container svg {
     transform: rotate(0deg);
@@ -369,44 +360,47 @@ button.sort-label {
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background: #fff;
+  background: var(--white);
   cursor: pointer;
   transition: 0.5s;
-  color: var(--Primary-Black, #000);
-  font-family: var(--font-body-family);;
+  color: var(--black);
+  font-family: var(--font-body-family);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 100%; /* 16px */
-}
-.filter-form-container .filter-group .filter-option:hover {
-  background: #D9E0D5 !important;
 }
 
 /* Custom checkbox */
 .filter-option input[type="checkbox"] { display: none; }
 
 .checkbox__checkmark {
-  width: 16px;
-  height: 16px;
+  width: 12.5px;
+  height: 12.5px;
   border: 2px solid var(--black);
-  border-radius: 2px;
+  border-radius: 3px;
   display: inline-block;
   position: relative;
   background: transparent;
   transition: background-color .2s, border-color .2s;
 }
+
+.filter-option:has(input[type="checkbox"]:checked) {
+  color: var(--white);
+  background-color: var(--black);
+}
+
 .filter-option input[type="checkbox"]:checked + .checkbox__checkmark {
-  background: var(--black);
+  background: var(--white);
 }
 .filter-option input[type="checkbox"]:checked + .checkbox__checkmark::after {
   content: '';
   position: absolute;
   left: 4px;
   top: 0;
-  width: 5px;
-  height: 9px;
-  border: solid #fff;
+  width: 3px;
+  height: 7px;
+  border: solid var(--black);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -456,7 +450,8 @@ button.sort-label {
   transition: 0.5s;
 }
 #sort-panel .sort-group .sort-option:hover {
-  background: #D9E0D5;
+  background: var(--black);
+  color: var(--white);
 }
 #sort-panel .sort-group .sort-option input {
   position: absolute;
@@ -474,7 +469,6 @@ button.sort-label {
   cursor: pointer;
   transition: 0.5s;
 }
-.sort-toggle-button:hover .sort-current-container { background: #D9E0D5; }
 .sort-current-container svg {
   transform: rotate(180deg);
   transition: 0.3s;
