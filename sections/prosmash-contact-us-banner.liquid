@@ -12,32 +12,40 @@
         </div>
         <div class="col-right">
             <div class="git-details">
-                <div class="git-heading">Get In Touch</div>
+                <div class="git-heading">{{ section.settings.contact_heading | default: 'Get In Touch' }}</div>
                 <div class="icons-container">
+                    {% if section.settings.phone_number != blank %}
                     <div class="icon-list-item">
-                        <a href="tel:63282848789">
-                            <img src="{{ 'Phone.svg' | asset_url }} " alt="phone">
-                            <span>(632) 8284 8789</span>
+                        <a href="tel:{{ section.settings.phone_number | handleize }}">
+                            <img src="{{ 'Phone.svg' | asset_url }}" alt="phone" width="24" height="24">
+                            <span>{{ section.settings.phone_number }}</span>
                         </a>
                     </div>
+                    {% endif %}
+                    {% if section.settings.mobile_number != blank %}
                     <div class="icon-list-item">
-                        <a href="tel:639178991111">
-                            <img src="{{ 'DeviceMobile.svg' | asset_url }}" alt="device">
-                            <span>(63) 917 899 1111</span>
+                        <a href="tel:{{ section.settings.mobile_number | handleize }}">
+                            <img src="{{ 'DeviceMobile.svg' | asset_url }}" alt="device" width="24" height="24">
+                            <span>{{ section.settings.mobile_number }}</span>
                         </a>
                     </div>
+                    {% endif %}
+                    {% if section.settings.email_address != blank %}
                     <div class="icon-list-item">
-                        <a href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#112;&#114;&#111;&#115;&#109;&#97;&#115;&#104;&#46;&#99;&#111;&#109;">
-                            <img src="{{ 'EnvelopeSimple.svg' | asset_url }}" alt="email">
-                            <span>&#104;&#101;&#108;&#108;&#111;&#64;&#112;&#114;&#111;&#115;&#109;&#97;&#115;&#104;&#46;&#99;&#111;&#109;</span>
+                        <a href="mailto:{{ section.settings.email_address }}">
+                            <img src="{{ 'EnvelopeSimple.svg' | asset_url }}" alt="email" width="24" height="24">
+                            <span>{{ section.settings.email_address }}</span>
                         </a>
                     </div>
+                    {% endif %}
+                    {% if section.settings.address != blank %}
                     <div class="icon-list-item">
-                        <a href="https://maps.app.goo.gl/7MhSKKxpwGShFkEL6" target="_blank">
-                            <img src="{{ 'MapPin.svg' | asset_url }}" alt="map">
-                            <span>Unit 707 One Park Drive, 11th Drive corner 9th Avenue Bonifacio Global City, Taguig 1634</span>
+                        <a href="{{ section.settings.address_link | default: '#' }}" target="_blank">
+                            <img src="{{ 'MapPin.svg' | asset_url }}" alt="map" width="24" height="24">
+                            <span>{{ section.settings.address }}</span>
                         </a>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -83,7 +91,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .get-in-touch .col-right .icons-container {
     display: flex;
@@ -143,6 +151,40 @@
       "type": "image_picker",
       "id": "contact_image",
       "label": "Background Image"
+    }, 
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "(632) 8284 8789"
+    },
+    {
+      "type": "text",
+      "id": "mobile_number",
+      "label": "Mobile Number",
+      "default": "(63) 917 899 1111"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email Address",
+      "default": "hello@prosmash.com"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "Unit 707 One Park Drive, 11th Drive corner 9th Avenue Bonifacio Global City, Taguig 1634"
+    },
+    {
+      "type": "url",
+      "id": "address_link",
+      "label": "Address Link (Google Maps URL)"
     }
   ],
   "presets": [
