@@ -44,28 +44,8 @@
         "discounts-1": {
           "type": "discounts",
           "settings": {
-            "discounts_text": "Up to 50% off Our Best Bits",
+            "discounts_text": "Prosmash will be launching in March 2026! Leave us a message if you want to receive updates about our opening day.",
             "discounts_link": ""
-          }
-        },
-        "discounts-2": {
-          "type": "discounts",
-          "settings": {
-            "discounts_text": "Limited Time Only",
-            "discounts_link": ""
-          }
-        },
-        "discounts-3": {
-          "type": "discounts",
-          "settings": {
-            "discounts_text": "Discover More",
-            "discounts_link": "https://themeforest.net/user/merkulove/portfolio?direction=desc&order_by=sortable_at&view=grid"
-          }
-        },
-        "work_time": {
-          "type": "work_time",
-          "settings": {
-            "work_time_text": "Mon-Fri 08:00 - 18:00"
           }
         }
       },
@@ -74,10 +54,7 @@
         "facebook",
         "tiktok",
         "whatsapp",
-        "discounts-1",
-        "discounts-2",
-        "discounts-3",
-        "work_time"
+        "discounts-1"
       ],
       "settings": {
         "menu": "",
