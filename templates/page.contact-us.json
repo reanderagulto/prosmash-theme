@@ -137,7 +137,7 @@
       "type": "prosmash-promo-banner",
       "name": "Promo Banner",
       "settings": {
-        "banner_bg": "shopify://shop_images/c31bcf66b0eb37852fce5649ea2e797a3c946fce.jpg"
+        "banner_bg": "shopify://shop_images/promo-banner.png"
       }
     },
     "prosmash_hot_products_WLVVVr": {
