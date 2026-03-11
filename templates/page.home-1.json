@@ -88,10 +88,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#000000",
-        "icon_color": "#F9F9F9",
-        "discount_color": "#F9F9F9",
-        "work_time_color": "#F9F9F9"
+        "bg_color": "#0B0A0A",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -307,7 +307,7 @@
       "type": "mdp-weare-collection-row-shop",
       "settings": {
         "selected_collection": "new-in-1",
-        "bg_color": "#000000",
+        "bg_color": "#0B0A0A",
         "color_text": "#ffffff",
         "name_collection": "New In /",
         "button_string": "Shop Now",
@@ -370,11 +370,7 @@
           }
         }
       },
-      "block_order": [
-        "image-1",
-        "image-2",
-        "product-1"
-      ],
+      "block_order": ["image-1", "image-2", "product-1"],
       "settings": {
         "title": "",
         "subtitle": "",
@@ -387,7 +383,7 @@
       "type": "mdp-weare-collection-row-shop",
       "settings": {
         "selected_collection": "styles-by-br-you",
-        "bg_color": "#ffffff",
+        "bg_color": "#0B0A0A",
         "color_text": "#343434",
         "name_collection": "Styles by you/",
         "button_string": "Shop Now",
@@ -420,10 +416,7 @@
           }
         }
       },
-      "block_order": [
-        "testimonial-1",
-        "testimonial-2"
-      ],
+      "block_order": ["testimonial-1", "testimonial-2"],
       "settings": {
         "title": "",
         "subtitle": "",
@@ -485,12 +478,7 @@
           }
         }
       },
-      "block_order": [
-        "about-us",
-        "quick-links",
-        "follow-us",
-        "subscribe"
-      ],
+      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,
@@ -516,3 +504,4 @@
     "footer-1"
   ]
 }
+

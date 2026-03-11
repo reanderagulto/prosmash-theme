@@ -88,10 +88,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#343434",
-        "icon_color": "#F9F9F9",
-        "discount_color": "#F9F9F9",
-        "work_time_color": "#F9F9F9"
+        "bg_color": "#0B0A0A",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -182,11 +182,7 @@
           }
         }
       },
-      "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3"
-      ],
+      "block_order": ["slide-1", "slide-2", "slide-3"],
       "settings": {
         "boxed": false,
         "margin_top": "0",
@@ -215,11 +211,7 @@
           }
         }
       },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3"
-      ],
+      "block_order": ["collection-1", "collection-2", "collection-3"],
       "settings": {
         "display_type": "selected",
         "sort": "alphabetical",
@@ -248,9 +240,7 @@
           }
         }
       },
-      "block_order": [
-        "product"
-      ],
+      "block_order": ["product"],
       "settings": {
         "title_promotwo": "",
         "subtitle_promotwo": "",
@@ -305,10 +295,7 @@
           }
         }
       },
-      "block_order": [
-        "slide-1",
-        "slide-2"
-      ],
+      "block_order": ["slide-1", "slide-2"],
       "settings": {
         "boxed": true,
         "margin_top": "0",
@@ -363,10 +350,7 @@
           }
         }
       },
-      "block_order": [
-        "product-1",
-        "product-2"
-      ],
+      "block_order": ["product-1", "product-2"],
       "settings": {
         "title": "",
         "subtitle": "",
@@ -408,12 +392,7 @@
           }
         }
       },
-      "block_order": [
-        "about-us",
-        "quick-links",
-        "follow-us",
-        "subscribe"
-      ],
+      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,

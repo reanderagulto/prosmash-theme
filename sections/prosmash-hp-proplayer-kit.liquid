@@ -10,12 +10,13 @@
       <h3>Pro Player Kits</h3>
       <p>Shop and complete the look of your favorite padel players.</p>
     </div>
+  </div>
+  <div class="mdp-container player-kit-cards-wrapper">
     <div class="player-kit-cards-container">
       {% for collection in section.settings.player_collections %}
         {% render 'pro-player-card', collection: collection %}
       {% endfor %}
     </div>
-
   </div>
 </section>
 
@@ -41,7 +42,8 @@
 
 <style>
   .prosmash-player-kit {
-    padding: 64px;
+    padding: 64px 0;
+    overflow: hidden;
   }
   .prosmash-player-kit .heading-container {
     display: flex;
@@ -69,6 +71,16 @@
     font-weight: 500;
 }
 
+.prosmash-player-kit .player-kit-cards-wrapper {
+  position: relative;
+  padding: 0 32px;  
+}
+
+.prosmash-player-kit .player-kit-cards-container.slick-slider {
+  position: initial;
+  margin-right: calc((100vw - 1312px) / -2);
+  margin-left: -0.25rem;
+}
 
 .prosmash-player-kit .slick-track {
   display: flex !important;
@@ -79,7 +91,7 @@
   overflow: hidden;
   flex-direction: column;
   height: auto;
-  margin: 0 32px;
+  margin: 0 6px;
 }
 .prosmash-player-kit .slick-list {
     margin-left: -32x;
@@ -101,11 +113,18 @@
     cursor: pointer;
 }
  .prosmash-player-kit .slick-next {
-    right: -10px;
+    right: 24px;
  }
  .prosmash-player-kit .slick-prev {
-    left: -10px;
+    left: 24px;
  }
+
+@media (max-width: 1199px) {
+  .prosmash-player-kit .player-kit-cards-container.slick-slider {
+    margin-left: -0.3rem;
+    margin-right: 0;
+  }
+} 
 @media (max-width: 767px) {
   .prosmash-player-kit {
     padding: 60px 15px;
@@ -113,9 +132,6 @@
   .prosmash-player-kit .player-card .card-featured-image {
         aspect-ratio: 1/1;
         text-align: center;
-  }
-  .prosmash-player-kit .slick-slide {
-    margin: 0 25px;
   }
   .prosmash-player-kit .player-card .card-featured-image img {
       margin: 0 auto;
@@ -132,6 +148,18 @@
   .card-featured-image {
     margin-top: 0;
   }
+
+  .prosmash-player-kit .player-kit-cards-wrapper {
+    padding: 0;
+  }
+
+  .prosmash-player-kit .slick-prev {
+    left: 10px;
+  }
+
+  .prosmash-player-kit .slick-next {
+    right: 10px;
+  }
 }
 </style>
 
@@ -139,7 +167,7 @@
   $(document).ready(function () { 
 
    $('.player-kit-cards-container').slick({
-      slidesToShow: 4,
+      slidesToShow: 5,
       slidesToScroll: 1,
       infinite: true,
       centerMode: true,
@@ -151,21 +179,15 @@
       nextArrow: '<button type="button" class="slick-next"><img src="{{ "btn-next.svg" | asset_url }}" alt="Next"></button>',
       responsive: [
         {
-          breakpoint: 1201,
+          breakpoint: 1199,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 991,
           settings: {
             slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 1025,
-          settings: {
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2
           }
         },
         {

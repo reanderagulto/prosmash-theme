@@ -67,7 +67,7 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#000000",
+        "bg_color": "#0B0A0A",
         "icon_color": "#ffffff",
         "discount_color": "#ffffff",
         "work_time_color": "#ffffff"
@@ -201,7 +201,7 @@
         "button_string": "Read More",
         "button_text_color": "#ffffff",
         "link": "#",
-        "bg_color": "#ffffff",
+        "bg_color": "#0B0A0A",
         "variant": "left_text",
         "text_align": "left",
         "padding_top": "",
@@ -252,7 +252,7 @@
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "image_size": "960x600_crop_center",
         "text_color": "#ffffff",
-        "bg_color": "#343434",
+        "bg_color": "#0B0A0A",
         "video_header": "New Fall Winter 2..022 Campaign",
         "video_view_more": "/View More Details",
         "view_more_link": "#",
@@ -380,3 +380,4 @@
     "footer-1"
   ]
 }
+

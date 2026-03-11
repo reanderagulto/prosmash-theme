@@ -88,10 +88,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#F5F5F5",
-        "icon_color": "#343434",
-        "discount_color": "#343434",
-        "work_time_color": "#343434"
+        "bg_color": "#0B0A0A",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -476,3 +476,4 @@
     "footer-1"
   ]
 }
+

@@ -67,7 +67,7 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#42662b",
+        "bg_color": "#0B0A0A",
         "icon_color": "#ffffff",
         "discount_color": "#ffffff",
         "work_time_color": "#ffffff"
@@ -314,3 +314,4 @@
     "footer-1"
   ]
 }
+

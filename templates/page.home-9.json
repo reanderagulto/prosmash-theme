@@ -88,10 +88,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#F9F5F2",
-        "icon_color": "#343434",
-        "discount_color": "#343434",
-        "work_time_color": "#343434"
+        "bg_color": "#0B0A0A",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -222,7 +222,7 @@
       "settings": {
         "image": "shopify://shop_images/home9-reformation-dunes-organic-cotton.png",
         "image_size": "2500x600_crop_center",
-        "bg_color": "#343434",
+        "bg_color": "#0B0A0A",
         "text_color": "#343434",
         "margin_top": "0",
         "margin_bottom": "0"
@@ -336,3 +336,4 @@
     "footer-1"
   ]
 }
+

@@ -88,10 +88,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#E8D0FF",
-        "icon_color": "#343434",
-        "discount_color": "#5838E9",
-        "work_time_color": "#343434"
+        "bg_color": "#0B0A0A",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -255,7 +255,7 @@
       "type": "mdp-weare-collection-row-shop",
       "settings": {
         "selected_collection": "styles-by-you-1",
-        "bg_color": "#E8D0FF",
+        "bg_color": "#0B0A0A",
         "color_text": "#343434",
         "print_price_row": false,
         "name_collection": "Styles by you/",
@@ -330,3 +330,4 @@
     "footer-1"
   ]
 }
+

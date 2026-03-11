@@ -88,10 +88,10 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#FFE8E8",
-        "icon_color": "#343434",
-        "discount_color": "#E9384F",
-        "work_time_color": "#343434"
+        "bg_color": "#0B0A0A",
+        "icon_color": "#ffffff",
+        "discount_color": "#ffffff",
+        "work_time_color": "#ffffff"
       }
     },
     "menu-1": {
@@ -229,12 +229,7 @@
           }
         }
       },
-      "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3",
-        "slide-4"
-      ],
+      "block_order": ["slide-1", "slide-2", "slide-3", "slide-4"],
       "settings": {
         "boxed": false,
         "text_collection": "New In /",
@@ -382,11 +377,7 @@
           }
         }
       },
-      "block_order": [
-        "list-item-1",
-        "list-item-2",
-        "list-item-3"
-      ],
+      "block_order": ["list-item-1", "list-item-2", "list-item-3"],
       "settings": {
         "col_per_row": 3,
         "gap": "30",
@@ -402,7 +393,7 @@
       "type": "mdp-weare-collection-row-shop",
       "settings": {
         "selected_collection": "styles-by-you",
-        "bg_color": "#F9F5F2",
+        "bg_color": "#0B0A0A",
         "name_collection": "Styles by you/",
         "button_string": "Shop Now",
         "number_of_products": 4,
@@ -448,12 +439,7 @@
           }
         }
       },
-      "block_order": [
-        "about-us",
-        "quick-links",
-        "follow-us",
-        "subscribe"
-      ],
+      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,
@@ -476,3 +462,4 @@
     "footer-1"
   ]
 }
+
