@@ -173,24 +173,38 @@
     {% endif %}
 
     <div class="mdp-col mdp-bottom">
-      <div class="mdp-credentials">
-        <span>
-          Copyright &copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: '/' }}
-        </span>
-        {% if section.settings.show_powered_by %}
-          | <span>Powered by <a href="https://www.shopify.com/?ref=azexo" target="_blank" rel="nofollow">Shopify</a></span>
+      <div class="mdp-col-left">
+        <div class="mdp-terms">
+          {% if section.settings.terms_of_service_url != blank %}
+            <a href="{{ section.settings.terms_of_service_url }}">Terms of Service</a>
+          {% endif %}
+          {% if section.settings.terms_of_service_url != blank and section.settings.privacy_policy_url != blank %}
+            <span class="mdp-terms-separator">|</span>
+          {% endif %}
+          {% if section.settings.privacy_policy_url != blank %}
+            <a href="{{ section.settings.privacy_policy_url }}">Privacy Policy</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="mdp-col-right">
+        <div class="mdp-credentials">
+          <span>
+            Copyright &copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: '/' }}
+          </span>
+          {% if section.settings.show_powered_by %}
+            <span>Powered by <a href="https://www.shopify.com/?ref=azexo" target="_blank" rel="nofollow">Shopify</a></span>
+          {% endif %}
+        </div>
+        {% if section.settings.show_payment_icons %}
+          <div class="mdp-payment-icons">
+            {% unless shop.enabled_payment_types == empty %}
+              {% for type in shop.enabled_payment_types %}
+                {{ type | payment_type_svg_tag: class: 'mdp-payment-icon' }}
+              {% endfor %}
+            {% endunless %}
+          </div>
         {% endif %}
       </div>
-
-      {% if section.settings.show_payment_icons %}
-        <div class="mdp-payment-icons">
-          {% unless shop.enabled_payment_types == empty %}
-            {% for type in shop.enabled_payment_types %}
-              {{ type | payment_type_svg_tag: class: 'mdp-payment-icon' }}
-            {% endfor %}
-          {% endunless %}
-        </div>
-      {% endif %}
     </div>
   </div>
 </div>
@@ -227,6 +241,20 @@
       "type": "text",
       "id": "margin_top",
       "label": "Margin top (px)"
+    },
+    {
+      "type": "header",
+      "content": "Legal pages"
+    },
+    {
+      "type": "url",
+      "id": "terms_of_service_url",
+      "label": "Terms of Service page"
+    },
+    {
+      "type": "url",
+      "id": "privacy_policy_url",
+      "label": "Privacy Policy page"
     }
   ],
   "blocks": [
@@ -344,13 +372,8 @@
         },
         {
           "type": "url",
-          "id": "youtobe_link",
-          "label": "Youtobe link"
-        },
-        {
-          "type": "url",
-          "id": "pinterest_link",
-          "label": "Pinterest link"
+          "id": "youtube_link",
+          "label": "Youtube link"
         },
         {
           "type": "url",

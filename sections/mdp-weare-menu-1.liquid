@@ -161,8 +161,10 @@
                                                     {% if block.type == "mobile_icons" %}
                                                         <span class="mdp-info">
                                                         <a href="{{ block.settings.social_link }}"
-                                                           class="mdp-social-link"><i
-                                                                    class="{{ block.settings.icon_class }}"></i></a>
+                                                          class="mdp-social-link"
+                                                        >
+                                                          <i class="{{ block.settings.icon_class }}"></i>
+                                                        </a>
                                                         </span>
                                                     {% endif %}
                                                 {% endfor %}

@@ -26,7 +26,7 @@
 }
 
 .bio-section .player-name {
-  color: var(--Primary-Black, #000);
+  color: var(--black);
   font-size: 40px;
   font-weight: 900;
   text-transform: uppercase;
@@ -111,7 +111,7 @@
   align-self: stretch;
 }
 #preferred-set-mount .section-title {
-  color: var(--Primary-Black, #000);
+  color: var(--black)
   font-family: Lexend;
   font-size: 16px;
   font-style: normal;

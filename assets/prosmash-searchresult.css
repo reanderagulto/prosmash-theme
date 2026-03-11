@@ -10,7 +10,7 @@
   .mdp-header
   .mdp-title {
   overflow: hidden;
-  color: #000;
+  color: var(--black);
   text-overflow: ellipsis;
   font-family: var(--font-body-family);
   font-size: 20px;
