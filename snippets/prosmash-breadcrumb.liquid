@@ -1,8 +1,14 @@
-<nav class="breadcrumb
-  {% if template.name contains 'product' %} breadcrumb-product{% endif %}
-  {% if template.name contains 'search' %} breadcrumb-search{% endif %}
-  "
-aria-label="breadcrumbs">
+{% assign template_class = '' %}
+
+{% if template.name contains 'product' %} 
+  {% assign template_class = 'breadcrumb-product' %}
+{% endif %}
+
+{% if template.name contains 'search' %} 
+  {% assign template_class = 'breadcrumb-search' %}
+{% endif %}
+
+<nav class="breadcrumb {{ template_class }}" aria-label="breadcrumbs">
 
   {%- comment -%} Determine separator per template {%- endcomment -%}
   {%- if template.name contains 'product' -%}
@@ -36,10 +42,11 @@ aria-label="breadcrumbs">
       <a href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
     {%- endif -%}
 
-    <span class="breadcrumb-separator" style="color: white">
+    <span class="breadcrumb-separator">
       <img src="{{ breadcrumb_separator }}" alt="Separator">
     </span>
-    <span style="color: white;border-bottom: 2px solid black; font-weight:600;">
+    
+    <span style="text-transform: capitalize; color: white;border-bottom: 2px solid black; font-weight:600;">
       {{ product.title }}
     </span>
 
@@ -80,7 +87,6 @@ aria-label="breadcrumbs">
       {{ page_title }}
     </span>
   {%- endif -%}
-
 </nav>
 
 <style>

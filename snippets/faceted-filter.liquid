@@ -75,11 +75,6 @@
   </form>
 </div>
 
-
-
-
-
-
 <script>
 ;(function ($, w, d) {
   const app = {
@@ -110,11 +105,14 @@
       const $btn   = $wrap.find('.filter-label');
       const $panel = $wrap.find('.filter-form-container');
       if (!$wrap.length || !$panel.length) return;
+      const $otherWrap = $('.sort-toggle-button');
 
       // open/close
       $btn.off('click.appToggle').on('click.appToggle', function (e) {
         e.preventDefault(); e.stopPropagation();
         const isOpen = !$panel.prop('hidden');
+        app.resetOpen($otherWrap, $otherWrap.find('.sort-label'), $otherWrap.find('.sort-form-container'));
+
         if (isOpen) {
           $panel.prop('hidden', true);
           $btn.attr('aria-expanded', 'false');
@@ -157,11 +155,13 @@
       const $btn   = $wrap.find('.sort-label');
       const $panel = $wrap.find('.sort-form-container');
       if (!$wrap.length || !$panel.length) return;
+      const $otherWrap  = $('.filter-toggle-button');
 
       // open/close
       $btn.off('click.sortToggle').on('click.sortToggle', function (e) {
         e.preventDefault(); e.stopPropagation();
         const isOpen = !$panel.prop('hidden');
+        app.resetOpen($otherWrap, $otherWrap.find('.filter-label'), $otherWrap.find('.filter-form-container'));
         if (isOpen) {
           $panel.prop('hidden', true);
           $btn.attr('aria-expanded', 'false');
@@ -233,6 +233,12 @@
       countEl.textContent = `(${count})`;
     },
 
+    resetOpen: function($otherWrap, $otherBtn, $otherPanel) {
+      $otherPanel.prop('hidden', true);
+      $otherBtn.attr('aria-expanded', 'false');
+      $otherWrap.removeClass('is-open');
+    },
+
     // ---------- Reset (Gender only) ----------
     resetFilter: function () {
       $('.filter-form-container')
@@ -274,9 +280,6 @@
 })(jQuery, window, document);
 </script>
 
-
-
-
 <style>
 /* ========== FILTERS & SORT (optimized) ========== */
 
@@ -311,9 +314,14 @@ button.sort-label {
   padding: 0;
 }
 
-.filter-label span:not(.filter-count-container),
-button.sort-label span:not(.filter-count-container) {
+.filter-label span,
+button.sort-label span {
   font-weight: 400;
+}
+
+.filter-label span.filter-count,
+button.sort-label span.sort-current {
+  font-weight: 600;
 }
 
 /* Filter count chip */

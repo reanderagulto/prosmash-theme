@@ -119,12 +119,11 @@
 }
 /* RATINGS */
 .static-product-review {
-    display: inline-block;
     margin: 40px 0px 0;
 }
 .static-product-review-title {
     color: var(--black)
-    font-family: var(--font-body-family);;
+    font-family: var(--font-body-family);
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -133,6 +132,7 @@
 } 
 .static-product-review .stars-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
 }
 .static-product-review .stars-container .stars {
@@ -153,6 +153,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    flex-grow: 1;
 }
 
 
@@ -171,18 +172,25 @@
 }
 .prosmash-three-col-option .mdp-col label {
     font-family: var(--font-body-family);
-    font-weight: 600;
     font-size: 16px;
-    line-height: 100%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     color: var(--black);
     margin-bottom: 16px;
 }
 .prosmash-three-col-option .mdp-col > div {
+    font-size: 24px;
     font-family: var(--font-body-family);
     font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
+    line-height: 1;
     color: var(--text);
+    width: 100%;
+    outline: none;
+    text-align: center;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 .prosmash-three-col-option .mdp-quantity-wrapper {
     display: flex;
@@ -391,9 +399,8 @@
     cursor: pointer;
     font-weight: 700;
 }
-.delivery-notice .accordion-item .accordion-content {
-    color: #5B5B5B;
-    font-family: var(--font-body-family);;
+.delivery-notice .accordion-item .accordion-content {    
+    font-family: var(--font-body-family);
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -408,15 +415,29 @@
   height: 24px;
   transition: transform 0.5s;
 }
+
 .delivery-notice .accordion-content,
 .delivery-notice .accordion-content p {
-    color: #5B5B5B;
-    font-family: var(--font-body-family);;
+    font-family: var(--font-body-family);
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: normal;
     margin: 0;
+}
+
+.delivery-notice .accordion-content,
+.delivery-notice .accordion-content h1, 
+.delivery-notice .accordion-content h2, 
+.delivery-notice .accordion-content h3,
+.delivery-notice .accordion-content h4, 
+.delivery-notice .accordion-content h4, 
+.delivery-notice .accordion-content h6 {
+  color: var(--black);
+}
+
+.delivery-notice .accordion-content p {
+  color: var(--text);
 }
 
 .prod-details-table > div {
