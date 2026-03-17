@@ -194,6 +194,17 @@ p {
   display: none;
 }
 
+/* Newsletter form validation */
+.mdp-signup-form input[type="email"].invalid {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+
+.mdp-signup-form input[type="email"]:focus.invalid {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
 .divider {
   content: '';
   display: block;

@@ -18,17 +18,13 @@ $(document).on(
 // Generic wishlist button listener
 $(document).on("click", function (event) {
   const target = event.target;
-  const button = $(target).closest("button, div")[0];
+  const button = $(target).closest(".mdp-add-to-wishlist")[0];
 
-  if (
-    button &&
-    button.innerText &&
-    button.innerText.includes("ADD TO WISHLIST")
-  ) {
+  if (button) {
     console.log("Wishlist button clicked!");
 
-    // Get product handle from URL
-    const productHandle = window.location.pathname.split("/")[2];
+    // Get product handle from data attribute
+    const productHandle = $(button).data("product-handle");
     let wishlist = JSON.parse(localStorage.getItem("mdp-wishlist") || "{}");
 
     if (productHandle in wishlist) {
@@ -66,10 +62,6 @@ $(document).ready(function () {
   const wishlist = JSON.parse(localStorage.getItem("mdp-wishlist") || "{}");
 
   if (productHandle in wishlist) {
-    $("*")
-      .filter(function () {
-        return $(this).text().includes("ADD TO WISHLIST");
-      })
-      .addClass("mdp-added");
+    $(".mdp-add-to-wishlist").addClass("mdp-added");
   }
 });

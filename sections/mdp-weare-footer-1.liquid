@@ -27,7 +27,14 @@
                     <input type="hidden" name="contact[tags]" value="newsletter" />
 
                     <div class="mdp-row">
-                      <input type="email" placeholder="Subscribe by email" name="contact[email]" />
+                      <input 
+                        type="email" 
+                        placeholder="Subscribe by email" 
+                        name="contact[email]" 
+                        required 
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                        title="Please enter a valid email address"
+                      />
                       <button
                         type="submit"
                         class="mdp-submit btn primary"
@@ -37,6 +44,60 @@
                     </div>
                   {% endform %}
                 </div>
+
+                <script>
+                  // Newsletter form validation
+                  document.addEventListener('DOMContentLoaded', function() {
+                    const newsletterForm = document.querySelector('.mdp-signup-form form');
+                    if (newsletterForm) {
+                      newsletterForm.addEventListener('submit', function(e) {
+                        const emailInput = newsletterForm.querySelector('input[type="email"]');
+                        if (!emailInput.validity.valid) {
+                          e.preventDefault();
+                          emailInput.classList.add('invalid');
+                          // Show error message
+                          let errorText = 'Please enter a valid email address';
+                          if (emailInput.validity.valueMissing) {
+                            errorText = 'Email address is required';
+                          }
+                          // Remove existing error message
+                          const existingError = newsletterForm.querySelector('.mdp-error');
+                          if (existingError) {
+                            existingError.remove();
+                          }
+                          // Create and append new error message
+                          const errorDiv = document.createElement('div');
+                          errorDiv.className = 'mdp-error';
+                          errorDiv.style.color = 'red';
+                          errorDiv.style.fontSize = '14px';
+                          errorDiv.style.marginTop = '8px';
+                          errorDiv.textContent = errorText;
+                          emailInput.parentNode.appendChild(errorDiv);
+                        } else {
+                          emailInput.classList.remove('invalid');
+                          const existingError = newsletterForm.querySelector('.mdp-error');
+                          if (existingError) {
+                            existingError.remove();
+                          }
+                        }
+                      });
+
+                      // Remove error class when user starts typing
+                      const emailInput = newsletterForm.querySelector('input[type="email"]');
+                      if (emailInput) {
+                        emailInput.addEventListener('input', function() {
+                          if (emailInput.validity.valid) {
+                            emailInput.classList.remove('invalid');
+                            const existingError = newsletterForm.querySelector('.mdp-error');
+                            if (existingError) {
+                              existingError.remove();
+                            }
+                          }
+                        });
+                      }
+                    }
+                  });
+                </script>
 
               {% when 'text' %}
                 {% if block.settings.image != blank %}
