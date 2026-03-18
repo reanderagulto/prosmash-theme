@@ -291,7 +291,12 @@
             }
           }
         },
-        "block_order": ["list-1", "list-2", "list-3", "list-4"],
+        "block_order": [
+          "list-1",
+          "list-2",
+          "list-3",
+          "list-4"
+        ],
         "settings": {
           "title": "Need help? <br> ..",
           "subtitle": "",
@@ -459,8 +464,6 @@
               "facebook_link": "#",
               "twitter_link": "#",
               "instagram_link": "#",
-              "youtobe_link": "",
-              "pinterest_link": "#",
               "linkedin_link": ""
             }
           },
@@ -473,7 +476,12 @@
             }
           }
         },
-        "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+        "block_order": [
+          "about-us",
+          "quick-links",
+          "follow-us",
+          "subscribe"
+        ],
         "settings": {
           "show_payment_icons": true,
           "show_powered_by": true,
@@ -549,6 +557,13 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   }
 }
