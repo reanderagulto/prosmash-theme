@@ -340,24 +340,62 @@
     color: var(--black);
 
 }
-/* TRUSTPILOT */
-.trustpilot-box {
-    /* margin-top: 39px; */
-    margin: 39px 0 0 60px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+/* JudgeMe Review */
+.mdp-product-review label.jdgm-visually-hidden {
+  display: none;
 }
-.trustpilot-box .trust-pilot-title {
-    color: var(--black)
-    font-family: var(--font-body-family);;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
+
+.mdp-product-review .jm-review-widget-header__summary-section.jm-review-widget-header__summary-section p.jm-text {
+    color: var(--black);    
+}
+
+.mdp-product-review .jm-review-item {
+    padding-bottom: 0;
+    border-bottom: 1px solid #949494;
+}
+
+.mdp-product-review .jm-review-widget-header__summary-section.jm-review-widget-header__summary-section p.jm-text:first-of-type {
+    font-size: 32px;
     line-height: normal;
 }
 
+.mdp-product-review .jm-review-body-wrapper .jdgm-review-content__body-content p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mdp-product-review .jm-reviewer-info {
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.mdp-product-review .jm-reviewer-info__details .jm-reviewer-info__name {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: var(--black);
+}
+
+.mdp-product-review .jm-reviewer-info__details .jm-cluster:last-of-type {
+    margin-top: 0;
+}
+
+.mdp-product-review .jm-reviewer-info__details .jm-cluster:last-of-type .jm-text {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 5px;
+}
+
+.mdp-product-review .jm-media-thumbnail-list__thumbnail {
+    border-radius: 0;
+    border: 1px solid #949494;
+}
+/* END OF JUDGEME REVIEW */
 
 /* SOLD OUT AND PRE-ORDER*/
 .mdp-sold-out,
