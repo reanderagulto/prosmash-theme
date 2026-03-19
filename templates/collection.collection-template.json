@@ -218,8 +218,6 @@
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "youtobe_link": "",
-            "pinterest_link": "#",
             "linkedin_link": ""
           }
         },
@@ -232,7 +230,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,

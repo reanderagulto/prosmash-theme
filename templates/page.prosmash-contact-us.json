@@ -178,7 +178,11 @@
           }
         }
       },
-      "block_order": ["list-item-1", "list-item-2", "list-item-3"],
+      "block_order": [
+        "list-item-1",
+        "list-item-2",
+        "list-item-3"
+      ],
       "settings": {
         "col_per_row": 3,
         "gap": "30",
@@ -209,7 +213,10 @@
           }
         }
       },
-      "block_order": ["collection-1", "collection-2"],
+      "block_order": [
+        "collection-1",
+        "collection-2"
+      ],
       "settings": {
         "display_type": "selected",
         "sort": "alphabetical",
@@ -243,7 +250,10 @@
           }
         }
       },
-      "block_order": ["testimonial-1", "testimonial-2"],
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2"
+      ],
       "settings": {
         "title": "Testimonials/",
         "col_per_row": 2,
@@ -281,8 +291,6 @@
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "youtobe_link": "",
-            "pinterest_link": "#",
             "linkedin_link": ""
           }
         },
@@ -295,7 +303,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,

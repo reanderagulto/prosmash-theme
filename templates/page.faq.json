@@ -272,7 +272,12 @@
           }
         }
       },
-      "block_order": ["list-1", "list-2", "list-3", "list-4"],
+      "block_order": [
+        "list-1",
+        "list-2",
+        "list-3",
+        "list-4"
+      ],
       "settings": {
         "title": "Need help? <br> ..",
         "subtitle": "",
@@ -381,7 +386,11 @@
           }
         }
       },
-      "block_order": ["list-1", "list-2", "list-3"],
+      "block_order": [
+        "list-1",
+        "list-2",
+        "list-3"
+      ],
       "settings": {
         "col_per_row": 3,
         "gap": "30",
@@ -411,8 +420,7 @@
           "settings": {
             "facebook_link": "#",
             "twitter_link": "#",
-            "instagram_link": "#",
-            "pinterest_link": "#"
+            "instagram_link": "#"
           }
         },
         "subscribe": {
@@ -423,7 +431,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,

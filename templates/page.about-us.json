@@ -192,7 +192,12 @@
           }
         }
       },
-      "block_order": ["list-1", "list-2", "list-3", "list-4"],
+      "block_order": [
+        "list-1",
+        "list-2",
+        "list-3",
+        "list-4"
+      ],
       "settings": {
         "title": "We focus on brands that tell a strong story through their products",
         "subtitle": "Our Mission",
@@ -238,7 +243,12 @@
           }
         }
       },
-      "block_order": ["logo-1", "logo-2", "logo-3", "logo-4"],
+      "block_order": [
+        "logo-1",
+        "logo-2",
+        "logo-3",
+        "logo-4"
+      ],
       "settings": {
         "boxed": true,
         "image_size": "200x90",
@@ -303,7 +313,10 @@
           }
         }
       },
-      "block_order": ["testimonial-1", "testimonial-2"],
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2"
+      ],
       "settings": {
         "title": "",
         "subtitle": "",
@@ -343,8 +356,6 @@
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
-            "youtobe_link": "",
-            "pinterest_link": "#",
             "linkedin_link": ""
           }
         },
@@ -357,7 +368,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,

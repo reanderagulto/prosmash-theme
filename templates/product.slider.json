@@ -216,8 +216,7 @@
           "settings": {
             "facebook_link": "#",
             "twitter_link": "#",
-            "instagram_link": "#",
-            "pinterest_link": "#"
+            "instagram_link": "#"
           }
         },
         "subscribe": {
@@ -228,7 +227,12 @@
           }
         }
       },
-      "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
+      "block_order": [
+        "about-us",
+        "quick-links",
+        "follow-us",
+        "subscribe"
+      ],
       "settings": {
         "show_payment_icons": true,
         "show_powered_by": true,
@@ -239,5 +243,12 @@
       }
     }
   },
-  "order": ["menu-2", "menu-1", "breadcrumbs", "product", "hero", "footer-1"]
+  "order": [
+    "menu-2",
+    "menu-1",
+    "breadcrumbs",
+    "product",
+    "hero",
+    "footer-1"
+  ]
 }
