@@ -341,6 +341,26 @@
 
 }
 /* JudgeMe Review */
+.template-product textarea.jdgm-write-review-modal__field-input {
+  width: unset !important;
+}
+.template-product .jdgm-write-review-modal .jdgm-write-review-modal__field-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.template-product .jdgm-write-review-modal .jdgm-write-review-modal__page--review-details .jdgm-write-review-modal__field-group--stars {
+  justify-content: center;
+}
+
+.template-product .jdgm-write-review-modal .jdgm-write-review-modal__product-image img {
+  object-fit: contain;
+}
+
+.mdp-product-review .jdgm-widget.jdgm-widget {
+  position: relative;
+  z-index: 99;
+}
 .mdp-product-review label.jdgm-visually-hidden {
   display: none;
 }
@@ -603,6 +623,28 @@
     .prosmash-two-col-buttons .mdp-add-to-wishlist {
         max-width: 100%;
     } */
+
+    .template-product .jdgm-write-review-modal .jdgm-write-review-modal__content {
+      padding: 64px 32px;
+    }
+
+    .template-product .jdgm-write-review-modal .jdgm-write-review-modal__sections {
+      padding-block: 32px;
+    }
+
+    .template-product .jdgm-write-review-modal .jdgm-write-review-modal__form, 
+    .template-product .jdgm-write-review-modal .jdgm-write-review-modal__form--thank-you {
+      justify-content: unset;
+    }
+
+    .template-product .jdgm-write-review-modal .jdgm-write-review-modal__page {
+      gap: 32px;
+    }
+
+    .template-product .jdgm-write-review-modal .jdgm-write-review-modal__close-btn {
+      top: 74px;
+      right: 10px;
+    }
 }
 @media (max-width: 480px) {
     .mdp-weare-single-product>.mdp-product>.mdp-data .mdp-buttons .mdp-add-to-cart.mdp-preorder-button,
