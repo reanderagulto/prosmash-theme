@@ -46,24 +46,30 @@
                 </div>
 
                 <script>
-                  // Newsletter form validation
+                  // Newsletter form validation and submission
                   document.addEventListener('DOMContentLoaded', function() {
                     const newsletterForm = document.querySelector('.mdp-signup-form form');
                     if (newsletterForm) {
                       newsletterForm.addEventListener('submit', function(e) {
+                        e.preventDefault(); // Prevent default form submission
+                        
                         const emailInput = newsletterForm.querySelector('input[type="email"]');
+                        
                         if (!emailInput.validity.valid) {
-                          e.preventDefault();
                           emailInput.classList.add('invalid');
                           // Show error message
                           let errorText = 'Please enter a valid email address';
                           if (emailInput.validity.valueMissing) {
                             errorText = 'Email address is required';
                           }
-                          // Remove existing error message
+                          // Remove existing error and success messages
                           const existingError = newsletterForm.querySelector('.mdp-error');
                           if (existingError) {
                             existingError.remove();
+                          }
+                          const existingSuccess = newsletterForm.querySelector('.mdp-success');
+                          if (existingSuccess) {
+                            existingSuccess.remove();
                           }
                           // Create and append new error message
                           const errorDiv = document.createElement('div');
@@ -75,10 +81,39 @@
                           emailInput.parentNode.appendChild(errorDiv);
                         } else {
                           emailInput.classList.remove('invalid');
+                          // Remove existing error message
                           const existingError = newsletterForm.querySelector('.mdp-error');
                           if (existingError) {
                             existingError.remove();
                           }
+                          
+                          // Show loading state
+                          const submitButton = newsletterForm.querySelector('button[type="submit"]');
+                          const originalButtonText = submitButton.textContent;
+                          submitButton.textContent = 'Subscribing...';
+                          submitButton.disabled = true;
+                          
+                          // Simulate form submission (replace with actual AJAX call if needed)
+                          setTimeout(function() {
+                            // Show success message
+                            const successDiv = document.createElement('div');
+                            successDiv.className = 'mdp-success';
+                            successDiv.style.color = 'green';
+                            successDiv.style.fontSize = '14px';
+                            successDiv.style.marginTop = '8px';
+                            successDiv.textContent = 'Thank you for subscribing!';
+                            emailInput.parentNode.appendChild(successDiv);
+                            
+                            // Clear form and reset button
+                            emailInput.value = '';
+                            submitButton.textContent = originalButtonText;
+                            submitButton.disabled = false;
+                            
+                            // Hide success message after 5 seconds
+                            setTimeout(function() {
+                              successDiv.remove();
+                            }, 5000);
+                          }, 1000);
                         }
                       });
 

@@ -233,10 +233,11 @@
         "show_payment_icons": true,
         "show_powered_by": true,
         "show_border": true,
-        "margin_top": "0"
+        "margin_top": "0",
+        "terms_of_service_url": "#",
+        "privacy_policy_url": "#"
       }
     }
   },
   "order": ["menu-2", "menu-1", "breadcrumbs", "product", "hero", "footer-1"]
 }
-

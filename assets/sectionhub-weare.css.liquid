@@ -3576,13 +3576,13 @@ a.mdp-weare-product-mini-card:hover .mdp-add-to-cart-section {
   content: none;
 }
 .mdp-cart-popup .mdp-cart-remove, .mdp-cart-popup .mdp-cart-update-control-remove {
-  font-family: var(--font-body-family);
-  font-style: normal;
-  font-weight: bold;
+  font-family: var(--font-body-family);  
+  font-weight: 600;
   font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.327273px;
-  text-transform: uppercase;
+  line-height: normal;
+}
+.mdp-cart-popup .mdp-cart-remove a,
+.mdp-cart-popup .mdp-cart-update-control-remove a {
   color: #E9384F;
 }
 .mdp-cart-popup .mdp-cart-no-cookies .mdp-cart-continue-btn {
@@ -3748,6 +3748,20 @@ a.mdp-weare-product-mini-card:hover .mdp-add-to-cart-section {
 }
 .mdp-giftcard .mdp-wrapper .mdp-action-list .mdp-item button::before {
   content: none;
+}
+
+.mdp-cart-empty-message--wrapper {
+  margin: 64px auto;
+}
+
+.mdp-cart-empty-message--wrapper .mdp-cart-empty-message  {
+  margin-bottom: 24px;
+}
+
+.mdp-cart-empty-message--wrapper .cta-btn {
+  text-align: center;
+  margin-inline: auto;
+  width: max-content;
 }
 
 @keyframes mdp_pulse {

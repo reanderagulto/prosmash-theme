@@ -76,7 +76,7 @@
                   {{ item.selling_plan_allocation.selling_plan.name }}
                 </div>
                 {% endif %}              
-                <div class="mdp-cart-remove mdp-small-hide">
+                <div class="mdp-cart-remove">
                   <a 
                     href="/cart/change?line={{ forloop.index }}&quantity=0" 
                     class="" 
@@ -384,19 +384,18 @@
       </div>
     </form>
     {% else %}
-    <div class="">
+    <div class="mdp-cart-empty-message--wrapper">
       <p class="mdp-cart-empty-message">{{ 'cart.general.empty' | t }}</p>
       <div class="mdp-cookie-message" style="display: none">
         <p>{{ 'cart.general.cookies_required' | t }}</p>
       </div>
-      <a 
-        href="/" class="mdp-btn mdp-cart-continue-btn"
-      >
-        {{ 'general.404.link' | t }}
-        <span class="mdp-icon">
-          {% render 'mdp-weare-icon' with '007' %}
-        </span>
-      </a>
+      <div class="cta-btn">
+        <a 
+          href="/" class="mdp-btn"
+        >
+          {{ 'general.404.link' | t }}
+        </a>
+      </div>
     </div>
     {% endif %}
   </div>
