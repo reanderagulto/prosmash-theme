@@ -416,7 +416,7 @@
           {% assign wishlist_class = 'bordered-black' %}
           {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
             <button type="submit" 
-              class="mdp-preorder-button mdp-add-to-cart mdp-available btn bordered-black"
+              class="mdp-preorder-button mdp-add-to-cart mdp-available pre-order btn bordered-black"
               data-product-id="{{ variant.id }}"
               data-quantity="1"
             >
