@@ -8,6 +8,7 @@ if ("undefined" == typeof jQuery) {
   headTag.appendChild(scriptTag);
 } else {
   sectionhub_init();
+  wishlist();
 }
 
 function sectionhub_init() {
@@ -9097,11 +9098,68 @@ function sectionhub_init() {
       //         });
       //     }
       // });
+      function mdpGetCustomerIdFromEl($el) {
+        var id = $el && $el.attr ? $el.attr("data-customer-id") : null;
+        if (!id) return null;
+        id = String(id).trim();
+        if (!id) return null;
+        return id;
+      }
+
+      function mdpWishlistTempKey() {
+        return "mdp-wishlist-temp";
+      }
+
+      function mdpWishlistKeyForCustomerId(customerId) {
+        if (!customerId) return mdpWishlistTempKey();
+        return "mdp-wishlist-customer-" + customerId;
+      }
+
+      function mdpReadWishlist(key) {
+        try {
+          return JSON.parse(localStorage.getItem(key) || "{}") || {};
+        } catch (e) {
+          return {};
+        }
+      }
+
+      function mdpWriteWishlist(key, wishlist) {
+        localStorage.setItem(key, JSON.stringify(wishlist || {}));
+      }
+
+      function mdpMergeWishlist(intoKey, fromKey) {
+        var from = mdpReadWishlist(fromKey);
+        var into = mdpReadWishlist(intoKey);
+        var merged = $.extend({}, into, from);
+        mdpWriteWishlist(intoKey, merged);
+        localStorage.removeItem(fromKey);
+        return merged;
+      }
+
+      function mdpEnsureWishlistSyncedForLoggedIn(customerId) {
+        if (!customerId) return;
+        mdpMergeWishlist(
+          mdpWishlistKeyForCustomerId(customerId),
+          mdpWishlistTempKey(),
+        );
+      }
+
+      function mdpResolveWishlistKey($scope) {
+        var $el =
+          $scope && $scope.find
+            ? $scope.find(".mdp-add-to-wishlist").first()
+            : null;
+        var customerId = $el && $el.length ? mdpGetCustomerIdFromEl($el) : null;
+        if (customerId) mdpEnsureWishlistSyncedForLoggedIn(customerId);
+        return mdpWishlistKeyForCustomerId(customerId);
+      }
+
       $wrapper.find(".mdp-wishlist").each(function () {
         var $this = $(this);
-        var wishlist = JSON.parse(localStorage.getItem("mdp-wishlist") || "{}");
+        var storageKey = mdpResolveWishlistKey($wrapper);
+        var wishlist = mdpReadWishlist(storageKey);
 
-        $this.empty(); // clear any existing content
+        $this.empty();
 
         Object.keys(wishlist).forEach(function (handle) {
           $.get(
@@ -9121,20 +9179,14 @@ function sectionhub_init() {
 
       $wrapper.find(".mdp-add-to-wishlist").each(function () {
         var $this = $(this);
-        var wishlist = localStorage.getItem("mdp-wishlist");
-        wishlist = JSON.parse(wishlist);
-        if (!wishlist) {
-          wishlist = {};
-        }
+        var storageKey = mdpResolveWishlistKey($wrapper);
+        var wishlist = mdpReadWishlist(storageKey);
         if ($this.attr("data-product-handle") in wishlist) {
           $this.addClass("mdp-added");
         }
         $this.off("click").on("click", function () {
-          var wishlist = localStorage.getItem("mdp-wishlist");
-          wishlist = JSON.parse(wishlist);
-          if (!wishlist) {
-            wishlist = {};
-          }
+          var storageKey = mdpResolveWishlistKey($wrapper);
+          var wishlist = mdpReadWishlist(storageKey);
           if ($this.attr("data-product-handle") in wishlist) {
             delete wishlist[$this.attr("data-product-handle")];
             $this.removeClass("mdp-added");
@@ -9157,7 +9209,7 @@ function sectionhub_init() {
                 $(this).remove();
               });
           }
-          localStorage.setItem("mdp-wishlist", JSON.stringify(wishlist));
+          mdpWriteWishlist(storageKey, wishlist);
         });
       });
 
@@ -10958,4 +11010,71 @@ function sectionhub_init() {
   };
 
   loadProductRecommendationsIntoSection();
+}
+
+function wishlist() {
+  function toggleWishlist(element) {
+    const productHandle = element.dataset.productHandle;
+    const customerId = element.dataset.customerId;
+    const storageKey = customerId
+      ? `mdp-wishlist-customer-${customerId}`
+      : "mdp-wishlist-temp";
+
+    let wishlist = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+    if (productHandle in wishlist) {
+      delete wishlist[productHandle];
+      element.classList.remove("mdp-added");
+    } else {
+      wishlist[productHandle] = "added";
+      element.classList.add("mdp-added");
+
+      // Show popup
+      const existingPopup = document.getElementById("wishlist-popup");
+      if (existingPopup) existingPopup.remove();
+      const popup = document.createElement("div");
+      popup.id = "wishlist-popup";
+      popup.className = "wishlist-popup";
+      popup.textContent = "Product added to wishlist!";
+      document.body.appendChild(popup);
+      popup.style.position = "fixed";
+      popup.style.top = "20px";
+      popup.style.right = "20px";
+      popup.style.backgroundColor = "#4CAF50";
+      popup.style.color = "white";
+      popup.style.padding = "16px";
+      popup.style.borderRadius = "4px";
+      popup.style.zIndex = "1000";
+      popup.style.opacity = "0";
+      popup.style.transition = "opacity 0.3s";
+
+      setTimeout(() => {
+        popup.style.opacity = "1";
+        setTimeout(() => {
+          popup.style.opacity = "0";
+          setTimeout(() => {
+            popup.remove();
+          }, 300);
+        }, 2000);
+      }, 10);
+    }
+
+    localStorage.setItem(storageKey, JSON.stringify(wishlist));
+  }
+
+  // Initialize wishlist button state on page load
+  document.addEventListener("DOMContentLoaded", function () {
+    const allWishlistBtns = document.querySelectorAll(".mdp-add-to-wishlist");
+    allWishlistBtns.forEach((btn) => {
+      const productHandle = btn.dataset.productHandle;
+      const customerId = btn.dataset.customerId;
+      const storageKey = customerId
+        ? `mdp-wishlist-customer-${customerId}`
+        : "mdp-wishlist-temp";
+      const wishlist = JSON.parse(localStorage.getItem(storageKey) || "{}");
+      if (productHandle in wishlist) {
+        btn.classList.add("mdp-added");
+      }
+    });
+  });
 }

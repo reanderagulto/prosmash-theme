@@ -131,16 +131,6 @@
              data-add-to-cart="{{ add_cart_string }}" 
              data-sold-out="{{ sold_out_string }}">{% if product.available %}{{ add_cart_string }} <i class="fas fa-shopping-bag" style="margin-left: 10px; margin-bottom: 2px;"></i> {% else %}{{ sold_out_string }}{% endif %}</div>
       {% endif %}      
-      <div class="mdp-add-to-wishlist" data-product-handle="{{ product.handle }}">
-        <span class="mdp-add">
-          <i class="far fa-heart"></i>
-        </span>
-        <span class="mdp-adding">
-        </span>
-        <span class="mdp-added">
-          <i class="fas fa-heart"></i>
-        </span>
-      </div>  
     </div>  
   </div>
   {% endif %}

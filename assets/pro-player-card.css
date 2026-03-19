@@ -16,6 +16,7 @@ a {
 .player-card {
   height: 100%;
   padding: 0 6px !important;
+  width: 300px;
 }
 .player-card .card-content .player-title {
   color: var(--white);

@@ -44,6 +44,10 @@
     width: 100%;
     margin: 0 auto;
   }
+  .filter-section {
+    position: relative;
+    z-index: 10;
+  }
   .filter-section .custom-container {
     display: flex;
     justify-content: space-between;
@@ -180,6 +184,71 @@
     }
 
     bindLoadMore(); // bind on initial load
+
+    // Initialize wishlist functionality
+    function getStorageKey() {
+      const firstWishlistBtn = document.querySelector('.mdp-add-to-wishlist');
+      const customerId = firstWishlistBtn ? firstWishlistBtn.dataset.customerId : null;
+      return customerId ? `mdp-wishlist-customer-${customerId}` : 'mdp-wishlist-temp';
+    }
+
+    const storageKey = getStorageKey();
+    const wishlist = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    document.querySelectorAll('.mdp-add-to-wishlist').forEach(btn => {
+      const handle = btn.dataset.productHandle;
+      if (handle in wishlist) {
+        btn.classList.add('mdp-added');
+      }
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productHandle = this.dataset.productHandle;
+        if (!productHandle) return;
+
+        const currentStorageKey = getStorageKey();
+        const currentWishlist = JSON.parse(localStorage.getItem(currentStorageKey) || '{}');
+        if (productHandle in currentWishlist) {
+          delete currentWishlist[productHandle];
+          this.classList.remove('mdp-added');
+        } else {
+          currentWishlist[productHandle] = 'added';
+          this.classList.add('mdp-added');
+          // Show popup
+          const existingPopup = document.getElementById('wishlist-popup');
+          if (existingPopup) existingPopup.remove();
+          const popup = document.createElement('div');
+          popup.id = 'wishlist-popup';
+          popup.className = 'wishlist-popup';
+          popup.textContent = 'Product added to wishlist!';
+          document.body.appendChild(popup);
+          popup.style.display = 'none';
+          popup.style.position = 'fixed';
+          popup.style.top = '20px';
+          popup.style.right = '20px';
+          popup.style.backgroundColor = '#4CAF50';
+          popup.style.color = 'white';
+          popup.style.padding = '16px';
+          popup.style.borderRadius = '4px';
+          popup.style.zIndex = '1000';
+          popup.style.opacity = '0';
+          popup.style.transition = 'opacity 0.3s';
+          // Fade in
+          setTimeout(() => {
+            popup.style.display = 'block';
+            setTimeout(() => {
+              popup.style.opacity = '1';
+            }, 10);
+          }, 10);
+          // Fade out
+          setTimeout(() => {
+            popup.style.opacity = '0';
+            setTimeout(() => {
+              popup.remove();
+            }, 300);
+          }, 2000);
+        }
+        localStorage.setItem(currentStorageKey, JSON.stringify(currentWishlist));
+      });
+    });
   });
 </script>
 

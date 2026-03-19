@@ -329,12 +329,20 @@
 .mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist.mdp-added .mdp-added {
   display: inline;
 }
-.mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist:not(.mdp-added) .mdp-add {
+.mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist:not(.mdp-added) .mdp-add, 
+.mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist.mdp-added .mdp-added {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
   line-height: 100%;
+}
+.mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist.mdp-added {
+  pointer-events: none;
+}
+
+.mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist.mdp-added .mdp-added {
+  font-size: 18px;
 }
 .mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist .mdp-add,
 .mdp-weare-single-product > .mdp-product > .mdp-data .mdp-buttons .mdp-add-to-wishlist .mdp-added {

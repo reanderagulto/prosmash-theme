@@ -63,6 +63,14 @@
   overflow: visible !important;
 }
 
+.player-kit-cards-container:not(.slick-initialized) {
+  opacity: 0;
+}
+
+.player-kit-cards-container.slick-initialized {
+  opacity: 1;
+}
+
 /* ========== NAVIGATION BUTTONS ========== */
 .nav-buttons {
   display: flex;

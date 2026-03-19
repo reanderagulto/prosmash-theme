@@ -76,11 +76,23 @@
   padding: 0 32px;  
 }
 
-.prosmash-player-kit .player-kit-cards-container.slick-slider {
+.prosmash-player-kit .player-kit-cards-container {
   position: initial;
   margin-right: calc((100vw - 1312px) / -2);
-  margin-left: -0.25rem;
+  margin-left: -0.25rem;  
 }
+
+.prosmash-player-kit .player-kit-cards-container:not(.slick-initialized) .player-card {
+  width: calc(100% / 5);
+}
+
+.prosmash-player-kit .player-kit-cards-container:not(.slick-initialized) {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  min-width: 5000px;
+}
+
 
 .prosmash-player-kit .slick-track {
   display: flex !important;
@@ -120,7 +132,7 @@
  }
 
 @media (max-width: 1199px) {
-  .prosmash-player-kit .player-kit-cards-container.slick-slider {
+  .prosmash-player-kit .player-kit-cards-container {
     margin-left: -0.3rem;
     margin-right: 0;
   }

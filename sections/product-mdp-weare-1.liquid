@@ -11,7 +11,7 @@
 {% assign btn_color = section.settings.button_text_color %}
 
 <script>
-  if (!('mdp' in window)) {
+  if (!('mdp' in window)) { 
     window.mdp = {};
   }
   window.mdp.money_format = '{{ shop.money_format }}';
@@ -138,6 +138,9 @@
     <script type="application/json" class="mdp-product-json">
       {{ current_product | json }}
     </script>
+    {% comment %}
+      Debug wishlist logging removed.
+    {% endcomment %}
   </div>
 </div>
 
