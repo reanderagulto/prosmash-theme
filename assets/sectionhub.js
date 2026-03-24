@@ -8785,9 +8785,23 @@ function sectionhub_init() {
           $overlay.addClass("mdp-active");
           $wrapper.find(".mdp-cart-remove a").on("click", function () {
             var $this = $(this);
+            var quantity = parseInt($this.attr("data-quantity"), 10) || 1;
             $wrapper.addClass("mdp-loading");
             $.get($this.attr("href"), function (data) {
-              update_cart_popup();
+              // Check if we're on the cart page
+              if (
+                window.location.pathname === "/cart" ||
+                window.location.pathname === "/cart/"
+              ) {
+                window.location.reload();
+              } else {
+                // Update the cart count in header
+                var count =
+                  parseInt($(".mdp-cart-count").text(), 10) - quantity;
+                if (count < 0) count = 0;
+                $(".mdp-cart-count").text(count);
+                update_cart_popup();
+              }
             });
             return false;
           });

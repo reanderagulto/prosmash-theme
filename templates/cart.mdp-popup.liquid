@@ -85,7 +85,12 @@
                 {% endif %}
               </div>
               <div class="mdp-cart-remove">
-                <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="" aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">{{ 'cart.general.remove' | t }}</a>
+                <a 
+                  href="/cart/change?line={{ forloop.index }}&quantity=0" 
+                  class="" 
+                  aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}"
+                  data-quantity="{{ item.quantity }}"
+                >{{ 'cart.general.remove' | t }}</a>
               </div>        
             </div>
           </div>

@@ -126,10 +126,19 @@
       {% if product.variants.size > 1 %}
       	<a href="{{product.url}}" class="mdp-select-options">{% if product.available %}{{ select_options_string }}{% else %}{{ sold_out_string }}{% endif %}</a>
       {% else %}
-      	<div class="mdp-add-to-cart {% if redirect %}mdp-redirect-to-cart{% endif %} {% if product.available %}mdp-available{% endif %}" 
-             data-product-id="{{ variant.id }}" 
-             data-add-to-cart="{{ add_cart_string }}" 
-             data-sold-out="{{ sold_out_string }}">{% if product.available %}{{ add_cart_string }} <i class="fas fa-shopping-bag" style="margin-left: 10px; margin-bottom: 2px;"></i> {% else %}{{ sold_out_string }}{% endif %}</div>
+      	<div 
+          class="mdp-add-to-cart {% if redirect %}mdp-redirect-to-cart{% endif %} {% if product.available %}mdp-available{% endif %}" 
+          data-product-id="{{ variant.id }}" 
+          data-add-to-cart="{{ add_cart_string }}" 
+          data-sold-out="{{ sold_out_string }}"
+        >
+          {% if product.available %}
+            {{ add_cart_string }} 
+            <i class="fas fa-shopping-bag" style="margin-left: 10px; margin-bottom: 2px;"></i> 
+          {% else %}
+            {{ sold_out_string }}
+          {% endif %}
+        </div>
       {% endif %}      
     </div>  
   </div>

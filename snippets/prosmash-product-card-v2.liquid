@@ -37,22 +37,19 @@
     </div>
 
     {% assign variant = product.selected_or_first_available_variant %}
-      <div class="mdp-add-to-cart mdp-available add-cart-btn btn bordered-black  {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}pre-order{% endif %}"
-          data-product-id="{{ variant.id }}"
-          data-quantity="1"
-          data-add-to-cart="Add to cart"
-          data-sold-out="Sold out"
+      <div 
+        class="mdp-add-to-cart mdp-available add-cart-btn btn bordered-black{% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %} pre-order{% endif %}"
+        data-product-id="{{ variant.id }}"
+        data-quantity="1"
+        data-add-to-cart="Add to cart"
+        data-sold-out="Sold out"
       >
-          {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
-              Pre-order
-          {% elsif variant.available %}
-              Add to cart
-          {% else %}
-              Sold out
-          {% endif %}
+        {% if variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+            Pre-order
+        {% elsif variant.available %}
+            Add to cart
+        {% else %}
+            Sold out
+        {% endif %}
       </div>
 </div>
-
-<script>
-
-</script>
