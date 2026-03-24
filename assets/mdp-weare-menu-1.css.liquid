@@ -603,18 +603,12 @@
     .mdp-mobile-devices-footer .mdp-language-region{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .mdp-mobile-devices-footer .mdp-language-region form:nth-child(2n)::after{
-        content: "|";
-        display: inline;
-        margin-right: 5px;
-        width: 1px;
+        justify-content: flex-start;
+        gap: 16px;
     }
 
     .mdp-mobile-devices-footer .mdp-language-region form {
-        width: calc(50% - 5px);
+        width: max-content;
         font-family: var(--font-body-family);
         font-style: normal;
         font-weight: 700;
