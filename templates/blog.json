@@ -67,7 +67,7 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#0B0A0A",
+        "bg_color": "#4F593E",
         "icon_color": "#ffffff",
         "discount_color": "#ffffff",
         "work_time_color": "#ffffff"
@@ -138,7 +138,7 @@
           "settings": {
             "use_local_styles": true,
             "title_color": "#ffffff",
-            "bg_color": "#0B0A0A",
+            "bg_color": "#0b0a0a",
             "cat": "Lifestyle",
             "title": "Gathering people with independent thinking and individuality",
             "content": "",
@@ -166,7 +166,7 @@
           "settings": {
             "use_local_styles": true,
             "title_color": "#ffffff",
-            "bg_color": "#0B0A0A",
+            "bg_color": "#0b0a0a",
             "cat": "SUSTAINABILITY",
             "title": "Dress Code: What To Wear For The Party Season",
             "content": "",
@@ -347,7 +347,7 @@
       "settings": {
         "selected_collection": "",
         "use_local_styles": true,
-        "bg_color": "#0B0A0A",
+        "bg_color": "#0b0a0a",
         "color_text": "#ffffff",
         "print_price_row": false,
         "name_collection": "Styles by you/",
@@ -394,6 +394,7 @@
             "facebook_link": "#",
             "twitter_link": "#",
             "instagram_link": "#",
+            "youtube_link": "",
             "linkedin_link": ""
           }
         },
