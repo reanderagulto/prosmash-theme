@@ -21,7 +21,7 @@
       {% for block in section.blocks %}
         {% assign image = block.settings.slide_image %}
         {% if image != blank %}
-          <div class="swiper-slide {{ block.settings.slide_class }}">
+          <div class="swiper-slide {{ block.settings.slide_class }} ">
             <div class="img-holder"
                  style="background-image:url('{{ image | image_url: width: 1600 }}')">
             </div>
@@ -76,7 +76,7 @@
           "type": "text",
           "id": "slide_class",
           "label": "Slide Class",
-          "info": "You can use 'white' class for the white headings and button."
+          "info": "You can use 'white-green' class for the white headings and green button"
         }
       ]
     }

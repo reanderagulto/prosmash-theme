@@ -30,11 +30,15 @@
       // theme toggle based on `.white` on the active slide
       function updateBannerTheme(instance) {
         var current = instance.slides[instance.activeIndex];
-        if (current && current.classList.contains('white')) {
-          $banner.addClass('theme-white');
-        } else {
-          $banner.removeClass('theme-white');
+        var themeClass = "";
+        $banner.removeClass('white');
+        $banner.removeClass('white-green');
+        if(current) {
+          themeClass = ['white', 'white-green'].find(cls =>
+            current.classList.contains(cls)
+          );
         }
+        $banner.addClass(themeClass);
       }
 
       // optional: debounced resize to update layout

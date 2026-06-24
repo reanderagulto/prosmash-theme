@@ -32,14 +32,14 @@
   --black: #000000;
   --white: #FFFFFF;
   --text: #5B5B5B;
-  --green: #42662B;
-  --dark-green: #3E5A24;
+  --green: #4F593E;
+  --dark-green: #282D1F;
   --grey: #F0F0F0;
   --dark-grey: #B6B4B5;
   --hover-grey: #454545;
   --hover-black: #100E0E;
   --hover-white: #ECECEC;
-  --toasted-caramel: #A87457;
+  --toasted-caramel: #9A7A39;
   --font-body-family: "Poppins", sans-serif;
   --font-lexend: "Lexend", sans-serif;
   --font-gabarito: "Gabarito", sans-serif;
@@ -117,7 +117,7 @@ p {
 
 .cta-btn a,
 .btn.primary {
-  background-color: var(--black);
+  background-color: var(--green);
   color: var(--white);
 }
 
@@ -136,8 +136,18 @@ p {
   background: transparent;
 }
 
+.btn.bordered-green {
+  border: 1px solid var(--green);
+  background: transparent;
+  color: var(--green);
+}
+
 .btn.bordered-black svg path {
   fill: var(--black);
+}
+
+.btn.bordered-green svg path {
+  fill: var(--green);
 }
 
 .btn.transparent{ 
@@ -161,7 +171,13 @@ p {
   border-color: var(--hover-black);
 }
 
-.btn.bordered-black:hover svg path {
+.btn.bordered-green:hover {
+  background-color: var(--dark-green);
+  color: var(--white)
+}
+
+.btn.bordered-black:hover svg path,
+.btn.bordered-green:hover svg path, {
   fill: var(--white);
 }
 
@@ -172,7 +188,7 @@ p {
 
 .btn.primary:hover,
 .cta-btn a:hover {
-  background-color: var(--hover-black); 
+  background-color: var(--dark-green); 
 }
 
 .btn.primary:hover i,

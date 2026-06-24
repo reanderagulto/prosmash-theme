@@ -3,7 +3,7 @@
   padding: 24px 24px 40px 24px;
   flex-direction: column;
   align-items: flex-start;
-  border-top: 8px solid var(--green);
+  border-top: 8px solid var(--toasted-caramel);
   background: var(--black);
   position: relative;
   z-index: 1;

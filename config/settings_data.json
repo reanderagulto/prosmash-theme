@@ -107,7 +107,7 @@
           "work_time": true,
           "country_selector": false,
           "language_selector": false,
-          "bg_color": "#000000",
+          "bg_color": "#4F593E",
           "icon_color": "#ffffff",
           "discount_color": "#ffffff",
           "work_time_color": "#ffffff"
@@ -304,12 +304,7 @@
             }
           }
         },
-        "block_order": [
-          "list-1",
-          "list-2",
-          "list-3",
-          "list-4"
-        ],
+        "block_order": ["list-1", "list-2", "list-3", "list-4"],
         "settings": {
           "title": "Need help? <br> ..",
           "subtitle": "",
@@ -490,12 +485,7 @@
             }
           }
         },
-        "block_order": [
-          "about-us",
-          "quick-links",
-          "follow-us",
-          "subscribe"
-        ],
+        "block_order": ["about-us", "quick-links", "follow-us", "subscribe"],
         "settings": {
           "show_payment_icons": true,
           "show_powered_by": true,

@@ -41,7 +41,7 @@
   transition: 0.5s;
 }
 
-.product-card-v2 .btn.bordered-black {
+.product-card-v2 .btn {
   height: 56px;
   width: 100%;
 }
