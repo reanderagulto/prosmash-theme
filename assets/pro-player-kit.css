@@ -28,7 +28,7 @@
 .bio-section .player-name {
   color: var(--black);
   font-size: 40px;
-  font-weight: 900;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
