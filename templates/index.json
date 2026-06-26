@@ -67,7 +67,7 @@
         "work_time": true,
         "country_selector": false,
         "language_selector": false,
-        "bg_color": "#4F593E",
+        "bg_color": "#4f593e",
         "icon_color": "#ffffff",
         "discount_color": "#ffffff",
         "work_time_color": "#ffffff"
@@ -146,7 +146,7 @@
         "slide_DMmrjk": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Black_Padel_bb1226cf-028c-4abf-88b5-b7ed6ef9cbf8.jpg",
+            "slide_image": "shopify://shop_images/Padel_Racket_Banner_Champion_Gold_Bg.jpg",
             "slide_class": ""
           }
         },
