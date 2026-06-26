@@ -29,7 +29,7 @@
   color: var(--black);
   font-size: 40px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .bio-section .player-desc p {
